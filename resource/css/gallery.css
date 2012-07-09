@@ -1,0 +1,161 @@
+#page {
+  position: relative;
+}
+
+#images {
+  float: left;
+  width: 600px;
+}
+
+#details {
+  color: #000;
+}
+
+h2
+{
+	background: inherit;
+	border-bottom: 1px dashed #ccc;
+	color: #933;
+	font: 18px Georgia, serif;
+    font-weight: bold;
+	margin: 0 0 20px;
+	padding: 0 0 15px;
+	text-align: center;
+	font-family: Tahoma,"Microsoft Yahei";
+}
+.photopage {
+	width: 900px;
+	margin: 0 auto;
+	padding: 20px;
+	border: 1px solid #E1E1E1;
+	border-radius: 4px;
+	overflow: auto;
+}
+ul, li, p,h4{
+	padding: 0;
+	margin: 0;
+}
+a.upload_photo_btn {
+	margin-left:10px;
+	float:left;
+	color:#fff;
+}
+.upload_photo_btn {
+	padding:0 15px;
+	margin-right:4px;
+}
+.photo_album_box {
+	overflow: hidden;
+	clear:both;
+}
+.photo_o/perate {
+	width: 600px;
+	border: 1px solid #ebebeb;
+	float: right;
+	padding: 10px;
+}
+#thumbnail{
+	width: 180px;
+	height: 180px;
+	border: 1px solid #ebebeb;
+	margin-bottom: 20px;
+	background: url(../images/yulan.png) no-repeat;
+}
+#spanButtonPlaceholder3 {
+	display: block;
+	width: 150px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+	margin-bottom: 10px;
+	background: url(../images/swfload_btn2.png) no-repeat;
+}
+#fsUploadProgress3 {
+	display: block;
+	margin: 10px 0;
+}
+.album_name{
+	color: #666;
+	text-align:center;
+	margin-top:10px;
+}
+
+/**************************/
+.gallery
+{
+    width: 700px;
+	cursor: default;
+	list-style: none;
+}
+
+.gallery img
+{
+	background: #fff;
+	border-width: 0;
+	color: inherit;
+	vertical-align: top;
+	width: 170px;
+	height: 150px;
+}
+
+.gallery li
+{
+	background: #eee;
+	border-color: #e1e1e1;
+	border-style: solid;
+	border-width: 1px;
+	color: inherit;
+	display: inline;
+	float: left;
+	margin: 10px;
+	padding: 5px;
+	position: relative;
+}
+/**add-album*********/
+#add-album .form_line{
+	display:block;
+	overflow: hidden;
+	height:auto;
+	margin-bottom:10px;
+}
+.form_line label{
+	width:60px;
+	text-align:right;
+}
+p span{
+	margin-right:20px;
+}
+.form_line textarea{
+	height:40px;
+}
+#add-album p{
+	margin-left:70px;
+}
+.pub_button{
+	float: left;
+	margin:20px 20px 20px 0;
+}
+div.btn-blue input{
+	width:90px;
+	height:30px;
+}
+div.btn-blue {margin-bottom:10px;}
+.photo_target{
+	clear:both;
+	padding-top:10px;
+	border-top:1px solid #e1e1e1;
+}
+.photo_target span{
+	width:90px;
+}
+
+ul p{
+	margin-top: 30px;
+	margin-left:8px;
+}
+
+a.photo_option {
+	float:left;
+	
+}
