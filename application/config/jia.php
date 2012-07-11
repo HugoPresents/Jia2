@@ -16,7 +16,7 @@
 	// 社团日志图片上传路劲
 	$config['corporation_blog_path'] = 'data/blog/corporation/';
 	// 部署模式
-	$config['deploy_mode'] = FALSE;
+	$config['deploy_mode'] = TRUE;
 	// 相册个数限制
 	$config['album_limit'] = 5;
 	// 状态码
