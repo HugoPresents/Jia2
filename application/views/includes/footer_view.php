@@ -2,6 +2,6 @@
 		<p align="center">
 			
 			<br/>
-			© Copyright 2011-2012 四川大学市场营销协会 All Rights Reserved
+			© Copyright 2011-2012 Coding by <a href="http://rabbit52.com">Rabbit_52</a> and <a href="#">Tiramisu</a> All Rights Reserved
 		</p>
 </div>

@@ -43,14 +43,15 @@ $(function() {
 					<? foreach($photos as $photo): ?>
 						<a href="<?=base_url($photo['original'])?>" photo_id="<?=$photo['id'] ?>" rel="lightbox[gallery]" title="图片描述。。。">
 						<li class="image_area"><img src="<?=base_url($photo['thumb'])?>" alt="description" />
-							
 						</li>
+						</a>
+						<div class="photo_option" styl\e="display:none">
 						<? if($info['cover_id'] == $photo['id']): ?>
 								<a style="color: red" class="photo_option">相册封面</a>
-							<? else: ?>
-								<a class="photo_option action" href="#">设为相册封面</a>
-							<? endif ?>
-						</a>
+						<? else: ?>
+							<a class="action" href="#">设为相册封面</a>
+						<? endif ?>
+						</div>
 					<? endforeach ?>
 				<? endif ?>
 			</ul>

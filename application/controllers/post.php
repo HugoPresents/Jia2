@@ -142,6 +142,7 @@
 		function comment() {
 			$this->_require_login();
 			$this->_require_ajax();
+			$this->load->model('Notify_model');
 			//$owner_id = $this->input->post('owner_id');
 			$type = $this->input->post('type');
 			$post_id = $this->input->post('post_id');
