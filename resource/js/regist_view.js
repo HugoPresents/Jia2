@@ -34,8 +34,12 @@ $(function() {
 					}
 				}, 'json'
 			);
+			$submit.val('注册');
+			$submit.removeAttr('disabled');
 			return false;
 		} else {
+			$submit.val('注册');
+			$submit.removeAttr('disabled');
 			return false;
 		}
 	});	
