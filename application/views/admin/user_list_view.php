@@ -13,6 +13,9 @@
 			<p><?=$row['province'][0]['name'] ?></p>
 			<p><?=$row['school'][0]['name'] ?></p>
 		</div>
+		<div>
+			<p>注册时间：<?=jdate($row['regist_time']) ?></p>
+		</div>
 	</li>
 	<? endforeach?>
 	<div class="pagination">
