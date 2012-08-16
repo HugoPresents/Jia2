@@ -12,7 +12,9 @@
 			if($this->session->userdata('type') == 'guest') {
 				$this->_guest();
 			} elseif($this->session->userdata('type') == 'admin') {
-				static_view('你好管理员！你或许需要'  . anchor('admin/admin/co_request', '管理申请'), '首页');
+				$str = '<p>你好管理员！</p><p>你或许需要'  . anchor('admin/admin/co_request', '管理申请') . '</p>';
+				$str .= '<p>或者' . anchor('admin/admin/list_all_user', '查看所有注册用户') . '</p>';
+				static_view($str, '首页');
 			} else {
 				$data['title'] = '首页';
 				$data['posts'] = $this->Post_model->post_string($this->session->userdata('id'));

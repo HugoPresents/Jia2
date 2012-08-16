@@ -70,4 +70,29 @@
 				$this->load->view('includes/template_view', $data);
 			}
 		}
+		
+		function list_all_user($page = 1) {
+			$this->load->library('pagination');
+			$limit = $this->config->item('page_size');
+			$this->jiadb->_table = 'user';
+			$data['user_count'] = count_rows('user');
+			$pg_config = array(
+				'base_url' => site_url('admin/admin/list_all_user'),
+				'total_rows' => $data['user_count'],
+				'per_page' => $limit,
+				'uri_segment' => 4,
+				'use_page_numbers' => TRUE
+			);
+			$this->pagination->initialize($pg_config);
+			$offset = ($page-1) * $limit;
+			$join = array(
+				'school' => array('school_id', 'id'),
+				'province' => array('province_id', 'id')
+			);
+			$data['pagination'] = $this->pagination->create_links();
+			$data['users'] = $this->jiadb->fetchJoin('', $join, array('regist_time' => 'DESC'), array($limit, $offset));
+			$data['title'] = '所有用户';
+			$data['main_content'] = 'admin/user_list_view';
+			$this->load->view('includes/template_view', $data);
+		}
 	}
