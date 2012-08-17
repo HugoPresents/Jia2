@@ -3,6 +3,7 @@
 		function __construct() {
 			parent::__construct();
 			$this->load->model('Blog_model');
+			$this->load->library('crumb');
 		}
 		
 		// 默认加载当前用户 blog
@@ -19,18 +20,21 @@
 				$where['type_id'] = $this->config->item('entity_type_corporation');
 				$this->load->model('Corporation_model');
 				$data['info'] = $this->Corporation_model->get_info($owner_id);
-				$data['back_a'] = anchor('corporation/profile/' . $owner_id, $data['info']['name'] . '的主页');
+				$this->crumb->append($data['info']['name'], 'corporation/profile/'.$owner_id);
+				$this->crumb->append($data['info']['name'] . '的日志');
 				$data['post_a'] = anchor('blog/post/'.$owner_id.'/corporation', '写社团日志','class="oprate_w"');
 			} else {
 				$where['type_id'] = $this->config->item('entity_type_personal');
 				$this->load->model('User_model');
 				$data['info'] = $this->User_model->get_info($owner_id);
-				$data['back_a'] = anchor('personal/profile/' . $owner_id, $data['info']['name'] . '的个人主页');
+				$this->crumb->append($this->session->userdata('id') == $owner_id ? '我的主页' : $data['info']['name'], 'personal/profile/'.$owner_id);
+				$this->crumb->append($this->session->userdata('id') == $owner_id ? '我的日志' : $data['info']['name'] . '的日志');
 				$data['post_a'] = anchor('blog/post', '写日志','class="oprate_w"');
 			}
 			$data['main_content'] = 'blog/list_view';
 			$data['title'] = $data['info']['name'] . '的日志';
 			$data['css'] = array('dairy.css');
+			$data['crumb'] = $this->crumb->output();
 			$data['blogs'] = $this->Blog_model->fetch($where, $entity_type);
 			$this->load->view('includes/template_view', $data);
 		}
@@ -51,7 +55,8 @@
 					$data['img_up'] .= '?entity=corporation' . '&id=' . $owner_id;
 					$data['img_manager'] .= '?entity=corporation' . '&id=' . $owner_id;
 					$data['img_path'] = '/' . $this->config->item('corporation_blog_path') . $owner_id;
-					$data['back_a'] = anchor('blog/' . $owner_id . '/corporation', $data['info']['name'] . '的日志');
+					//$data['back_a'] = anchor('blog/' . $owner_id . '/corporation', $data['info']['name'] . '的日志');
+					$this->crumb->append($data['info']['name'] . '的日志', 'blog/' . $owner_id . '/corporation');
 				} else {
 					static_view('你没有该权限', '权限不足');
 				}
@@ -61,7 +66,8 @@
 				$data['img_up'] .= '?id=' . $owner_id;
 				$data['img_manager'] .= '?id=' . $owner_id;
 				$data['img_path'] = $this->config->item('personal_blog_path') . $owner_id;
-				$data['back_a'] = anchor('blog/' . $owner_id, $data['info']['name'] . '的日志');
+				$this->crumb->append('我的日志', 'blog/' . $owner_id);
+				//$data['back_a'] = anchor('blog/' . $owner_id, $data['info']['name'] . '的日志');
 			}
 			
 			// 提交表单
@@ -102,6 +108,8 @@
 				}
 			} else {
 				// 加载编辑视图
+				$this->crumb->append('发布日志');
+				$data['crumb'] = $this->crumb->output();
 				$data['title'] = '发布日志';
 				$data['main_content'] = '/'.'blog/post_view';
 				$this->load->view('includes/template_view', $data);
@@ -117,7 +125,9 @@
 			// 个人日志
 			$data['img_manager'] = site_url('blog/img_manager');
 			$data['img_up'] = site_url('blog/img_up');
-			if($blog['type_id'] = $this->config->item('entity_type_personal') && $blog['owner_id'] == $this->session->userdata('id')) {
+			if($blog['type_id'] == $this->config->item('entity_type_personal') && $blog['owner_id'] == $this->session->userdata('id')) {
+				$this->crumb->append('我的主页', 'personal/profile');
+				$this->crumb->append('我的日志', 'blog');
 				$data['img_up'] .= '?id=' . $blog['owner_id'];
 				$data['img_manager'] .= '?id=' . $blog['owner_id'];
 				$data['img_path'] = $this->config->item('personal_blog_path') . $blog['owner_id'];
@@ -126,6 +136,8 @@
 				$data['info'] = $this->Corporation_model->get_info($blog['owner_id']);
 				if($data['info']['user_id'] != $this->session->userdata('id'))
 					static_view('貌似你没有该权限哦', '权限不足');
+				$this->crumb->append($data['info']['name'], 'corporation/profile/'.$data['info']['id']);
+				$this->crumb->append($data['info']['name'].'的日志', 'blog/'.$data['info']['id'].'/corporation');
 				$data['img_up'] .= '?entity=corporation' . '&id=' . $blog['owner_id'];
 				$data['img_manager'] .= '?entity=corporation' . '&id=' . $blog['owner_id'];
 				$data['img_path'] = '/' . $this->config->item('corporation_blog_path') . $blog['owner_id'];
@@ -160,6 +172,8 @@
 					static_view('编辑失败');
 				}
 			} else {
+				$this->crumb->append('编辑日志');
+				$data['crumb'] = $this->crumb->output();
 				$data['blog'] = $blog;
 				$data['main_content'] = 'blog/edit_view';
 				$data['title'] = '编辑日志';
@@ -176,14 +190,20 @@
 			if($data['blog']['type_id'] == $this->config->item('entity_type_personal')) {
 				$this->load->model('User_model');
 				$data['info'] = $this->User_model->get_info($data['blog']['owner_id']);
+				$this->crumb->append($data['info']['id'] == $this->session->userdata('id') ? '我的主页' : $data['info']['name'].'的主页', 'personal/profile/'.$data['info']['id']);
+				$this->crumb->append($data['info']['id'] == $this->session->userdata('id') ? '我的日志' : $data['info']['name'].'的日志', 'personal.profile/'.$data['info']['id']);
 				$data['back_a'] = anchor('blog/' . $data['info']['id'], $data['info']['name'] . '的日志');
 			} elseif($data['blog']['type_id'] == $this->config->item('entity_type_corporation')) {
 				$this->load->model('Corporation_model');
 				$data['info'] = $this->Corporation_model->get_info($data['blog']['owner_id']);
+				$this->crumb->append($data['info']['name'], 'corporation/profile/'.$data['info']['id']);
+				$this->crumb->append($data['info']['name'], 'blog/'.$data['info']['id'].'/corporation');
 				$data['back_a'] = anchor('blog/' . $data['info']['id'] . '/corporation', $data['info']['name'] . '的日志');
 			} else {
 				static_view();
 			}
+			$this->crumb->append($data['blog']['title']);
+			$data['crumb'] = $this->crumb->output();
 			$data['css'] = array('dairy.css');
 			$data['main_content'] = 'blog/single_view';
 			$data['title'] = $data['blog']['title'] . '-' . $data['info']['name'] . '的日志';

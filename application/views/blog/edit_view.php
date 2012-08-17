@@ -16,7 +16,7 @@ $(function(){
 		})
 })
 </script> 
-<h4 class="title_01 title_02"><span>发布日志</span><a>返回日志页面</a></h4>
+<h4 class="title_01 title_02"><span>编辑日志</span><?=$crumb ?></h4>
 <div class="main_02">
 	<div id="post_blog">
 		<p><?=form_open() ?> </p>

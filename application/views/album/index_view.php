@@ -1,4 +1,4 @@
-<h4 class="title_01 title_02"><span><?=$info['name'] . '的相册' ?></span><?=$back_a ?>
+<h4 class="title_01 title_02"><span>相册</span><?=$crumb ?>
 </h4>
 <div class="main_02">
 	<a class="upload_photo_btn" href="<?=$upload_url ?>">上传照片</a>

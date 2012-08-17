@@ -33,7 +33,7 @@ $(function() {
 })
 */
 </script>
-<h4 class="title_01 title_02"><span>图片列表</span><?=$profile_a . '->' . $back_a ?></h4>
+<h4 class="title_01 title_02"><span>相册</span><?=$crumb ?></h4>
 <div class="main_02">
 	<h2><?=$info['name'] ?></h2>
 	<div id="page">

@@ -3,6 +3,7 @@
 		function __construct() {
 			parent::__construct();
 			$this->load->model('Album_model');
+			$this->load->library('crumb');
 		}
 		
 		function index($id = '', $entity_type = 'personal') {
@@ -17,6 +18,8 @@
 					static_view();
 				$data['upload_url'] = site_url('album/upload');
 				$data['create_url'] = site_url('album/create');
+				$this->crumb->append($owner_id == $this->session->userdata('id') ? '我的主页' : $data['info']['name'], 'personal/profile/'.$owner_id);
+				$this->crumb->append($owner_id == $this->session->userdata('id') ? '我的相册' : $data['info']['name'] . '的相册');
 				$data['back_a'] = $owner_id == $this->session->userdata('id') ? anchor('personal/profile/', '返回我的主页') : anchor('personal/profile/' .$owner_id, '返回' . $data['info']['name'] . '的主页');
 				$where['type_id'] = $this->config->item('entity_type_personal');
 			} elseif($entity_type == 'corporation') {
@@ -26,11 +29,14 @@
 					static_view();
 				$data['upload_url'] = site_url('album/upload/' . $data['info']['id'] . '/corporation');
 				$data['create_url'] = site_url('album/create/' . $data['info']['id'] . '/corporation');
+				$this->crumb->append($data['info']['name'], 'corporation/profile/' . $owner_id);
+				$this->crumb->append($data['info']['name'].'的相册');
 				$data['back_a'] = anchor('corporation/profile/' . $owner_id, '返回'.$data['info']['name'].'首页');
 				$where['type_id'] = $this->config->item('entity_type_corporation');
 			} else {
 				static_view();
 			}
+			$data['crumb'] = $this->crumb->output();
 			$data['albums'] = $this->Album_model->fetch_album($where);
 			$data['main_content'] = 'album/index_view';
 			$data['title'] = '我的相册';
@@ -48,15 +54,21 @@
 				$this->load->model('Corporation_model');
 				$owner_info = $this->Corporation_model->get_info($data['info']['owner_id']);
 				$data['access_user'] = $owner_info['user_id'];
-				$data['profile_a'] = anchor('corporation/profile/' . $owner_info['id'], $owner_info['name']);
-				$data['back_a'] = anchor('album/' . $owner_info['id'] . '/corporation', $owner_info['name'] . '的相册');
+				//$data['profile_a'] = anchor('corporation/profile/' . $owner_info['id'], $owner_info['name']);
+				$this->crumb->append($owner_info['name'], 'corporation/profile/' . $owner_info['id']);
+				$this->crumb->append($owner_info['name'].'的相册', 'album/' . $owner_info['id'] . '/corporation');
+				//$data['back_a'] = anchor('album/' . $owner_info['id'] . '/corporation', $owner_info['name'] . '的相册');
 			} else {
 				$this->load->model('User_model');
 				$owner_info = $this->User_model->get_info($data['info']['owner_id']);
 				$data['access_user'] = $owner_info['id'];
-				$data['profile_a'] = anchor('personal/profile/' . $owner_info['id'], $owner_info['name']);
-				$data['back_a'] = anchor('album/' . $owner_info['id'], $owner_info['name'] . '的相册');
+				$this->crumb->append($owner_info['id'] == $this->session->userdata('id') ? '我的主页' : $owner_info['name'], 'album/' . $owner_info['id']);
+				$this->crumb->append($owner_info['id'] == $this->session->userdata('id') ? '我的相册' : $owner_info['name'], 'personal/profile/' . $owner_info['id']);
+				//$data['profile_a'] = anchor('personal/profile/' . $owner_info['id'], $owner_info['name']);
+				//$data['back_a'] = anchor('album/' . $owner_info['id'], $owner_info['name'] . '的相册');
 			}
+			$this->crumb->append($data['info']['name']);
+			$data['crumb'] = $this->crumb->output();
 			$data['photos'] = $this->Album_model->fetch_photo($album_id);
 			$data['title'] = $data['info']['name'];
 			$data['js'] = array('lightbox.js');

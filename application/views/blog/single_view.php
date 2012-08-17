@@ -1,5 +1,4 @@
-<h4 class="title_01 title_02"><span><?=anchor('blog', '日志') ?></span>
-	<?=$back_a ?> -> <?=anchor('blog/view/' . $blog['id'], $blog['title']) ?></h4>
+<h4 class="title_01 title_02"><span>日志</span><?=$crumb ?></h4>
 <div class="main_02">
 	<div class="article">
 		<h2 class="hd"><?=$blog['title']?></h2>

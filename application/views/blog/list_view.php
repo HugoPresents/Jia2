@@ -1,4 +1,4 @@
-<h4 class="title_01 title_02"><span>日志列表</span><?=$back_a . $post_a ?></h4>
+<h4 class="title_01 title_02"><span>日志</span><?=$crumb.$post_a ?></h4>
 <div class="main_02">
 	<div class="dairy_summary">
 		<ul>
@@ -23,6 +23,7 @@
 					</li>
 				<? endforeach ?>
 			<? endif ?>
+			<p>这个懒人还么写日志呢...</p>
 		</ul>
 	</div>
 </div>
