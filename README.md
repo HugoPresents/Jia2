@@ -16,3 +16,5 @@ Jia2
 3. 将source目录下Jia2.sql 导入mysql数据库
 
 4. 修改application/config/database.php 中的数据库配置
+
+5. 请确保服务器进程对部署目录可读写权限
