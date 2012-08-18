@@ -18,3 +18,5 @@ Jia2
 4. 修改application/config/database.php 中的数据库配置
 
 5. 请确保服务器进程对部署目录可读写权限
+
+test
