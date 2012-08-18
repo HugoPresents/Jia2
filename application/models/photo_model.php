@@ -14,6 +14,7 @@
 			  		'overwrite' => TRUE,
 			  		'file_name'	=> $param['filename']
 			 );
+			mkdirs($config['upload_path']);
 			switch ($param['mode']) {
 				case 'avatar':
 					$this->upload->initialize($config);
@@ -37,6 +38,8 @@
 							'width' => 180,
 							'height' => 180
 						);
+						mkdirs($thumb_tiny['new_image']);
+						mkdirs($thumb_big['new_image']);
 						$this->image_lib->initialize($thumb_tiny); 
 						$this->image_lib->resize();
 						$this->image_lib->initialize($thumb_big);

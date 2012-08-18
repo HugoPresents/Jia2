@@ -140,3 +140,17 @@ if(! function_exists('print_var')) {
 		echo '</pre>';
 	}
 }
+
+if(! function_exists('mkdirs')) {
+	function mkdirs($dir) {  
+		if(!is_dir($dir)) {  
+			if(!mkdirs(dirname($dir))){  
+				return false;  
+			}  
+			if(!mkdir($dir,0755)) {  
+				return false;  
+			}  
+		}
+		return true;  
+	}
+}
