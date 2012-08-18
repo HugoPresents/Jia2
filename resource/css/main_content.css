@@ -19,7 +19,7 @@
 	border-radius: 4px;
 	background: white;
 	font-size: 12px;
-	overflow: auto;
+	overflow: hidden;
 	border-top-left-radius:0;
 	border-top-right-radius:0;
 }

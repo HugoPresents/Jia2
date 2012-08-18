@@ -5,7 +5,7 @@
 	<a class="upload_photo_btn" href="<?=$create_url ?>">创建相册</a>
 	<div class="photo_album_box">
 		<div id="images">
-			<ul class="gallery">
+			<ul class="gallery album">
 				<? if(isset($albums) && is_array($albums)): ?>
 				<? foreach($albums as $album): ?>
 					<a href="<?=site_url('album/lists/' . $album['id']) ?>">

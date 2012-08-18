@@ -48,12 +48,7 @@ a.upload_photo_btn {
 	overflow: hidden;
 	clear:both;
 }
-.photo_o/perate {
-	width: 600px;
-	border: 1px solid #ebebeb;
-	float: right;
-	padding: 10px;
-}
+
 #thumbnail{
 	width: 180px;
 	height: 180px;
@@ -89,6 +84,11 @@ a.upload_photo_btn {
 	list-style: none;
 }
 
+.gallery .photo_area {
+	position:relative;
+	float:left;
+}
+
 .gallery img
 {
 	background: #fff;
@@ -96,7 +96,7 @@ a.upload_photo_btn {
 	color: inherit;
 	vertical-align: top;
 	width: 170px;
-	height: 150px;
+	height: 170px;
 }
 
 .gallery li
@@ -106,12 +106,29 @@ a.upload_photo_btn {
 	border-style: solid;
 	border-width: 1px;
 	color: inherit;
-	display: inline;
 	float: left;
-	margin: 10px;
-	padding: 5px;
+	margin: 10px 10px 0 10px;
+	padding: 5px 5px 25px 5px;
 	position: relative;
 }
+.album li {
+	padding: 5px;
+}
+
+.gallery a {
+	display:block;
+	float:left;
+}
+.gallery .album_cover {
+	color:red;
+}
+
+.gallery .photo_option {
+	position: absolute;
+	top: 190px;
+	left: 20px;
+}
+
 /**add-album*********/
 #add-album .form_line{
 	display:block;
@@ -148,11 +165,6 @@ div.btn-blue {margin-bottom:10px;}
 }
 .photo_target span{
 	width:90px;
-}
-
-ul p{
-	margin-top: 30px;
-	margin-left:8px;
 }
 
 a.photo_option {

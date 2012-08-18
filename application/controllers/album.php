@@ -20,7 +20,6 @@
 				$data['create_url'] = site_url('album/create');
 				$this->crumb->append($owner_id == $this->session->userdata('id') ? '我的主页' : $data['info']['name'], 'personal/profile/'.$owner_id);
 				$this->crumb->append($owner_id == $this->session->userdata('id') ? '我的相册' : $data['info']['name'] . '的相册');
-				$data['back_a'] = $owner_id == $this->session->userdata('id') ? anchor('personal/profile/', '返回我的主页') : anchor('personal/profile/' .$owner_id, '返回' . $data['info']['name'] . '的主页');
 				$where['type_id'] = $this->config->item('entity_type_personal');
 			} elseif($entity_type == 'corporation') {
 				$this->load->model('Corporation_model');
@@ -31,7 +30,6 @@
 				$data['create_url'] = site_url('album/create/' . $data['info']['id'] . '/corporation');
 				$this->crumb->append($data['info']['name'], 'corporation/profile/' . $owner_id);
 				$this->crumb->append($data['info']['name'].'的相册');
-				$data['back_a'] = anchor('corporation/profile/' . $owner_id, '返回'.$data['info']['name'].'首页');
 				$where['type_id'] = $this->config->item('entity_type_corporation');
 			} else {
 				static_view();
@@ -53,19 +51,15 @@
 			if($data['info']['type_id'] == $this->config->item('entity_type_corporation')) {
 				$this->load->model('Corporation_model');
 				$owner_info = $this->Corporation_model->get_info($data['info']['owner_id']);
-				$data['access_user'] = $owner_info['user_id'];
-				//$data['profile_a'] = anchor('corporation/profile/' . $owner_info['id'], $owner_info['name']);
+				$data['edit_access'] = $owner_info['user_id'] == $this->session->userdata('id') ? TRUE : FALSE;
 				$this->crumb->append($owner_info['name'], 'corporation/profile/' . $owner_info['id']);
 				$this->crumb->append($owner_info['name'].'的相册', 'album/' . $owner_info['id'] . '/corporation');
-				//$data['back_a'] = anchor('album/' . $owner_info['id'] . '/corporation', $owner_info['name'] . '的相册');
 			} else {
 				$this->load->model('User_model');
 				$owner_info = $this->User_model->get_info($data['info']['owner_id']);
-				$data['access_user'] = $owner_info['id'];
-				$this->crumb->append($owner_info['id'] == $this->session->userdata('id') ? '我的主页' : $owner_info['name'], 'album/' . $owner_info['id']);
-				$this->crumb->append($owner_info['id'] == $this->session->userdata('id') ? '我的相册' : $owner_info['name'], 'personal/profile/' . $owner_info['id']);
-				//$data['profile_a'] = anchor('personal/profile/' . $owner_info['id'], $owner_info['name']);
-				//$data['back_a'] = anchor('album/' . $owner_info['id'], $owner_info['name'] . '的相册');
+				$data['edit_access'] = $owner_info['id'] == $this->session->userdata('id') ? TRUE : FALSE;
+				$this->crumb->append($owner_info['id'] == $this->session->userdata('id') ? '我的主页' : $owner_info['name'], 'personal/profile/' . $owner_info['id']);
+				$this->crumb->append($owner_info['id'] == $this->session->userdata('id') ? '我的相册' : $owner_info['name'], 'album/' . $owner_info['id']);
 			}
 			$this->crumb->append($data['info']['name']);
 			$data['crumb'] = $this->crumb->output();
@@ -204,16 +198,28 @@
 			$join = array(
 				'album' => array('album_id', 'id')
 			);
-			$photo = $this->Photo_model->get_photo_info($photo_id, $join);
+			$photo = $this->Album_model->get_photo_info($photo_id, $join);
 			switch ($action) {
 				// 讲照片设置为相册封面
 				case 'cover':
 					$album_id = $photo['album'][0]['id'];
-					$this->db->where('id', $album_id);
+					$album = $this->db->get_where('album', array('id' => $album_id))->result_array();
+					if($album[0]['type_id'] == $this->config->item('entity_type_personal') && $this->session->userdata('id') != $album[0]['owner_id']) {
+						echo json_encode(array('success' => 0, 'message' => '权限不足'));
+						exit;
+					} elseif($album[0]['type_id'] == $this->config->item('entity_type_corporation')) {
+						$this->load->model('Corporation_moel');
+						$corporation_info = $this->Corporation_model->get_info($album[0]['owner_id']);
+						if($this->session->userdata('id') != $corporation_info['user_id']) {
+							echo json_encode(array('success' => 0, 'message' => '权限不足'));
+							exit;
+						}
+					}
 					$album = array(
 						'cover_id' => $photo_id
 					);
 					$this->db->update('album', $album);
+					echo json_encode(array('success' => 1, 'message' => '修改成功'));
 					break;
 				case 'info':
 					

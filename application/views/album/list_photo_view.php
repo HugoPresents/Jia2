@@ -1,37 +1,27 @@
 <script type="text/javascript">
-/*
+
 $(function() {
-	$(".lb-caption").click(function() {
-		title = $(this).text();
-		id = $(this).attr('pid');
-		$(this).hide();
-		str = '<input type="text" name="title" value="' + title + '">';
-		$(this).before(str);
-		$("input[name='title']").focus();
-		$("input[name='title']").blur(function() {
-			changed = $(this).val();
-			if(changed != title && changed != '') {
-				$.post(SITE_URL + 'album/edit_photo', {
-					id: id,
-					title: changed
-				}, function(data) {
-					if(data == '1') {
-						$("input[name='title']").remove();
-						$("#image_title").text(changed).show();
-					} else {
-						alert('修改失败');
-						$("input[name='title']").remove();
-						$("#image_title").show();
-					}
-				});
-			} else {
-				$("input[name='title']").remove();
-				$("#image_title").show();
-			}
-		});
+	$(".photo_option .set_cover").click(function() {
+		action = 'cover';
+		photo_id = $(this).attr('photo_id');
+		anchor = $(this);
+		$.post(
+			SITE_URL + 'album/edit_photo', {
+				ajax: 1,
+				action: action,
+				id: photo_id
+			}, function(data) {
+				if(data.success == '1') {
+					$('.album_cover').text('设为相册封面').addClass('set_cover').removeClass('album_cover');
+					anchor.removeClass('set_cover').addClass('album_cover').text('相册封面');
+				} else {
+					alert(data.message);
+				}
+			}, 'json'
+		)
 	});
 })
-*/
+
 </script>
 <h4 class="title_01 title_02"><span>相册</span><?=$crumb ?></h4>
 <div class="main_02">
@@ -41,16 +31,18 @@ $(function() {
 			<ul class="gallery">
 				<? if(isset($photos) && is_array($photos)): ?>
 					<? foreach($photos as $photo): ?>
+						<div class="photo_area">
 						<a href="<?=base_url($photo['original'])?>" photo_id="<?=$photo['id'] ?>" rel="lightbox[gallery]" title="图片描述。。。">
 						<li class="image_area"><img src="<?=base_url($photo['thumb'])?>" alt="description" />
 						</li>
 						</a>
-						<div class="photo_option" styl\e="display:none">
+						<div class="photo_option">
 						<? if($info['cover_id'] == $photo['id']): ?>
-								<a style="color: red" class="photo_option">相册封面</a>
-						<? else: ?>
-							<a class="action" href="#">设为相册封面</a>
+							<a class="album_cover" id="<?=$photo['id']?>">相册封面</a>
+						<? elseif($edit_access): ?>
+							<a class="set_cover" photo_id="<?=$photo['id'] ?>">设为相册封面</a>
 						<? endif ?>
+						</div>
 						</div>
 					<? endforeach ?>
 				<? endif ?>

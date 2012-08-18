@@ -118,7 +118,7 @@ if(! function_exists('cover_url')) {
 		$CI = &get_instance();
 		$cover = $CI->db->get_where('photo', array('id' => $cover_id))->result_array();
 		if($cover) {
-			return base_url($cover['thumb']);
+			return base_url($cover[0]['thumb']);
 		}
 		return base_url('data/album/cover.png');
 	}
@@ -130,5 +130,13 @@ if(! function_exists('tags_filter')) {
 			return false; 
 		else 
 			return true;
+	}
+}
+
+if(! function_exists('print_var')) {
+	function print_var($var) {
+		echo '<pre>';
+		var_dump($var);
+		echo '</pre>';
 	}
 }
