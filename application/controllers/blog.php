@@ -77,7 +77,7 @@
 				$draft = ($this->input->post('draft') ? 1 : 0);
 				$privacy = $this->input->post('privacy');
 				$status = ($privacy == 'privary' ? $this->config->item('status_privary') : $this->config->item('status_public')); 
-				$content = $this->input->post('myContent');
+				$content = $this->input->post('myContent', FALSE);
 				$tags = trim($this->input->post('tags'));
 				if($title && $content != '') {
 					if($tags) {
@@ -147,7 +147,7 @@
 				$draft = ($this->input->post('draft') ? 1 : 0);
 				$privacy = $this->input->post('privacy');
 				$status = ($privacy == 'privary' ? $this->config->item('status_privary') : $this->config->item('status_public')); 
-				$content = $this->input->post('myContent');
+				$content = $this->input->post('myContent', FALSE);
 				$tags = trim($this->input->post('tags'));
 				if($title && $content != '') {
 					if($tags) {
@@ -191,7 +191,7 @@
 				$this->load->model('User_model');
 				$data['info'] = $this->User_model->get_info($data['blog']['owner_id']);
 				$this->crumb->append($data['info']['id'] == $this->session->userdata('id') ? '我的主页' : $data['info']['name'].'的主页', 'personal/profile/'.$data['info']['id']);
-				$this->crumb->append($data['info']['id'] == $this->session->userdata('id') ? '我的日志' : $data['info']['name'].'的日志', 'personal.profile/'.$data['info']['id']);
+				$this->crumb->append($data['info']['id'] == $this->session->userdata('id') ? '我的日志' : $data['info']['name'].'的日志', 'personal/profile/'.$data['info']['id']);
 				$data['back_a'] = anchor('blog/' . $data['info']['id'], $data['info']['name'] . '的日志');
 			} elseif($data['blog']['type_id'] == $this->config->item('entity_type_corporation')) {
 				$this->load->model('Corporation_model');

@@ -263,6 +263,11 @@ form#request_form p.li_d{
 	padding:0 15px;
 	margin-top:5px;
 }
+
+a.pub_button {
+	color:#515B65;
+}
+
 .pub_button:hover,#write_letter:hover,#send_letter:hover{
 	background-position: 0 -377px;
 	color: #26709A;
@@ -277,7 +282,6 @@ form#request_form p.li_d{
 	display: inline-block;
 	float:left;
 	margin-right:20px;
-	height: 28px;
 	line-height: 29px;
 	overflow: hidden;
 	font-size: 12px;
@@ -824,13 +828,17 @@ ul#member li {
 }
 .btn-pub-02{
 	float:right;
+	height:28px;
+	padding:0 20px;
 }
 .btn-pub-01{
+	height:28px;
 	padding:0 20px;
 	margin-top: 5px;
 	margin-left:20px;
 	margin-right:0;
 	float:right;
+	cursor:pointer;
 }
 .right_handler{
 	float:left;

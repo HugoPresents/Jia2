@@ -22,8 +22,9 @@
 						</div>
 					</li>
 				<? endforeach ?>
+			<? else: ?>
+				<p>这个懒人还么写日志呢...</p>
 			<? endif ?>
-			<p>这个懒人还么写日志呢...</p>
 		</ul>
 	</div>
 </div>
