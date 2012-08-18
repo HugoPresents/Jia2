@@ -82,12 +82,16 @@
 			if($entity_type == 'personal') {
 				$this->load->model('User_model');
 				$data['info'] = $this->User_model->get_info($owner_id);
+				$this->crumb->append('我的主页', 'personal/profile');
+				$this->crumb->append('我的相册', 'album/'.$data['info']['id']);
 				if($data['info']['id'] != $this->session->userdata('id'))
 					static_view('权限不足');
 				$data['back_a'] = anchor('album', '返回我的相册');
 			} elseif($entity_type == 'corporation') {
 				$this->load->model('Corporation_model');
 				$data['info'] = $this->Corporation_model->get_info($owner_id);
+				$this->crumb->append($data['info']['name'], 'personal/profile');
+				$this->crumb->append($data['info']['name'].'的相册', 'album/'.$data['info']['id'].'/corporation');
 				if($data['info']['user_id'] != $this->session->userdata('id'))
 					static_view('权限不足');
 				$data['back_a'] = anchor('album/'.$data['info'].'/corporation', '返回' . $data['info']['name']);
@@ -117,6 +121,8 @@
 					static_view($album_id, '创建失败');
 				}
 			}
+			$this->crumb->append('创建相册');
+			$data['crumb'] = $this->crumb->output();
 			$data['main_content'] = 'album/create_view';
 			$data['title'] = '创建相册';
 			$data['css'] = array('gallery.css');
@@ -136,12 +142,16 @@
 				if($owner_info['user_id'] != $this->session->userdata('id'))
 					static_view('你没有该权限', '权限不足');
 				$create_url = 'album/create/' . $owner_id . '/corporation';
+				$this->crumb->append($owner_info['name'], 'corporation/profile/'.$owner_info['id']);
+				$this->crumb->append($owner_info['name'].'的相册', 'album/'.$owner_info['id'].'/corporation');
 				$data['profile_a'] = anchor('corporation/profile/' . $owner_info['id'], $owner_info['name']);
 				$data['back_a'] = anchor('album/' . $owner_info['id'] . '/corporation', $owner_info['name'] . '的相册');
 			} else {
 				$this->load->model('User_model');
 				$owner_info = $this->User_model->get_info($owner_id);
-				$create_url = 'album/create'; 
+				$create_url = 'album/create';
+				$this->crumb->append('我的主页', 'personal/profile');
+				$this->crumb->append('我的相册', 'album');
 				$data['profile_a'] = anchor('personal/profile/' . $owner_info['id'], $owner_info['name']);
 				$data['back_a'] = anchor('album/' . $owner_info['id'], $owner_info['name'] . '的相册');
 			}
@@ -169,6 +179,8 @@
 					static_view('上传失败');
 				}
 			}
+			$this->crumb->append('上传照片');
+			$data['crumb'] = $this->crumb->output();
 			$data['albums'] = $albums;
 			$data['main_content'] = 'album/upload_view';
 			$data['title'] = '上传照片';

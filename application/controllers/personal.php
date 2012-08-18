@@ -13,6 +13,7 @@
 				'school' => array('school_id', 'id'),
 				'province' => array('province_id', 'id')
 			);
+			$this->load->library('crumb');
 		}
 		
 		function index() {
@@ -327,6 +328,7 @@
 				'use_page_numbers' => TRUE
 			);
 			$data['js'] = 'personal/manage.js';
+			$this->crumb->append('我的主页', 'personal/profile');
 			switch ($opereation) {
 				case 'follower':
 					$this->jiadb->_table = 'user';
@@ -339,7 +341,9 @@
 						$followers_now = array_slice($followers, $offset, $limit);
 						$data['followers'] = $this->jiadb->fetchJoin(array('id' => $followers_now), $this->join);
 					}
+					$this->crumb->append('粉丝管理');
 					$data['title'] = '粉丝管理';
+					$data['crumb'] = $this->crumb->output();
 					$data['main_content'] = 'personal/follower_view';
 					$this->load->view('includes/template_view', $data);
 					break;
@@ -354,7 +358,9 @@
 						$following_now = array_slice($following, $offset, $limit);
 						$data['following'] = $this->jiadb->fetchJoin(array('id' => $following_now), $this->join);
 					}
+					$this->crumb->append('关注管理');
 					$data['title'] = '关注管理';
+					$data['crumb'] = $this->crumb->output();
 					$data['main_content'] = 'personal/following_view';
 					$this->load->view('includes/template_view', $data);
 					break;

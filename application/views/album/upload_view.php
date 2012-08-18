@@ -1,4 +1,4 @@
-<h4 class="title_01 title_02"><span>上传照片</span><?=$profile_a . '->' . $back_a ?></h4>
+<h4 class="title_01 title_02"><span>相册</span><?=$crumb ?></h4>
 <div class="main_02">
 	<p class="p_1">	支持JPG、JPEG、GIF和PNG文件，最大2M。	</p>
 	<?=form_open_multipart('') ?>		

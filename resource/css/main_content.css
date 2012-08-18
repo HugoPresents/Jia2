@@ -248,7 +248,7 @@ form#request_form p.li_d{
 .pub_button,#write_letter,#send_letter{
 	position:relative;
 	display: block;
-	height: 28px;
+	cursor:pointer;
 	line-height: 29px;
 	overflow: hidden;
 	font-size: 12px;
@@ -265,6 +265,7 @@ form#request_form p.li_d{
 }
 .pub_button:hover,#write_letter:hover,#send_letter:hover{
 	background-position: 0 -377px;
+	color: #26709A;
 }
 .comment_button{
 	height: 24px;

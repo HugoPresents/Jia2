@@ -1,4 +1,4 @@
-<h4 class="title_01 title_02"><span>创建相册</span><?=anchor(str_replace('/create', '', uri_string()), $info['name'] . '的相册') ?></h4>
+<h4 class="title_01 title_02"><span>相册</span><?=$crumb ?></h4>
 <div class="main_02">
 	<div id="add-album">
 		<?=form_open('') ?>

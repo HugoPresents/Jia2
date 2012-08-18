@@ -141,7 +141,6 @@ a {
 	text-decoration: none;
 }
 a:link { color: #26709A }
-a:visited { color: #26709A }
 a:hover {color: #26709A;	text-decor/ation: underline;}
 a:active {}
 a.active{font-weight:bold;background:#dfdfdf;}
