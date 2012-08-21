@@ -55,7 +55,6 @@
 					$data['img_up'] .= '?entity=corporation' . '&id=' . $owner_id;
 					$data['img_manager'] .= '?entity=corporation' . '&id=' . $owner_id;
 					$data['img_path'] = '/' . $this->config->item('corporation_blog_path') . $owner_id;
-					//$data['back_a'] = anchor('blog/' . $owner_id . '/corporation', $data['info']['name'] . '的日志');
 					$this->crumb->append($data['info']['name'] . '的日志', 'blog/' . $owner_id . '/corporation');
 				} else {
 					static_view('你没有该权限', '权限不足');
@@ -67,7 +66,6 @@
 				$data['img_manager'] .= '?id=' . $owner_id;
 				$data['img_path'] = $this->config->item('personal_blog_path') . $owner_id;
 				$this->crumb->append('我的日志', 'blog/' . $owner_id);
-				//$data['back_a'] = anchor('blog/' . $owner_id, $data['info']['name'] . '的日志');
 			}
 			
 			// 提交表单
@@ -192,13 +190,11 @@
 				$data['info'] = $this->User_model->get_info($data['blog']['owner_id']);
 				$this->crumb->append($data['info']['id'] == $this->session->userdata('id') ? '我的主页' : $data['info']['name'].'的主页', 'personal/profile/'.$data['info']['id']);
 				$this->crumb->append($data['info']['id'] == $this->session->userdata('id') ? '我的日志' : $data['info']['name'].'的日志', 'blog/'.$data['info']['id']);
-				$data['back_a'] = anchor('blog/' . $data['info']['id'], $data['info']['name'] . '的日志');
 			} elseif($data['blog']['type_id'] == $this->config->item('entity_type_corporation')) {
 				$this->load->model('Corporation_model');
 				$data['info'] = $this->Corporation_model->get_info($data['blog']['owner_id']);
 				$this->crumb->append($data['info']['name'], 'corporation/profile/'.$data['info']['id']);
 				$this->crumb->append($data['info']['name'], 'blog/'.$data['info']['id'].'/corporation');
-				$data['back_a'] = anchor('blog/' . $data['info']['id'] . '/corporation', $data['info']['name'] . '的日志');
 			} else {
 				static_view();
 			}

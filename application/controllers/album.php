@@ -80,7 +80,6 @@
 				$this->crumb->append('我的相册', 'album/'.$data['info']['id']);
 				if($data['info']['id'] != $this->session->userdata('id'))
 					static_view('权限不足');
-				$data['back_a'] = anchor('album', '返回我的相册');
 			} elseif($entity_type == 'corporation') {
 				$this->load->model('Corporation_model');
 				$data['info'] = $this->Corporation_model->get_info($owner_id);
@@ -88,7 +87,6 @@
 				$this->crumb->append($data['info']['name'].'的相册', 'album/'.$data['info']['id'].'/corporation');
 				if($data['info']['user_id'] != $this->session->userdata('id'))
 					static_view('权限不足');
-				$data['back_a'] = anchor('album/'.$data['info'].'/corporation', '返回' . $data['info']['name']);
 			} else {
 				static_view();
 			}
