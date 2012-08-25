@@ -216,6 +216,7 @@
 					$album = array(
 						'cover_id' => $photo_id
 					);
+					$this->db->where('id', $album_id);
 					$this->db->update('album', $album);
 					echo json_encode(array('success' => 1, 'message' => '修改成功'));
 					break;
