@@ -7,16 +7,14 @@ $(function(){
 		},function(){
 			$("ul",this).slideUp("fast");
 	});
-	$("#nav_search_submit").attr('disabled', 'disabled');
-	$("#nav_search_content").keyup(function() {
-		if($(this).val != '') {
-			$("#nav_search_submit").removeAttr('disabled');
+	$("#nav_search_submit").click(function() {
+		if($("#nav_search_content").val() == '') {
+			return false;
 		}
 	});
-	$("#in_search").attr('disabled', 'disabled');
-	$("#in_search_content").keyup(function() {
-		if($(this).val != '') {
-			$("#in_search").removeAttr('disabled');
+	$("#in_search").click(function() {
+		if($("#in_search_content").val() == '') {
+			return false;
 		}
 	});
 	

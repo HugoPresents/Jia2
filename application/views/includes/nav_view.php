@@ -10,7 +10,7 @@
 				<?=form_hidden('user', 1) ?>
 				<?=form_hidden('corporation', 1) ?>
 				<?=form_hidden('activity', 1) ?>
-				<?=form_input(array('id' => 'nav_search_content', 'maxlength' => 50, 'class' => 'keywords', 'name' => 'keywords','value'=>'社团/个人/活动')) ?>
+				<?=form_input(array('id' => 'nav_search_content', 'maxlength' => 50, 'class' => 'keywords', 'name' => 'keywords', 'placeholder' => '社团/个人/活动')) ?>
 				<?=form_submit('submit', '', 'class="button" id="nav_search_submit"') ?>
 	            <?=form_close() ?>
 			</span>

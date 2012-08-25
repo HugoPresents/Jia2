@@ -65,10 +65,8 @@ label{
 span.CheckboxWrapper,span.Checkitem{
 	display:block;
 	float:left;
-	b/order: 1px solid #000;
 	height: 15px;
 	width:15px;
-	ove/rflow: hidden;
 	position:relative;
 }
 span.Checkitem{
@@ -83,6 +81,10 @@ span.Checkitem{
 	height: 15px;
 	width: 15px;
 	display:block;/*display: -moz-inline-block;*/
+}
+
+#in_search {
+	cursor:pointer;
 }
 
 .Checked {
