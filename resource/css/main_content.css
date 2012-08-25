@@ -128,7 +128,6 @@ input.chbox{
 	width:100%;
 	color:#404040;	
 	border: none;
-	p/dding: 4px 0px 0px 0px;
 	height: 31px;
 	margin:0px 0px 0px 7px;
 	background:transparent;
@@ -289,7 +288,6 @@ a.pub_button {
 	font-size: 12px;
 	font-weight: bold;
 	color: white;
-	text-sh/adow: 0 1px #0F4775;
 	border: 1px solid #207AC5;
 	border-radius: 2px;
 	background-color: #2782CE;
@@ -308,7 +306,6 @@ b.btn-blue{color: #fff;}
 #post_content{
 	width:599px;
 	height:50px;
-	ma/x-height:50px;
 	max-width:600px;
 }
 /***发布状态***/
@@ -324,7 +321,6 @@ b.btn-blue{color: #fff;}
 #pub_text .textarea_01{
 	width:599px;
 	max-width:600px;
-	ma/x-height:50px;
 }
 .input{
 	margin-top:4px; 
@@ -359,7 +355,6 @@ b.btn-blue{color: #fff;}
 #feeds_container{
 	padding:10px 0;
 	color: #999;
-	back/ground:#fff;
 	overflow: hidden;
 }
 .img_block{
@@ -452,7 +447,6 @@ span.profile_info{
 .li_mbox{
 	float:left;
 	margin-left:20px;
-	b/order:1px solid #7fa3cb;
 	width:160px;
 }
 .li_r{
@@ -471,7 +465,6 @@ span.profile_info{
 }
 .asso_name span{
 	font-size: 12px;
-	backgro/und:#BAB9B9;
 }
 .asso_name {
 	padding:0;margin:0;
@@ -483,7 +476,6 @@ span.profile_info{
 	margin-top:2px;
 	height:auto;
 	margin:0;
-	bo/rder:1px solid #C6C7C6;
 }
 /*****association-pro**********/
 .asso_info{
@@ -600,12 +592,10 @@ a#in_box, a#out_box{
 
 #swf_wrap{
 	position:relative;
-	ove/rflow: hidden;
 }
 .swf_wrap_i{
 	height:32px;
 	margin-bottom:10px;
-	bo/rder:1px solid #000;
 }
 .swf_wrap_i label{
 	width:100px;
@@ -616,7 +606,6 @@ a#in_box, a#out_box{
 	display: inline; 
 	height:30px;
 	vertical-align:top;
-	bo/rder: solid 1px #7FAAFF; 
 }
 .btn_startupload,#btnCancel1,#btnCancel2,#btnCancel3{
 	padding:0;
@@ -629,10 +618,7 @@ a#in_box, a#out_box{
 	border-radius:3px;
 	color:#999; 
 }
-#btn/Cancel1,#btnC/ancel2{
-	border:none;
-	background:none;
-}
+
 #fsUploadProgress1,#fsUploadProgress2{
 	position:absolute;
 	right:10px;
@@ -731,8 +717,7 @@ a.a-img {
 }
 #coo_02 img {
 	width: 50px;
-	height: 50px;bord/
-	er-radius: 3px;
+	height: 50px;
 }
 #coo_01 li {
 	height: 40px;

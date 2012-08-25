@@ -8,8 +8,6 @@ body{
 	background: #f2f2f2;
 	color:#999;
 	overflow:auto;
-	bo/rder: 10px solid #000;
-	font/-family:'Microsoft YaHei', Arial;
 }
 a{cursor: pointer}
 #content{min-height:500px;overflow: auto;}
@@ -24,7 +22,6 @@ h3{
 	color:#586067;
 	font-size:14px;
 	font-weight:bold;
-	font-fa/mily:'Microsoft YaHei', Arial;
 }
 h3 span{
 	color:#999;
@@ -137,16 +134,14 @@ a {
 	font-size: 100%;
 	color: #26709A;
 	font-style: normal;
-	fon/t-family:'Microsoft YaHei', Arial;
 	text-decoration: none;
 }
 a:link { color: #26709A }
-a:hover {color: #26709A;	text-decor/ation: underline;}
+a:hover {color: #26709A;}
 a:active {}
 a.active{font-weight:bold;background:#dfdfdf;}
 
 #head_nav a,.right a{
-	text-s/hadow: 1px 1px 1px #000;
 	padding: 0px 10px;
 	color: #999;
 	
@@ -288,18 +283,15 @@ li {
 	border-top-right-radius: 3px;
 }
 .drop_box li{
-	b/order: 1px solid #b8b8b8;
 	height:25px;
 	line-height:25px;
 }
 /*-------右边菜单-------*/
 .sidebar_nav ul li{
-	bo/rder:1px solid #c6c7c6;
 	position:relative;
 }
 /*-------post-------*/
 li.feed_a{
-	bor/der-bottom: 1px solid #C6C7C6;
 	overflow:hidden;
 	padding:10px 0;
 	margin-bottom:10px;
@@ -421,7 +413,6 @@ li.feed_a{
 	border-bottom: 7px solid #ccc;
 	font-size: 14px;
 	line-height: 45px;
-	over/flow: hidden;
 	width: 100%;
 	font-weight: bold;
 }
@@ -490,12 +481,10 @@ li.feed_a{
 	color:#c6c7c6;
 }
 .user_head_box{
-	bor/der-top:1px solid #c6c7c6;
 }
 .user_head_box img {
 	width: 100px;
 	height: 100px;
-	bor/der:1px solid #c7c7c7;
 	border-radius: 3px;
 	display:block;
 	margin-bottom:30px;

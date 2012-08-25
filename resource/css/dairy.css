@@ -42,7 +42,6 @@ border-top-right-radius: 0;
 	width:100%;
 	position: relative;
 	float: left;
-	bo/rder: 1px solid #E1E1E1;
 }
 .ht{margin-bottom:1.3em;}
 .article_item{
@@ -70,7 +69,6 @@ border-top-right-radius: 0;
 	width: 100px;
 	height: 100px;
 	overflow: hidden;
-	fl/oat: left;
 	margin-right: 5px;
 }
 .img_wrap a img{
