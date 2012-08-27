@@ -1,9 +1,9 @@
 $(function() {
-        $("input[name='submit']").click(function() {
+        $("#login_form").submit(function() {
                 email = $("input[name='email']").val();
                 pass = $("input[name='pass']").val();
                 remember = $("input[name='remember']").val();
-                $submit = $(this);
+                $submit = $("input[name='submit']");
                 $submit.attr('disabled', 'disabled');
                 $submit.val('正在登录');
                 $.post(SITE_URL+"index/do_login", {
