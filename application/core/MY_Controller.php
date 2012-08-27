@@ -29,12 +29,15 @@ require_once APPPATH . 'libraries/access.php';
 			$auth = Auth_factory::get_auth($type, $owner_id, $post_id);
 			$auth->get_access($operation);
 			if(!$auth->access && !$return) {
-				static_view('貌似你没有该权限哦~', '需要权限');
+				static_view('貌似你没有该权限哦~', '权限不足');
 			} elseif($return) {
 				return $auth->access;
 			}
 		}
 		
+		/**
+		 * @param $sign 当为TRUE时需要登录，当为FALSE是需要不登陆
+		 */
 		function _require_login($sign = TRUE) {
 			if($sign && $this->session->userdata('type') == 'guest') {
 				if(!$this->input->get('jump')) {

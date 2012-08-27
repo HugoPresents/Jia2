@@ -207,6 +207,26 @@
 			}
 		}
 		
+		/**
+		 * @param $relation 'following' 'follower' 'all'
+		 */
+		function user_relation($relation = 'following', $page = 1) {
+			$this->_require_ajax();
+			$this->_require_login();
+			$this->load->model('User_model');
+			switch ($relation) {
+				case 'following':
+					$following = $this->User_model->get_following($this->session->userdata('id'));
+					
+					break;
+				
+				case 'follower':
+					$followers = $this->User_model->get_followers($this->session->userdata('id'));
+					
+					break;
+			}
+		}
+		
 		function _extra_data($array) {
 			$length = $count($array);
 			foreach ($array as $key => $value) {

@@ -6,7 +6,7 @@
 				<?=form_input('receiver', '', 'id="receiver"') ?>
 				<?=form_hidden('receiver_id') ?>
 		</div></div>
-		<span>此处需要填入收信人id，人个人主页的url最后的数字即是用户id</span>
+		<span><a href="#?w=500" rel="popup4" class="inline">选择收信人</a></span>
 	</li>
 	<li ><label>內&nbsp;&nbsp;容：</label>
 		<div class="mytextarea">
@@ -51,4 +51,9 @@
 			</div>
 			
 </div>
-</div>
+<div id="popup4" class="popup_block">
+	<h4 class="set_title"><span>我的粉丝</span></h4>
+		<ul id="user_info">
+			<p>正在开发</p>
+		</ul>
+</div>  
