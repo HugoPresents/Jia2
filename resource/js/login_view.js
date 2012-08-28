@@ -25,10 +25,8 @@ $(function() {
                         $("#pass_prompt").text(data.pass);
                         $submit.removeAttr('disabled');
                         $submit.val('登录');
-                        return false;
                     }
                    }, 'json'
                 );
-                return false;
         });
 });
