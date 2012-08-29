@@ -38,7 +38,7 @@ $(document).ready(function(){
 	$('a.close, #fade').live('click', function() { //When clicking on the close or fade layer...
 	  	$('#fade , .popup_block').fadeOut(function() {
 			$('#fade, a.close').remove();  
-	}); //fade them both out
+		}); //fade them both out
 		
 		return false;
 	});

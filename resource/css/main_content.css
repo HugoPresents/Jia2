@@ -1,4 +1,4 @@
-
+input,textarea{color:#404040;}
 /***********h活动**********/
 
 .ac_01,.ac_title{
@@ -525,7 +525,7 @@ input[type="file"]{
 }
 #write_letter_area li.li_input{
 	display:block;
-	height:40px;
+	/*height:40px;*/
 }
 #write_letter_area p,#add-corporation form>span,#coo_01 form>span{
 	font-size:14px;
@@ -857,3 +857,88 @@ ul#member li {
 	padding-top:10px;
 	border-top:1px solid #C7C7C7;
 }
+/************站内信***********/
+.li_input{
+	
+	min-height:50px !important;
+	height:auto;	
+	position: relative;
+}
+#receiver{
+	width: 400px;
+	height: 30px;
+}
+#letter_content{width: 400px;}
+#check_linkman{
+	float:right;
+	display: block;
+	position: absolute;
+	right:60px;
+	top:0px;
+}
+#linkman {
+	border-bottom: 4px solid #EBEBEB;
+	margin-top: 20px;
+	overflow: hidden;
+}
+#linkman a {
+	width: 110px;
+	height: 27px;
+	line-height: 27px;
+	text-align: center;
+	float: left;
+	margin-right: 5px;
+	display: block;
+	float: left;
+	display: block;
+	color: #444;
+	font-size: 13px;
+}
+#linkman a:hover,#linkman a:active{
+	text-decoration: none;
+	background: url(../img/tab_0.png) no-repeat;
+}
+.sd01 {
+	background: url(../img/tab_0.png) no-repeat;
+	font-weight:bold;
+}
+.sd02 {
+	background: url(../img/tab_1.png) no-repeat;
+}
+#linkmanlist0,#linkmanlist1{padding:20px 10px;border: 1px solid #eee;}
+ol.slats li {
+	margin: 0 0 5px 0;
+	padding: 0 0 5px 0;
+	border-bottom: 1px solid #eee;
+	overflow: hidden;
+	}
+ol.slats li:last-child {
+	margin: 0;
+	padding: 0;
+	border-bottom: none;
+	}
+ol.slats li a h3 {
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 30px;
+	}
+ol.slats li a img {
+	float: left;
+	width:30px;
+	margin: 0 10px 0 0;
+	padding: 4px;
+	border: 1px solid #eee;
+	}
+ol.slats li:hover{
+	background: #eee;
+	}
+@media screen and (max-width: 700px) {
+	ol.slats li a img {
+		display: block;
+		float: none;
+		margin: 0 0 5px 0;
+		}		
+	ol.slats li a p {
+		margin: 0;
+		}
+	}		

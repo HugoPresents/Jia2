@@ -53,3 +53,7 @@ function copro_m_tab(){
 	var SDmodel = new scrollDoor();
 	SDmodel.sd(["coo-01", "coo-02", "coo-03"], ["coo_01", "coo_02", "coo_03"], "sd01", "sd02");//社团设置
 }
+function linkman_tab(){
+	var SDmodel = new scrollDoor();
+	SDmodel.sd(["linkman0", "linkman1"], ["linkmanlist0", "linkmanlist1"], "sd01", "sd02");//站内信联系人
+}
