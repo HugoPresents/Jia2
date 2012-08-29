@@ -210,21 +210,33 @@
 		/**
 		 * @param $relation 'following' 'follower' 'all'
 		 */
-		function user_relation($relation = 'following', $page = 1) {
+		function user_relation($relation = 'following', $page = 1, $limit = 6) {
 			$this->_require_ajax();
 			$this->_require_login();
 			$this->load->model('User_model');
+			$this->load->library('pagination');
+			$offset = ($page-1) * $limit;
+			$pg_config = array(
+				'base_url' => site_url('personal/manage/' . $opereation),
+				'per_page' => $limit,
+				'uri_segment' => 4,
+				'use_page_numbers' => TRUE
+			);
 			switch ($relation) {
 				case 'following':
 					$following = $this->User_model->get_following($this->session->userdata('id'));
-					
+					$following_num = count($following);
+					$pg_config['total_rows'] = $following_num;
 					break;
 				
 				case 'follower':
 					$followers = $this->User_model->get_followers($this->session->userdata('id'));
-					
+					$followers_num = count($followers);
+					$pg_config['total_rows'] = $followers_num;
 					break;
 			}
+			$this->pagination->initialize($pg_config);
+			$page_links = $this->pagination->create_links();
 		}
 		
 		function _extra_data($array) {
