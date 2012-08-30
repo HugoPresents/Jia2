@@ -4,10 +4,14 @@ html,body,iframe,div,form,ul,li,h1,h2,h3,h4,h5,p,a,i,img,input,span,table,tr,td,
 	border:0;
 	font-size:100%;
 }
+html{
+	height:100%;
+}
 body{
 	background: #f2f2f2;
 	color:#999;
 	overflow:auto;
+	height:100%;
 }
 a{cursor: pointer}
 #content{min-height:500px;overflow: auto;}
@@ -393,13 +397,13 @@ li.feed_a{
 }
 #wrapper{
 	width:100%;
-	height:100%;
-	float:left;
+	min-height:100%;
+	position:relative;
 }
 #footer{
 	width:100%;
 	height:60px;
-	padding-top: 80px;
+	padding-top: 60px;
 	position:absolute;
 	bottom:0;
 	background:#343841 url(../img/page-footer-bg.jpg) top repeat-x;
@@ -459,7 +463,7 @@ li.feed_a{
 /**************container******************/
 #container{
 	padding-top: 28px;
-	padding-bottom: 50px;
+	padding-bottom: 130px;
 	overflow:auto;
 	min-height:400px;
 }
