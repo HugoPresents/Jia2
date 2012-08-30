@@ -28,5 +28,6 @@ $(function() {
                     }
                    }, 'json'
                 );
+                return false;
         });
 });
