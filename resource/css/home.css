@@ -387,18 +387,21 @@ li.feed_a{
 	color:#fff;
 	font-weight:bold;
 }
-/*******************/
 #head,#container{
 	width:900px;
 	margin:0 auto;
 }
-/********************/
+#wrapper{
+	width:100%;
+	height:100%;
+	float:left;
+}
 #footer{
 	width:100%;
 	height:60px;
 	padding-top: 80px;
 	position:absolute;
-	top: expression(offsetParent.scrollTop+document.documentElement.clientHeight-this.offsetHeight);
+	bottom:0;
 	background:#343841 url(../img/page-footer-bg.jpg) top repeat-x;
 }
 /**header**/
