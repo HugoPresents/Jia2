@@ -662,6 +662,9 @@ span.swf_box{
 .pagination{
 	margin-top:5px;
 }
+.pagination2{
+	float:right;
+}
 .pagination a,.pagination strong{
 	display:block;
 	height:20px;
@@ -859,23 +862,21 @@ ul#member li {
 }
 /************站内信***********/
 .li_input{
-	
-	min-height:50px !important;
+	min-height:30px !important;
 	height:auto;	
 	position: relative;
 }
-#receiver{
-	width: 400px;
-	height: 30px;
-}
+
 #letter_content{width: 400px;}
+
+#receiver{display: inline-block;}
 #check_linkman{
-	float:right;
-	display: block;
-	position: absolute;
-	right:60px;
-	top:0px;
+	display: inline-block;margin-top: 4px;
 }
+.linkman_tag{display:inline-block;padding:2px 5px;pa/dding-right:15px;background:#9CD2F1;margin-right:5px;}
+.del_linkman{font-style:normal;cursor:pointer;}
+
+/***tab**/
 #linkman {
 	border-bottom: 4px solid #EBEBEB;
 	margin-top: 20px;
@@ -905,27 +906,36 @@ ul#member li {
 .sd02 {
 	background: url(../img/tab_1.png) no-repeat;
 }
-#linkmanlist0,#linkmanlist1{padding:20px 10px;border: 1px solid #eee;}
+
+#linkmanlist0,#linkmanlist1{padding:10px 10px 0;border: 1px solid #eee; overflow: auto;}
 ol.slats li {
-	margin: 0 0 5px 0;
-	padding: 0 0 5px 0;
-	border-bottom: 1px solid #eee;
+	float: left;
+	width:16%;
+	margin: 0 5% 3% 0;
+	padding-top:5px;
+	bord/er-bottom: 1px solid #eee;
 	overflow: hidden;
+	text-align:center;
 	}
-ol.slats li:last-child {
+ol.slats li:nth-child(5n) {
+	margin-right: 0;
+	}		
+ol.slats li:nth-last-child(5) {
 	margin: 0;
 	padding: 0;
 	border-bottom: none;
 	}
-ol.slats li a h3 {
-	font-size: 14px;
-	font-weight: bold;
+ol.slats li a span {
+	font-size: 12px;
+	width:100%;
+	text-align:center;
+	white-space:nowrap; text-overflow:ellipsis;overflow: hidden;
 	line-height: 30px;
+	margin-bottom:0.5em;
 	}
 ol.slats li a img {
-	float: left;
 	width:30px;
-	margin: 0 10px 0 0;
+	margin: 0 0 5px 0;
 	padding: 4px;
 	border: 1px solid #eee;
 	}

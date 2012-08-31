@@ -2,11 +2,8 @@
 <?=form_button('letter', '写站内信','id="write_letter"') ?>
 <div id="write_letter_area" style="display:none">
 	<li class="li_input"><label>收信人：</label>
+		<div id="receiver"></div>
 		<!--
-		<div class="InputWrapper"><div class="InputInner">
-				<?=form_input('receiver', '', 'id="receiver"') ?>
-				<?=form_hidden('receiver_id') ?>
-		</div></div>-->
 		<table class="Textarea">
 			<tbody>
 				<tr>
@@ -30,8 +27,8 @@
 					<td id="Textarea-br"></td>
 				</tr>
 			</tbody>
-		</table>
-		<a href="#?w=500" rel="popup4" class="inline" id="check_linkman">选择收信人</a>
+		</table>-->
+		<a href="#?w=500" rel="popup4" class="inline bold" id="check_linkman">选择收信人</a>
 	</li>
 	<li ><label>內&nbsp;&nbsp;容：</label>
 		<div class="mytextarea">
@@ -85,19 +82,55 @@
 			<li class="group">
 				<a href="#">
 					<img src="../img/user.jpg" alt="" />
-					<h3>用户名</h3>
+					<span>1用户名</span>
 				</a>
 			</li>
 			<li class="group">
 				<a href="#">
 					<img src="../img/user01.jpg" alt="" />
-					<h3>加加社团</h3>
+					<span>2加加社团</span>
 				</a>
 			</li>
 			<li class="group">
 				<a href="#">
 					<img src="../img/user02.jpg" alt="" />
-					<h3>tiramisu@gmail.com</h3>
+					<span>3tiramisu@gmail.com</span>
+				</a>
+			</li>
+			<li class="group">
+				<a href="#">
+					<img src="../img/user.jpg" alt="" />
+					<span>4用户名</span>
+				</a>
+			</li>
+			<li class="group">
+				<a href="#">
+					<img src="../img/user01.jpg" alt="" />
+					<span>5加加社团</span>
+				</a>
+			</li>
+			<li class="group">
+				<a href="#">
+					<img src="../img/user02.jpg" alt="" />
+					<span>6tiramisu@gmail.com</span>
+				</a>
+			</li>
+			<li class="group">
+				<a href="#">
+					<img src="../img/user.jpg" alt="" />
+					<span>7用户名</span>
+				</a>
+			</li>
+			<li class="group">
+				<a href="#">
+					<img src="../img/user01.jpg" alt="" />
+					<span>8加加社团</span>
+				</a>
+			</li>
+			<li class="group">
+				<a href="#">
+					<img src="../img/user02.jpg" alt="" />
+					<span>9tiramisu@gmail.com</span>
 				</a>
 			</li>
 		</ol>	
@@ -106,39 +139,51 @@
 			<li class="group">
 				<a href="#">
 					<img src="../img/user02.jpg" alt="" />
-					<h3>tiramisu@gmail.com</h3>
+					<span>tiramisu@gmail.com</span>
 				</a>
 			</li>
 			<li class="group">
 				<a href="#">
 					<img src="../img/user01.jpg" alt="" />
-					<h3>加加社团</h3>
+					<span>加加社团</span>
 				</a>
 			</li>
 			<li class="group">
 			<a href="#">
 				<img src="../img/user.jpg" alt="" />
-				<h3>用户名</h3>
+				<span>用户名</span>
 			</a>
 		</li>
 		
 		</ol>
+		
+		<div class="pagination pagination2">
+			<strong>1</strong>&nbsp;
+			<a href="#">2</a>&nbsp;
+			<a href="#">3</a>&nbsp;
+			<a href="#">&gt;</a>&nbsp;	
+		</div>
 	</div>
 </div>  
 <script>
 	$(function(){
 		linkman_tab();
-		var linkmans="";
+		
 		$(".slats").delegate("li","click",function(){
-			var linkman=$(this).find("h3").text();
+			var linkmans="";
+			linkman=$(this).find("span").text();
 			//alert(linkman);
 			
-			linkmans+=linkman+"; ";
-			$("#receiver").val(linkmans);
+			//linkmans+=linkman+"; ";
+			$("#receiver").append($('<span class="linkman_tag">' + linkman + '<i class="del_linkman"> × </i> </span>'));
 			//$("#popup4").css("display","none");控制关闭那个窗口的
 			$('#fade , .popup_block').fadeOut(function() {
 				$('#fade, a.close').remove(); 
 			}); 
+		});
+		
+		$(".del_linkman").live("click",function(){
+			$(this).parent().remove();
 		});
 		
 	})	
