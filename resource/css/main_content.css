@@ -264,7 +264,15 @@ form#request_form p.li_d{
 	padding:0 15px;
 	margin-top:5px;
 }
-
+#write_letter {
+	display:inline-block;
+}
+.letter_message {
+	margin-left: 10px;
+	background: yellow;
+	padding: 5px;
+	color: #444;
+}
 a.pub_button {
 	color:#515B65;
 }
@@ -910,21 +918,21 @@ ul#member li {
 #linkmanlist0,#linkmanlist1{padding:10px 10px 0;border: 1px solid #eee; overflow: auto;}
 ol.slats li {
 	float: left;
+	cursor:pointer;
 	width:16%;
 	margin: 0 5% 3% 0;
 	padding-top:5px;
-	bord/er-bottom: 1px solid #eee;
 	overflow: hidden;
 	text-align:center;
-	}
+}
 ol.slats li:nth-child(5n) {
 	margin-right: 0;
-	}		
+}		
 ol.slats li:nth-last-child(5) {
 	margin: 0;
 	padding: 0;
 	border-bottom: none;
-	}
+}
 ol.slats li a span {
 	font-size: 12px;
 	width:100%;
@@ -932,23 +940,24 @@ ol.slats li a span {
 	white-space:nowrap; text-overflow:ellipsis;overflow: hidden;
 	line-height: 30px;
 	margin-bottom:0.5em;
-	}
+	display: block;
+}
 ol.slats li a img {
 	width:30px;
 	margin: 0 0 5px 0;
 	padding: 4px;
 	border: 1px solid #eee;
-	}
+}
 ol.slats li:hover{
 	background: #eee;
-	}
+}
 @media screen and (max-width: 700px) {
 	ol.slats li a img {
 		display: block;
 		float: none;
 		margin: 0 0 5px 0;
-		}		
+	}		
 	ol.slats li a p {
 		margin: 0;
-		}
-	}		
+	}
+}		

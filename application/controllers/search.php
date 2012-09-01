@@ -61,8 +61,6 @@
 					$json_array['user_result'] = $this->_user();
 					$json_array['corporation_result'] = $this->_corporation();
 					$json_array['activity_result'] = $this->_activity();
-
-					
 			}
 		}
 
@@ -210,14 +208,24 @@
 		/**
 		 * @param $relation 'following' 'follower' 'all'
 		 */
-		function user_relation($relation = 'following', $page = 1, $limit = 6) {
+		function user_relation() {
 			$this->_require_ajax();
 			$this->_require_login();
+			$relation = $this->input->post('relation');
+			$page = (int)$this->input->post('page');
+			if($page < 1)
+				$page = 1;
+			$limit = 10;
 			$this->load->model('User_model');
 			$this->load->library('pagination');
 			$offset = ($page-1) * $limit;
+			$json_array = array(
+				'content' => NULL,
+				'pagination' => NULL,
+				'success' => 0
+			);
 			$pg_config = array(
-				'base_url' => site_url('personal/manage/' . $opereation),
+				'base_url' => '#',
 				'per_page' => $limit,
 				'uri_segment' => 4,
 				'use_page_numbers' => TRUE
@@ -227,16 +235,42 @@
 					$following = $this->User_model->get_following($this->session->userdata('id'));
 					$following_num = count($following);
 					$pg_config['total_rows'] = $following_num;
+					$following = array_slice($following, $offset, $limit);
+					foreach ($following as $user_id) {
+						$user = $this->User_model->get_info($user_id);
+						$json_array['content'] .= 
+						'<li class="group" user_id="'.$user['id'].'">
+							<a href="/personal/profile/'.$user['id'].'">
+								<img src="'.avatar_url($user['avatar']).'" alt="'.$user['name'].'" />
+								<span>'.$user['name'].'</span>
+							</a>
+						</li>';
+					}
+					$json_array['success'] = 1;
 					break;
 				
 				case 'follower':
 					$followers = $this->User_model->get_followers($this->session->userdata('id'));
 					$followers_num = count($followers);
 					$pg_config['total_rows'] = $followers_num;
+					$followers = array_slice($followers, $offset, $limit);
+					foreach ($followers as $user_id) {
+						$user = $this->User_model->get_info($user_id);
+						$json_array['content'] .= 
+						'<li class="group" user_id="'.$user['id'].'">
+							<a href="/personal/profile/'.$user['id'].'">
+								<img src="'.avatar_url($user['avatar']).'" alt="'.$user['name'].'" />
+								<span>'.$user['name'].'</span>
+							</a>
+						</li>';
+					}
+					$json_array['success'] = 1;
 					break;
 			}
 			$this->pagination->initialize($pg_config);
-			$page_links = $this->pagination->create_links();
+			$this->pagination->cur_page = (int)$page;
+			$json_array['pagination'] = $this->pagination->create_links(TRUE);
+			echo json_encode($json_array);
 		}
 		
 		function _extra_data($array) {
