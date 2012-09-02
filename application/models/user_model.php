@@ -29,7 +29,8 @@
 				'email' => $email,
 				'name' => $name,
 				'pass' => md5($pass),
-				'regist_time' => time()
+				'regist_time' => time(),
+				'type_id' => $this->config->item('entity_type_register')
 				
 			);
 			$this->db->insert('user', $user);
