@@ -6,13 +6,13 @@
 		<?=form_open('index/do_login', 'id="login_form"') ?>
 			<div class="field">
 				<label for="email">邮&nbsp; 箱：</label>
-				<input type="text" name="email" id="email" maxlength="32" tabindex="1" />
+				<input type="text" name="email" placeholder="demo" id="email" maxlength="32" tabindex="1" />
 				<span class="prompt" id="email_prompt"></span>
 			</div>
 			<div class="field">
 				<label>密&nbsp; 码：</label>
 				<span>
-					<input type="password" name="pass" id="pass" maxlength="20" tabindex="2" />
+					<input type="password" name="pass" placeholder="demo" id="pass" maxlength="20" tabindex="2" />
 				</span>
 				<span class="prompt" id="pass_prompt"></span>
 			</div>

@@ -38,13 +38,10 @@ $(function(){
 	})
 });
 
-function index_user(extend) {
-	$.post(
-		SITE_UTL + 'search/user_json',
-		{
-			extent: extend,
-		}, function(data) {
-			$("#search_input")
-		}, 'json'
-	);
+// 显示提示信息方法
+function show_message(target, message) {
+	$(target).html(message);
+	$(target).fadeIn('slow', function() {
+        $(target).fadeOut('1000');
+    });
 }

@@ -20,10 +20,7 @@ $(function() {
 	$("#send_letter").click(function() {
 		receiver = Number($("#receiver_id").val());
 		if(receiver < 1) {
-			$('.letter_message').html('请选择收信人');
-			$('.letter_message').fadeIn('slow', function() {
-			    $('.letter_message').fadeOut('slow');
-			});
+			show_message('.letter_message', '请选择收信人');
 			return false;
 		}
 		content = $("#letter_content").val();
@@ -37,16 +34,10 @@ $(function() {
 				$("#receiver").val('');
 				$("#letter_content").val('');
 				$('#write_letter').trigger('click');
-				$('.letter_message').html('发送成功！');
-				$('.letter_message').fadeIn('slow', function() {
-			        $('.letter_message').fadeOut('slow');
-			    });
+				show_message('.letter_message', '发送成功！');
 			    $("send_letter").removeAttr('disabled');
 			} else {
-				$('.letter_message').html(data.message);
-				$('.letter_message').fadeIn('slow', function() {
-			        $('.letter_message').fadeOut('slow');
-			    });
+				show_message('.letter_message', data.message);
 			    $("send_letter").removeAttr('disabled');
 			}
 		}, 'json');

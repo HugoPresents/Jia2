@@ -243,6 +243,7 @@
 					default:
 						$session = array(
 							'id' => $result['id'],
+							'email' => $result['email'],
 							'type' => $result['entity_type'][0]['name'],
 							'name' => $result['name'],
 							'avatar' => $result['avatar'],
@@ -270,6 +271,7 @@
 						$session = array(
 							'id' => $result['id'],
 							'type' => $result['entity_type'][0]['name'],
+							'email' => $result['email'],
 							'name' => $result['name'],
 							'avatar' => $result['avatar'],
 						);

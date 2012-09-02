@@ -217,6 +217,12 @@
 						'pass' => '',
 						'pass_check' => ''
 					);
+					// demo 用户
+					if($this->session->userdata('email') == 'demo') {
+						$json_array['old_pass'] = 'demo 用户~';
+						echo json_encode($json_array);
+						return;
+					}
 					if(!$old_pass) {
 						$json_array['old_pass'] = '请输入原密码';
 						echo json_encode($json_array);
