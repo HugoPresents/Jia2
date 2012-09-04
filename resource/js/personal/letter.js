@@ -124,7 +124,7 @@ $(function() {
 
 function fetch_user(target, page) {
 	$("#linkmanlist" + target).empty();
-	$("#linkmanlist" + target).append('<p class="loading_user"><img src="/resource/img/loading.gif"></img><p>');
+	$("#linkmanlist" + target).append('<p class="loading_user"><img src="/resource/img/loading.gif"></img></p>');
 	relation = 'following';
 	if(target == '1') {
 		relation = 'follower';
