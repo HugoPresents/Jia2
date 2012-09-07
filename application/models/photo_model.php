@@ -10,7 +10,9 @@
 			$config = array(
 			  		'allowed_types' => 'jpeg|jpg|png|gif|bmp',
 			  		'upload_path' => $param['upload_path'],
-			  		'max_size' => '2048',
+			  		'max_size' => 2048,
+			  		'max_width' => 900,
+			  		'max_height' => 900,
 			  		'overwrite' => TRUE,
 			  		'file_name'	=> $param['filename']
 			 );
@@ -20,6 +22,16 @@
 					$this->upload->initialize($config);
 					if($this->upload->do_upload()) {
 						$image_data = $this->upload->data();
+						$thumb_tmp = array(
+							'source_image' => $image_data['full_path'],
+							'create_thumb' => TRUE,
+							'maintain_ratio' => TRUE,
+							'quality' => 100,
+							'thumb_marker' => '',
+							'new_image' => $param['upload_path'] . 'tmp/',
+							'width' => 550,
+							'height' => 550
+						);
 						$thumb_tiny = array(
 							'source_image' => $image_data['full_path'],
 							'create_thumb' => TRUE,
@@ -38,12 +50,15 @@
 							'width' => 180,
 							'height' => 180
 						);
-						mkdirs($thumb_tiny['new_image']);
-						mkdirs($thumb_big['new_image']);
-						$this->image_lib->initialize($thumb_tiny); 
+						mkdirs($thumb_tmp['new_image']);
+						$this->image_lib->initialize($thumb_tmp);
 						$this->image_lib->resize();
-						$this->image_lib->initialize($thumb_big);
-						$this->image_lib->resize();
+						//mkdirs($thumb_tiny['new_image']);
+						//mkdirs($thumb_big['new_image']);
+						//$this->image_lib->initialize($thumb_tiny); 
+						//$this->image_lib->resize();
+						//$this->image_lib->initialize($thumb_big);
+						//$this->image_lib->resize();
 						// 删除原始图像
 						if(file_exists($image_data['full_path']))
 							unlink($image_data['full_path']);
@@ -163,6 +178,66 @@
 				return FALSE;
 			}
 		}
+		
+		/**
+		 * $filename example 11.jpg
+		 * $crop = array(
+		 * 			'w' => int,
+		 * 			'h' => int,
+		 * 			'x' => int,
+		 * 			'y' => int
+		 * 			)
+		 */
+		function set_avatar_from_tmp($filename, $crop = array(), $delete = FALSE, $mode = 'personal') {
+			$file_path = $this->config->item($mode . '_avatar_path') . 'tmp/' . $filename;
+			if(!$delete) {
+				$targ_filename = $this->config->item($mode . '_avatar_path') . 'big/'.$filename;
+				$targ_w = $targ_h = 180;
+				$jpeg_quality = 180;
+				$img_type = exif_imagetype($file_path); {
+					switch ($img_type) {
+						case IMAGETYPE_GIF:
+							$img_r = imagecreatefromgif($file_path);
+							break;
+						case IMAGETYPE_JPEG:
+							$img_r = imagecreatefromjpeg($file_path);
+							break;
+						case IMAGETYPE_PNG:
+							$img_r = imagecreatefrompng($file_path);
+							break;
+						default:
+							return FALSE;
+							break;
+					}
+				}
+				$dst_r = ImageCreateTrueColor( $targ_w, $targ_h );
+			
+				imagecopyresampled($dst_r, $img_r, 0, 0, $crop['x'], $crop['y'] , $targ_w, $targ_h, $crop['w'], $crop['h']);
+			
+				imagejpeg($dst_r, $targ_filename ,$jpeg_quality);
+				$crop_tiny = array(
+					'source_image' => $targ_filename,
+					'create_thumb' => TRUE,
+					'thumb_marker' => '',
+					'new_image' => $this->config->item($mode . '_avatar_path') . 'tiny/',
+					'width' => 50,
+					'height' => 50
+				);
+				$crop_big = array(
+					'source_image' => $filename,
+					'create_thumb' => TRUE,
+					'thumb_marker' => '',
+					'new_image' => $param['upload_path'] . 'big/',
+					'width' => 180,
+					'height' => 180
+				);
+				mkdirs($crop_tiny['new_image']);
+				$this->image_lib->initialize($crop_tiny); 
+				$this->image_lib->resize();
+			}
+			unlink($file_path);
+		}
+		
 		// 上传证件照方法
 		function save_request_cap($mode = 'corporation') {
 			$param = array(

@@ -92,13 +92,20 @@
 			foreach ($provinces_result as $key => $row) {
 				$provinces[$row['id']] = $row['name'];
 			}
+			$data['css'] = array('corporation/jquery-ui-1.7.custom.css');
+			$data['js'] = array('personal/setting.js','tab.js', 'corporation/jquery-ui-1.7.custom.min.js');
+			$tmp_avatar = 'data/avatar/personal/tmp/'.$this->session->userdata('id').'.jpg';
+			$data['tmp_avatar'] = FALSE;
+			if(file_exists($tmp_avatar)) {
+				$data['tmp_avatar'] = base_url($tmp_avatar);
+				$data['css'][] = 'personal/Jcrop.css';
+				$data['js'][] = 'personal/Jcrop.js';
+			}
 			$data['schools'] = $schools;
 			$data['provinces'] = $provinces;
 			$data['info'] = $this->User_model->get_info((int)$this->session->userdata('id'), $this->join);
 			$data['main_content'] = 'personal/setting_view';
 			$data['slider_bar_view'] = 'includes/slider_bar_view';
-			$data['css'] = array('corporation/jquery-ui-1.7.custom.css');
-			$data['js'] = array('personal/setting.js','tab.js', 'corporation/jquery-ui-1.7.custom.min.js');
 			$this->load->view('includes/template_view', $data);
 		}
 		
@@ -108,13 +115,33 @@
 			switch ($setting) {
 				case 'avatar':
 					// 头像设置
+					if($this->input->post('target') == 'tmp') {
+						$delete = FALSE;
+						if($this->input->post('delete'))
+							$delete = TRUE;
+						$crop = array(
+							'x' => $this->input->post('crop_x'),
+							'y' => $this->input->post('crop_y'),
+							'w' => $this->input->post('crop_w'),
+							'h' => $this->input->post('crop_h'),
+						);
+						$filename = $this->session->userdata('id') . '.jpg';
+						$this->Photo_model->set_avatar_from_tmp($filename, $crop, $delete);
+						$this->User_model->update(array('id' => $this->user_id), array('avatar' => $filename));
+						redirect('personal/setting#avatar');
+					}
+					$this->Photo_model->set_avatar('personal', $this->user_id);
+					redirect('personal/setting#avatar');
+					/*
 					$result = $this->Photo_model->set_avatar('personal', $this->user_id);
 					if($result) {
 						$this->User_model->update(array('id' => $this->user_id), array('avatar' => $result));
-						redirect('personal/setting');
+						redirect('personal/setting#avatar');
 					} else {
 						static_view('不好意思亲~ 上传失败了, 要不然' . anchor('personal/setting', '再试一次?'));
 					}
+					 *
+					 */
 					break;
 				case 'info':
 				// 资料设置
