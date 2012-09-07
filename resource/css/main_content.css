@@ -920,13 +920,14 @@ ol.slats li {
 	float: left;
 	cursor:pointer;
 	width:16%;
-	margin: 0 5% 3% 0;
+	margin: 0 4% 3% 0;
 	padding-top:5px;
 	overflow: hidden;
 	text-align:center;
 }
 ol.slats li:nth-child(5n) {
 	margin-right: 0;
+	b/order-left:1px solid #000; 
 }		
 /*
 ol.slats li:nth-last-child(5) {
@@ -945,7 +946,7 @@ ol.slats li a span {
 	display: block;
 }
 ol.slats li a img {
-	width:30px;
+	height:30px;
 	margin: 0 0 5px 0;
 	padding: 4px;
 	border: 1px solid #eee;

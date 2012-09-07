@@ -15,10 +15,7 @@ body{
 }
 a{cursor: pointer}
 #content{min-height:500px;overflow: auto;}
-#logo_img {
-	float:left;
-	margin-top:7px;
-}
+
 input,button,select,textarea{outline:none}
 textarea{resize:none}
 h3{
@@ -592,7 +589,27 @@ button[name="request_more"] {
 	font-size:12px; 
 }
 
-
+a#logo_img {
+	float: left;
+	margin-top:-2px;
+	b/ox-shadow:0 1px 5px black;
+	padding:0;
+	margin-right: 10px;
+}
+/*
+#head_nav a#logo_img {
+	float:left;
+	margin-top:5px;
+	margin-right:10px;
+	display:inline-block;
+	background:rgba(0,0,0,0.4); filter:alpha(opacity=40);
+	height:30px;
+	line-height:30px;
+	padding-top:2px;
+	padding-bottom:2px;
+	border: 1px solid #404040;
+	color: #e1e1e1;
+}*/
 /*.ico{
 	width: 16px;
 	height: 16px;
