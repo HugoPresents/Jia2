@@ -133,10 +133,14 @@ if(! function_exists('tags_filter')) {
 	}
 }
 
-if(! function_exists('print_var')) {
-	function print_var($var) {
+// 打印变量辅助函数
+if(! function_exists('print_vars')) {
+	function print_vars() {
+		$vars = func_get_args();
 		echo '<pre>';
-		var_dump($var);
+		foreach ($vars as $var) {
+			var_dump($var);
+		}
 		echo '</pre>';
 	}
 }
