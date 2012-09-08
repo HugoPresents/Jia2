@@ -1,4 +1,24 @@
 $(function() {
+	$("#userfile").change(function() {
+		path = $(this).val();
+		if(path.length < 1) {
+			$("#filename").html('未选择文件');
+			return;
+		}
+		fileName = path.substring(path.lastIndexOf('\\')+1,path.lastIndexOf('.'));
+		$("#filename").html(fileName);
+	});
+	$("#upload_avatar").click(function() {
+		if($("#userfile").val().length < 1) {
+			$("#filename").fadeOut('fast', function() {
+				$("#filename").css('backgroundColor', 'yellow');
+				$("#filename").fadeIn('slow', function() {
+					$("#filename").css('backgroundColor', '');
+				});
+			});
+			return false;
+		}
+	});
 	$("#modify").click(function(){
 		$("#user_info").hide();
 		$("#user_info_form").show();
