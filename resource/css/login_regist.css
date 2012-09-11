@@ -1,14 +1,16 @@
 .login_bg{
 	width:370px;
-	height:300px;
+	height:290px;
 	position:absolute;
 	top:100px;
 	left:400px;
 	border:#E9E9E9 10px solid;
 }
 .re_bg{
-	height:326px;
+	height:316px;
 }
+#login_logo,#regist_logo{width: 98px;height:56px;z-index:9999; position: absolute;top:-6px;left:-36px; background: url(../img/login.png)}
+#regist_logo{background: url(../img/regist.png)}
 .login{
 	background:#fff;
 	border:#e1e1e1 1px solid;
@@ -18,10 +20,10 @@
 	position:relative;
 }
 
-.title{width:356px;height:60px;line-height:60px;
+.title{width:356px;height:42px;line-height:60px;
 	color:#586067;font-size:24px;font-weight:bold;
 	font-family:'Microsoft Yahei';
-	padding-left:12px;background:#f2f2f2;margin:0} 
+	padding-left:12px;background:#f2f2f2;margin:0;border-bottom: 1px solid #e1e1e1;} 
 .title span{font-size:20px;}
 form{margin-top:20px;margin-left: 10px;}
 .field{margin-top:15px;}

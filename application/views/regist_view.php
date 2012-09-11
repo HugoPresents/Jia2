@@ -1,6 +1,7 @@
 <div class="login_bg re_bg">
+	<div id="regist_logo"></div>
 	<div class="login register">
-    <div class="title">Jia2网logo_<span>注册</span></div>
+    <div class="title"></div>
     <?=form_open('index/do_regist', 'id = "reg"') ?>
     	<div class="field">
             <label >邮&nbsp; 箱：</label>

@@ -1,7 +1,7 @@
 <div class="login_bg">
+	<div id="login_logo"></div>
 		<div class="login">
 		<div class="title">
-			Jia2网logo_<span>登录</span>
 		</div>
 		<?=form_open('index/do_login', 'id="login_form"') ?>
 			<div class="field">
