@@ -126,11 +126,11 @@
 			<?=form_open_multipart('personal/do_setting') ?>		
 			<span href="" class="btn-blue">
 				浏览
-				<?=form_upload('userfile') ?>
+				<?=form_upload('userfile','', 'id="userfile"') ?>
 			</span>
 			<?=form_hidden('setting', 'avatar') ?>
-			
-			<?=form_submit('submit', '上传','class="pub_button file_btn"') ?>
+			<?=form_submit('submit', '上传','class="pub_button file_btn" id="upload_avatar"') ?>
+			<span id="filename">未选择文件</span>
 			<?=form_close() ?>
 			
 			<h4 class="set_title">当前头像</h4>
