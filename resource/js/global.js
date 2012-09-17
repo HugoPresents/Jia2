@@ -18,7 +18,6 @@ $(function(){
 		}
 		if($("#check_user").attr('checked') != 'checked' && $("#check_corporation").attr('checked') != 'checked' && $("#check_activity").attr('checked') != 'checked') {
 			$("#chose_box").css('background-color', 'yellow');
-			setTimeout()
 			return false;
 		}
 	});
