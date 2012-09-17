@@ -411,6 +411,10 @@ span.profile_info{
 }
 
 /***********************search*******/
+#chose_box {
+	padding-top:5px;
+	padding-left:5px;
+}
 #search_box{
 	width:590px;
 	height:30px;

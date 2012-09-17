@@ -15,12 +15,12 @@ $(function(){
 			$(this).children().removeAttr('checked');
 		})
 })
-</script> 
+</script>
 <div id="main">
 	<h3>&nbsp;搜索&nbsp;<span id="searh_key">“<?=trim($this->input->post('keywords')) ?>”</span></h3>
 	<div id="search_box">
 		<div id="search-bar">
-			<?=form_open('search') ?>
+			<?=form_open('search', 'id="in_search_form"') ?>
 			<?=form_hidden('offset', 0) ?>
 			<?=form_input('keywords', isset($_POST['keywords']) ? $_POST['keywords'] : '','class="serch_input" id="in_search_content"')?>
 			<?=form_submit('submit', '搜索','class="btn-blue" id="in_search"')?>
@@ -28,15 +28,15 @@ $(function(){
 	</div>
 	<p id="chose_box">
 		<span class="CheckboxWrapper <?=($_POST['user'] == 1) ? 'Checked' : 'Checkbox' ?>">
-			<input type="checkbox" name="user" value="1" class="chbox" <?=($_POST['user'] == 1) ? 'checked="checked"' : '' ?>/>
+			<input type="checkbox" name="user" id="check_user" value="1" class="chbox" <?=($_POST['user'] == 1) ? 'checked="checked"' : '' ?>/>
 		</span>
 		<span class="Checkitem">用户</span>
 		<span class="CheckboxWrapper <?=($_POST['corporation'] == 1) ? 'Checked' : 'Checkbox' ?>">
-			<input type="checkbox" name="corporation" value="1" class="chbox" <?=($_POST['corporation'] == 1) ? 'checked="checked"' : '' ?>/>
+			<input type="checkbox" name="corporation" id="check_corporation" value="1" class="chbox" <?=($_POST['corporation'] == 1) ? 'checked="checked"' : '' ?>/>
 		</span>
 		<span class="Checkitem">社团</span>
 		<span class="CheckboxWrapper <?=($_POST['activity'] == 1) ? 'Checked' : 'Checkbox' ?>">
-			<input type="checkbox" name="activity" value="1" class="chbox" <?=($_POST['activity'] == 1) ? 'checked="checked"' : '' ?>/>
+			<input type="checkbox" name="activity" id="check_activity" value="1" class="chbox" <?=($_POST['activity'] == 1) ? 'checked="checked"' : '' ?>/>
 		</span>
 		<span class="Checkitem">活动</span>
 	</p>
@@ -55,9 +55,9 @@ $(function(){
 			<? if(isset($user_result)):?>
 			<? foreach($user_result as $row):?>
 			<li>
-				<?=anchor_popup('personal/profile/' . $row['id'], '<img src="' . avatar_url($row['avatar'], 'personal', 'big') . '">', 'class="head_pic"')?>
+				<?=anchor('personal/profile/' . $row['id'], '<img src="' . avatar_url($row['avatar'], 'personal', 'big') . '">', 'class="head_pic" target="_blank"')?>
 				<div class="li_mbox">
-					<h3><?=anchor_popup('personal/profile/' . $row['id'], $row['name'])?></h3>
+					<h3><?=anchor('personal/profile/' . $row['id'], $row['name'], 'target="_blank"')?></h3>
 					<p><?=$row['gender'] == 1 ? '男' : '女'?></p>
 					<p><?=$row['province'][0]['name'] ?></p>
 					<p><?=$row['school'][0]['name'] ?></p>

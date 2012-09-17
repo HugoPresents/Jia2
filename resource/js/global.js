@@ -12,8 +12,13 @@ $(function(){
 			return false;
 		}
 	});
-	$("#in_search").click(function() {
+	$("#in_search_form").submit(function() {
 		if($("#in_search_content").val() == '') {
+			return false;
+		}
+		if($("#check_user").attr('checked') != 'checked' && $("#check_corporation").attr('checked') != 'checked' && $("#check_activity").attr('checked') != 'checked') {
+			$("#chose_box").css('background-color', 'yellow');
+			setTimeout()
 			return false;
 		}
 	});

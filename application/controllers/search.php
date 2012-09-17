@@ -17,7 +17,7 @@
 			$data['main_content'] = 'search_view';
 			$data['title'] = '搜索';
 			$data['css'] = array("main_content.css");
-			$data['js'] = array('search.js','tab.js');
+			$data['js'] = array('tab.js');
 			if($this->input->post('keywords')) {
 				if($this->input->post('user')) {
 					$data['user_result'] = $this->_user();
