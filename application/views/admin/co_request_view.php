@@ -32,7 +32,7 @@
 		<p><img src="<?=card_cap($request['st_card_cap']) ?>"></p>
 		<p>备注：</p>
 		<p><?=$request['comment'] ?></p>
-		<p><?=anchor('admin/admin/co_request/' . $request['id'] . '?pass=yes', '通过申请') ?>&nbsp;&nbsp;<?=anchor('admin/admin/co_request/' . $request['id'] . '?pass=no', '拒绝申请') ?></p>
+		<p><?=anchor('admin/co_request/' . $request['id'] . '?pass=yes', '通过申请') ?>&nbsp;&nbsp;<?=anchor('admin/co_request/' . $request['id'] . '?pass=no', '拒绝申请') ?></p>
 	</div>
 	</div>
 </li>
