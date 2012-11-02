@@ -80,7 +80,7 @@
 				'base_url' => site_url('admin/list_all_user'),
 				'total_rows' => $data['user_count'],
 				'per_page' => $limit,
-				'uri_segment' => 4,
+				'uri_segment' => 3,
 				'use_page_numbers' => TRUE
 			);
 			$this->pagination->initialize($pg_config);
