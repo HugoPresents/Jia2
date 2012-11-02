@@ -77,7 +77,7 @@
 			$this->jiadb->_table = 'user';
 			$data['user_count'] = count_rows('user');
 			$pg_config = array(
-				'base_url' => site_url('admin/admin/list_all_user'),
+				'base_url' => site_url('admin/list_all_user'),
 				'total_rows' => $data['user_count'],
 				'per_page' => $limit,
 				'uri_segment' => 4,
