@@ -21,6 +21,7 @@
 				case 'avatar':
 					$this->upload->initialize($config);
 					if($this->upload->do_upload()) {
+						//exit('upload success');
 						$image_data = $this->upload->data();
 						$thumb_tmp = array(
 							'source_image' => $image_data['full_path'],
@@ -65,7 +66,8 @@
 						return TRUE;
 						} else {
 							//错误提示
-							// echo $this->upload->display_errors('<p>', '</p>');
+							//echo $this->upload->display_errors('<p>', '</p>');
+							//exit();
 							return FALSE;
 						}
 					break;

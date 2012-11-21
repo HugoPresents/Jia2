@@ -405,6 +405,7 @@ li.feed_a{
 	height:60px;
 	padding-top: 75px;
 	position:absolute;
+	bottom: 0px;
 	background:#343841 url(../img/page-footer-bg.jpg) top repeat-x;
 }
 /**header**/
