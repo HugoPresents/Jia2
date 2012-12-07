@@ -11,8 +11,8 @@
 <div id="container">
 <? $this->load->view($main_content) ?> 
 </div>
-</div>
 <? $this->load->view('includes/footer_view') ?>
+</div>
 </div>
 </body>
 </html>
