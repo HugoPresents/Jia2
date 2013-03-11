@@ -18,7 +18,7 @@
 			</div>
 			
 			<div class="field_below remmber">
-				<input type="checkbox" name="remember" value="1"><span>记住我</span>
+				<input type="checkbox" name="remember" value="1" checked="checked"><span>记住我</span>
 			</div>
 			<div class="field_below">
 				<?=form_submit('submit', '登录', 'class="button"') ?>
