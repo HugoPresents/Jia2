@@ -27,7 +27,7 @@ window.onload = function(){
 					<li class="box_1">
 						<a><img src="<?=site_url('source/img/user02.jpg') ?>"/></a>
 						<h3><a>社么社团的</a></h3>
-						<p>是简介呢还是新鲜事呢还是简介呢还是新鲜事呢还是简介呢还是新鲜事呢还是简介呢还是新鲜事呢。。</p>
+						<p>。。</p>
 						<div class="box_1_foot">
 							<a class="left">+ 关注</a><a class="right">详细 >></a>
 						</div>
@@ -35,7 +35,7 @@ window.onload = function(){
 					<li class="box_1">
 						<a><img  src="<?=site_url('source/img/user02.jpg') ?>"/></a>
 						<h3><a>什么活动</a></h3>
-						<p>是简介呢还是新鲜事呢还是简介呢还是新鲜事呢还是简介呢还是新鲜事呢还是简介呢还是新鲜事呢。。</p>
+						<p>。。</p>
 						<div class="box_1_foot">
 							<a class="left">+ 关注</a><a class="right">详细 >></a>
 						</div>
