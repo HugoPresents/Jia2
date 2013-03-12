@@ -73,7 +73,7 @@
 						<div class="feed_main">
 							<div class="f_info">
 								<a href="<?=site_url('personal/profile/' . $post['user'][0]['id']) ?>"><?=$post['user'][0]['name']?></a>
-								<span class="f_do"><?=$post['content']?></span>
+								<span class="f_do"><?=convert_emoji($post['content'])?></span>
 							</div>
 							<div class="f_summary">
 								<p class="f_pm">
