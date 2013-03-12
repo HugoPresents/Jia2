@@ -1,5 +1,5 @@
 <?php
-    $config['emoji_path'] = 'resource/emoji/';
+    $config['emoji_path'] = '/resource/emoji/';
     $config['emoji'] = array(
         '惊讶'=>'0.png',
         '委屈' => '1.png',

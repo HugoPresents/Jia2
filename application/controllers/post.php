@@ -192,4 +192,11 @@
 				}
 			}
 		}
+
+		function emoji() {
+			$this->config->load('emoji');
+			$json_array = $this->CI->config->item('emoji');
+			$json_array['emoji_path'] = $this->CI->config->item('emoji_path');
+			return json_encode($json_array);
+		}
 	} 
