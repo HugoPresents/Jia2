@@ -35,7 +35,7 @@ $(function() {
 		return false;
 	});
 	
-	$("#join").click(function() {
+	$("#join_co").click(function() {
 		$button = $(this);
 		corporation_id = $(this).attr('co_id');
 		$.post(SITE_URL + 'corporation/request_join', {
@@ -45,6 +45,24 @@ $(function() {
 			if(data.success == 1) {
 				$button.attr('disabled', 'disabled');
 				$button.text('已请求加入');
+			} else {
+				alert(data.message);
+			}
+		}, 'json'
+		);
+		return false;
+	});
+
+	$("#leave_co").click(function() {
+		$button = $(this);
+		corporation_id = $(this).attr('co_id');
+		$.post(SITE_URL + 'corporation/leave', {
+			ajax: 1,
+			co_id: corporation_id
+		}, function(data) {
+			if(data.success == 1) {
+				$button.attr('disabled', 'disabled');
+				$button.text('已退出');
 			} else {
 				alert(data.message);
 			}

@@ -59,9 +59,9 @@
 	<? if($this->session->userdata('id')): ?>
 		<? if(in_array($this->session->userdata('id'), $members)): ?>
 			<?=form_button(array('name' => 'join', 'content' => '已加入', 'co_id' => $info['id'], 'disabled' => 'disabled'))?>
-			<?=form_button(array('name' => 'unjoin', 'content' => '退出社团', 'co_id' => $info['id']))?>
+			<?=form_button(array('name' => 'unjoin', 'content' => '退出社团', 'co_id' => $info['id'], 'id'=>'leave_co'))?>
 		<? else:?>
-			<?=form_button(array('name' => 'join', 'content' => '请求加入', 'co_id' => $info['id'], 'id' => 'join'))?>
+			<?=form_button(array('name' => 'join', 'content' => '请求加入', 'co_id' => $info['id'], 'id' => 'join_co'))?>
 			
 		<? endif?>
 	<? endif ?>
