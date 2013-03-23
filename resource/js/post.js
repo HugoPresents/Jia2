@@ -50,16 +50,18 @@ $(function() {
 	})
 	
 	$("button[name='post']").click(function() {
-		content = $("textarea[name='post_content']").val();
+		var button = $(this);
+		var textarea = $("#post_content")
 		$.post(SITE_URL + "post/add", {
 			ajax: 1,
-			content: content
+			content: textarea.val()
 		}, function(data) {
 			if(data == '0') {
 				alert('发表失败');
 			} else {
-				$("textarea[name='post_content']").val('');
+				textarea.val('');
 				$("#feed_1").prepend(data);
+				button.attr('disabled', 'disabled');
 			}
 		}
 		);
