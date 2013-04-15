@@ -1,4 +1,4 @@
-<div class="login_bg">
+<!-- <div class="login_bg">
 	<div id="login_logo"></div>
 		<div class="login">
 		<div class="title">
@@ -27,4 +27,20 @@
 			</div>
 		<?=form_close() ?>
 	</div>
+</div> -->
+<div class="login_bd">
+    <div class="topbar"></div>
+    <div class="mainBody">
+        <div class="container">
+            <?=form_open('index/do_login','class="form_signin"', 'id="login_form"') ?>
+                <h2 class="signin_heading">加加-校园社团网</h2>
+                <input type="text" class="input-block-level" name="email"  id="email" placeholder="Email address">
+                <input type="password" class="input-block-level" name="pass" id="pass" placeholder="Password">
+                <label class="checkbox">
+                    <input type="checkbox" name="remember" checked="checked" value="remember-me"> 记住我
+                </label>
+                <button class="btn btn-large btn-primary" type="submit">登录</button>
+            <?=form_close() ?>
+        </div>
+    </div>
 </div>

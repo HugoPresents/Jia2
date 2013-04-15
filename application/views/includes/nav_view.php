@@ -1,9 +1,8 @@
-<div id="header">
+<!-- <div id="header">
 	<div id="head">
 		<div class="left" id="head_nav">
 			
 			<?=anchor('', '<img width="57" height="57" src="'.base_url('resource/img/plusplus_03.png').'">', 'id="logo_img"') ?>
-			<!--<?=anchor('', 'Jia2社团网', 'id="logo_img"') ?>-->
 			<?=anchor('', '首页', '') ?><?=anchor('personal', '个人主页', '') . anchor('corporation', '社团之家', '')?>
 		</div>
 		<span class="search left">
@@ -42,4 +41,51 @@
 			<? endif ?>
 		</div>			
 	</div>
-</div>
+</div> -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">加加社团</a>
+          <div class="nav-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav">
+                      <li class="active"><a href="#">首页</a></li>
+                      <li><?=anchor('personal', '个人主页', '') ?></li>
+                      <li><a href="found.html">社团之家</a></li>
+                      <li><a href="#">活动之家</a></li>
+                    </ul>
+                    <form class="navbar-search pull-left" action="">
+                      <input type="text" class="search-query span2" placeholder="Search">
+                    </form>
+                    
+                    <ul class="nav pull-right">
+                    							<? if($this->session->userdata('type') != 'guest'): ?>
+                      <li class="dropdown">
+                        <a href="http://127.0.0.1:8888/#" class="dropdown-toggle" data-toggle="dropdown">通知 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="http://127.0.0.1:8888/#">站内信</a></li>
+                          <li><a href="http://127.0.0.1:8888/#">请求</a></li>
+                          <li><a href="http://127.0.0.1:8888/#">消息</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider-vertical"></li>
+                      <li class="dropdown">
+                        <a href="http://127.0.0.1:8888/#" class="dropdown-toggle" data-toggle="dropdown">帐户 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="http://127.0.0.1:8888/#">帐户设置</a></li>
+                          <li class="divider"></li>
+                          <li><?=anchor('index/logout', '退出') ?></li>
+                        </ul>
+                      </li>
+                      <? else: ?>
+                      <div class="vm">
+                            <!-- <a type="button" class="btnDefault" id="lgoginBtn" href="logIn.html">登陆</a>
+                            <a type="button" class="btnDefault btnBlue" id="registBtn" href="signin.html">注册</a> -->
+                            <?=anchor('index/login', '登录', 'class="btnDefault"', 'id="lgoginBtn"') ?>
+							<?=anchor('index/regist', '注册','class="btnDefault btnBlue"',' id="registBtn"') ?>
+                        </div>
+                     <? endif ?>
+                    </ul>
+                  </div><!-- /.nav-collapse -->
+        </div>
+      </div>
+    </div>

@@ -1,4 +1,4 @@
-<div id="sidebar">
+<!-- <div id="sidebar">
 	<div class="user_head_box sidebar_nav">
 		<?=anchor('personal/profile/' . $info['id'], '<img src="'. avatar_url($info['avatar'], 'personal', 'big') .'" >','class="user_head"') ?>
 		<a href="<?=site_url('personal/profile/' . $info['id']) ?>" class="user_name"><?=$info['name'] ?></a>
@@ -21,7 +21,6 @@
 	<? endif ?>
 	
 </div>
-<!-- 	发表说说	 -->
 <div id="popup1" class="popup_block">
 <form id="inline_pub">
 	<div class="inline_textarea"><textarea  cols="60" rows="2" name="mytext"></textarea></div>
@@ -29,4 +28,54 @@
 		<?=form_button('post', '发布') ?>
 	</div>
 </form>   
-</div>
+</div> -->
+<div class="siderbar">
+          <div class="user_head_box sidebar_nav">
+            <a href="" class="user_head"><img src="" data-pinit="registered"></a>  
+            <a href="" class="user_name">demo</a>
+          </div>
+          <div class="sidebar_nav">
+            <a class="a_sty_01" href="javascript:;"><i class="ico ico_dairy"></i>写日志</a>
+            <a class="a_sty_01" href="javascript:;"><i class="ico ico_photo"></i>传照片</a>
+            <a class="a_sty_01" href="javascript:;"><i class="ico ico_asso"></i>创建社团</a>
+          </div>
+          <dl class="sidebar_nav">
+            <dt>管理的社团（1）</dt>
+            <dd class="clearfix">
+            <a class="a_sty_02" href="#">
+              <img src="img/asso/asso50-1.png"><br>点点网
+            </a>
+            <a class="a_sty_02" href="#">
+              <img src="img/asso/asso50-2.jpeg"><br>点点网
+            </a> 
+            <a class="a_sty_02" href="#">
+              <img src="img/asso/asso50-3.jpeg"><br>点点网
+            </a>          
+            </dd>
+          </dl>
+          <dl class="sidebar_nav">
+            <dt>加入的社团（2）</dt>
+            <dd class="clearfix">
+            <a class="a_sty_02" href="#">
+              <img src="img/asso/asso50-4.jpeg"><br>点点网
+            </a>
+            <a class="a_sty_02" href="#">
+              <img src="img/asso/asso50-5.jpeg"><br>点点网
+            </a>  
+            <a class="a_sty_02" href="#">
+              <img src="img/asso/asso50-6.jpeg"><br>点点网
+            </a>           
+            </dd>
+          </dl>
+          <dl class="sidebar_nav">
+            <dt>粉丝（2）</dt>
+            <dd class="clearfix">
+            <a class="a_sty_02" href="#">
+              <img src="img/img50_g.png"><br>我的粉
+            </a> 
+            <a class="a_sty_02" href="#">
+              <img src="img/img50_b.png"><br>我的粉丝
+            </a>          
+            </dd>
+          </dl>
+        </div>

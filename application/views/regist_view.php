@@ -1,4 +1,4 @@
-<div class="login_bg re_bg">
+<!-- <div class="login_bg re_bg">
 	<div id="regist_logo"></div>
 	<div class="login register">
     <div class="title"></div>
@@ -28,4 +28,18 @@
          </div>  
     	<?=form_close() ?>
 	</div>
+    </div> -->
+<div class="login_bd">  
+    <div class="topbar"></div>
+    <div class="mainBody">
+        <div class="container">
+            <?=form_open('index/do_regist','class="form_signin"', 'id = "reg"') ?>
+                <h2 class="signin_heading">加加-校园社团网</h2>
+                <input type="text" class="input-block-level" placeholder="邮箱地址">
+                <input type="text" class="input-block-level" placeholder="昵称">
+                <input type="password" class="input-block-level" placeholder="密码">
+                <button class="btn btn-large btn-primary" type="submit">注册</button>
+            </form>
+        </div>
     </div>
+</div>

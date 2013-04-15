@@ -1,7 +1,7 @@
 <? $this->load->view('includes/header_view') ?>
 <? $this->load->view('includes/css_view') ?>
 <? $this->load->view('includes/js_view') ?>
-<body>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
 <div id="wrapper">
 <div id="content">
 <? if($this->uri->segment(2) != 'login' && $this->uri->segment(2) != 'regist'): ?>

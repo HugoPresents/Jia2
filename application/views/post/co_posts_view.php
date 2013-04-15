@@ -1,4 +1,4 @@
-<? if(!empty($posts['activity'])):?>
+<!-- <? if(!empty($posts['activity'])):?>
 <? foreach ($posts['activity'] as $post):?>
 <li class="feed_a">
 	<div class="img_block">
@@ -73,5 +73,67 @@
 			</div>
 		</div>
 </li>		
+<? endforeach ?>
+<? endif ?> -->
+
+<? if(!empty($posts['personal'])):?>
+<? foreach ($posts['personal'] as $post):?>
+<div class="feed_a clearfix">
+                <div class="img_block fl">
+                  <?=anchor('personal/profile/' . $post['user'][0]['id'], '<img src="'. avatar_url($post['user'][0]['avatar']) .'" >','class="head_pic"') ?>
+                </div>
+                <div class="feed_main">
+                  <div class="f_nick">
+                    <a href="<?=site_url('personal/profile/' . $post['user'][0]['id']) ?>"><?=$post['user'][0]['name']?></a>
+                  </div>
+                  <div class="f_text"><?=convert_emoji($post['content'])?> → <a href="">点击查看</a></div>
+                  <div class="f_imgs"><img src="img/img_sub.jpg"></div>
+                  <!-- 转发 -->
+                  <div class="f_expand" style="di/splay: none;">
+                    <span class="arr">
+                      <span class="arr_out"></span>
+                      <span class="arr_in"></span>
+                    </span>
+                    <div class="feed_main expand_feed_main">
+                      <div class="f_nick">
+                        <a href="">用户名</a>
+                      </div>
+                      <div class="f_text">快乐悲伤来的快去的也快 → <a href="">点击查看</a></div>
+                      <div class="f_imgs"><img src="img/img_sub.jpg"></div>
+                      <div class="f_summary clearfix">
+                        <div class="fl"><span>今天10:49</span> 来自 <span>成都信息工程学院</span></div>
+                        <div class="fr"><a href="javascript:;" class="Zan" fid=""><i class="ico ico_zan"></i>赞(<span class="zanNum">0</span>)</a> <i class="S_txt">|</i> <a href="javascript:;" class="Forward"> 转发(<span class="forwardNum">0</span>)</a> <i class="S_txt">|</i> <a href="javascript:;" class="CommetBtn">评论(<span class="commet Num">0</span>) </a></div>
+                      </div>
+                    </div><!-- 转发 end -->
+
+                  </div>
+                  <!-- 评论等toolbar-->
+                  <div class="f_summary clearfix">
+                    <div class="fl"><span>今天10:49</span> 来自 <span>成都信息工程学院</span></div>
+                      <div class="fr"><a href="javascript:;" class="Zan" fid=""><i class="ico ico_zan"></i>赞(<span class="zanNum">0</span>)</a> <i class="S_txt">|</i> <a href="javascript:;" class="Forward"> 转发(<span class="forwardNum">0</span>)</a> <i class="S_txt">|</i> <a href="javascript:;" class="CommetBtn">评论(<span class="commet Num">0</span>) </a></div>
+                  </div>
+                  <div class="repeat">
+                    <span class="arr">
+                      <span class="arr_out"></span>
+                      <span class="arr_in"></span>
+                    </span>
+                    <!-- 评论框  -->
+                    <div class="comment_wrap">
+                      <textarea class="W_input"></textarea>
+                      <p class="btn_wrap clearfix"><button name="post" type="button" class="W_btn fl">评论</button></p>
+                    </div>
+                    <div class="comment_lists">
+                      <dl class="comment_list">
+                        <dt><a href=""><img src="img/img30.jpeg" class="img30"></a></dt>
+                        <dd><a href="">用户名:</a>你能少说两句吗 <br>18:52:50</dd>
+                      </dl>
+                      <dl class="comment_list">
+                        <dt><a href=""><img src="img/img30.jpeg" class="img30"></a></dt>
+                        <dd><a href="">用户名:</a>你能少说两句吗 <br>18:52:50</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+            </div>
 <? endforeach ?>
 <? endif ?>

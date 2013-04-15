@@ -31,15 +31,7 @@
 			});
 		});
 </script>
-<!-- 	社团资料 -->
-<div id="popup5" class="popup_block">
-	<h4 class="set_title"><span><?=$info['name'] ?></span></h4>
-			<ul id="user_info">
-				<li class="li_1">姓名：<span></span></li>
-				<li class="li_1">性别：<span></span></li>
-			</ul>
-</div>
-<div id="sidebar">
+<!-- <div id="sidebar">
 	<div class="user_head_box sidebar_nav">
 		<a href="<?=site_url('corporation/profile/' . $info['id'])?>" class="user_head"> <img id="" src="<?=avatar_url($info['avatar'], 'corporation', 'big') ?>" /> </a>
 		<a href="" class="user_name"><?=$info['name']?></a>
@@ -91,8 +83,8 @@
 		<? endforeach ?>
 		</ul>
 	</div>
-</div>
-<div id="main">
+</div> -->
+<!-- <div id="main">
 	<div class="asso_intro_box">
 		<h3><?=$info['name'] ?><span><a href="<?=site_url('blog/' . $info['id'] . '/corporation')?>">社团日志</a></span><span><a href="<?=site_url('album/' . $info['id'] . '/corporation')?>">社团相册</a></span></h3>
 		<p>
@@ -101,11 +93,7 @@
 		<p class="">
 			<?=anchor('corporation/setting/' . $info['id'], '社团设置','class="creat_button creat_act inline"') ?>
 			<?=anchor('activity/add/' . $info['id'], '创建活动','class="creat_button creat_act inline"')?>
-		</p>
-		
-		<!--
-		<a href="#?w=500" rel="popup3" class="creat_button creat_act inline">创建活动</a>
-		-->
+		</p>		
 	</div>
 	<div class="search_item">
 		<ul>
@@ -185,5 +173,253 @@
 		</div>
 	</div>
 		
-</div>	
+</div>	 -->
+
+<div class="mainContainer">
+    <div class="container">
+        <div class="profile_pic_top"></div>
+        <div class="asso_profile_hd">
+            <div class="asso_head">
+                <div class="asso_head_pic"><img src="img/asso/assoHead100-1.jpg"/></div>
+                <ul class="user_atten clearfix">
+                    <li class=""><a class="S_func1" href=""><strong node-type="follow">20</strong><span>关注 </span></a>
+                    </li>
+                    <li class=""><a class="S_func1" href=""><strong node-type="fans">27</strong><span>粉丝</span></a></li>
+                    <li class="noBorder"><a class="S_func1" name="profile_tab" href=""><strong
+                            node-type="weibo">24</strong><span>状态</span></a></li>
+                </ul>
+            </div>
+            <div class="asso_info clearfix">
+                <div class="asso_name">三个代表协会</div>
+                <div class="asso_tags">
+                    位置 <a href="">四川省</a>
+                    <span class="vline">|</span>
+                    在 <a href="">成都信息工程学院</a>
+                    <span class="vline">|</span>
+                    <a class="btnDefault btn_s" href="">管理社团资料</a>
+                </div>
+                <div class="asso_btns">
+                    <span class="btnDefault btn_m" href=""><i class="ico ico_atten"></i>关注</span>
+                    <span class="btnDefault btn_m btn_n" href=""><i class="ico ico_atten"></i>已关注 | <a
+                            href="">取消</a></span>
+                    <span class="btnDefault btn_m" href=""><i class="ico ico_join"></i>加入</span>
+                    <span class="btnDefault btn_m btn_n" href=""><i class="ico ico_join"></i>已加入 | <a
+                            href="">退出</a></span>
+                </div>
+            </div>
+
+            <div class="asso_infoC">
+                <p>创建于 <span class="blue">2010-05-28</span>&nbsp;&nbsp;&nbsp;&nbsp;社长： <span class="blue">zzzz</span>
+                </p>
+
+                <p>欢迎各位学习型友邻在此分享小经验、小感悟、小方法！<br>
+                    希望这里是促发你要去做点什么有趣的事情的好平台！ </p>
+            </div>
+            <div class="asso_pics">
+                <p>最近上传照片</p>
+
+                <div class="pics_wrap">
+                    <img src="img/asso/assoBig-1.jpg" alt=""/>
+                    <img src="img/asso/assoBig-2.jpg" alt=""/>
+                    <img src="img/asso/assoBig-3.jpg" alt=""/>
+                    <img src="img/asso/assoBig-4.jpg" alt=""/>
+                    <img src="img/asso/assoBig-5.jpg" alt=""/>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container mainBody">
+    <div class="mt20 clearfix feed_switcher">
+        <a title="" href="javascript:void(0);" id="filter_all" class="first selected">最新动态</a>
+        <a title="" href="javascript:void(0);" id="filter_photo" class="">活动相册</a>
+        <a title="" href="javascript:void(0);" id="filter_dairy" class="last">活动日志</a>
+    </div>
+
+    <div class="main">
+        <!-- feeds begin -->
+        <div class="feeds">
+            <div class="loading">
+                <img src="img/loading.gif"/><span>正在加载，请稍候...</span>
+            </div>
+
+            <div class="feed_a clearfix">
+                <div class="img_block fl">
+                    <a href="" class="head_pic"><img src="img/img50.jpeg"></a>
+                </div>
+                <div class="feed_main">
+                    <div class="f_nick">
+                        <a href="">用户名</a>
+                    </div>
+                    <div class="f_text">快乐悲伤来的快去的也快 → <a href="">点击查看</a></div>
+                    <div class="f_summary clearfix">
+                        <div class="fl"><span>今天10:49</span> 来自 <span>成都信息工程学院</span></div>
+                        <div class="fr"><a href="javascript:;" class="Zan" fid=""><i class="ico ico_zan"></i>赞(<span
+                                class="zanNum">0</span>)</a> <i class="S_txt">|</i> <a href="javascript:;"
+                                                                                       class="Forward"> 转发(<span
+                                class="forwardNum">0</span>)</a> <i class="S_txt">|</i> <a href="javascript:;"
+                                                                                           class="CommetBtn">评论(<span
+                                class="commet Num">0</span>) </a></div>
+                    </div>
+                    <div class="repeat">
+                    <span class="arr">
+                      <span class="arr_out"></span>
+                      <span class="arr_in"></span>
+                    </span>
+                        <!-- 评论框  -->
+                        <div class="comment_wrap">
+                            <textarea class="W_input"></textarea>
+
+                            <p class="btn_wrap clearfix">
+                                <button name="post" type="button" class="W_btn fl">评论</button>
+                            </p>
+                        </div>
+                        <div class="comment_lists">
+                            <dl class="comment_list">
+                                <dt><a href=""><img src="img/img30.jpeg" class="img30"></a></dt>
+                                <dd><a href="">用户名:</a>你能少说两句吗 <br>18:52:50</dd>
+                            </dl>
+                            <dl class="comment_list">
+                                <dt><a href=""><img src="img/img30.jpeg" class="img30"></a></dt>
+                                <dd><a href="">用户名:</a>你能少说两句吗 <br>18:52:50</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feed_a clearfix">
+                <div class="img_block fl">
+                    <a href="" class="head_pic"><img src="img/img50.jpeg"></a>
+                </div>
+                <div class="feed_main">
+                    <div class="f_nick">
+                        <a href="">用户名</a>
+                    </div>
+                    <div class="f_text">快乐悲伤来的快去的也快 → <a href="">点击查看</a></div>
+                    <div class="f_imgs"><img src="img/img_sub.jpg"></div>
+                    <!-- 转发 -->
+                    <div class="f_expand" style="display: none;">
+                    <span class="arr">
+                      <span class="arr_out"></span>
+                      <span class="arr_in"></span>
+                    </span>
+
+                        <div class="feed_main expand_feed_main">
+                            <div class="f_nick">
+                                <a href="">用户名</a>
+                            </div>
+                            <div class="f_text">快乐悲伤来的快去的也快 → <a href="">点击查看</a></div>
+                            <div class="f_imgs"><img src="img/img_sub.jpg"></div>
+                            <div class="f_summary clearfix">
+                                <div class="fl"><span>今天10:49</span> 来自 <span>成都信息工程学院</span></div>
+                                <div class="fr"><a href="javascript:;" class="Zan" fid=""><i
+                                        class="ico ico_zan"></i>赞(<span class="zanNum">0</span>)</a> <i
+                                        class="S_txt">|</i> <a href="javascript:;" class="Forward"> 转发(<span
+                                        class="forwardNum">0</span>)</a> <i class="S_txt">|</i> <a href="javascript:;"
+                                                                                                   class="CommetBtn">评论(<span
+                                        class="commet Num">0</span>) </a></div>
+                            </div>
+                        </div>
+                        <!-- 转发 end -->
+
+                    </div>
+                    <!-- 评论等toolbar-->
+                    <div class="f_summary clearfix">
+                        <div class="fl"><span>今天10:49</span> 来自 <span>成都信息工程学院</span></div>
+                        <div class="fr"><a href="javascript:;" class="Zan" fid=""><i class="ico ico_zan"></i>赞(<span
+                                class="zanNum">0</span>)</a> <i class="S_txt">|</i> <a href="javascript:;"
+                                                                                       class="Forward"> 转发(<span
+                                class="forwardNum">0</span>)</a> <i class="S_txt">|</i> <a href="javascript:;"
+                                                                                           class="CommetBtn">评论(<span
+                                class="commet Num">0</span>) </a></div>
+                    </div>
+                    <div class="repeat">
+                    <span class="arr">
+                      <span class="arr_out"></span>
+                      <span class="arr_in"></span>
+                    </span>
+                        <!-- 评论框  -->
+                        <div class="comment_wrap">
+                            <textarea class="W_input"></textarea>
+
+                            <p class="btn_wrap clearfix">
+                                <button name="post" type="button" class="W_btn fl">评论</button>
+                            </p>
+                        </div>
+                        <div class="comment_lists">
+                            <dl class="comment_list">
+                                <dt><a href=""><img src="img/img30.jpeg" class="img30"></a></dt>
+                                <dd><a href="">用户名:</a>你能少说两句吗 <br>18:52:50</dd>
+                            </dl>
+                            <dl class="comment_list">
+                                <dt><a href=""><img src="img/img30.jpeg" class="img30"></a></dt>
+                                <dd><a href="">用户名:</a>你能少说两句吗 <br>18:52:50</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- feeds end -->
+    </div>
+
+
+    <div class="siderbar">
+        <dl class="sidebar_nav">
+            <dt>友情社团</dt>
+            <dd class="clearfix">
+                <a class="a_sty_02" href="#">
+                    <img src="img/asso/asso50-1.png"><br>点点网
+                </a>
+                <a class="a_sty_02" href="#">
+                    <img src="img/asso/asso50-2.jpeg"><br>点点网
+                </a>
+                <a class="a_sty_02" href="#">
+                    <img src="img/asso/asso50-3.jpeg"><br>点点网
+                </a>
+            </dd>
+        </dl>
+        <dl class="sidebar_nav">
+            <dt>最新加入</dt>
+            <dd class="clearfix">
+                <a class="a_sty_02" href="#">
+                    <img src="img/img50_g.png"><br>我的粉
+                </a>
+                <a class="a_sty_02" href="#">
+                    <img src="img/img50_b.png"><br>我的粉丝
+                </a>
+                <a class="a_sty_02" href="#">
+                    <img src="img/img50_g.png"><br>我的粉
+                </a>
+                <a class="a_sty_02" href="#">
+                    <img src="img/img50_b.png"><br>我的粉丝
+                </a>
+                <a class="a_sty_02" href="#">
+                    <img src="img/img50_g.png"><br>我的粉
+                </a>
+                <a class="a_sty_02" href="#">
+                    <img src="img/img50_b.png"><br>我的粉丝
+                </a>
+                <p style="clear: both; font-size: 14px; padding-top: 15px;"><a href="#">> 浏览所以成员（100）</a></p>
+            </dd>
+        </dl>
+
+        <dl class="sidebar_nav">
+            <dt>粉丝</dt>
+            <dd class="clearfix">
+                <a class="a_sty_02" href="#">
+                    <img src="img/img50_g.png"><br>我的粉
+                </a>
+                <a class="a_sty_02" href="#">
+                    <img src="img/img50_b.png"><br>我的粉丝
+                </a>
+            </dd>
+        </dl>
+    </div>
+
+</div>
+
 	

@@ -222,7 +222,7 @@
 		function login() {
 			$this->_require_login(FALSE);
 			$data['title'] = '登录';
-			$data['css'] = array('login_regist.css');
+			// $data['css'] = array('login_regist.css');
 			$data['js'] = array('login_view.js');
 			$data['main_content'] = 'login_view';
 			$this->load->view('includes/template_view', $data);
@@ -289,7 +289,7 @@
 		function regist() {
 			$this->_require_login(FALSE);
 			$data['title'] = '注册加加';
-			$data['css'] = array('home.css','login_regist.css');
+			// $data['css'] = array('home.css','login_regist.css');
 			$data['js'] = array('regist_view.js');
 			$data['main_content'] = 'regist_view';
 			$this->load->view('includes/template_view', $data);
