@@ -31,9 +31,9 @@
             <div class="asso_head">
                 <div class="asso_head_pic"><img src="img/asso/assoHead100-1.jpg"/></div>
                 <ul class="user_atten clearfix">
-                    <li class=""><a class="S_func1" href=""><strong node-type="follow">20</strong><span>关注 </span></a>
+                    <li class=""><a class="S_func1" href="<?=site_url('personal/manage/following') ?>"><strong node-type="follow"><?=$following_num ?></strong><span>关注 </span></a>
                     </li>
-                    <li class=""><a class="S_func1" href=""><strong node-type="fans">27</strong><span>粉丝</span></a></li>
+                    <li class=""><a class="S_func1" href="<?=site_url('personal/manage/follower') ?>"><strong node-type="fans"><?=$followers_num ?></strong><span>粉丝</span></a></li>
                     <li class="noBorder"><a class="S_func1" name="profile_tab" href=""><strong
                             node-type="weibo">24</strong><span>状态</span></a></li>
                 </ul>

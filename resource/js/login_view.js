@@ -1,5 +1,6 @@
 $(function() {
         $("#login_form").submit(function() {
+        	alert('here');
                 email = $("input[name='email']").val();
                 pass = $("input[name='pass']").val();
                 remember = $("input[name='remember']").val();

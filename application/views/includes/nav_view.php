@@ -62,16 +62,16 @@
                       <li class="dropdown">
                         <a href="http://127.0.0.1:8888/#" class="dropdown-toggle" data-toggle="dropdown">通知 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                          <li><a href="http://127.0.0.1:8888/#">站内信</a></li>
-                          <li><a href="http://127.0.0.1:8888/#">请求</a></li>
-                          <li><a href="http://127.0.0.1:8888/#">消息</a></li>
+                          <li><a href="<?=site_url('notify?type=letter') ?>">站内信</a></li>
+                          <li><a href="<?=site_url('notify?type=request') ?>">请求</a></li>
+                          <li><a href="<?=site_url('notify?type=message') ?>">消息</a></li>
                         </ul>
                       </li>
                       <li class="divider-vertical"></li>
                       <li class="dropdown">
-                        <a href="http://127.0.0.1:8888/#" class="dropdown-toggle" data-toggle="dropdown">帐户 <b class="caret"></b></a>
+                        <a href="###" class="dropdown-toggle" data-toggle="dropdown">帐户 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                          <li><a href="http://127.0.0.1:8888/#">帐户设置</a></li>
+                          <li><a href="<?=site_url('personal/setting#account') ?>">帐户设置</a></li>
                           <li class="divider"></li>
                           <li><?=anchor('index/logout', '退出') ?></li>
                         </ul>

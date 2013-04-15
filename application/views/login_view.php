@@ -32,7 +32,7 @@
     <div class="topbar"></div>
     <div class="mainBody">
         <div class="container">
-            <?=form_open('index/do_login','class="form_signin"', 'id="login_form"') ?>
+            <?=form_open('index/do_login','class="form_signin" id="login_form"') ?>
                 <h2 class="signin_heading">加加-校园社团网</h2>
                 <input type="text" class="input-block-level" name="email"  id="email" placeholder="Email address">
                 <input type="password" class="input-block-level" name="pass" id="pass" placeholder="Password">
