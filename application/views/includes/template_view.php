@@ -8,7 +8,7 @@
 <? $this->load->view('includes/nav_view') ?>
 <script type="text/javascript" src="<?=base_url('resource/js/notify.js') ?>"></script>
 <? endif ?>
-<div id="container">
+<div id="containerWrap">
 <? $this->load->view($main_content) ?> 
 </div>
 <? $this->load->view('includes/footer_view') ?>

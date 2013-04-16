@@ -32,6 +32,14 @@ ul, ol {list-style: none outside none;}
 	cursor: pointer;
 }
 .brand,.ico{background: url(../img/tab_sprite.png);}
+
+#containerWrap {
+    margin: 0 auto;
+    min-height: 400px;
+    overflow: auto;
+    padding-bottom: 135px;
+    padding-top: 28px;
+}
 /*foot*/
 .container.mainBody{padding-bottom: 125px;}
 #footer{
