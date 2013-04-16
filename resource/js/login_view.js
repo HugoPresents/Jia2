@@ -1,6 +1,6 @@
 $(function() {
         $("#login_form").submit(function() {
-        	alert('here');
+        	//alert('here');
                 email = $("input[name='email']").val();
                 pass = $("input[name='pass']").val();
                 remember = $("input[name='remember']").val();
@@ -21,9 +21,12 @@ $(function() {
                     	} else {
                     		window.location.href = SITE_URL;
                     	}
-                    } else {
-                        $("#email_prompt").text(data.email);
-                        $("#pass_prompt").text(data.pass);
+                    } else if(data.verify == 0){
+                        $("#email_prompt").text(data.email).show();
+                        $submit.removeAttr('disabled');
+                        $submit.val('登录');
+                    }else{
+                        $("#pass_prompt").text(data.pass).show();
                         $submit.removeAttr('disabled');
                         $submit.val('登录');
                     }

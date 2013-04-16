@@ -17,6 +17,7 @@ ul, ol {list-style: none outside none;}
 .nf{float:none}
 .fr{float:right}
 .fl{float:left}
+.mt10{margin-top: 10px}
 .mt20{margin-top: 20px}
 .hide{display: none;}
 .red{color: red}
@@ -549,7 +550,7 @@ ul, ol {list-style: none outside none;}
 /********log in*********/
 .login_bd{padding-top: 0}
 .C_wrap{min-height: 500px;}
-.topbar{background-color: #000;height: 40px}
+.topbar{margin-top: -40px;background-color: #000;height: 40px}
 .login_bd .mainBody{
     background:#fff url("../img/loginbg.jpg") no-repeat top center;
     padding-bottom:135px;
@@ -559,9 +560,9 @@ ul, ol {list-style: none outside none;}
 .login_bd .container{position: relative;min-height: 500px;}
 .form_signin {
     position:absolute;
-    top: 155px;
+    top: 120px;
     right: 50px;
-    max-width: 300px;
+    width: 300px;
     padding: 19px 29px 29px;
     background-color: #fff;
     border: 1px solid #e5e5e5;
@@ -575,3 +576,6 @@ ul, ol {list-style: none outside none;}
 .signin_heading{
     padding-bottom: 20px;
 }
+.alert{display: none; height: 20px; padding:4px 6px;}
+
+.btn-relax{width: 100%; padding: 6px 0}

@@ -48,10 +48,10 @@ $(function() {
 function name_check() {
 	val = $("#name").val();
 	if(val==''){
-			$("#name_prompt").text('姓名不能为空');
+			$("#name_prompt").text('姓名不能为空').show();
 			return false;
 		}else if(val!==''){
-			$("#name_prompt").text('姓名正确');
+			$("#name_prompt").text('姓名正确').hide();
 			return true;
 		}
 }
@@ -59,10 +59,10 @@ function name_check() {
 function pass_check() {
 	val = $("#pass").val();
 	if(val=='') {
-		$("#pass_prompt").text('密码不能为空');
+		$("#pass_prompt").text('密码不能为空').show();
 		return false;
 	} else if(val!=='') {
-		$("#pass_prompt").text('');
+		$("#pass_prompt").text('').hide();
 		return true;
 	}
 }
@@ -71,13 +71,13 @@ function email_check() {
 	val = $("#email").val();
 	var myreg = /\w+((-w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+/;	
 		if(val=='') {
-			$("#email_prompt").text('邮箱不能为空');
+			$("#email_prompt").text('邮箱不能为空').show();
 			return false;
 		} else if(!myreg.test(val)) {
-			$("#email_prompt").text('邮箱格式不正确');
+			$("#email_prompt").text('邮箱格式不正确').show();
 			return false;
 		} else if(myreg.test(val)) {
-			$("#email_prompt").text('邮箱格式正确');
+			$("#email_prompt").text('邮箱格式正确').hide();
 			return true;
 		}
 }

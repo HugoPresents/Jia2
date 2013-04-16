@@ -35,10 +35,14 @@
         <div class="container">
             <?=form_open('index/do_regist','class="form_signin"', 'id = "reg"') ?>
                 <h2 class="signin_heading">加加-校园社团网</h2>
-                <input type="text" class="input-block-level" placeholder="邮箱地址">
-                <input type="text" class="input-block-level" placeholder="昵称">
-                <input type="password" class="input-block-level" placeholder="密码">
-                <button class="btn btn-large btn-primary" type="submit">注册</button>
+                <input type="text" class="input-block-level" name="email" id="email" placeholder="邮箱地址">
+                <div class="alert" id="email_prompt"></div>
+                <input type="text" class="input-block-level" name="name" id="name" placeholder="昵称">
+                <div class="alert" id="name_prompt"></div>
+                <input type="password" class="input-block-level" name="pass" id="pass" placeholder="密码">
+                <div class="alert" id="pass_prompt"></div>
+                <button class="btn btn-large btn-primary btn-relax" type="submit">注册</button>
+                <?=anchor(site_url('index/regist'), '注册','class="btn btn-relax mt10"') ?> </span>
             </form>
         </div>
     </div>
