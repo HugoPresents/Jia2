@@ -9,7 +9,7 @@ body {
 }/* 修正IE6振动bug */
 a{color:#9B9B9B;color: #0a8cd2;color: #26709A;}
 a:hover,a:focus, a:visited{text-decoration: none;}
-ul, ol {list-style: none outside none;}
+ul, ol {list-style: none outside none; margin: 0}
 .clearfix:before,.clearfix:after{content:"";display:table}
 .clearfix:after{clear:both}
 .clearfix{*zoom:1}
@@ -114,6 +114,7 @@ ul, ol {list-style: none outside none;}
     background-position: 0 -348px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     padding: 0 15px;
+    vertical-align: middle;
 }
 .W_btn{line-height: 20px;}
 .btnDefault:hover, .pub_btn:hover, .W_btn:hover{
@@ -186,9 +187,10 @@ ul, ol {list-style: none outside none;}
 .feed_switcher{
 	margin-bottom: 10px;
 	padding-bottom: 8px;
-	border-bottom: 1px solid #dadada; 
+	border-bottom: 1px solid #dadada;
+    position: relative;
 }
-.feed_switcher a{
+.switch{
 	float: left;
 	height: 26px;
 	padding: 2px 8px;
@@ -201,25 +203,25 @@ ul, ol {list-style: none outside none;}
 	outline: none;
 	color: #221919;
 }
-.feed_switcher a:hover{color: #C90000;}
-.feed_switcher a:hover, .feed_switcher a.selected {
+.switch:hover{color: #C90000;}
+.switch:hover, .switch.selected {
     background-position: -1px -290px;
 }
-.feed_switcher a.first {
+.switch.first {
 	background-position: 0 -90px;
 }
-.feed_switcher a.first:hover,.feed_switcher a.first.selected {
+.switch.first:hover,.switch.first.selected {
 	background-position: 0 -170px;
 }
-.feed_switcher a.last {
+.switch.last {
 	background-position: right -330px;
 	border: 0;
 }
-.feed_switcher a.last:hover, .feed_switcher a.last.selected{
+.switch.last:hover, .switch.last.selected{
     background-position: right -410px;
 }
 
-.feed_switcher a:hover{text-decoration: none;}
+.switch:hover{text-decoration: none;}
 
 /*feeds*/
 .feeds{}
@@ -411,7 +413,6 @@ ul, ol {list-style: none outside none;}
     margin-bottom: 10px;
     height: 30px;
     line-height: 24px;
-    color: #d9d9d9;
     overflow: hidden;
     white-space: nowrap;
     zoom: 1;
@@ -420,8 +421,8 @@ ul, ol {list-style: none outside none;}
     margin: 0 9px 0 5px;
     _margin: 0 5px 0 0;
 }
-.btn_s, .btn_m{padding: 5px}
-.btn_n{ background: #ccc}
+.btn_s, .btn_m{display: inline; padding: 5px;line-height: 20px;}
+.btn_n{ background: #ccc;}
 .btn_n:hover{color: #333}
 .ico_atten{background-position: -120px 0}
 .ico_join{background-position: -120px -20px}
@@ -566,4 +567,52 @@ ul, ol {list-style: none outside none;}
 }
 .signin_heading{
     padding-bottom: 20px;
+}
+
+/*********assoHome**********/
+.feed_op{
+    position: absolute;
+    bottom: 8px;
+    right: 30px;
+}
+.asso_mg{padding-bottom: 20px}
+.asso_w{
+    border-bottom: 1px solid #E6E6E6;
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 10px;
+    /*background-color: #f8f8f8;*/
+}
+.thumbnail{border-radius: 0;overflow: hidden; }
+.thumbnail:hover{cursor:pointer;}
+.thumbnail .asso_tit{margin: 0;padding: 5px 0 0;width: auto;}
+.span3 {width: 210px;}
+.img_100 img{width: 160px;height: 120px; }
+.asso_brief{margin-left: 20px;}
+.asso_brief .asso_name{margin:0;font-size: 18px }
+.a3{color: #333;}
+.c6{color: #666;}
+.c9{color: #999;}
+
+/****assoAdd****/
+.f20{font-size: 20px}
+
+.uploadInput{
+    position: relative;
+    cursor: pointer;
+    margin: 0 5px 0 0;
+    padding-left: 5px;
+}
+#file_name{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 64px;
+    height: 30px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
 }
