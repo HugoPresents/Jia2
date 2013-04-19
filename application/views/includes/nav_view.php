@@ -50,11 +50,17 @@
                     <ul class="nav">
                       <li class="active"><a href="#">首页</a></li>
                       <li><?=anchor('personal', '个人主页', '') ?></li>
-                      <li><a href="found.html">社团之家</a></li>
-                      <li><a href="#">活动之家</a></li>
+                      <li><?=anchor('corporation', '社团之家', '')?></li>
+                      <li><?=anchor('corporation', '活动之家', '')?></li>
                     </ul>
-                    <form class="navbar-search pull-left" action="">
-                      <input type="text" class="search-query span2" placeholder="Search">
+                    <form name="search" class="navbar-search pull-left" action="" id="searchform">
+                        <?=form_hidden('offset', 0) ?>
+                        <?=form_hidden('user', 1) ?>
+                        <?=form_hidden('corporation', 1) ?>
+                        <?=form_hidden('activity', 1) ?>
+                        <input type="text" class="search-query span2" id="nav_search_content" placeholder="社团/个人/活动">
+                        <?=form_submit('submit', '', 'class="button" id="nav_search_submit"') ?>
+                        <?=form_close() ?>
                     </form>
                     
                     <ul class="nav pull-right">

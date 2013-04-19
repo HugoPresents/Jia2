@@ -8,8 +8,8 @@ body {
     background-image:url(about:blank);background-attachment:fixed;
 }/* 修正IE6振动bug */
 a{color:#9B9B9B;color: #0a8cd2;color: #26709A;}
-a:hover,a:focus, a:visited{text-decoration: none;}
-ul, ol {list-style: none outside none;}
+a:hover,a:focus, a:visited{text-decoration: none;outline: none}
+ul, ol {list-style: none outside none; margin: 0}
 .clearfix:before,.clearfix:after{content:"";display:table}
 .clearfix:after{clear:both}
 .clearfix{*zoom:1}
@@ -17,7 +17,6 @@ ul, ol {list-style: none outside none;}
 .nf{float:none}
 .fr{float:right}
 .fl{float:left}
-.mt10{margin-top: 10px}
 .mt20{margin-top: 20px}
 .hide{display: none;}
 .red{color: red}
@@ -32,24 +31,8 @@ ul, ol {list-style: none outside none;}
 	cursor: pointer;
 }
 .brand,.ico{background: url(../img/tab_sprite.png);}
-
-#containerWrap {
-    margin: 0 auto;
-    min-height: 400px;
-    overflow: auto;
-    padding-bottom: 135px;
-    padding-top: 28px;
-}
 /*foot*/
 .container.mainBody{padding-bottom: 125px;}
-#footer{
-	width:100%;
-	height:60px;
-	padding-top: 75px;
-	position:absolute;
-	bottom: 0px;
-	background:#343841 url(../img/page-footer-bg.jpg) top repeat-x;
-}
 .footer {
     position: absolute;
     bottom:0px;
@@ -90,8 +73,8 @@ ul, ol {list-style: none outside none;}
 	float: left;
 	width: 610px;
 	padding: 20px;
-	border-radius: 3px;
 	background: #fff;
+    /*border-top: none;*/
 }
 .main_top{
 	position: absolute;
@@ -131,6 +114,7 @@ ul, ol {list-style: none outside none;}
     background-position: 0 -348px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     padding: 0 15px;
+    vertical-align: middle;
 }
 .W_btn{line-height: 20px;}
 .btnDefault:hover, .pub_btn:hover, .W_btn:hover{
@@ -203,9 +187,10 @@ ul, ol {list-style: none outside none;}
 .feed_switcher{
 	margin-bottom: 10px;
 	padding-bottom: 8px;
-	border-bottom: 1px solid #dadada; 
+	border-bottom: 1px solid #dadada;
+    position: relative;
 }
-.feed_switcher a{
+.switch{
 	float: left;
 	height: 26px;
 	padding: 2px 8px;
@@ -218,25 +203,25 @@ ul, ol {list-style: none outside none;}
 	outline: none;
 	color: #221919;
 }
-.feed_switcher a:hover{color: #C90000;}
-.feed_switcher a:hover, .feed_switcher a.selected {
+.switch:hover{color: #C90000;}
+.switch:hover, .switch.selected {
     background-position: -1px -290px;
 }
-.feed_switcher a.first {
+.switch.first {
 	background-position: 0 -90px;
 }
-.feed_switcher a.first:hover,.feed_switcher a.first.selected {
+.switch.first:hover,.switch.first.selected {
 	background-position: 0 -170px;
 }
-.feed_switcher a.last {
+.switch.last {
 	background-position: right -330px;
 	border: 0;
 }
-.feed_switcher a.last:hover, .feed_switcher a.last.selected{
+.switch.last:hover, .switch.last.selected{
     background-position: right -410px;
 }
 
-.feed_switcher a:hover{text-decoration: none;}
+.switch:hover{text-decoration: none;}
 
 /*feeds*/
 .feeds{}
@@ -428,7 +413,6 @@ ul, ol {list-style: none outside none;}
     margin-bottom: 10px;
     height: 30px;
     line-height: 24px;
-    color: #d9d9d9;
     overflow: hidden;
     white-space: nowrap;
     zoom: 1;
@@ -436,9 +420,10 @@ ul, ol {list-style: none outside none;}
 .vline {
     margin: 0 9px 0 5px;
     _margin: 0 5px 0 0;
+    color: #ccc;
 }
-.btn_s, .btn_m{padding: 5px}
-.btn_n{ background: #ccc}
+.btn_s, .btn_m{display: inline; padding: 5px;line-height: 20px;}
+.btn_n{ background: #ccc;}
 .btn_n:hover{color: #333}
 .ico_atten{background-position: -120px 0}
 .ico_join{background-position: -120px -20px}
@@ -500,8 +485,8 @@ ul, ol {list-style: none outside none;}
     margin-left: 10px;
 }
 /**************发现社团*********/
-.found_hd.subhead{height: 283px; background: url("../img/head_fx.png") no-repeat center}
-.vm{padding-top: 5px;}
+.found_bd .subhead{height: 283px; background: url("../img/head_fx.png") no-repeat center}
+.vm{padding-top: 5px; vertical-align: middle;}
 .btnBlue{
     color: white;
     border: 1px solid #207AC5;
@@ -545,6 +530,7 @@ ul, ol {list-style: none outside none;}
     text-overflow: ellipsis;
     white-space: nowrap;
     color: #333333;
+    overflow: hidden;
 }
 .asso_extra{
     padding: 5px 16px 0;
@@ -558,7 +544,7 @@ ul, ol {list-style: none outside none;}
 /********log in*********/
 .login_bd{padding-top: 0}
 .C_wrap{min-height: 500px;}
-.topbar{margin-top: -40px;background-color: #000;height: 40px}
+.topbar{background-color: #000;height: 40px}
 .login_bd .mainBody{
     background:#fff url("../img/loginbg.jpg") no-repeat top center;
     padding-bottom:135px;
@@ -568,9 +554,9 @@ ul, ol {list-style: none outside none;}
 .login_bd .container{position: relative;min-height: 500px;}
 .form_signin {
     position:absolute;
-    top: 120px;
+    top: 155px;
     right: 50px;
-    width: 300px;
+    max-width: 300px;
     padding: 19px 29px 29px;
     background-color: #fff;
     border: 1px solid #e5e5e5;
@@ -584,6 +570,173 @@ ul, ol {list-style: none outside none;}
 .signin_heading{
     padding-bottom: 20px;
 }
-.alert{display: none; height: 20px; padding:4px 6px;}
 
-.btn-relax{width: 100%; padding: 6px 0}
+/*********assoHome**********/
+.feed_op{
+    position: absolute;
+    bottom: 8px;
+    right: 30px;
+}
+.asso_mg{padding-bottom: 20px}
+.asso_w{
+    border-bottom: 1px solid #E6E6E6;
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 10px;
+    /*background-color: #f8f8f8;*/
+}
+.thumbnail{border-radius: 0;overflow: hidden; }
+.thumbnail:hover{cursor:pointer;}
+.thumbnail .asso_tit{margin: 0;padding: 10px 2px;width: 100% }
+.thumbnail .asso_extra{padding: 0 2px;}
+.span3 {width: 210px;}
+.img_100 img{width: 160px;height: 120px; }
+.asso_brief{margin-left: 20px;}
+.asso_brief .asso_name{margin:0;font-size: 18px }
+.a3{color: #333;}
+.c6{color: #666;}
+.c9{color: #999;}
+
+/****assoAdd****/
+.f20{font-size: 20px}
+
+.uploadInput{
+    position: relative;
+    cursor: pointer;
+    margin: 0 5px 0 0;
+    padding-left: 5px;
+}
+#file_name{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 64px;
+    height: 30px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+/*****blogPost****/
+.post_blog .control-label{width: 60px}
+.post_blog .controls{margin-left:60px }
+.post_blog .alert{padding: 4px 8px;}
+.blogTitle{
+    width: 630px;
+    left: -1px;
+    top: -43px;
+    position: absolute;
+    background: #E9E9E9;
+    padding: 10px;
+    border: 1px solid #E1E1E1;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    font-size: 13px;
+    color: #586067;
+    padding: 5px 10px;
+}
+
+.blogTitle span {
+    font-weight: bold;
+    font-size: 16px;
+    padding-left: 0;
+    border-right: 1px solid #ccc;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+.set_title {
+    font-size: 14px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-bottom: 1px solid #c7c7c7;
+}
+/*.right_handler {*/
+    /*float: left;*/
+    /*width: 219px;*/
+    /*padding: 10px;*/
+    /*padding: 20px 20px;*/
+    /*background-color: #F2F2F2;*/
+    /*border: 1px solid #e1e1e1;*/
+    /*border-left: none;*/
+    /*border-top-left-radius: 0;*/
+    /*border-top-right-radius: 3px;*/
+    /*border-bottom-left-radius: 0px;*/
+    /*border-bottom-right-radius: 3px;*/
+/*}*/
+
+/*******activity*******/
+.ac_01,.ac_title{
+    margin-bottom:10px;
+    padding-bottom:10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+.last{border:none}
+
+/*******activityhome*******/
+.shortcut {
+    width: 200px;
+    background-color: #f2f2f2;
+    overflow: hidden;
+}
+.shortcut p {
+    padding: 20px 20px 0;
+    color: #888;
+    line-height: 22px;
+    text-indent: 24px;
+    float: left;
+}
+
+/*******search******/
+.subheadline{
+    border-width: 0 0 1px;
+    border-color: #ccc;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    box-shadow: 0 1px 4px rgba(0,0,0,.065);
+}
+
+.searchmain {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    padding: 20px 0;
+    margin-top: 20px;
+    margin-right: 20px;
+    position: relative;
+    width: 630px;
+    border: 1px solid #E1E1E1;
+}
+.searchside{
+    float: left;
+    width: 200px;
+    margin-top: 20px;
+    padding:0 20px;
+}
+.switcher_wrap{
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+#searh_key{color: #999}
+
+.breadcrumb {
+    background-color:#fff;
+    border-radius:0;
+    margin: 0 ;
+    padding: 0;
+}
+
+.person_num a{margin-left: 5px;}
+.img_80 img{width: 80px ;height: 80px}
+.adbtn{
+    float: right;
+    margin-top: 4px;
+    text-align: right;
+}
+.name{
+    font-size: 14px;
+    font-weight: bold;
+}

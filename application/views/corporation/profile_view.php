@@ -31,59 +31,59 @@
 			});
 		});
 </script>
-<!-- <div id="sidebar">
-	<div class="user_head_box sidebar_nav">
-		<a href="<?=site_url('corporation/profile/' . $info['id'])?>" class="user_head"> <img id="" src="<?=avatar_url($info['avatar'], 'corporation', 'big') ?>" /> </a>
-		<a href="" class="user_name"><?=$info['name']?></a>
-	</div>
-	<p>
-	<? if($this->session->userdata('id')): ?>
-		<? if(in_array($this->session->userdata('id'), $followers)): ?>
-			<?=form_button(array('name' => 'follow', 'content' => '已关注', 'id' => $info['id'], 'disabled' => 'disabled'))?>
-			<?=form_button(array('name' => 'unfollow', 'content' => '取消关注', 'id' => $info['id']))?>
-		<? else:?>
-			<?=form_button(array('name' => 'follow', 'content' => '关注', 'id' => $info['id']))?>
-			
-		<? endif?>
-	<? endif ?>
-	</p>
-	<p>
-	<? if($this->session->userdata('id')): ?>
-		<? if(in_array($this->session->userdata('id'), $members)): ?>
-			<?=form_button(array('name' => 'join', 'content' => '已加入', 'co_id' => $info['id'], 'disabled' => 'disabled'))?>
-			<?=form_button(array('name' => 'unjoin', 'content' => '退出社团', 'co_id' => $info['id'], 'id'=>'leave_co'))?>
-		<? else:?>
-			<?=form_button(array('name' => 'join', 'content' => '请求加入', 'co_id' => $info['id'], 'id' => 'join_co'))?>
-			
-		<? endif?>
-	<? endif ?>
-	</p>
-	<div class="sidebar_nav">
-		<h4><strong>协会信息</strong></h4>
-		<ul class="asso_info">
-			<li>
-				社长：<?=anchor('personal/profile/' . $info['user'][0]['id'], $info['user'][0]['name']) ?>
-			</li>
-		</ul>
-		<p class="f-aaa">
-			由 <?=$info['user'][0]['name'] ?> 创建
-		</p>
-		<p>
-			<a href="#?w=500" rel="popup5" class="inline" id="more_info">更多资料</a>
-		</p>
-	</div>
-	<div class="sidebar_nav">
-		<h4>协会成员（<?=count($members) ?>）</h4>
-		<ul class="asso_list asso_list_01">
-		<? foreach($members_info as $member): ?>
-			<li>
-				<a class="asso_list_a_img" href="<?=site_url('personal/profile/' . $member['id']) ?>"><img src="<?=avatar_url($member['avatar'], 'personal', 'tiny') ?>" /></a>
-				<a class="asso_list_a_name"><?=$member['name'] ?></a>
-			</li>
-		<? endforeach ?>
-		</ul>
-	</div>
-</div> -->
+<!-- <div id="sidebar">-->
+<!--	<div class="user_head_box sidebar_nav">-->
+<!--		<a href="--><?//=site_url('corporation/profile/' . $info['id'])?><!--" class="user_head"> <img id="" src="--><?//=avatar_url($info['avatar'], 'corporation', 'big') ?><!--" /> </a>-->
+<!--		<a href="" class="user_name">--><?//=$info['name']?><!--</a>-->
+<!--	</div>-->
+<!--	<p>-->
+<!--	--><?// if($this->session->userdata('id')): ?>
+<!--		--><?// if(in_array($this->session->userdata('id'), $followers)): ?>
+<!--			--><?//=form_button(array('name' => 'follow', 'content' => '已关注', 'id' => $info['id'], 'disabled' => 'disabled'))?>
+<!--			--><?//=form_button(array('name' => 'unfollow', 'content' => '取消关注', 'id' => $info['id']))?>
+<!--		--><?// else:?>
+<!--			--><?//=form_button(array('name' => 'follow', 'content' => '关注', 'id' => $info['id']))?>
+<!---->
+<!--		--><?// endif?>
+<!--	--><?// endif ?>
+<!--	</p>-->
+<!--	<p>-->
+<!--	--><?// if($this->session->userdata('id')): ?>
+<!--		--><?// if(in_array($this->session->userdata('id'), $members)): ?>
+<!--			--><?//=form_button(array('name' => 'join', 'content' => '已加入', 'co_id' => $info['id'], 'disabled' => 'disabled'))?>
+<!--			--><?//=form_button(array('name' => 'unjoin', 'content' => '退出社团', 'co_id' => $info['id'], 'id'=>'leave_co'))?>
+<!--		--><?// else:?>
+<!--			--><?//=form_button(array('name' => 'join', 'content' => '请求加入', 'co_id' => $info['id'], 'id' => 'join_co'))?>
+<!---->
+<!--		--><?// endif?>
+<!--	--><?// endif ?>
+<!--	</p>-->
+<!--	<div class="sidebar_nav">-->
+<!--		<h4><strong>协会信息</strong></h4>-->
+<!--		<ul class="asso_info">-->
+<!--			<li>-->
+<!--				社长：--><?//=anchor('personal/profile/' . $info['user'][0]['id'], $info['user'][0]['name']) ?>
+<!--			</li>-->
+<!--		</ul>-->
+<!--		<p class="f-aaa">-->
+<!--			由 --><?//=$info['user'][0]['name'] ?><!-- 创建-->
+<!--		</p>-->
+<!--		<p>-->
+<!--			<a href="#?w=500" rel="popup5" class="inline" id="more_info">更多资料</a>-->
+<!--		</p>-->
+<!--	</div>-->
+<!--	<div class="sidebar_nav">-->
+<!--		<h4>协会成员（--><?//=count($members) ?><!--）</h4>-->
+<!--		<ul class="asso_list asso_list_01">-->
+<!--		--><?// foreach($members_info as $member): ?>
+<!--			<li>-->
+<!--				<a class="asso_list_a_img" href="--><?//=site_url('personal/profile/' . $member['id']) ?><!--"><img src="--><?//=avatar_url($member['avatar'], 'personal', 'tiny') ?><!--" /></a>-->
+<!--				<a class="asso_list_a_name">--><?//=$member['name'] ?><!--</a>-->
+<!--			</li>-->
+<!--		--><?// endforeach ?>
+<!--		</ul>-->
+<!--	</div>-->
+<!--</div> -->
 <!-- <div id="main">
 	<div class="asso_intro_box">
 		<h3><?=$info['name'] ?><span><a href="<?=site_url('blog/' . $info['id'] . '/corporation')?>">社团日志</a></span><span><a href="<?=site_url('album/' . $info['id'] . '/corporation')?>">社团相册</a></span></h3>
@@ -93,7 +93,7 @@
 		<p class="">
 			<?=anchor('corporation/setting/' . $info['id'], '社团设置','class="creat_button creat_act inline"') ?>
 			<?=anchor('activity/add/' . $info['id'], '创建活动','class="creat_button creat_act inline"')?>
-		</p>		
+		</p>
 	</div>
 	<div class="search_item">
 		<ul>
@@ -172,7 +172,7 @@
 			</div>
 		</div>
 	</div>
-		
+
 </div>	 -->
 
 <div class="mainContainer">
