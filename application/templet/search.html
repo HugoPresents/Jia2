@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>加加社团 · 校园社团网</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap-responsive.min.css" rel="stylesheet"> -->
+    <link href="css/my.css" rel="stylesheet">
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+     <!-- Navbar-->
+     <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">加加社团</a>
+          <div class="nav-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav">
+                      <li class="active"><a href="#">首页</a></li>
+                      <li><a href="assoProfile.html">个人主页</a></li>
+                      <li><a href="found.html">社团之家</a></li>
+                      <li><a href="#">活动之家</a></li>
+                    </ul>
+                    <form class="navbar-search pull-left" action="">
+                      <input type="text" class="search-query span2" placeholder="Search">
+                    </form>
+                    <ul class="nav pull-right">
+                      <li class="dropdown">
+                        <a href="http://127.0.0.1:8888/#" class="dropdown-toggle" data-toggle="dropdown">通知 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="http://127.0.0.1:8888/#">站内信</a></li>
+                          <li><a href="http://127.0.0.1:8888/#">请求</a></li>
+                          <li><a href="http://127.0.0.1:8888/#">消息</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider-vertical"></li>
+                      <li class="dropdown">
+                        <a href="http://127.0.0.1:8888/#" class="dropdown-toggle" data-toggle="dropdown">帐户 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="http://127.0.0.1:8888/#">帐户设置</a></li>
+                          <li class="divider"></li>
+                          <li><a href="http://127.0.0.1:8888/#">退出</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div><!-- /.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <header class="subhead subheadline">
+          <div class="container">
+          <!--<h1>加加社团网</h1>-->
+          <p class="lead">分享校园生活！感动你我！</p>
+          <div class="search_wrap">
+              <div class="checkboxes">
+                  <label class="checkbox">
+                      <input type="checkbox"> 用户
+                  </label>
+                  <label class="checkbox">
+                      <input type="checkbox"> 社团
+                  </label>
+                  <label class="checkbox">
+                      <input type="checkbox"> 活动
+                  </label>
+              </div>
+              <div class="input-append">
+                  <input class="span4" id="appendedInputButtons" type="text">
+                  <button class="btn" type="button">Search</button>
+              </div>
+          </div>
+
+    </div>
+    </header>
+    <div class="container mainBody">
+        <div class="searchmain">
+
+            <div class="switcher_wrap clearfix">
+                <span class="fr">&nbsp;搜索&nbsp;<q id="searh_key">“zzz”</q>&nbsp;的结果</span>
+                <ul class="nav nav-tabs" id="myTab">
+                    <li class="active"><a href="#user"  data-toggle="tab">用户</a></li>
+                    <li><a href="#asso"  data-toggle="tab">社团</a></li>
+                    <li><a href="#activity"  data-toggle="tab">活动</a></li>
+                </ul>
+            </div>
+
+            <div class="tab-content">
+                <!--用户-->
+                <div class="tab-pane active" id="user">
+                    <ul class="clearfix">
+                        <li class="asso_w">
+                            <div class="img_80 fl">
+                                <a href="assoProfile.html" class="thumbnail">
+                                    <img src="img/asso/assoBig-8.jpg" />
+                                </a>
+                            </div>
+                            <div class="asso_brief fl">
+                                <a class="name" href="" title="">用户名</a>
+                                <p class="">男 <em class="vline">|</em> 四川省 <em class="vline">|</em> 成都信息工程学院</p>
+                                <p class="person_num">
+                                    <span>关注<a href="" target="_blank">50</a></span>
+                                    <em class="vline">|</em>
+                                    <span>粉丝<a href="" target="_blank">203</a></span>
+                                    <em class="vline">|</em>
+                                    <span>动态<a href="" target="_blank">146</a></span>
+                                </p>
+                            </div>
+                            <div class="adbtn">
+                                <span href="" class="btnDefault btn_m"><i class="ico ico_atten"></i>关注</span>
+                                <!--<span href="" class="btnDefault btn_m btn_n"><i class="ico ico_atten"></i>已关注 | <a href="">取消</a></span>-->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--社团-->
+                <div class="tab-pane" id="asso">
+                    <ul class="clearfix">
+                        <li class="asso_w">
+                            <div class="img_80 fl">
+                                <a href="assoProfile.html" class="thumbnail">
+                                    <img src="img/asso/assoBig-7.jpg" />
+                                </a>
+                            </div>
+                            <div class="asso_brief fl">
+                                <a class="name" href="" title="">社团名字什么的</a>
+                                <p class="">四川省 <em class="vline">|</em> 成都信息工程学院</p>
+                                <p class="person_num">
+                                    <span>成员<a href="" target="_blank">50</a></span>
+                                    <em class="vline">|</em>
+                                    <span>粉丝<a href="" target="_blank">203</a></span>
+                                    <em class="vline">|</em>
+                                    <span>动态<a href="" target="_blank">146</a></span>
+                                </p>
+                            </div>
+                            <div class="adbtn">
+                                <span href="" class="btnDefault btn_m"><i class="ico ico_join"></i>加入</span>
+                                <!--<span href="" class="btnDefault btn_m btn_n"><i class="ico ico_join"></i>已加入 | <a href="">退出</a></span>-->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--活动-->
+                <div class="tab-pane" id="activity">
+                    <ul class="clearfix">
+                        <li class="asso_w">
+                            <div class="img_80 fl">
+                                <a href="assoProfile.html" class="thumbnail">
+                                    <img src="img/asso/assoBig-5.jpg" />
+                                </a>
+                            </div>
+                            <div class="asso_brief fl">
+                                <p class=""><a href="" title="">社团名字</a> 创建了 <a href="" title="">活动名字</a> </p>
+                                <p class="person_num">
+                                    <span>成员<a href="" target="_blank">50</a></span>
+                                    <em class="vline">|</em>
+                                    <span>粉丝<a href="" target="_blank">203</a></span>
+                                </p>
+                            </div>
+                            <div class="adbtn">
+                                <span href="" class="btnDefault btn_m"><i class="ico ico_join"></i>加入</span>
+                                <!--<span href="" class="btnDefault btn_m btn_n"><i class="ico ico_join"></i>已加入 | <a href="">退出</a></span>-->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+            <script>
+                $(function () {
+                    $('#myTab').tab('show')
+                })
+            </script>
+
+
+
+        </div>
+        <div class="searchside">
+            <img src="img/advertisement/shetuanzhijia_01.jpg" alt=""/>
+        </div>
+
+    </div>
+
+
+     <div class="footer">
+         <p class="center">
+             <br>
+             Git Clone Here <a href="https://github.com/Rabbit52/Jia2" target="_blank">GitHub</a><br>
+             2011-2012 Coding by <a href="http://rabbit52.com" target="_blank">Rabbit_52</a> &amp; <a href="#" target="_blank">Tiramisu</a>
+         </p>
+     </div>
+
+
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    
+  </body>
+</html>

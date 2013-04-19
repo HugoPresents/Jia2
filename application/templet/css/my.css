@@ -8,7 +8,7 @@ body {
     background-image:url(about:blank);background-attachment:fixed;
 }/* 修正IE6振动bug */
 a{color:#9B9B9B;color: #0a8cd2;color: #26709A;}
-a:hover,a:focus, a:visited{text-decoration: none;}
+a:hover,a:focus, a:visited{text-decoration: none;outline: none}
 ul, ol {list-style: none outside none; margin: 0}
 .clearfix:before,.clearfix:after{content:"";display:table}
 .clearfix:after{clear:both}
@@ -420,6 +420,7 @@ ul, ol {list-style: none outside none; margin: 0}
 .vline {
     margin: 0 9px 0 5px;
     _margin: 0 5px 0 0;
+    color: #ccc;
 }
 .btn_s, .btn_m{display: inline; padding: 5px;line-height: 20px;}
 .btn_n{ background: #ccc;}
@@ -686,4 +687,56 @@ ul, ol {list-style: none outside none; margin: 0}
     line-height: 22px;
     text-indent: 24px;
     float: left;
+}
+
+/*******search******/
+.subheadline{
+    border-width: 0 0 1px;
+    border-color: #ccc;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    box-shadow: 0 1px 4px rgba(0,0,0,.065);
+}
+
+.searchmain {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    padding: 20px 0;
+    margin-top: 20px;
+    margin-right: 20px;
+    position: relative;
+    width: 630px;
+    border: 1px solid #E1E1E1;
+}
+.searchside{
+    float: left;
+    width: 200px;
+    margin-top: 20px;
+    padding:0 20px;
+}
+.switcher_wrap{
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+#searh_key{color: #999}
+
+.breadcrumb {
+    background-color:#fff;
+    border-radius:0;
+    margin: 0 ;
+    padding: 0;
+}
+
+.person_num a{margin-left: 5px;}
+.img_80 img{width: 80px ;height: 80px}
+.adbtn{
+    float: right;
+    margin-top: 4px;
+    text-align: right;
+}
+.name{
+    font-size: 14px;
+    font-weight: bold;
 }
