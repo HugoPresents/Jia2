@@ -35,6 +35,9 @@
 					<li><a href="<?=site_url('personal/setting#privacy') ?>" >隐私设置</a></li>
 				</ul>
 			</div>
+					<? if($this->session->userdata('type') == 'admin'): ?>
+						<a href="<?=site_url('admin/') ?>" >后台</a>
+					<? endif ?>
 				<?=anchor('index/logout', '退出') ?>
 			<? else: ?>
 				<?=anchor('index/login', '登录') ?>

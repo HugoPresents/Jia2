@@ -23,8 +23,9 @@
             <span class="prompt" id="pass_prompt"></span>       
          </div>
          <div class="field_below">
-         	<?=anchor('', '同意以下协议并') ?>
-            <?=form_submit('submit', '注册', 'class="button"') ?>
+         	<?=anchor('/index/agreement', '同意以下协议并') ?>
+            <?=form_submit('submit', '注册', 'class="button"') ?><br>
+            已有账号？<?=anchor('/index/login', '登录') ?>
          </div>  
     	<?=form_close() ?>
 	</div>

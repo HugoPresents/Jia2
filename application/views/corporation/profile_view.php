@@ -115,7 +115,7 @@
 			<li class="sd02" id="co-02">
 				<a href="#">社团活动&nbsp;(<?=count($activities) ?>)</a>
 			</li>
-			<li class="sd03" id="co-03">
+			<li class="sd02" id="co-03">
 				<a href="#" onclick="gossips();">留言&nbsp;</a>
 			</li>
 		</ul>
