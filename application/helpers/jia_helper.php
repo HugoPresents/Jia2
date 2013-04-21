@@ -165,7 +165,7 @@ if(! function_exists('convert_emoji')) {
 		$CI->config->load('emoji');
 		foreach($CI->config->item('emoji') as $word => $img) {
 			$pattern = '/(\['.$word.'\])/';
-			$replacement = '<img src="'.$CI->config->item('emoji_path').$img.'" alt="'.$word.'" title="'.$word.'">';
+			$replacement = '<img src="'.$CI->config->item('emoji_path').$img.'" class="emoji" alt="'.$word.'" title="'.$word.'">';
 			$str = preg_replace($pattern, $replacement, $str);
 		}
 		return $str;

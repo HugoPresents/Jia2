@@ -596,6 +596,9 @@ a#logo_img {
 	padding:0;
 	margin-right: 10px;
 }
+img.emoji {
+	margin-bottom:-2px;
+}
 /*
 #head_nav a#logo_img {
 	float:left;
