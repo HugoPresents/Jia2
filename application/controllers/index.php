@@ -6,8 +6,6 @@
 			$this->load->model('Post_model');
 		}
 		
-		
-		
 		function index() {
 			if($this->session->userdata('type') == 'guest') {
 				$this->_guest();
