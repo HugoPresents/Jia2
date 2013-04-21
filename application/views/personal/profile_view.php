@@ -34,35 +34,31 @@
                     <li class=""><a class="S_func1" href="<?=site_url('personal/manage/following') ?>"><strong node-type="follow"><?=$following_num ?></strong><span>关注 </span></a>
                     </li>
                     <li class=""><a class="S_func1" href="<?=site_url('personal/manage/follower') ?>"><strong node-type="fans"><?=$followers_num ?></strong><span>粉丝</span></a></li>
-                    <li class="noBorder"><a class="S_func1" name="profile_tab" href=""><strong
-                            node-type="weibo">24</strong><span>状态</span></a></li>
+                    <li class="noBorder"><a class="S_func1" name="profile_tab" href=""><strong node-type="weibo">24</strong><span>状态</span></a></li>
                 </ul>
             </div>
             <div class="asso_info clearfix">
-                <div class="asso_name">三个代表协会</div>
+                <div class="asso_name"><?=$info['name']?></div>
                 <div class="asso_tags">
-                    位置 <a href="">四川省</a>
+                    位置 <a href=""><?=$info['province'][0]['name']?></a>
                     <span class="vline">|</span>
-                    在 <a href="">成都信息工程学院</a>
-                    <span class="vline">|</span>
-                    <a class="btnDefault btn_s" href="">管理社团资料</a>
+                    在 <a href=""><?=$info['school'][0]['name']?></a>
                 </div>
-                <div class="asso_btns">
-                    <span class="btnDefault btn_m" href=""><i class="ico ico_atten"></i>关注</span>
-                    <span class="btnDefault btn_m btn_n" href=""><i class="ico ico_atten"></i>已关注 | <a
-                            href="">取消</a></span>
-                    <span class="btnDefault btn_m" href=""><i class="ico ico_join"></i>加入</span>
-                    <span class="btnDefault btn_m btn_n" href=""><i class="ico ico_join"></i>已加入 | <a
-                            href="">退出</a></span>
-                </div>
+	                <? if($this->session->userdata('id') != $info['id'] ): ?>
+	                 <div class="asso_btns">
+		                <? if(in_array($this->session->userdata('id'), $followers)): ?>
+						<span class="btnDefault btn_m btn_n" href=""><i class="ico ico_atten"></i>已关注 | <a href="">取消</a></span>
+						<? else: ?>
+						<span class="btnDefault btn_m" href=""><i class="ico ico_atten"></i>关注</span>
+						<? endif ?>
+               		</div>
+                <? endif ?>
             </div>
 
             <div class="asso_infoC">
-                <p>创建于 <span class="blue">2010-05-28</span>&nbsp;&nbsp;&nbsp;&nbsp;社长： <span class="blue">zzzz</span>
+                <p>加入于 <span class="blue"><?=date('Y-m-d', $info['regist_time'])?></span>
                 </p>
-
-                <p>欢迎各位学习型友邻在此分享小经验、小感悟、小方法！<br>
-                    希望这里是促发你要去做点什么有趣的事情的好平台！ </p>
+                <p><?=$info['description']?></p>
             </div>
             <div class="asso_pics">
                 <p>最近上传照片</p>
