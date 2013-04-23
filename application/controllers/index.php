@@ -6,15 +6,9 @@
 			$this->load->model('Post_model');
 		}
 		
-		
-		
 		function index() {
 			if($this->session->userdata('type') == 'guest') {
 				$this->_guest();
-			} elseif($this->session->userdata('type') == 'admin') {
-				$str = '<p>你好管理员！</p><p>你或许需要'  . anchor('admin/co_request', '管理申请') . '</p>';
-				$str .= '<p>或者' . anchor('admin/list_all_user', '查看所有注册用户') . '</p>';
-				static_view($str, '首页');
 			} else {
 				$data['title'] = '首页';
 				$data['posts'] = $this->Post_model->post_string($this->session->userdata('id'));
@@ -356,5 +350,12 @@
 			$post_access->init($this->session->userdata('id'));
 			$comment_auth = Access_factory::get_access('comment');
 			$comment_auth->init($this->session->userdata('id'), 'personal');
+		}
+		
+		function agreement() {
+			$data['title'] = '免责协议';
+			$data['css'] = array('home.css');
+			$data['main_content'] = 'agreement';
+			$this->load->view('includes/template_view', $data);
 		}
 	}

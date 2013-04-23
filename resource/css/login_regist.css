@@ -7,7 +7,7 @@
 	border:#E9E9E9 10px solid;
 }
 .re_bg{
-	height:316px;
+	height:336px;
 }
 #login_logo,#regist_logo{width: 98px;height:56px;z-index:9999; position: absolute;top:-6px;left:-36px; background: url(../img/login.png)}
 #regist_logo{background: url(../img/regist.png)}
