@@ -1,4 +1,6 @@
-<!-- <div class="login_bg re_bg">
+<?
+/*
+<div class="login_bg re_bg">
 	<div id="regist_logo"></div>
 	<div class="login register">
     <div class="title"></div>
@@ -28,7 +30,9 @@
          </div>  
     	<?=form_close() ?>
 	</div>
-    </div> -->
+    </div>
+*/
+?>
 <div class="login_bd">  
     <div class="topbar"></div>
     <div class="mainBody">

@@ -1,4 +1,6 @@
-<!-- <div class="login_bg">
+<?
+/*
+<div class="login_bg">
 	<div id="login_logo"></div>
 		<div class="login">
 		<div class="title">
@@ -27,7 +29,9 @@
 			</div>
 		<?=form_close() ?>
 	</div>
-</div> -->
+</div>
+*/
+?>
 <div class="login_bd">
     <div class="topbar"></div>
     <div class="mainBody">

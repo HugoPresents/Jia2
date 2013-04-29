@@ -1,4 +1,6 @@
-<!-- <div id="sidebar">
+<?
+/*
+<div id="sidebar">
 	<div class="user_head_box sidebar_nav">
 		<?=anchor('personal/profile/' . $info['id'], '<img src="'. avatar_url($info['avatar'], 'personal', 'big') .'" >','class="user_head"') ?>
 		<a href="<?=site_url('personal/profile/' . $info['id']) ?>" class="user_name"><?=$info['name'] ?></a>
@@ -28,7 +30,9 @@
 		<?=form_button('post', '发布') ?>
 	</div>
 </form>   
-</div> -->
+</div>
+*/
+?>
 <div class="siderbar">
           <div class="user_head_box sidebar_nav">
             <a href="" class="user_head"><img src="" data-pinit="registered"></a>  

@@ -1,4 +1,6 @@
-<!-- <? if(!empty($posts['personal'])):?>
+<?
+/*
+<? if(!empty($posts['personal'])):?>
 <? foreach ($posts['personal'] as $post):?>
 <li class="feed_a">
 	<div class="img_block">
@@ -74,8 +76,9 @@
 		</div>
 </li>		
 <? endforeach ?>
-<? endif ?> -->
-
+<? endif ?>
+*/
+?>
 <? if(!empty($posts['personal'])):?>
 <? foreach ($posts['personal'] as $post):?>
 <div class="feed_a clearfix">

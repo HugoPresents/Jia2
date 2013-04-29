@@ -1,4 +1,6 @@
-<!-- <h4 class="title_01"><?=$title ?></h4>
+<?
+/*
+<h4 class="title_01"><?=$title ?></h4>
 <div  class="tab_cont_box content_1">
 	<div id="a1">
 		<ul id="corporation-result">
@@ -13,7 +15,9 @@
 			<? endif?>
 		</ul>
 	</div>
-</div> -->
+</div>
+ */
+?>
 <header class="found_hd subhead">
         <div class="container">
         </div>
