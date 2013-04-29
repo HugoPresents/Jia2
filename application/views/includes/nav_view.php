@@ -1,4 +1,6 @@
-<!-- <div id="header">
+<?
+/*
+<div id="header">
 	<div id="head">
 		<div class="left" id="head_nav">
 			
@@ -41,7 +43,9 @@
 			<? endif ?>
 		</div>			
 	</div>
-</div> -->
+</div>
+*/
+?>
 <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -53,20 +57,19 @@
                       <li><?=anchor('corporation', '社团之家', '')?></li>
                       <li><?=anchor('corporation', '活动之家', '')?></li>
                     </ul>
-                    <form name="search" class="navbar-search pull-left" action="" id="searchform">
-                        <?=form_hidden('offset', 0) ?>
-                        <?=form_hidden('user', 1) ?>
-                        <?=form_hidden('corporation', 1) ?>
-                        <?=form_hidden('activity', 1) ?>
-                        <input type="text" class="search-query span2" id="nav_search_content" placeholder="社团/个人/活动">
-                        <?=form_submit('submit', '', 'class="button" id="nav_search_submit"') ?>
-                        <?=form_close() ?>
-                    </form>
+                    <?=form_open('search','id="searchform" class="navbar-search pull-left"') ?>
+                    <?=form_hidden('offset', 0) ?>
+                    <?=form_hidden('user', 1) ?>
+                    <?=form_hidden('corporation', 1) ?>
+                    <?=form_hidden('activity', 1) ?>
+                    <input type="text" class="search-query span2" id="nav_search_content" placeholder="社团/个人/活动" name="keywords">
+                    <?=form_submit('submit', '', 'class="button" id="nav_search_submit"') ?>
+                    <?=form_close() ?>
                     
                     <ul class="nav pull-right">
                     							<? if($this->session->userdata('type') != 'guest'): ?>
                       <li class="dropdown">
-                        <a href="http://127.0.0.1:8888/#" class="dropdown-toggle" data-toggle="dropdown">通知 <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">通知 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                           <li><a href="<?=site_url('notify?type=letter') ?>">站内信</a></li>
                           <li><a href="<?=site_url('notify?type=request') ?>">请求</a></li>
