@@ -62,13 +62,10 @@
             </div>
             <div class="asso_pics">
                 <p>最近上传照片</p>
-
                 <div class="pics_wrap">
-                    <img src="img/asso/assoBig-1.jpg" alt=""/>
-                    <img src="img/asso/assoBig-2.jpg" alt=""/>
-                    <img src="img/asso/assoBig-3.jpg" alt=""/>
-                    <img src="img/asso/assoBig-4.jpg" alt=""/>
-                    <img src="img/asso/assoBig-5.jpg" alt=""/>
+                    <? foreach($recent_photos as $photo): ?>
+                    <a href="<?=site_url('album/lists/'.$photo['album_id'])?>"><img src="<?=base_url($photo['thumb'])?>" alt=""/></a>
+                    <? endforeach; ?>
                 </div>
 
             </div>

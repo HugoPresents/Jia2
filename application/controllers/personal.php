@@ -34,6 +34,8 @@
                             ->where('type_id', 1)
                             ->from('post')
                             ->count_all_results();
+            $sql = 'select * from photo where album_id in(select album_id from album where type_id=1 and owner_id='.$id.') order by id desc limit 5';
+            $data['recent_photos'] = $this->db->query($sql)->result_array();
             $data['post_count'] = $post_count;
 			$data['followers'] = $followers;
 			$data['followers_num'] = $followers ? count($followers) : 0;
