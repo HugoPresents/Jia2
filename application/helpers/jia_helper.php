@@ -171,3 +171,23 @@ if(! function_exists('convert_emoji')) {
 		return $str;
 	}
 }
+
+if(! function_exists('time2duration')) {
+    function time2duration($time_stamp) {
+        $time = time();
+        $duration = $time - $time_stamp;
+        if(($duration < 0))
+            return '时间穿越了 -.-';
+        if( $duration < 30)
+            return $duration . ' 秒前';
+        if( $duration < 60)
+            return '半分钟前';
+        if( $duration < 3600)
+            return intval($duration/60) . ' 分钟前';
+        if( $duration < 24*3600)
+            return intval($duration/3600) . ' 小时前';
+        if( $duration < 365*24*3600)
+            return intval($duration/(24*3600)) . ' 天前';
+        return date('Y-m-d H:i:s', $time_stamp);
+    }
+}

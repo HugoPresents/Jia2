@@ -29,6 +29,12 @@
 			$data['info'] = $this->User_model->get_info((int)$id, $this->join);
 			$followers = $this->User_model->get_followers($id);
 			$following = $this->User_model->get_following($id);
+            $post_count = $this->db
+                            ->where('owner_id', $id)
+                            ->where('type_id', 1)
+                            ->from('post')
+                            ->count_all_results();
+            $data['post_count'] = $post_count;
 			$data['followers'] = $followers;
 			$data['followers_num'] = $followers ? count($followers) : 0;
 			$data['following_num'] = $following ? count($following) : 0;
