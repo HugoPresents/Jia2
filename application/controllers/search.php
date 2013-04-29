@@ -12,14 +12,14 @@
 			);
 			$this->jiadb = new Jiadb;
 		}
-		
+		/*
 		function index() {
 			$data['main_content'] = 'search_view';
 			$data['title'] = '搜索';
 			$data['css'] = array("main_content.css");
 			$data['js'] = array('tab.js');
-			if($this->input->post('keywords')) {
-				if($this->input->post('user')) {
+			if($this->input->get('keywords')) {
+				if($this->input->get('user')) {
 					$data['user_result'] = $this->_user();
 					$data['user_rows'] = $data['user_result']['rows'];
 					unset($data['user_result']['rows']);
@@ -37,39 +37,62 @@
 			}
 			$this->load->view('includes/template_view', $data);
 		}
-		
-		function do_search() {
-			$this->_require_ajax();
-			$object = $this->input->post('object');
-			$keywords = trim($this->input->post('keywords'));
-			$limit = 10;
-			$offset = $this->input->post('offsect') ? $this->input->post('offsect') : 0;
+		*/
+		function index() {
+			$object = $this->input->get('target');
+			$keywords = trim($this->input->get('keywords'));
+            $this->load->library('pagination');
+            $page = $this->uri->segment(2) > 0 ? $this->uri->segment(2) : 1;
+            $this->jiadb->_table = 'user';
+            $data['user_count'] = count_rows('user');
+            $pg_config = array(
+                'base_url' => site_url('search'),
+                'total_rows' => $data['user_count'],
+                'per_page' => $this->limit,
+                'use_page_numbers' => TRUE,
+                'uri_segment' => 2,
+                'enable_query_strings' => TRUE,
+                'suffix' => '?keywords='.$keywords.'&target='.$object
+            );
+            $offset = ($page-1) * $this->limit;
 			switch ($object) {
-				case 'user':
-					$json_array['user_result'] = $this->_user();
-					break;
 				case 'corporation':
 					// 搜索社团
-					$json_array['corporation_result'] = $this->_corporation();
+					$data['corporation_result'] = $this->_corporation($offset);
+                    $pg_config['total_rows'] = $data['corporation_result']['rows'];
+                    unset($data['corporation_result']['rows']);
 					break;
 				case 'activity':
 					// 搜索社团
-					$json_array['activity_result'] = $this->_activity();
+					$data['activity_result'] = $this->_activity($offset);
+                    $pg_config['total_rows'] = $data['activity_result']['rows'];
+                    unset($data['activity_result']['rows']);
 					break;
 				default:
-					// 三个都搜索
-					$json_array['user_result'] = $this->_user();
-					$json_array['corporation_result'] = $this->_corporation();
-					$json_array['activity_result'] = $this->_activity();
+                    $object = 'user';
+					$data['user_result'] = $this->_user($offset);
+                    $pg_config['total_rows'] = $data['user_result']['rows'];
+                    unset($data['user_result']['rows']);
 			}
+            $this->pagination->initialize($pg_config);
+            $data['pagination'] = $this->pagination->create_links();
+            $data['object'] = $object;
+            $data['main_content'] = 'search_view';
+            $data['title'] = '搜索';
+            $data['css'] = array("main_content.css");
+            $data['js'] = array('tab.js');
+            $this->load->view('includes/template_view', $data);
 		}
 
 		//搜索用户
-		function _user() {
-			$keywords = trim($this->input->post('keywords'));
-			$offset = $this->input->post('offset');
+		function _user($offset = 0) {
+			$keywords = trim($this->input->get('keywords'));
+            $user_result = array(
+                'rows' => 0
+            );
+            if(strlen($keywords) < 1) return $user_result;
 			$this->jiadb->_table = 'user';
-			$where = array('name REGEXP' => $keywords);
+			$where = array('name LIKE' => '%'.$keywords.'%');
 			$user_result = $this->jiadb->fetchJoin($where, $this->join, '', array($this->limit, $offset));
 			if($user_result) {
 				$user_result['rows'] = count_rows('user', $where);
@@ -80,9 +103,12 @@
 		}
 		
 		// 搜索社团
-		function _corporation() {
-			$keywords = trim($this->input->post('keywords'));
-			$offset = $this->input->post('offset');
+		function _corporation($offset = 0) {
+			$keywords = trim($this->input->get('keywords'));
+            $corporation_result = array(
+                'rows' => 0
+            );
+            if(strlen($keywords) < 1) return $corporation_result;
 			$this->jiadb->_table = 'corporation';
 			$where = array('name REGEXP' => $keywords);
 			$corporation_result = $this->jiadb->fetchAll($where, '', array($this->limit, $offset));
@@ -95,9 +121,12 @@
 		}
 		
 		// 搜索活动
-		function _activity() {
-			$keywords = trim($this->input->post('keywords'));
-			$offset = $this->input->post('offset');
+		function _activity($offset = 0) {
+			$keywords = trim($this->input->get('keywords'));
+            $activity_result = array(
+                'rows' => 0
+            );
+            if(strlen($keywords) < 1) return $activity_result;
 			$this->jiadb->_table = 'activity';
 			$where = array('name REGEXP' => $keywords);
 			$join = array(

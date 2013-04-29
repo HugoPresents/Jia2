@@ -107,41 +107,32 @@ $(function(){
         <!--<h1>加加社团网</h1>-->
         <p class="lead">分享校园生活！感动你我！</p>
         <div class="search_wrap">
-            <div class="checkboxes">
-                <label class="checkbox">
-                    <input type="checkbox"> 用户
-                </label>
-                <label class="checkbox">
-                    <input type="checkbox"> 社团
-                </label>
-                <label class="checkbox">
-                    <input type="checkbox"> 活动
-                </label>
-            </div>
             <div class="input-append">
-                <input class="span4" id="appendedInputButtons" type="text">
-                <button class="btn" type="button">Search</button>
+                <form action="/search">
+                    <input class="span4" id="appendedInputButtons" name="keywords" type="text">
+                    <input type="submit" class="btn" value="Search">
+                </form>
             </div>
         </div>
-
     </div>
 </header>
 <div class="container mainBody">
     <div class="searchmain">
-
         <div class="switcher_wrap clearfix">
-            <span class="fr">&nbsp;搜索&nbsp;<q id="searh_key">“zzz”</q>&nbsp;的结果</span>
+            <span class="fr">&nbsp;搜索&nbsp;<q id="searh_key">“<?=$this->input->get('keywords')?>”</q>&nbsp;的结果</span>
             <ul class="nav nav-tabs" id="myTab">
-                <li class="active"><a href="#user"  data-toggle="tab">用户</a></li>
-                <li><a href="#asso"  data-toggle="tab">社团</a></li>
-                <li><a href="#activity"  data-toggle="tab">活动</a></li>
+                <li<?=$object == 'user' ? ' class="active"' :''?>><a href="<?=site_url('search/?target=user&keywords='.$this->input->get('keywords'))?>"  data-toggle="tab">用户</a></li>
+                <li<?=$object == 'corporation' ? ' class="active"' :''?>><a href="<?=site_url('search/?target=corporation&keywords='.$this->input->get('keywords'))?>"  data-toggle="tab">社团</a></li>
+                <li<?=$object == 'activity' ? ' class="active"' :''?>><a href="<?=site_url('search/?target=activity&keywords='.$this->input->get('keywords'))?>"  data-toggle="tab">活动</a></li>
             </ul>
         </div>
 
         <div class="tab-content">
+            <? if($object == 'user'): ?>
             <!--用户-->
             <div class="tab-pane active" id="user">
                 <ul class="clearfix">
+                    <? foreach($user_result as $user): ?>
                     <li class="asso_w">
                         <div class="img_80 fl">
                             <a href="assoProfile.html" class="thumbnail">
@@ -149,26 +140,24 @@ $(function(){
                             </a>
                         </div>
                         <div class="asso_brief fl">
-                            <a class="name" href="" title="">用户名</a>
+                            <a class="name" href="" title=""><?=$user['name']?></a>
                             <p class="">男 <em class="vline">|</em> 四川省 <em class="vline">|</em> 成都信息工程学院</p>
-                            <p class="person_num">
-                                <span>关注<a href="" target="_blank">50</a></span>
-                                <em class="vline">|</em>
-                                <span>粉丝<a href="" target="_blank">203</a></span>
-                                <em class="vline">|</em>
-                                <span>动态<a href="" target="_blank">146</a></span>
-                            </p>
                         </div>
                         <div class="adbtn">
                             <span href="" class="btnDefault btn_m"><i class="ico ico_atten"></i>关注</span>
                             <!--<span href="" class="btnDefault btn_m btn_n"><i class="ico ico_atten"></i>已关注 | <a href="">取消</a></span>-->
                         </div>
                     </li>
+                    <? endforeach; ?>
+                    <?=$pagination ?>
                 </ul>
             </div>
+            <? endif ?>
+            <? if($object == 'corporation'): ?>
             <!--社团-->
             <div class="tab-pane" id="asso">
                 <ul class="clearfix">
+                    <? foreach($corporation_result as $corporation): ?>
                     <li class="asso_w">
                         <div class="img_80 fl">
                             <a href="assoProfile.html" class="thumbnail">
@@ -176,7 +165,7 @@ $(function(){
                             </a>
                         </div>
                         <div class="asso_brief fl">
-                            <a class="name" href="" title="">社团名字什么的</a>
+                            <a class="name" href="" title=""><?=$corporation['name']?></a>
                             <p class="">四川省 <em class="vline">|</em> 成都信息工程学院</p>
                             <p class="person_num">
                                 <span>成员<a href="" target="_blank">50</a></span>
@@ -191,11 +180,16 @@ $(function(){
                             <!--<span href="" class="btnDefault btn_m btn_n"><i class="ico ico_join"></i>已加入 | <a href="">退出</a></span>-->
                         </div>
                     </li>
+                    <? endforeach ?>
+                    <?=$pagination ?>
                 </ul>
             </div>
+            <? endif ?>
+            <? if($object == 'activity'): ?>
             <!--活动-->
             <div class="tab-pane" id="activity">
                 <ul class="clearfix">
+                    <? foreach($activity_result as $activity): ?>
                     <li class="asso_w">
                         <div class="img_80 fl">
                             <a href="assoProfile.html" class="thumbnail">
@@ -215,16 +209,12 @@ $(function(){
                             <!--<span href="" class="btnDefault btn_m btn_n"><i class="ico ico_join"></i>已加入 | <a href="">退出</a></span>-->
                         </div>
                     </li>
+                    <? endforeach ?>
+                    <?=$pagination ?>
                 </ul>
             </div>
+            <? endif ?>
         </div>
-
-        <script>
-            $(function () {
-                $('#myTab').tab('show')
-            })
-        </script>
-
     </div>
     <div class="searchside">
         <img src="img/advertisement/shetuanzhijia_01.jpg" alt=""/>

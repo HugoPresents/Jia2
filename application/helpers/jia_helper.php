@@ -139,7 +139,10 @@ if(! function_exists('print_vars')) {
 		$vars = func_get_args();
 		echo '<pre>';
 		foreach ($vars as $var) {
+			ob_start();
 			var_dump($var);
+            $string = ob_get_clean();
+            echo htmlentities($string);
 		}
 		echo '</pre>';
 	}

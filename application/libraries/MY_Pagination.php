@@ -129,14 +129,13 @@
 
 		// And here we go...
 		$output = '';
-
 		// Render the "First" link
 		if  ($this->first_link !== FALSE AND $this->cur_page > ($this->num_links + 1))
 		{
 			$first_url = ($this->first_url == '') ? $this->base_url : $this->first_url;
 			$output .= $this->first_tag_open.'<a '.$this->anchor_class.'href="'.$first_url.'">'.$this->first_link.'</a>'.$this->first_tag_close;
-		}
-
+        }
+       
 		// Render the "previous" link
 		if  ($this->prev_link !== FALSE AND $this->cur_page != 1)
 		{
@@ -157,11 +156,12 @@
 			{
 				$i = ($i == 0) ? '' : $this->prefix.$i.$this->suffix;
 				$output .= $this->prev_tag_open.'<a '.$this->anchor_class.'href="'.$this->base_url.$i.'">'.$this->prev_link.'</a>'.$this->prev_tag_close;
+                
 			}
-
 		}
-
+        
 		// Render the pages
+		
 		if ($this->display_pages !== FALSE)
 		{
 			// Write the digit links
@@ -180,7 +180,9 @@
 				{
 					if ($this->cur_page == $loop)
 					{
+						
 						$output .= $this->cur_tag_open.$loop.$this->cur_tag_close; // Current page
+						
 					}
 					else
 					{
@@ -189,18 +191,19 @@
 						if ($n == '' && $this->first_url != '')
 						{
 							$output .= $this->num_tag_open.'<a '.$this->anchor_class.'href="'.$this->first_url.'">'.$loop.'</a>'.$this->num_tag_close;
+                            
 						}
 						else
 						{
 							$n = ($n == '') ? '' : $this->prefix.$n.$this->suffix;
 
-							$output .= $this->num_tag_open.'<a '.$this->anchor_class.'href="'.$this->base_url.$n.'">'.$loop.'</a>'.$this->num_tag_close;
+							$output .= $this->num_tag_open.'<a '.$this->anchor_class.'href="'.$this->base_url.$n.$this->suffix.'">'.$loop.'</a>'.$this->num_tag_close;
+                            
 						}
 					}
 				}
 			}
 		}
-
 		// Render the "next" link
 		if ($this->next_link !== FALSE AND $this->cur_page < $num_pages)
 		{
@@ -214,6 +217,7 @@
 			}
 
 			$output .= $this->next_tag_open.'<a '.$this->anchor_class.'href="'.$this->base_url.$this->prefix.$i.$this->suffix.'">'.$this->next_link.'</a>'.$this->next_tag_close;
+            
 		}
 
 		// Render the "Last" link
