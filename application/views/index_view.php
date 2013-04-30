@@ -12,7 +12,7 @@
 
           <div class="input_wrap">
 <!--            <textarea rows="3" class="C_input" id="pup_textarea"></textarea>-->
-            <?=form_textarea(array('row' => '3','name' => 'post_content','class' => "C_input", 'id' => "post_content")) ?>
+            <?=form_textarea(array('rows' => '3','name' => 'post_content','class' => "C_input", 'id' => "post_content")) ?>
             <div class="word_num">1 / 140</div>
             <div class="toolbar clearfix">
                 <a href="javascript:;" class="emot_btn"><i class="ico ico_emot"></i>表情</a>
@@ -31,9 +31,8 @@
 
           <!-- feed_switcher begin-->
           <div class="mt20 clearfix feed_switcher">
-              <a title="全部" href="javascript:void(0);" id="filter_all" class="first selected">全部</a>
-              <a title="社团动态" href="javascript:void(0);" id="filter_asso" class="">社团动态</a>
               <a title="好友动态" href="javascript:void(0);" id="filter_friend" class="last">好友动态</a>
+              <a title="社团动态" href="javascript:void(0);" id="filter_asso" class="">社团动态</a>
           </div><!-- feed_switcher end-->
 
           <!-- feeds begin -->

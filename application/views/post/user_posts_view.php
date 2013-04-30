@@ -90,11 +90,10 @@
         <a href="<?=site_url('personal/profile/' . $post['user'][0]['id']) ?>"><?=$post['user'][0]['name']?></a>
       </div>
       <div class="f_text"><?=convert_emoji($post['content'])?></div>
-      <div class="f_imgs"><img src="img/img_sub.jpg"></div>
       <!-- 评论等toolbar-->
       <div class="f_summary clearfix">
         <div class="fl"><span><?=time2duration($post['time'])?></span> 来自 <span>成都信息工程学院</span></div>
-          <div class="fr"><a href="javascript:;" class="CommetBtn">评论(<span class="commet Num">0</span>) </a></div>
+          <div class="fr"><a href="javascript:;" class="CommetBtn">评论</a></div>
       </div>
       <div class="repeat">
         <span class="arr">

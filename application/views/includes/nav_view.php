@@ -52,7 +52,7 @@
           <a class="brand" href="/">加加社团</a>
           <div class="nav-collapse collapse navbar-responsive-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">首页</a></li>
+              <li><a href="/">首页</a></li>
               <li><?=anchor('personal', '个人主页', '') ?></li>
               <li><?=anchor('corporation', '社团之家', '')?></li>
               <li><?=anchor('corporation', '活动之家', '')?></li>
@@ -60,7 +60,7 @@
             <form name="search" class="navbar-search pull-left" action="/search" id="searchform">
                 <input type="text" class="search-query span2" id="nav_search_content" placeholder="社团/个人/活动" name="keywords">
                 <?=form_hidden('target', 'user') ?>
-                <?=form_submit('', '', 'class="btn" id="nav_search_submit"') ?>
+                <?=form_submit('', 'Search', 'class="btn" id="nav_search_submit"') ?>
             </form>
             
             <ul class="nav pull-right">

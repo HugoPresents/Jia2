@@ -39,9 +39,9 @@
             <a href="" class="user_name">demo</a>
           </div>
           <div class="sidebar_nav">
-            <a class="a_sty_01" href="javascript:;"><i class="ico ico_dairy"></i>写日志</a>
-            <a class="a_sty_01" href="javascript:;"><i class="ico ico_photo"></i>传照片</a>
-            <a class="a_sty_01" href="javascript:;"><i class="ico ico_asso"></i>创建社团</a>
+            <a class="a_sty_01" href="<?=site_url('blog/post')?>"><i class="ico ico_dairy"></i>写日志</a>
+            <a class="a_sty_01" href="<?=site_url('album/index')?>"><i class="ico ico_photo"></i>传照片</a>
+            <a class="a_sty_01" href="<?=site_url('corporation/request_add')?>"><i class="ico ico_asso"></i>创建社团</a>
           </div>
           <dl class="sidebar_nav">
             <dt>管理的社团（1）</dt>
