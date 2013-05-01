@@ -9,6 +9,12 @@
 			$this->load->model('User_model');
 			$jiadb = new Jiadb();
 		}
+        
+        function index() {
+            $str = '<p>你好管理员！</p><p>你或许需要'  . anchor('admin/co_request', '管理申请') . '</p>';
+            $str .= '<p>或者' . anchor('admin/list_all_user', '查看所有注册用户') . '</p>';
+            static_view($str, '首页');
+        }
 		
 		function co_request($request_id = '') {
 			if(is_numeric($request_id)) {
