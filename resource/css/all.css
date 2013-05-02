@@ -740,3 +740,14 @@ ul, ol {list-style: none outside none; margin: 0}
     font-size: 14px;
     font-weight: bold;
 }
+
+#nav_search_content{
+	border-radius: 15px 0 0 15px;
+	box-shadow:none;
+}
+#nav_search_submit{
+	border-radius:0 15px 15px 0;
+	margin: 0 0 0 -4px;
+	padding:4px 12px;
+	height:28px;
+}
