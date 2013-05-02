@@ -99,16 +99,11 @@
 		
 		
 		/**
-		 * @param array
-		 * @param array like following:
-		 * $meta = array(
-		 * 		'meta_key1',
-		 * 		'meta_key2'
-		 * )
+		 * @param string meta_key or meta_value and so on
+		 * @param array where array
 		 * @param array
 		 * @param array
-		 */ 
-		 
+		 */  
 		 
 		 function fetchMeta($return, $where = array(), $order = array(), $limit = array()) {
 		 	$meta = array();
