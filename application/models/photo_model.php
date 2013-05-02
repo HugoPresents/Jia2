@@ -10,9 +10,9 @@
 			$config = array(
 			  		'allowed_types' => 'jpeg|jpg|png|gif|bmp',
 			  		'upload_path' => $param['upload_path'],
-			  		'max_size' => 2048,
-			  		'max_width' => 900,
-			  		'max_height' => 900,
+			  		'max_size' => 20480,
+			  		'max_width' => 100000,
+			  		'max_height' => 100000,
 			  		'overwrite' => TRUE,
 			  		'file_name'	=> $param['filename']
 			 );
@@ -163,7 +163,7 @@
 						}
 						return $filename;
 					}
-					echo $this->upload->display_errors();
+					//echo $this->upload->display_errors();
 					break;
 				}
 		}

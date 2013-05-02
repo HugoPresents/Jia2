@@ -35,7 +35,7 @@
 			$data['title'] = $data['info']['name'] . '的日志';
 			$data['css'] = array('dairy.css');
 			$data['crumb'] = $this->crumb->output();
-			$data['blogs'] = $this->Blog_model->fetch($where, $entity_type);
+			$data['blogs'] = $this->Blog_model->fetch($where, $entity_type, array('add_time' => 'DESC'));
 			$this->load->view('includes/template_view', $data);
 		}
 		

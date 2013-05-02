@@ -8,7 +8,6 @@
 		<span class="profile_info"><?=anchor('blog/'.$info['id'], '日志') ?></span>|
 		<span class="profile_info"><a href="#?w=500" rel="popup4" class="inline">更多资料</a></span>
 	</p>
-	<p>
 	<? if($this->session->userdata('id') != $info['id'] ): ?>
 		<? if(in_array($this->session->userdata('id'), $followers)): ?>
 			<?=form_button(array('name' => 'follow', 'content' => '已关注', 'user_id' => $info['id'], 'disabled' => 'disabled')) ?>
@@ -17,19 +16,6 @@
 			<?=form_button(array('name' => 'follow', 'content' => '关注', 'user_id' => $info['id'])) ?>
 		<? endif ?>
 	<? endif ?>
-	</p>
-	<div class="asso_pics">
-        <p>最近上传照片</p>
-
-        <div class="pics_wrap">
-            <img src="img/asso/assoBig-1.jpg" alt="">
-            <img src="img/asso/assoBig-2.jpg" alt="">
-            <img src="img/asso/assoBig-3.jpg" alt="">
-            <img src="img/asso/assoBig-4.jpg" alt="">
-            <img src="img/asso/assoBig-5.jpg" alt="">
-        </div>
-
-    </div>
 	<div class="new_things">
 		<div class="clear"></div>
 		<div class="article_box">

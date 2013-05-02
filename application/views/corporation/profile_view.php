@@ -1,35 +1,35 @@
 <script>
-		window.onload = coprotab;
-		function gossips() {
-			if($("#gossips").length > 0) {
-				return false;
-			} else {
-				$.post(SITE_URL+'gossip', {
-					ajax: 1,
-					id: <?=$info['id']?>,
-					type:'corporation'
-				}, function(data) {
-					$("#gossips_container").html(data);
-				})
-			}
+	window.onload = coprotab;
+	function gossips() {
+		if($("#gossips").length > 0) {
+			return false;
+		} else {
+			$.post(SITE_URL+'gossip', {
+				ajax: 1,
+				id: <?=$info['id']?>,
+				type:'corporation'
+			}, function(data) {
+				$("#gossips_container").html(data);
+			})
 		}
-		$(function() {
-			$("button[name='gossips']").click(function() {
-				content = $("#gossips_content").val();
-				if(content == '')
-					return false;
-				$("#gossips_content").val('');
-				$.post(SITE_URL+'gossip/add', {
-					ajax: 1,
-					id: <?=$info['id'] ?>,
-					type: 'corporation',
-					content: content
-				},function(data) {
-					$("#tmp_gossip").remove();
-					$("#gossips").append(data);
-				})
-			});
+	}
+	$(function() {
+		$("button[name='gossips']").click(function() {
+			content = $("#gossips_content").val();
+			if(content == '')
+				return false;
+			$("#gossips_content").val('');
+			$.post(SITE_URL+'gossip/add', {
+				ajax: 1,
+				id: <?=$info['id'] ?>,
+				type: 'corporation',
+				content: content
+			},function(data) {
+				$("#tmp_gossip").remove();
+				$("#gossips").append(data);
+			})
 		});
+	});
 </script>
 <!-- 	社团资料 -->
 <div id="popup5" class="popup_block">

@@ -6,8 +6,8 @@
 	<? if($info['id'] == $this->session->userdata('id')): ?>
 	<div class="sidebar_nav">
 		<ul class="ul_sty_01">
-			<li><a class="a_sty_01" href="<?=site_url('personal/manage/follower') ?>"><i class="ico ico_newthings"></i>写日志</a></li>
-			<li><a class="a_sty_01" href="<?=site_url('personal/manage/following') ?>"><i class="ico ico_newthings"></i>传照片</a></li>
+			<li><a class="a_sty_01" href="<?=site_url('blog/post') ?>"><i class="ico ico_newthings"></i>写日志</a></li>
+			<li><a class="a_sty_01" href="<?=site_url('album/upload') ?>"><i class="ico ico_newthings"></i>传照片</a></li>
 		</ul>
 	</div>
 	<div class="sidebar_nav">

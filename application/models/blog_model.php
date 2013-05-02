@@ -15,7 +15,7 @@
 			}
 		}
 		
-		function fetch($where = array(), $type = 'personal', $order = '', $limit = '') {
+		function fetch($where = array(), $type = 'personal', $order = null, $limit = null) {
 			if ($type == 'personal') {
 				$join = array(
 					'user' => array('owner_id', 'id')
