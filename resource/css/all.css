@@ -371,7 +371,8 @@ ul, ol {list-style: none outside none; margin: 0}
 /*********assoProfile**********/
 .mainContainer{
     background: url("../img/head_02.jpg") no-repeat top;
-    min-height:620px;
+    min-height:500px;
+    padding-bottom: 130px;
 }
 .profile_pic_top {
     margin: 0 auto;
@@ -817,4 +818,131 @@ overflow: auto;
 #user_info .li_1 {
 margin: 10px 20px;
 height: 20px;
+}
+
+/*通知*/
+.write_letter_form {
+margin-top: 30px;
+}
+#write_letter_area {
+margin-top: 20px;
+}
+.letter_content {
+margin-top: 10px;
+border-top: 1px solid #C6C7C6;
+}
+.tab_title {
+border-bottom: 1px solid #C6C7C6;
+overflow: hidden;
+}
+.s01,.s02{
+	padding:0 20px;
+	height:27px;
+	line-height:27px;
+	text-align:center;
+	float:left;
+}
+a#in_box, a#out_box{
+	font-size: 12px;
+	color:#515B65;
+}
+.s01{
+	background:#ebebeb;
+}
+.s02{
+	background: #f1f1f1;
+}
+.tab_content{
+	padding:20px;
+}
+.mes_li {
+overflow: auto;
+padding: 10px 20px;
+border-bottom: 1px solid #C6C7C6;
+vertical-align: top;
+color:#999;
+}
+.mes_li > div {
+margin-right: 10px;
+}
+.mes_li a {
+vertical-align: top;
+font-size: 13px;
+color: #26709A;
+}
+
+.popup_block {
+display: none;
+background: white;
+padding: 20px;
+border: 20px solid #DDD;
+float: left;
+font-size: 1.2em;
+position: fixed;
+top: 50%;
+left: 50%;
+z-index: 99999;
+-webkit-box-shadow: 0px 0px 20px black;
+-moz-box-shadow: 0px 0px 20px #000;
+box-shadow: 0px 0px 20px black;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+.btn_close {
+float: right;
+margin: -40px -40px 0 0;
+width: 26px;
+height: 26px;
+background: url(../img/pic_close.png);
+}
+#linkman {
+border-bottom: 4px solid #EBEBEB;
+margin-top: 20px;
+overflow: hidden;
+}
+#linkman a {
+width: 110px;
+height: 27px;
+line-height: 27px;
+text-align: center;
+float: left;
+margin-right: 5px;
+display: block;
+float: left;
+display: block;
+color: #444;
+font-size: 13px;
+}
+.sd01 {
+background: url(../img/tab_0.png) no-repeat;
+}
+ol.slats li {
+float: left;
+cursor: pointer;
+width: 16%;
+margin: 0 4% 3% 0;
+padding-top: 5px;
+overflow: hidden;
+text-align: center;
+}
+ol.slats li a img {
+height: 30px;
+margin: 0 0 5px 0;
+padding: 4px;
+border: 1px solid #EEE;
+}
+ol.slats li a span {
+font-size: 12px;
+width: 100%;
+text-align: center;
+white-space: nowrap;
+text-overflow: ellipsis;
+overflow: hidden;
+line-height: 30px;
+margin-bottom: 0.5em;
+display: block;
+}
+.sd02 {
+background: url(../img/tab_1.png) no-repeat;
 }

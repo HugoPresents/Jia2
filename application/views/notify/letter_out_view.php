@@ -8,10 +8,10 @@
 	<ul>
 	<? foreach($letters as $letter): ?>
 		<li class="mes_li">
-			<div class="left">
+			<div class="fl">
 				<?=anchor('personal/profile/' . $letter['user'][0]['id'], '<img src="'. avatar_url($letter['user'][0]['avatar']) .'" >','class="head_pic"') ?>
 				</div>
-				<div class="left">
+				<div class="fl">
 				<?=anchor('personal/profile/' . $letter['user'][0]['id'],$letter['user'][0]['name'])?>
 				<?=$letter['content'] ?>
 				<?=jdate($letter['time']) ?>

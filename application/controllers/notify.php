@@ -12,7 +12,7 @@
 			$this->_require_login();
 			$type = $this->input->get('type');
 			$data['notify'] = $type;
-			$data['css'] = array('home.css','guest.css');
+			//$data['css'] = array('home.css','guest.css');
 			//$data['js'] = array('tab.js');
 			$data['main_content'] = 'notify_view';
 			switch($type) {
