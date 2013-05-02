@@ -401,6 +401,7 @@
 				if($blockers && in_array($this->session->userdata('id'), $blockers)) {
 					$json_array['message'] = '对不起，由于该社团的隐私设置你不能加入该社团';
 				} else {
+					$this->load->model('Notify_model');
 					$request = array(
 						'user_id' => $this->session->userdata('id'),
 						'content' => '请求加入 '. anchor('corporation/profile/' . $corporation_id, $corporation['name']) .' 社团' . '|||' . site_url('corporation/add_member/' . $corporation_id . '/' . $this->session->userdata('id')),
@@ -417,6 +418,31 @@
 			}
 			echo json_encode($json_array);
 		}
+
+		// 退出社团
+		function leave() {
+			$this->_require_login();
+			$this->_require_ajax();
+			$corporation_id = $this->input->post('co_id');
+			$json_array = array(
+				'success' => 0,
+				'message' => ''
+			);
+			$corporation = $this->Corporation_model->get_info($corporation_id);
+			if(!$corporation) {
+				$json_array['message'] = '社团不存在';
+			} else {
+				$this->db->delete('corporation_meta', array(
+						'corporation_id' => $corporation_id,  
+						'meta_table' => 'user',
+						'meta_key' => 'member',
+						'meta_value' => $this->session->userdata('id')
+					));
+				$json_array['success'] = 1;
+			}
+			echo json_encode($json_array);
+		}
+
 		
 		function add_member($corporation_id, $user_id) {
 			$this->_require_login();

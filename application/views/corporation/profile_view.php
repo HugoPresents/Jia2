@@ -1,35 +1,35 @@
 <script>
-		window.onload = coprotab;
-		function gossips() {
-			if($("#gossips").length > 0) {
-				return false;
-			} else {
-				$.post(SITE_URL+'gossip', {
-					ajax: 1,
-					id: <?=$info['id']?>,
-					type:'corporation'
-				}, function(data) {
-					$("#gossips_container").html(data);
-				})
-			}
+	window.onload = coprotab;
+	function gossips() {
+		if($("#gossips").length > 0) {
+			return false;
+		} else {
+			$.post(SITE_URL+'gossip', {
+				ajax: 1,
+				id: <?=$info['id']?>,
+				type:'corporation'
+			}, function(data) {
+				$("#gossips_container").html(data);
+			})
 		}
-		$(function() {
-			$("button[name='gossips']").click(function() {
-				content = $("#gossips_content").val();
-				if(content == '')
-					return false;
-				$("#gossips_content").val('');
-				$.post(SITE_URL+'gossip/add', {
-					ajax: 1,
-					id: <?=$info['id'] ?>,
-					type: 'corporation',
-					content: content
-				},function(data) {
-					$("#tmp_gossip").remove();
-					$("#gossips").append(data);
-				})
-			});
+	}
+	$(function() {
+		$("button[name='gossips']").click(function() {
+			content = $("#gossips_content").val();
+			if(content == '')
+				return false;
+			$("#gossips_content").val('');
+			$.post(SITE_URL+'gossip/add', {
+				ajax: 1,
+				id: <?=$info['id'] ?>,
+				type: 'corporation',
+				content: content
+			},function(data) {
+				$("#tmp_gossip").remove();
+				$("#gossips").append(data);
+			})
 		});
+	});
 </script>
 <!-- 	社团资料 -->
 <div id="popup5" class="popup_block">
@@ -59,9 +59,9 @@
 	<? if($this->session->userdata('id')): ?>
 		<? if(in_array($this->session->userdata('id'), $members)): ?>
 			<?=form_button(array('name' => 'join', 'content' => '已加入', 'co_id' => $info['id'], 'disabled' => 'disabled'))?>
-			<?=form_button(array('name' => 'unjoin', 'content' => '退出社团', 'co_id' => $info['id']))?>
+			<?=form_button(array('name' => 'unjoin', 'content' => '退出社团', 'co_id' => $info['id'], 'id'=>'leave_co'))?>
 		<? else:?>
-			<?=form_button(array('name' => 'join', 'content' => '请求加入', 'co_id' => $info['id'], 'id' => 'join'))?>
+			<?=form_button(array('name' => 'join', 'content' => '请求加入', 'co_id' => $info['id'], 'id' => 'join_co'))?>
 			
 		<? endif?>
 	<? endif ?>
@@ -115,7 +115,7 @@
 			<li class="sd02" id="co-02">
 				<a href="#">社团活动&nbsp;(<?=count($activities) ?>)</a>
 			</li>
-			<li class="sd03" id="co-03">
+			<li class="sd02" id="co-03">
 				<a href="#" onclick="gossips();">留言&nbsp;</a>
 			</li>
 		</ul>

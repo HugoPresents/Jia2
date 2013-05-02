@@ -146,15 +146,28 @@ if(! function_exists('print_vars')) {
 }
 
 if(! function_exists('mkdirs')) {
-	function mkdirs($dir) {  
-		if(!is_dir($dir)) {  
-			if(!mkdirs(dirname($dir))){  
-				return false;  
-			}  
-			if(!mkdir($dir,0755)) {  
-				return false;  
-			}  
+	function mkdirs($dir) {
+		if(!is_dir($dir)) {
+			if(!mkdirs(dirname($dir))){
+				return false;
+			}
+			if(!mkdir($dir,0755)) {
+				return false;
+			}
 		}
-		return true;  
+		return true;
+	}
+}
+
+if(! function_exists('convert_emoji')) {
+	function convert_emoji($str) {
+		$CI =& get_instance();
+		$CI->config->load('emoji');
+		foreach($CI->config->item('emoji') as $word => $img) {
+			$pattern = '/(\['.$word.'\])/';
+			$replacement = '<img src="'.$CI->config->item('emoji_path').$img.'" class="emoji" alt="'.$word.'" title="'.$word.'">';
+			$str = preg_replace($pattern, $replacement, $str);
+		}
+		return $str;
 	}
 }
