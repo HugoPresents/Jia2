@@ -72,7 +72,7 @@
 		
 		function list_by_tag() {
 			$this->_require_ajax();
-			$tag = trim($_POST['tag']);
+			$tag = $this->input->post('tag');
 			$limit = array($this->config->item('page_size'), 0);
 			$this->jiadb->_table = 'corporation';
 			$join = array(
@@ -88,6 +88,28 @@
 			$corporations = $this->jiadb->fetchJoin($where, $join);
 			$data['corporations'] = $corporations;
 			$this->load->view('corporation/ajax_list_view', $data);
+		}
+		
+		function list_by_meta() {
+			$this->_require_ajax();
+			$meta = $this->input->post('meta');
+			$corporation_ids = array();
+			$join = array(
+				'user' => array('user_id', 'id')
+			);
+			switch ($meta) {
+				case 'master':
+					$this->jiadb->_table = 'corporation';
+					$where = array('user_id');
+					$this->jiadb->fetchJoin();
+					break;
+				case 'member':
+					
+					break;
+				default:
+					
+					break;
+			}
 		}
 		
 		function profile($corporation_id = '') {
