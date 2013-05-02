@@ -102,8 +102,8 @@
         </span>
         <!-- 评论框  -->
         <div class="comment_wrap">
-          <textarea class="W_input"></textarea>
-          <p class="btn_wrap clearfix"><button name="post" type="button" class="W_btn fl">评论</button></p>
+          <textarea class="W_input" post_id=""></textarea>
+          <p class="btn_wrap clearfix"><button name="comment" type="button" class="W_btn fl">评论</button></p>
         </div>
         <div class="comment_lists">
         <? if(count($post['comment']) > 0): ?>

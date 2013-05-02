@@ -2,15 +2,10 @@
  * ajax 发帖以及添加评论的js
  */
 $(function() {
-	$(".col-c").click(function() {
-		$comments = $(this).parent().parent().parent().next();
-		$comments.slideToggle();
-		if($(this).text() == '展开评论') {
-			$(this).text('收起评论');
-		} else {
-			$(this).text('展开评论');
-		}
-	});
+	$(".f_summary").delegate(".CommetBtn","click",function(){
+        $(this).closest(".f_summary").siblings(".repeat").toggle();
+
+    });
 	$("textarea[name='comment_content']").keyup(function() {
 		$button = $(this).parent().next().children('button');
 		if($(this).val() != '') {
@@ -20,7 +15,7 @@ $(function() {
 		}
 	});
 	$("button[name='comment']").live("click",function(){
-		$comment = $(this).parent().parent().find("textarea");
+		$comment = $(this).closest(".comment_wrap").find("textarea");
 		$button = $(this);
 		content = $comment.val();
 		post_id = $comment.attr('post_id');
@@ -36,7 +31,7 @@ $(function() {
 					alert('由于对方隐私设置，你不能评论~');
 				} else {
 					$comment.val('');
-					$button.parent().parent().prev().prev().append(data);
+					$button.closest(".comment_wrap").next().append(data);
 				}
 			}
 		);

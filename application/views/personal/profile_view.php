@@ -78,9 +78,9 @@
 </div>
 <div class="container mainBody">
     <div class="mt20 clearfix feed_switcher">
-        <a title="" href="javascript:void(0);" id="filter_all" class="first selected">最新动态</a>
-        <a title="" href="javascript:void(0);" id="filter_photo" class="">活动相册</a>
-        <a title="" href="javascript:void(0);" id="filter_dairy" class="last">活动日志</a>
+        <a title="" href="javascript:void(0);" id="filter_all" class="first switch selected" data-toggle="tab">最新动态</a>
+        <a title="" href="javascript:void(0);" id="filter_photo" class="switch" data-toggle="tab">活动相册</a>
+        <a title="" href="javascript:void(0);" id="filter_dairy" class="switch last" data-toggle="tab">活动日志</a>
     </div>
 
     <div class="main">
@@ -89,7 +89,6 @@
             <div class="loading">
                 <img src="img/loading.gif"/><span>正在加载，请稍候...</span>
             </div>
-
             <? $this->load->view('post/user_posts_view') ?>
         </div>
         <!-- feeds end -->

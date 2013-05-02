@@ -31,8 +31,8 @@
 
           <!-- feed_switcher begin-->
           <div class="mt20 clearfix feed_switcher">
-              <a title="好友动态" href="javascript:void(0);" id="filter_friend" class="last">好友动态</a>
-              <a title="社团动态" href="javascript:void(0);" id="filter_asso" class="">社团动态</a>
+              <a title="好友动态" href="#feed_f" id="filter_friend" class="first switch selected" data-toggle="tab">好友动态</a>
+              <a title="社团动态" href="#feed_a" id="filter_asso" class="switch last" data-toggle="tab">社团动态</a>
           </div><!-- feed_switcher end-->
 
           <!-- feeds begin -->
@@ -40,19 +40,17 @@
             <div class="loading">
                 <img src="img/loading.gif"/><span>正在加载，请稍候...</span>
             </div>
-            <ul id="feed_1">
+            <ul id="feed_f" class="feedUl" >
 				<?=$this->load->view('post/user_posts_view') ?>
 				<div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></img></div>
-				<?=form_button('request_more', '加载更多', 'page="1" po_type="personal" class="pub_button"') ?>
+				<?=form_button('request_more', '加载更多', 'page="1" po_type="personal" class="pub_btn"') ?>
 			</ul>
 				
-			<ul id="feed_2" class="hidden">
+			<ul id="feed_a" class="feedUl" style="display: none">
 				<?=$this->load->view('post/co_posts_view') ?>
 				<div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></img></div>
-				<?=form_button('request_more', '加载更多', 'page="1" po_type="activity" class="pub_button"') ?>
+				<?=form_button('request_more', '加载更多', 'page="1" po_type="activity" class="pub_btn"') ?>
 			</ul>
-
-
             
             
           </div><!-- feeds end -->
@@ -61,3 +59,7 @@
         <? $this->load->view('includes/slider_bar_view') ?>
         
      </div>
+     <script type="text/javascript" src="<?=base_url('resource/js/home.js') ?>"></script>
+     <script>
+		
+	</script>

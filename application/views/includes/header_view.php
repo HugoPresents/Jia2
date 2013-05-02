@@ -7,7 +7,7 @@
 <!--         <link rel="stylesheet" type="text/css" href="<?=base_url('resource/css/home.css') ?>" /> -->
 <!--         <link rel="stylesheet" type="text/css" href="<?=base_url('resource/css/main_content.css') ?>" /> -->
         <link rel="stylesheet" type="text/css" href="<?=base_url('resource/css/new/bootstrap.min.css') ?>" />
-        <link rel="stylesheet" type="text/css" href="<?=base_url('resource/css/new/all.css') ?>" />
+        <link rel="stylesheet" type="text/css" href="<?=base_url('resource/css/all.css') ?>" />
 	    <script type="text/javascript" src="<?=base_url('resource/js/jquery.js') ?>"></script>
 	    <script type="text/javascript" src="<?=base_url('resource/js/global.js') ?>"></script>
 	    <script type="text/javascript" src="<?=base_url('resource/js/tab.js') ?>"></script>
