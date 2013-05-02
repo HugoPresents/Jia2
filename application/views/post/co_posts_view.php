@@ -108,14 +108,14 @@
           <p class="btn_wrap clearfix"><button name="post" type="button" class="W_btn fl">评论</button></p>
         </div>
         <div class="comment_lists">
-          <dl class="comment_list">
-            <dt><a href=""><img src="img/img30.jpeg" class="img30"></a></dt>
-            <dd><a href="">用户名:</a>你能少说两句吗 <br>18:52:50</dd>
-          </dl>
-          <dl class="comment_list">
-            <dt><a href=""><img src="img/img30.jpeg" class="img30"></a></dt>
-            <dd><a href="">用户名:</a>你能少说两句吗 <br>18:52:50</dd>
-          </dl>
+        <? if(count($post['comment']) > 0): ?>
+		<?foreach($post['comment'] as $comment):?>
+              <dl class="comment_list">
+                <dt><a href=""><img src="img/img30.jpeg" class="img30"></a></dt>
+                <dd><a href=""><?=$comment['user'][0]['name']?></a><?=$comment['content']?> <br><?=time2duration($comment['time'])?></dd>
+              </dl>
+          <? endforeach; ?>
+          <? endif ?>
         </div>
       </div>
     </div>
