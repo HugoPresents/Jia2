@@ -70,6 +70,26 @@
 			$this->load->view('includes/template_view', $data);
 		}
 		
+		function list_by_tag() {
+			$this->_require_ajax();
+			$tag = trim($_POST['tag']);
+			$limit = array($this->config->item('page_size'), 0);
+			$this->jiadb->_table = 'corporation';
+			$join = array(
+				'school' => array('school_id', 'id')
+			);
+			$result = $this->db->query('SELECT corporation_id FROM corporation_meta WHERE meta_key="tag" AND meta_value="'.$tag.'"');
+			$result = $result->result_array();
+			$corporation_ids = array();
+			foreach($result as $tag) {
+				$corporation_ids[] = $tag['corporation_id'];
+			}
+			$where = array('id' => $corporation_ids);
+			$corporations = $this->jiadb->fetchJoin($where, $join);
+			$data['corporations'] = $corporations;
+			$this->load->view('corporation/ajax_list_view', $data);
+		}
+		
 		function profile($corporation_id = '') {
 			if($corporation_id) {
 				$join = array(

@@ -228,4 +228,10 @@
 				}
 			}
 		}
+		
+		function get_tags() {
+			$sql = 'SELECT * FROM corporation_meta WHERE meta_key="tag" LIMIT 10';
+			$result = $this->db->query($sql)->result_array();
+			return $result;
+		}
 	}
