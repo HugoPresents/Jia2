@@ -107,6 +107,20 @@ $(function(){
         <!--<h1>加加社团网</h1>-->
         <p class="lead">分享校园生活！感动你我！</p>
         <div class="search_wrap">
+        	<div class="checkboxes clearfix">
+				<span class="CheckboxWrapper Checked">
+					<input type="checkbox" name="user" id="check_user" value="1" class="chbox" checked="checked">
+				</span>
+				<span class="Checkitem">用户</span>
+				<span class="CheckboxWrapper Checked">
+					<input type="checkbox" name="corporation" id="check_corporation" value="1" class="chbox" checked="checked">
+				</span>
+				<span class="Checkitem">社团</span>
+				<span class="CheckboxWrapper Checked">
+					<input type="checkbox" name="activity" id="check_activity" value="1" class="chbox" checked="checked">
+				</span>
+				<span class="Checkitem">活动</span>
+            </div>
             <div class="input-append">
                 <form action="/search">
                     <input class="span4" id="appendedInputButtons" name="keywords" type="text">
@@ -219,3 +233,9 @@ $(function(){
     <div class="searchside">
         <img src="img/advertisement/shetuanzhijia_01.jpg" alt=""/>
     </div>
+    <script type="text/javascript" src="<?=base_url('resource/js/new/tab.js') ?>"></script>
+   	<script>
+		$(function() {
+			$('#myTab').tab('show')
+		})
+	</script>

@@ -371,6 +371,7 @@ ul, ol {list-style: none outside none; margin: 0}
 /*********assoProfile**********/
 .mainContainer{
     background: url("../img/head_02.jpg") no-repeat top;
+    min-height:620px;
 }
 .profile_pic_top {
     margin: 0 auto;
@@ -399,6 +400,7 @@ ul, ol {list-style: none outside none; margin: 0}
     background-color: #fafafa;
 }
 .asso_info {
+	min-height: 100px;
     margin-left: 225px;
     line-height: 22px;
     padding-top: 20px;
@@ -744,10 +746,75 @@ ul, ol {list-style: none outside none; margin: 0}
 #nav_search_content{
 	border-radius: 15px 0 0 15px;
 	box-shadow:none;
+	color: #F3F3F3
+}
+#nav_search_content:focus{
+	background: #515151;
 }
 #nav_search_submit{
 	border-radius:0 15px 15px 0;
 	margin: 0 0 0 -4px;
 	padding:4px 12px;
 	height:28px;
+}
+
+.search_wrap{margin-top:80px;margin-left:80px;}
+.input-append .btn{height:30px;}
+
+.checkboxes{margin:10px 30px;}
+
+/* -------------
+ * Checkboxes
+ * ------------- */
+span.CheckboxWrapper,span.Checkitem{
+	display:block;
+	float:left;
+	height: 15px;
+	width:15px;
+	position:relative;
+}
+span.Checkitem{
+	line-height:19px;
+	width:30px;
+	margin-right:20px;
+	margin-left:5px;
+}
+.Checkbox {
+	background: transparent url(../img/checkbox01.gif) no-repeat 0 0;
+	vertical-align: middle;
+	height: 15px;
+	width: 15px;
+	display:block;/*display: -moz-inline-block;*/
+}
+.Checked {
+	background: transparent url(../img/checkbox01.gif) no-repeat 0 -15px;
+	vertical-align: middle;
+	height: 15px;
+	width: 15px;
+	display:block;
+}
+input.chbox{
+	opacity:0;
+	filter:alpha(opacity=0);
+	position:absolute;
+	top:20px;
+	right:1px;
+}
+/*设置*/
+#main {
+font-size: 12px;
+float: left;
+width: 610px;
+padding: 20px;
+padding-bottom: 10px;
+border: 1px solid #E1E1E1;
+border-radius: 4px;
+background: white;
+font-size: 12px;
+overflow: auto;
+}
+
+#user_info .li_1 {
+margin: 10px 20px;
+height: 20px;
 }

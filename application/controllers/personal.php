@@ -52,7 +52,7 @@
 			} else {
 				$data['posts'] = array('personal' => $this->Post_model->fetch(array('owner_id' => $id)));
 			}
-			$data['js'] = array('post.js', 'personal/profile_view.js', 'tab.js');
+			$data['js'] = array('post.js', 'personal/profile_view.js',);
 			$data['main_content'] = 'personal/profile_view';
 			$data['slider_bar_view'] = 'includes/slider_bar_view';
 			$this->load->view('includes/template_view', $data);
@@ -101,7 +101,7 @@
 				$provinces[$row['id']] = $row['name'];
 			}
 			$data['css'] = array('corporation/jquery-ui-1.7.custom.css');
-			$data['js'] = array('personal/setting.js','tab.js', 'corporation/jquery-ui-1.7.custom.min.js');
+			$data['js'] = array('personal/setting.js', 'corporation/jquery-ui-1.7.custom.min.js');
 			$tmp_avatar = 'data/avatar/personal/tmp/'.$this->session->userdata('id').'.jpg';
 			$data['tmp_avatar'] = FALSE;
 			if(file_exists($tmp_avatar)) {

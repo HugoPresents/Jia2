@@ -1,4 +1,4 @@
-<div id="footer" >
+<div class="footer" >
 		<p align="center">
 			
 			<br/>
