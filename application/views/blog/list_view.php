@@ -1,4 +1,6 @@
-<h4 class="title_01 title_02"><span>日志</span><?=$crumb.$post_a ?></h4>
+<div class="mainContainer">
+    <div class="container whiteBg">
+    	<h4 class="title_01 title_02"><span>日志</span><?=$crumb.$post_a ?></h4>
 <div class="main_02">
 	<div class="dairy_summary">
 		<ul>
@@ -27,4 +29,6 @@
 			<? endif ?>
 		</ul>
 	</div>
+</div>
+</div>
 </div>

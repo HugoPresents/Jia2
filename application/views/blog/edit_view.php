@@ -16,22 +16,26 @@ $(function(){
 		})
 })
 </script> 
+<div class="mainContainer">
+    <div class="container whiteBg">
 <h4 class="title_01 title_02"><span>编辑日志</span><?=$crumb ?></h4>
 <div class="main_02">
 	<div id="post_blog">
 		<p><?=form_open() ?> </p>
-	    <div id="blog_write">
-			<div><label>标&nbsp;题：</label>
-					<div class="InputWrapper"><div class="InputInner">
-						<?=form_input('title', $blog['title']) ?>
-					</div></div>
-			</div>
-			<div><label>标&nbsp;签：</label>
-					<div class="InputWrapper"><div class="InputInner">
-						<?=form_input('tags', $blog['tags']) ?>
-					</div></div>
-					<span class="info_notice">多个标签请用空格隔开</span>
-			</div>
+	    <div id="blog_write"  class="form-horizontal">
+			<div class="control-group">
+			    <label class="control-label">标&nbsp;题：</label>
+			    <div class="controls">
+			      <?=form_input('title') ?>
+			    </div>
+			  </div>
+			<div class="control-group">
+			    <label class="control-label">标&nbsp;签：</label>
+			    <div class="controls">
+			      <?=form_input('tags') ?>
+			      <span class="info_notice">多个标签请用空格隔开</span>
+			    </div>
+			  </div>
 		</div>
 		<?=$this->load->view('blog/editor') ?>
 		<p class="li_d p_buttons">
@@ -59,4 +63,6 @@ $(function(){
 	<p><label><?=form_radio(array('name' => 'status', 'value' => 'privary')) ?> 保密 (仅自己可见)</label></p>
 	<p><label><?=form_radio(array('name' => 'status', 'value' => 'public', 'checked' => TRUE)) ?> 公开</label></p>
 	<?=form_close() ?>
+</div>
+</div>
 </div>

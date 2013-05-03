@@ -16,34 +16,38 @@ $(function(){
 		})
 })
 </script> 
+<div class="mainContainer">
+    <div class="container whiteBg">
 <h4 class="title_01 title_02"><span>发布日志</span><?=$crumb ?></h4>
 <div class="main_02">
 	<div id="post_blog">
 		<p><?=form_open() ?> </p>
-	    <div id="blog_write">
-			<div><label>标&nbsp;题：</label>
-					<div class="InputWrapper"><div class="InputInner">
-						<?=form_input('title') ?>
-					</div></div>
-			</div>
-			<div><label>标&nbsp;签：</label>
-					<div class="InputWrapper"><div class="InputInner">
-						<?=form_input('tags') ?>
-					</div></div>
-					<span class="info_notice">多个标签请用空格隔开</span>
-			</div>
+	    <div id="blog_write" class="form-horizontal">
+	    	<div class="control-group">
+			    <label class="control-label">标&nbsp;题：</label>
+			    <div class="controls">
+			      <?=form_input('title') ?>
+			    </div>
+			  </div>
+			<div class="control-group">
+			    <label class="control-label">标&nbsp;签：</label>
+			    <div class="controls">
+			      <?=form_input('tags') ?>
+			      <span class="info_notice">多个标签请用空格隔开</span>
+			    </div>
+			  </div>			  		
 		</div>
 		<?=$this->load->view('blog/editor') ?>
 		<p class="li_d p_buttons">
-			<?=anchor('blog', '取消', 'class="pub_button left"') ?>
-			<?=form_submit('submit', '直接发布','class="btn-blue btn-pub-01 right"') ?>
-			<?=form_submit('draft', '保存到草稿','class="pub_button btn-pub-02"') ?>
+			<?=anchor('blog', '取消', 'class="btn fl"') ?>
+			<?=form_submit('submit', '直接发布','class="btn btn-primary fr"') ?>
+			<?=form_submit('draft', '保存到草稿','class="btn btn-info mr10 fr"') ?>
 		</p>
 	</div>
 </div>
 <div class="right_handler">
 	<h4 class="set_title">日志选项</h4>
-	<p>
+	<p class="clearfix">
 		<span class="CheckboxWrapper Checkbox">
 			<input type="checkbox" name="order" value="1" class="chbox"/>
 		</span>
@@ -54,3 +58,4 @@ $(function(){
 	<p><label><?=form_radio(array('name' => 'status', 'value' => 'public', 'checked' => TRUE)) ?> 公开</label></p>
 	<?=form_close() ?>
 </div>
+</div></div>

@@ -1,4 +1,6 @@
-<h4 class="title_01 title_02"><span>日志</span><?=$crumb ?></h4>
+<div class="mainContainer">
+    <div class="container whiteBg">
+    	<h4 class="title_01 title_02"><span>日志</span><?=$crumb ?></h4>
 <div class="main_02">
 	<div class="article">
 		<h2 class="hd"><?=$blog['title']?></h2>
@@ -10,4 +12,7 @@
 			<?=$blog['content'] ?>
 		</div>
 	</div>
+</div>
+
+</div>
 </div>

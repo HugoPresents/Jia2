@@ -23,6 +23,9 @@ $(function() {
 })
 
 </script>
+
+<div class="mainContainer">
+    <div class="container whiteBg">
 <h4 class="title_01 title_02"><span>相册</span><?=$crumb ?></h4>
 <div class="main_02">
 	<h2><?=$info['name'] ?></h2>
@@ -49,4 +52,6 @@ $(function() {
 			</ul>
 		</div>
 	</div>
+</div>
+</div>
 </div>

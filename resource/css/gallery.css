@@ -4,7 +4,7 @@
 
 #images {
   float: left;
-  width: 600px;
+  width: 900px;
 }
 
 #details {
@@ -79,7 +79,7 @@ a.upload_photo_btn {
 /**************************/
 .gallery
 {
-    width: 700px;
+    width: 900px;
 	cursor: default;
 	list-style: none;
 }

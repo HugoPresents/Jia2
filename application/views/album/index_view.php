@@ -1,8 +1,10 @@
-<h4 class="title_01 title_02"><span>相册</span><?=$crumb ?>
+<div class="mainContainer">
+    <div class="container whiteBg">
+    	<h4 class="title_01 title_02"><span>相册</span><?=$crumb ?>
 </h4>
-<div class="main_02">
-	<a class="upload_photo_btn" href="<?=$upload_url ?>">上传照片</a>
-	<a class="upload_photo_btn" href="<?=$create_url ?>">创建相册</a>
+<div class="main_03">
+	<a class="btn btn-info" href="<?=$upload_url ?>">上传照片</a>
+	<a class="btn btn-info" href="<?=$create_url ?>">创建相册</a>
 	<div class="photo_album_box">
 		<div id="images">
 			<ul class="gallery album">
@@ -18,4 +20,7 @@
 			</ul>
 		</div>
 	</div>
+</div>
+
+</div>
 </div>
