@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>加加社团 · 校园社团网</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap-responsive.min.css" rel="stylesheet"> -->
+    <link href="css/my.css" rel="stylesheet">
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar" class="found_bd">
+
+    <header class="subhead">
+        <div class="container">
+        </div>
+    </header>
+    <div class="container mainBody">
+        <div class="mt20 feed_switcher">
+            <span class="f20">创建活动</span>
+            <div class="feed_op">
+                <a href="activityhome.html">返回活动之家</a>
+            </div>
+        </div>
+        <div class="main_02">
+            <div id="request_comment">
+                <p>申请细则：</p>
+                <p>1. 申请创建社团需要通过实名认证，需要填写学生信息以及公民身份信息，你填写的身份信息最好和当前账号信息保持一致(姓名)</p>
+                <p>2. 上传身份证以及学生证照，请确保字迹可辨认，以便管理员审核通过</p>
+                <p>3. 申请创建的社团名将不可更改</p>
+                <p>4. 如果审核通过，你会收到一条通知将指引你创建该社团, 并且改社团的省份以及学校信息与你的一直，不可更改</p>
+                <p>5. 管理员审核之后无论通过与否你都将会收到一条通知</p>
+                <p><button name="roger_that" type="button" id="roger_that" class="btnDefault">明白</button></p>
+            </div>
+
+            <form class="form-horizontal">
+                <fieldset>
+                    <legend>创建活动</legend>
+                    <div class="control-group">
+                        <label class="control-label">活动名称：</label>
+                        <div class="controls">
+                            <input type="text" class="input-xlarge" id="input01">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">活动时间：</label>
+                        <div class="controls">
+                            <input type="text" class="input-xlarge" id="input02">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">活动地点：</label>
+                        <div class="controls">
+                            <input type="text" class="input-xlarge" id="input03">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">活动说明：</label>
+                        <div class="controls">
+                            <textarea class="input-xlarge" id="textarea" rows="6"></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group swf_wrap_i">
+                        <label  class="control-label">活动宣传图：</label>
+                        <div class="controls">
+                            <input id="file_name_mask" type="text" class="fl" value="">
+                            <div class="uploadInput fl">
+                                <a class="btnDefault" href="javascript:;">
+                                    浏览<q><input id="file_name" name="Filedata" contenteditable="false" type="file"></q>
+                                </a>
+                            </div>
+                            <a href="#" class="btnDefault" id="link_upload">保存</a>
+                            <p class="help-block">请选择jpg、gif格式，且文件大小不超过2M的图片</p>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btnDefault btnBlue">提交</button>
+                        <button class="btnDefault">取消</button>
+                    </div>
+                </fieldset>
+            </form>
+
+            <div id="add-corporation" class="hi/de">
+            </div>
+        </div>
+
+
+
+    </div>
+
+     <div class="footer">
+         <p class="center">
+             <br>
+             Git Clone Here <a href="https://github.com/Rabbit52/Jia2" target="_blank">GitHub</a><br>
+             2011-2012 Coding by <a href="http://rabbit52.com" target="_blank">Rabbit_52</a> &amp; <a href="#" target="_blank">Tiramisu</a>
+         </p>
+     </div>
+
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+     <script src="js/home.js"></script>
+    
+  </body>
+</html>
