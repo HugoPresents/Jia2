@@ -55,7 +55,7 @@ $(function() {
 				alert('发表失败');
 			} else {
 				textarea.val('');
-				$("#feed_1").prepend(data);
+				$("#feed_f").prepend(data);
 				button.attr('disabled', 'disabled');
 			}
 		}

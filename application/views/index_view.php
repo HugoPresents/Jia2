@@ -13,7 +13,7 @@
           <div class="input_wrap">
 <!--            <textarea rows="3" class="C_input" id="pup_textarea"></textarea>-->
             <?=form_textarea(array('rows' => '3','name' => 'post_content','class' => "C_input", 'id' => "post_content")) ?>
-            <div class="word_num">1 / 140</div>
+            <div class="word_num">0 / 140</div>
             <div class="toolbar clearfix">
                 <a href="javascript:;" class="emot_btn"><i class="ico ico_emot"></i>表情</a>
 <!--                <button name="post" type="button" class="pub_btn fr" id="pup_post">发布</button>-->
