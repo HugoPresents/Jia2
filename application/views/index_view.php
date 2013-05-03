@@ -17,7 +17,7 @@
             <div class="toolbar clearfix">
                 <a href="javascript:;" class="emot_btn"><i class="ico ico_emot"></i>表情</a>
 <!--                <button name="post" type="button" class="pub_btn fr" id="pup_post">发布</button>-->
-                <?=form_button('post', '发布', 'class="pub_btn fr" disabled="disabled"') ?>
+                <?=form_button('post', '发布', 'class="pub_btn fr"') ?>
             </div>
             <div class="emotion_wrap hide">
               <div class="emotion_bd">

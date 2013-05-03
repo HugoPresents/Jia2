@@ -35,17 +35,27 @@ $(function() {
 				}
 			}
 		);
-	})
+	});
+	/*
 	$("textarea[name='post_content']").live("keyup",function() {
 		if($(this).val() != '') {
 			$("button[name='post']").removeAttr('disabled');
 		} else {
 			$("button[name='post']").attr('disabled', 'disabled');
 		}
-	})
-	
+	});
+	*/
+	function check_content() {
+	    if($("textarea[name='post_content']").val() != '') {
+            return true;
+        }
+        return false;
+	}
 	$("button[name='post']").click(function() {
 		var button = $(this);
+		if(!check_content()) {
+		    return false;
+		}
 		var textarea = $("#post_content")
 		$.post(SITE_URL + "post/add", {
 			ajax: 1,

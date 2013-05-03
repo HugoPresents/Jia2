@@ -2,7 +2,7 @@
 	<? foreach($corporations as $corporation) :?>
     <li class="asso_a">
         <a class="asso_img">
-            <img src="img/asso/assoBig-1.jpg" alt=""/>
+            <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big') ?>" alt=""/>
         </a>
         <a class="asso_tit" href="/corporation/profile/<?=$corporation['id']?>" title="<?=$corporation['name']?>"><?=$corporation['name']?></a>
         <div class="asso_extra clearfix">
