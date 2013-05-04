@@ -18,3 +18,4 @@
 	<? endforeach ?>
 </ul>
 <? endif?>
+</div>

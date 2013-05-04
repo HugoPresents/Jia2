@@ -447,29 +447,33 @@
 		function add_member($corporation_id, $user_id) {
 			$this->_require_login();
 			$request_id = $this->input->get('request_id');
-			if(empty($request_id))
+			if(empty($request_id)) {
 				static_view('');
+            }
 			if(is_numeric($corporation_id) && is_numeric($user_id)) {
+			    $this->load->model('Notify_model');
 				$request = $this->Notify_model->get_info($request_id);
-				if($request['type_id'] != $this->config->item('entity_type_request') || $request['user_id'] != $user_id)
+				if($request['type_id'] != $this->config->item('entity_type_request') || $request['user_id'] != $user_id) {
 					static_view();
+                }
 				$this->_auth('edit', 'corporation', $corporation_id);
 				$corporation = $this->Corporation_model->get_info($corporation_id);
-				if(!$corporation)
+				if(!$corporation) {
 					static_view();
+                }
 				$this->_auth('edit', 'corporation', $corporation_id);
 				$code = $this->Corporation_model->join_member($corporation_id, $user_id);
 				if($code == 1) {
-					static_view('添加会员失败，该用户在社团黑名单内 ' . anchor('corporation/management/' . $corporation_id . '?type=blocker', '管理社团黑名单'));
+					static_view('添加会员失败，该用户在社团黑名单内 ' . anchor('corporation/setting/' . $corporation_id . '?type=blocker', '管理社团黑名单'));
 				} elseif($code == 2) {
 					$this->db->where('id', $request_id);
 					$this->db->delete('notify');
-					static_view('该会员已是社团成员 ' . anchor('corporation/management/' . $corporation_id . '?type=member', '管理社团成员'));
+					static_view('该会员已是社团成员 ' . anchor('corporation/setting/' . $corporation_id . '?type=member', '管理社团成员'));
 				} elseif($code == 3) {
 					$this->Notify_model->delete($request_id);
 					$this->db->where('id', $request_id);
 					$this->db->delete('notify');
-					static_view('添加会员成功！你可以' . anchor('personal/notify?type=request', '查看请求') . '或者' . anchor('corporation/management/' . $corporation_id . '?type=member', '管理社团成员'));
+					static_view('添加会员成功！你可以' . anchor('personal/notify?type=request', '查看请求') . '或者' . anchor('corporation/setting/' . $corporation_id . '?type=member', '管理社团成员'));
 				}
 			} else {
 				static_view();
