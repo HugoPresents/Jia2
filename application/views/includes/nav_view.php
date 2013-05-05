@@ -58,7 +58,7 @@
               <li><?=anchor('corporation', '活动之家', '')?></li>
             </ul>
             <form name="search" class="navbar-search pull-left" action="/search" id="searchform">
-                <input type="text" class="search-query span2" id="nav_search_content" placeholder="社团/个人/活动" name="keywords">
+                <input type="text" class="search-query span2" id="nav_search_content" placeholder="用户/社团/活动" name="keywords">
                 <?=form_hidden('target', 'user') ?>
                 <?=form_submit('', 'Search', 'class="btn" id="nav_search_submit"') ?>
             </form>

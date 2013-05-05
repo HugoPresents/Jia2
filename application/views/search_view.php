@@ -107,23 +107,10 @@ $(function(){
         <!--<h1>加加社团网</h1>-->
         <p class="lead">分享校园生活！感动你我！</p>
         <div class="search_wrap">
-        	<div class="checkboxes clearfix">
-				<span class="CheckboxWrapper Checked">
-					<input type="checkbox" name="user" id="check_user" value="1" class="chbox" checked="checked">
-				</span>
-				<span class="Checkitem">用户</span>
-				<span class="CheckboxWrapper Checked">
-					<input type="checkbox" name="corporation" id="check_corporation" value="1" class="chbox" checked="checked">
-				</span>
-				<span class="Checkitem">社团</span>
-				<span class="CheckboxWrapper Checked">
-					<input type="checkbox" name="activity" id="check_activity" value="1" class="chbox" checked="checked">
-				</span>
-				<span class="Checkitem">活动</span>
-            </div>
             <div class="input-append">
                 <form action="/search">
-                    <input class="span4" id="appendedInputButtons" name="keywords" type="text">
+                    <input class="span4" id="appendedInputButtons" name="keywords" value="<?=$this->input->get('keywords')?>" type="text">
+                    <input type="hidden" name="target" value="<?=$object?>" />
                     <input type="submit" class="btn" value="Search">
                 </form>
             </div>
@@ -144,18 +131,18 @@ $(function(){
         <div class="tab-content">
             <? if($object == 'user'): ?>
             <!--用户-->
-            <div class="tab-pane active" id="user">
+            <div class="tab-pane active" id="">
                 <ul class="clearfix">
                     <? foreach($user_result as $user): ?>
                     <li class="asso_w">
                         <div class="img_80 fl">
-                            <a href="assoProfile.html" class="thumbnail">
-                                <img src="img/asso/assoBig-8.jpg" />
+                            <a href="/personal/profile/<?=$user['id']?>" class="thumbnail">
+                                <img src="<?=avatar_url($user['avatar'], 'personal', 'big')?>" />
                             </a>
                         </div>
                         <div class="asso_brief fl">
-                            <a class="name" href="" title=""><?=$user['name']?></a>
-                            <p class="">男 <em class="vline">|</em> 四川省 <em class="vline">|</em> 成都信息工程学院</p>
+                            <a class="name" href="/personal/profile/<?=$user['id']?>"><?=$user['name']?></a>
+                            <p class="">男 <em class="vline">|</em> <?=$user['province'][0]['name']?> <em class="vline">|</em> <?=$user['school'][0]['name']?></p>
                         </div>
                         <div class="adbtn">
                             <span href="" class="btnDefault btn_m"><i class="ico ico_atten"></i>关注</span>
@@ -169,17 +156,17 @@ $(function(){
             <? endif ?>
             <? if($object == 'corporation'): ?>
             <!--社团-->
-            <div class="tab-pane" id="asso">
+            <div class="tab-pane active">
                 <ul class="clearfix">
                     <? foreach($corporation_result as $corporation): ?>
                     <li class="asso_w">
                         <div class="img_80 fl">
-                            <a href="assoProfile.html" class="thumbnail">
-                                <img src="img/asso/assoBig-7.jpg" />
+                            <a href="/corporation/profile/<?=$corporation['id']?>" class="thumbnail">
+                                <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>" />
                             </a>
                         </div>
                         <div class="asso_brief fl">
-                            <a class="name" href="" title=""><?=$corporation['name']?></a>
+                            <a class="name" href="/corporation/profile/<?=$corporation['id']?>"><?=$corporation['name']?></a>
                             <p class="">四川省 <em class="vline">|</em> 成都信息工程学院</p>
                             <p class="person_num">
                                 <span>成员<a href="" target="_blank">50</a></span>
@@ -201,17 +188,21 @@ $(function(){
             <? endif ?>
             <? if($object == 'activity'): ?>
             <!--活动-->
-            <div class="tab-pane" id="activity">
+            <div class="tab-pane active">
                 <ul class="clearfix">
                     <? foreach($activity_result as $activity): ?>
                     <li class="asso_w">
                         <div class="img_80 fl">
-                            <a href="assoProfile.html" class="thumbnail">
-                                <img src="img/asso/assoBig-5.jpg" />
+                            <a href="/corporation/profile/<?=$activity['corporation'][0]['id']?>" class="thumbnail">
+                                <img src="<?=avatar_url($activity['corporation'][0]['avatar'], 'corporation', 'big')?>" />
                             </a>
                         </div>
                         <div class="asso_brief fl">
-                            <p class=""><a href="" title="">社团名字</a> 创建了 <a href="" title="">活动名字</a> </p>
+                            <p class="">
+                                <a href="/corporation/profile/<?=$activity['corporation'][0]['id']?>" title=""><?=$activity['corporation'][0]['name']?></a>
+                                                                创建了 
+                                 <a href="/activity/view/<?=$activity['id']?>" title=""><?=$activity['name']?></a>
+                                </p>
                             <p class="person_num">
                                 <span>成员<a href="" target="_blank">50</a></span>
                                 <em class="vline">|</em>
