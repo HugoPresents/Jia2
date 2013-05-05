@@ -1,4 +1,19 @@
 $(function() {
+//    $("#email").blur(function(){
+//       if($(this).val() == ''){
+//           $("#email_prompt").show();
+//       }else{
+//           $("#email_prompt").hide();
+//       }
+//    });
+//    $("#Password").blur(function(){
+//        if($(this).val() == ''){
+//            $("#pass_prompt").show();
+//        }else{
+//            $("#pass_prompt").hide();
+//        }
+//    });
+
         $("#login_form").submit(function() {
         	//alert('here');
                 email = $("input[name='email']").val();

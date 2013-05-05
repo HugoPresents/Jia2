@@ -58,7 +58,7 @@
 		
 		function _guest() {
 			$data['title'] = '游客页面';
-			$data['css'] = array('home.css','guest.css');
+			//$data['css'] = array('home.css','guest.css');
 			//$data['js'] = array('tab.js');
 			$this->jiadb->_table = 'corporation';
 			$limit = array($this->config->item('page_size'), 0);

@@ -39,9 +39,9 @@
             <?=form_open('http://localhost:8088/index/login','class="form_signin" id="login_form"') ?>
                 <h2 class="signin_heading">加加-校园社团网</h2>
                 <input type="text" class="input-block-level" name="email"  id="email" placeholder="Email address">
-                <div class="alert" id="email_prompt"></div>
+                <div class="alert" id="email_prompt">请输入用户名</div>
                 <input type="password" class="input-block-level" name="pass" id="pass" placeholder="Password">
-                <div class="alert alert-error" id="pass_prompt"></div>
+                <div class="alert" id="pass_prompt">请输入密码</div>
                 <label class="checkbox">
                     <input type="checkbox" name="remember" checked="checked" value="remember-me"> 记住我
                 </label>
