@@ -18,7 +18,7 @@
 			  </div>
 			  <div class="control-group">
 			    <div class="controls">
-			      <button type="submit" class="btn btn-info" id="send_letter">发送</button>
+			      <a href="###" class="btn btn-info" id="send_letter">发送</a>
 			      <button class="btn">取消</button>
 			    </div>
 			  </div>
