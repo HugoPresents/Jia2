@@ -163,6 +163,7 @@
 						'update_time' => $time,
 					);
 					if($this->Blog_model->update($blog_id, $blog)) {
+						redirect('/blog/edit/'.$blog_id);
 						$str = '编辑日志日志成功！ ' . anchor('blog/view/' . $blog_id, '查看');
 						static_view($str, '发布成功');
 					}

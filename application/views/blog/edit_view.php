@@ -26,13 +26,13 @@ $(function(){
 			<div class="control-group">
 			    <label class="control-label">标&nbsp;题：</label>
 			    <div class="controls">
-			      <?=form_input('title') ?>
+			      <?=form_input('title', $blog['title']) ?>
 			    </div>
 			  </div>
 			<div class="control-group">
 			    <label class="control-label">标&nbsp;签：</label>
 			    <div class="controls">
-			      <?=form_input('tags') ?>
+			      <?=form_input('tags', $blog['tags']) ?>
 			      <span class="info_notice">多个标签请用空格隔开</span>
 			    </div>
 			  </div>
