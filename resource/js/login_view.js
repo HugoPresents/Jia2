@@ -39,9 +39,11 @@ $(function() {
                     } else {
                         if(data.email) {
                             $("#email_prompt").text(data.email).show();
+                            $("#pass_prompt").hide();
                         }
                         if(data.pass) {
                             $("#pass_prompt").text(data.pass).show();
+                            $("#email_prompt").hide();
                         }
                         $submit.removeAttr('disabled');
                         $submit.val('登录');

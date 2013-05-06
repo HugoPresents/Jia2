@@ -33,20 +33,20 @@
     </div>
 */
 ?>
-<div class="login_bd">  
-    <div class="topbar"></div>
+<div class="login_bd">
     <div class="mainBody">
         <div class="container">
             <?=form_open('index/do_regist','class="form_signin"', 'id = "reg"') ?>
                 <h2 class="signin_heading">加加-校园社团网</h2>
                 <input type="text" class="input-block-level" name="email" id="email" placeholder="邮箱地址">
                 <div class="alert" id="email_prompt"></div>
-                <input type="text" class="input-block-level" name="name" id="name" placeholder="昵称">
+                <input type="text" class="input-block-level" name="name" id="name" placeholder="用户名">
                 <div class="alert" id="name_prompt"></div>
                 <input type="password" class="input-block-level" name="pass" id="pass" placeholder="密码">
                 <div class="alert" id="pass_prompt"></div>
-                <button class="btn btn-large btn-primary btn-relax" type="submit">注册</button>
-                <?=anchor(site_url('index/regist'), '注册','class="btn btn-relax mt10"') ?> </span>
+                <?=anchor(site_url('index/regist'), '注册','class="btn btn-primary" id="regist"') ?> </span>
+                <span class="vline">|</span><span><?=anchor(site_url('index/login'), '登录') ?> </span>
+                <span class="vline">|</span><span><?=anchor(site_url(), '游客登录') ?> </span>
             </form>
         </div>
     </div>

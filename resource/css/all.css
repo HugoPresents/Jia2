@@ -1,6 +1,5 @@
 body {
     position: relative;
-    padding-top: 40px;
     font-size: 12px;
     height: 100%;
 }
@@ -93,7 +92,7 @@ html, body, #wrapper {height: 100%;}
 #Maincontent {padding-bottom: 135px;}
 .footer {
     position: relative;
-    margin-top: -175px;
+    margin-top: -135px;
     width: 100%;
     height: 135px;
     clear:both;
@@ -106,7 +105,6 @@ html, body, #wrapper {height: 100%;}
     margin: 0;
     text-align: center;
 }
-/*#containerWrap{width:960px; margin: 0 auto;}*/
 
 /*foot*/
 .container.mainBody {
@@ -137,6 +135,7 @@ html, body, #wrapper {height: 100%;}
 .subhead {
     position: relative;
     height: 221px;
+    margin-top: 40px;
     background: url(../img/home_02.png) center;
 }
 
@@ -843,9 +842,8 @@ html, body, #wrapper {height: 100%;}
 
 .login_bd .mainBody {
     background: #fff url("../img/loginbg.jpg") no-repeat top center;
-    padding-bottom: 135px;
     overflow: auto;
-    min-height: 500px;
+    min-height: 560px;
 }
 
 .login_bd .container {
@@ -872,12 +870,24 @@ html, body, #wrapper {height: 100%;}
 .signin_heading {
     padding-bottom: 20px;
     width: 300px;
+    font-size: 28px;
 }
-.form_signin h2, .form_signin input{
-
+.form_signin input{
+    margin-bottom: 20px;
+}
+.form_signin a, .form_signin span{
+    font-size: 14px;
+    vertical-align: middle;
+}
+.form_signin .checkbox{margin-bottom: 10px;}
+.alert{
+    display: none;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    margin: -10px 0 10px;
 }
 
-.alert{display: none;}
+
 /*********assoHome**********/
 .feed_op {
     position: absolute;
