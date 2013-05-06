@@ -36,17 +36,17 @@
           </div><!-- feed_switcher end-->
 
           <!-- feeds begin -->
-          <div class="feeds">
+          <div class="feeds tab-content">
             <div class="loading">
                 <img src="img/loading.gif"/><span>正在加载，请稍候...</span>
             </div>
-            <ul id="feed_f" class="feedUl" >
+            <ul id="feed_f" class="feedUl tab-pane active" >
 				<?=$this->load->view('post/user_posts_view') ?>
 				<div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></img></div>
 				<?=form_button('request_more', '加载更多', 'page="1" po_type="personal" class="pub_btn"') ?>
 			</ul>
 				
-			<ul id="feed_a" class="feedUl" style="display: none">
+			<ul id="feed_a" class="feedUl tab-pane">
 				<?=$this->load->view('post/co_posts_view') ?>
 				<div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></img></div>
 				<?=form_button('request_more', '加载更多', 'page="1" po_type="activity" class="pub_btn"') ?>
@@ -60,6 +60,15 @@
         
      </div>
      <script type="text/javascript" src="<?=base_url('resource/js/home.js') ?>"></script>
-     <script>
-		
-	</script>
+<script type="text/javascript" src="<?= base_url('resource/js/new/tab.js') ?>"></script>
+<script>
+    $(function () {
+        $('.switch').click(function (e) {
+            $(".switch").removeClass("selected");
+            $(this).addClass("selected");
+            e.preventDefault();
+            $(this).tab('show');
+        });
+    });
+</script>
+
