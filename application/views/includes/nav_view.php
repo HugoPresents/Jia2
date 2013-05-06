@@ -68,9 +68,9 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">通知 <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="<?=site_url('notify?type=letter') ?>">站内信</a></li>
-                  <li><a href="<?=site_url('notify?type=request') ?>">请求</a></li>
-                  <li><a href="<?=site_url('notify?type=message') ?>">消息</a></li>
+                  <li><a href="<?=site_url('notify?type=letter') ?>" id="letter_notify">站内信</a></li>
+                  <li><a href="<?=site_url('notify?type=request') ?>" id="request_notify">请求</a></li>
+                  <li><a href="<?=site_url('notify?type=message') ?>" id="message_notify">消息</a></li>
                 </ul>
               </li>
               <li class="divider-vertical"></li>
