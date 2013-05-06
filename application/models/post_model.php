@@ -1,6 +1,7 @@
 <?php
 	class Post_model extends CI_Model {
 		public $post_type;
+		public $comments_limit;
 		protected $jiadb;
 		function __construct() {
 			parent::__construct();
@@ -8,6 +9,7 @@
 			$this->post_type['personal'] = $this->config->item('entity_type_personal');
 			$this->post_type['forward'] = $this->config->item('entity_type_forward');
 			$this->post_type['activity'] = $this->config->item('entity_type_activity');
+			$this->comments_limit = $this->config->item('comments_limit') ? $this->config->item('comments_limit') : 9 ;
 		}
 		
 		function get_info($post_id, $join = array()) {
@@ -54,7 +56,7 @@
 						$join_co = array(
 							'corporation' => array('owner_id', 'id'),
 							'post_meta' => array('id', 'post_id'),
-							'comment' => array('id', 'post_id', 5),
+							'comment' => array('id', 'post_id', $this->comments_limit, array('time' => 'DESC')),
 							'comment.user' => array('user_id', 'id')
 						);
 						$posts = $this->jiadb->fetchJoin(array('owner_id' =>$following_co, 'type_id' => $this->post_type['activity']), $join_co, array('time' => 'desc'), array($page_size, ($page-1) * $page_size));
@@ -63,7 +65,7 @@
 				case 'personal':
 					$join_user = array(
 						'user' => array('owner_id', 'id'),
-						'comment' => array('id', 'post_id', 5),
+						'comment' => array('id', 'post_id', $this->comments_limit, array('time' => 'DESC')),
 						'comment.user' => array('user_id', 'id')
 					);
 					$posts = $this->jiadb->fetchJoin(array('owner_id' => $following_user, 'type_id' => $this->post_type['personal']), $join_user, array('time' => 'desc'), array($page_size, ($page-1) * $page_size));
@@ -71,7 +73,7 @@
 				default:
 					$join_user = array(
 						'user' => array('owner_id', 'id'),
-						'comment' => array('id', 'post_id', 5),
+						'comment' => array('id', 'post_id', $this->comments_limit, array('time' => 'DESC')),
 						'comment.user' => array('user_id', 'id')
 					);
 					$posts['personal'] = $this->jiadb->fetchJoin(array('owner_id' => $following_user, 'type_id' => $this->post_type['personal']), $join_user, array('time' => 'desc'), array($page_size, ($page-1) * $page_size));
@@ -79,7 +81,7 @@
 						$join_co = array(
 							'corporation' => array('owner_id', 'id'),
 							'post_meta' => array('id', 'post_id'),
-							'comment' => array('id', 'post_id', 5),
+							'comment' => array('id', 'post_id', $this->comments_limit, array('time' => 'DESC')),
 							'comment.user' => array('user_id', 'id')
 						);
 						$posts['activity'] = $this->jiadb->fetchJoin(array('owner_id' =>$following_co, 'type_id' => $this->post_type['activity']), $join_co, array('time' => 'desc'), array($page_size, ($page-1) * $page_size));
@@ -95,13 +97,13 @@
 			if($type == 'personal') {
 				$join = array(
 					'user' => array('owner_id', 'id'),
-					'comment' => array('id', 'post_id', 5),
+					'comment' => array('id', 'post_id', $this->comments_limit, array('time' => 'DESC')),
 					'comment.user' => array('user_id', 'id')
 				);
 			} elseif($type == 'activity') {
 				$join = array(
 					'corporation' => array('owner_id', 'id'),
-					'comment' => array('id', 'post_id', 5),
+					'comment' => array('id', 'post_id', $this->comments_limit, array('time' => 'DESC')),
 					'comment.user' => array('user_id', 'id')
 				);
 			} else {

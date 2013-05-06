@@ -52,15 +52,15 @@
 			} else {
 				$data['posts'] = array('personal' => $this->Post_model->fetch(array('owner_id' => $id)));
 			}
-			$data['master_cos'] = $this->User_model->get_master_co($this->session->userdata('id'));
-			$following_cos_ids = $this->User_model->get_following_co($this->session->userdata('id'));
+			$data['master_cos'] = $this->User_model->get_master_co($id);
+			$following_cos_ids = $this->User_model->get_following_co($id);
 			if($following_cos_ids) {
 				$data['following_cos'] = $this->db
 										 ->where_in('id', $following_cos_ids)
 										 ->get('corporation')
 										 ->result_array();
 			}
-			$join_cos_ids = $this->User_model->get_join_co($this->session->userdata('id'));
+			$join_cos_ids = $this->User_model->get_join_co($id);
 			if($join_cos_ids) {
 				$data['join_cos'] = $this->db
 									->where_in('id', $join_cos_ids)

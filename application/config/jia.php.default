@@ -1,6 +1,7 @@
 <?php
 	// 每页显示的信息数量
 	$config['page_size'] = 10;
+	$config['comments_limit'] = 9;
 	// 个人头像上传相对路径
 	$config['personal_avatar_path'] = 'data/avatar/personal/';
 	// 个人照片上传路径

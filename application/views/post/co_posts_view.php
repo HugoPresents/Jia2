@@ -102,11 +102,15 @@
           <span class="arr_out"></span>
           <span class="arr_in"></span>
         </span>
+       <? if($this->session->userdata('type') != 'guest'): ?>
         <!-- 评论框  -->
         <div class="comment_wrap">
           <textarea class="W_input" post_id="<?=$post['id']?>"></textarea>
-          <p class="btn_wrap clearfix"><button name="post" type="button" class="W_btn fl">评论</button></p>
+          <p class="btn_wrap clearfix"><button name="comment" type="button" class="W_btn fl">评论</button></p>
         </div>
+        <? else: ?>
+        <?=anchor('index/login?jump=' . uri_string(), '登录后才能发表评论') ?>
+        <? endif ?>
         <div class="comment_lists">
         <? if(count($post['comment']) > 0): ?>
 		<?foreach($post['comment'] as $comment):?>
@@ -115,6 +119,9 @@
                 <dd><a href="/personal/profile/<?=$comment['user'][0]['id']?>"><?=$comment['user'][0]['name']?></a>&nbsp;&nbsp;<?=$comment['content']?> <br><?=time2duration($comment['time'])?></dd>
               </dl>
           <? endforeach; ?>
+          		  <? if($post['comments'] > count($post['comment'])): ?>
+		          	后面还有<?=$post['comments']-count($post['comment'])?>条评论<?=anchor('post/' . $post['id'], '点击查看>>') ?>
+		          <? endif ?>
           <? endif ?>
         </div>
       </div>

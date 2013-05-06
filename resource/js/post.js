@@ -31,7 +31,7 @@ $(function() {
 					alert('由于对方隐私设置，你不能评论~');
 				} else {
 					comment.val('');
-					button.closest(".comment_wrap").next().append(data);
+					button.closest(".comment_wrap").next().prepend(data);
 					var comments_total = comment.parents('.feed_a:first').find('span.comments_total');
 					var comments = Number(comments_total.text());
 					comments += 1;

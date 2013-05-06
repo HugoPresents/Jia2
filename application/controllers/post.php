@@ -24,7 +24,7 @@
 			} else {
 				$join = array(
 					'user' => array('owner_id', 'id'),
-					'comment' => array('id', 'post_id'),
+					'comment' => array('id', 'post_id', '', array('time' => 'DESC')),
 					'comment.user' => array('user_id', 'id')
 				);
 			}
