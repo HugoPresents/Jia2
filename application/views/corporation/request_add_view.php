@@ -189,7 +189,7 @@
 </div>
 */
 ?>
-<header class="subhead">
+<header class="subhead subheadline">
     <div class="container">
     </div>
 </header>
