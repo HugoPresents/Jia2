@@ -579,8 +579,7 @@ html, body, #wrapper {height: 100%;}
 /*********assoProfile**********/
 .mainContainer {
     background: url("../img/head_02.jpg") no-repeat top;
-    min-height: 500px;
-    padding-bottom: 130px;
+    margin-top: 40px;
 }
 
 .profile_pic_top {
@@ -1205,25 +1204,57 @@ input.chbox {
 }
 
 /*设置*/
-#main {
-    font-size: 12px;
-    float: left;
-    width: 610px;
-    padding: 20px;
-    padding-bottom: 10px;
-    border: 1px solid #E1E1E1;
-    border-radius: 4px;
-    background: white;
-    font-size: 12px;
-    overflow: auto;
+/*#main {*/
+    /*font-size: 12px;*/
+    /*float: left;*/
+    /*width: 610px;*/
+    /*padding: 20px;*/
+    /*padding-bottom: 10px;*/
+    /*border: 1px solid #E1E1E1;*/
+    /*border-radius: 4px;*/
+    /*background: white;*/
+    /*font-size: 12px;*/
+    /*overflow: auto;*/
+/*}*/
+#set_con,#myTab{
+    border: none;
 }
-
+.border{
+    border: 1px solid #E1E1E1;;
+}
+#myTab{
+    width: 209px;
+    padding-left: 20px;
+    padding-top: 20px;
+    background: #fff;
+}
+#myTab a{
+    display: block;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    line-height: 20px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    margin-right: 2px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 14px;
+}
+#myTab li.active{
+    background: #f2f2f2;
+}
 #user_info .li_1 {
     margin: 10px 20px;
     height: 20px;
 }
 
 /*通知*/
+#notify_menu .nav a{
+    font-size: 14px;
+}
+.notify{
+    margin-top: 40px;
+}
 .write_letter_form {
     margin-top: 30px;
 }
@@ -1231,14 +1262,25 @@ input.chbox {
 #write_letter_area {
     margin-top: 20px;
 }
-
+#write_letter_area .control-label{
+    width: auto;
+}
+#write_letter_area .controls{
+    margin-left: 60px;
+    line-height: 30px;
+}
+#write_letter_area textarea{
+    margin-top: 5px;
+    width: 500px;
+}
 .letter_content {
     margin-top: 10px;
-    border-top: 1px solid #C6C7C6;
+    border-top: 1px solid #e1e1e1;
 }
 
+
 .tab_title {
-    border-bottom: 1px solid #C6C7C6;
+    border-bottom: 1px solid #e1e1e1;
     overflow: hidden;
 }
 
@@ -1264,13 +1306,13 @@ a#in_box, a#out_box {
 }
 
 .tab_content {
-    padding: 20px;
+    padding-top: 20px;
 }
 
 .mes_li {
     overflow: auto;
-    padding: 10px 20px;
-    border-bottom: 1px solid #C6C7C6;
+    padding: 10px 0;
+    border-bottom: 1px dotted #e1e1e1;
     vertical-align: top;
     color: #999;
 }
@@ -1283,33 +1325,6 @@ a#in_box, a#out_box {
     vertical-align: top;
     font-size: 13px;
     color: #26709A;
-}
-
-.popup_block {
-    display: none;
-    background: white;
-    padding: 20px;
-    border: 20px solid #DDD;
-    float: left;
-    font-size: 1.2em;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 99999;
-    -webkit-box-shadow: 0px 0px 20px black;
-    -moz-box-shadow: 0px 0px 20px #000;
-    box-shadow: 0px 0px 20px black;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-}
-
-.btn_close {
-    float: right;
-    margin: -40px -40px 0 0;
-    width: 26px;
-    height: 26px;
-    background: url(../img/pic_close.png);
 }
 
 #linkman {
@@ -1368,7 +1383,37 @@ ol.slats li a span {
 .sd02 {
     background: url(../img/tab_1.png) no-repeat;
 }
+#linkmanlist0, #linkmanlist1 {
+    margin-top: 10px;
+    padding: 10px 10px 0;
+    border: 1px solid #eee;
+    overflow: auto;
+}
+#receiver{display: inline-block;}
+#check_linkman{
+    display: inline-block;margin-top: 4px;
+}
 
+.linkman_tag {
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    padding: 0 5px;
+    background: #9CD2F1;
+    margin-right: 5px;
+    color: #fff;
+}
+
+.del_linkman {
+    font-style: normal;
+    cursor: pointer;
+    padding-left: 5px;
+}
+
+#check_linkman {
+    margin-top: 0;
+}
 /*blog*/
 .whiteBg {
     background: #fff;
@@ -1385,7 +1430,23 @@ h4 {
     padding: 5px 0;
     border-bottom: 1px solid #DFDFDF;
 }
-
+.title_01 {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 white;
+    border-color: #E1E1E1 #E1E1E1 -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-width: 1px 1px medium;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 888px;
+}
 .title_02 {
     margin-top: 40px;
     background: #E9E9E9;
@@ -1452,4 +1513,14 @@ h4 {
 
 .main_03 .controls {
     margin-left: 100px;
+}
+
+/*pagination*/
+.pagination{
+    text-align: center;
+    margin: 10px 0;
+}
+.pagination ul > li >span{
+    /*background-color: #9CD2F1;*/
+    font-weight: bold;
 }

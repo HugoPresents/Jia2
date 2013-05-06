@@ -14,8 +14,8 @@
 		var $last_tag_open		= '<li>';
 		var $last_tag_close		= '</li>';
 		var $first_url			= ''; // Alternative URL for the First Page.
-		var $cur_tag_open		= '<li><strong>';
-		var $cur_tag_close		= '</strong></li>';
+		var $cur_tag_open		= '<li><span>';
+		var $cur_tag_close		= '</span></li>';
 		var $next_tag_open		= '<li>';
 		var $next_tag_close		= '</li>';
 		var $prev_tag_open		= '<li>';

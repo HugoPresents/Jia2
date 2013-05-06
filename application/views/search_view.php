@@ -150,7 +150,7 @@ $(function(){
                         </div>
                     </li>
                     <? endforeach; ?>
-                    <?=$pagination ?>
+                    <div class="pagination"><?=$pagination ?></div>
                 </ul>
             </div>
             <? endif ?>
@@ -182,7 +182,7 @@ $(function(){
                         </div>
                     </li>
                     <? endforeach ?>
-                    <?=$pagination ?>
+                    <div class="pagination"><?=$pagination ?></div>
                 </ul>
             </div>
             <? endif ?>
@@ -215,7 +215,7 @@ $(function(){
                         </div>
                     </li>
                     <? endforeach ?>
-                    <?=$pagination ?>
+                    <div class="pagination"><?=$pagination ?></div>
                 </ul>
             </div>
             <? endif ?>

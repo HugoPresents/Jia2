@@ -67,13 +67,13 @@ $(function() {
 	
 	// 点开收信人时判断是否ajax请求好友列表
 	$("#check_linkman, #linkman0").click(function() {
-		if($("#popup4").is(":visible") == true) {
+		//if($("#popup4").is(":visible") == true) {
 			$("#linkmanlist0, #pagination0").show();
 			$("#linkmanlist1, #pagination1").hide();
 			if($("#linkmanlist0 li").length == 0) {
 				fetch_user('0', 1);
 			}
-		}
+		//}
 		return true;
 	});
 	
@@ -86,8 +86,8 @@ $(function() {
 		linkman=$(this).find("span").text();
 		
 		$("#receiver").append($('<span class="linkman_tag">' + linkman + '<i class="del_linkman"> × </i> </span>'));
-		$('#fade , .popup_block').fadeOut(function() {
-			$('#fade, a.close').remove(); 
+		$('.modal-backdrop  , .modal').fadeOut(function() {
+			$('.modal-backdrop').remove();
 		});
 		return false;
 	});
