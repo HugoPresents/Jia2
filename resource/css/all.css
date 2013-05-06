@@ -842,9 +842,8 @@ html, body, #wrapper {height: 100%;}
 
 .login_bd .mainBody {
     background: #fff url("../img/loginbg.jpg") no-repeat top center;
-    padding-bottom: 135px;
     overflow: auto;
-    min-height: 500px;
+    min-height: 560px;
 }
 
 .login_bd .container {
@@ -871,12 +870,24 @@ html, body, #wrapper {height: 100%;}
 .signin_heading {
     padding-bottom: 20px;
     width: 300px;
+    font-size: 28px;
 }
-.form_signin h2, .form_signin input{
-
+.form_signin input{
+    margin-bottom: 20px;
+}
+.form_signin a, .form_signin span{
+    font-size: 14px;
+    vertical-align: middle;
+}
+.form_signin .checkbox{margin-bottom: 10px;}
+.alert{
+    display: none;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    margin: -10px 0 10px;
 }
 
-.alert{display: none;}
+
 /*********assoHome**********/
 .feed_op {
     position: absolute;
