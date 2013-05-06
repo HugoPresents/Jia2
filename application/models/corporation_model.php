@@ -126,7 +126,8 @@
 				'user_id' => $user_id,
 				'meta_table' => 'corporation',
 				'meta_key' => 'follower',
-				'meta_value' => $corporation_id
+				'meta_value' => $corporation_id,
+				'addtime' => time()
 			);
 			// 取消关注
 			if($unfollow) {
@@ -175,11 +176,13 @@
 		
 		function join_member($corporation_id, $member_id, $unjoin = FALSE) {
 			$corporation = $this->get_info($corporation_id);
+            $time = time();
 			$meta_array = array(
 				'meta_key' => 'member',
 				'meta_table' => 'user',
 				'meta_value' => $member_id,
-				'corporation_id' => $corporation_id
+				'corporation_id' => $corporation_id,
+				'add_time' => $time
 			);
 			if($unjoin) {
 				$this->db->delete('corporation_meta', $meta_array);
@@ -198,7 +201,7 @@
 						'type' => 'message',
 						'user_id' => $this->session->userdata('id'),
 						'receiver_id' => $member_id,
-						'time' => time()
+						'time' => $time
 					);
 					$this->Notify_model->insert($message);
 					return 3;
@@ -213,7 +216,8 @@
 				'meta_key' => 'admin',
 				'meta_table' => 'user',
 				'meta_value' => $admin_id,
-				'corporation_id' => $corporation_id
+				'corporation_id' => $corporation_id,
+				'add_time' => time()
 			);
 			if($unjoin) {
 				$this->db->where($meta_array);

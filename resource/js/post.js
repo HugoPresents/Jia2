@@ -3,7 +3,7 @@
  */
 $(function() {
     $('.f_summary .CommetBtn').live('click', function() {
-    	 $(this).closest(".f_summary").siblings(".repeat").toggle();
+    	 $(this).closest(".f_summary").siblings(".repeat").slideToggle("fast");
     });
 	$("textarea[name='comment_content']").keyup(function() {
 		$button = $(this).parent().next().children('button');

@@ -198,11 +198,13 @@
 		 * @param int following_id
 		 */
 		function follow($user_id, $following_id, $unfollow = FALSE) {
+		    $time = time();
 			$meta_array = array(
 				'user_id' => $user_id,
 				'meta_table' => 'user',
 				'meta_key' => 'follower',
-				'meta_value' => $following_id
+				'meta_value' => $following_id,
+				'add_time' => $time
 			);
 			if($unfollow) {
 				$this->db->where($meta_array);
@@ -218,6 +220,16 @@
 					return FALSE;
 				} else {
 					$this->insert_meta($meta_array);
+                    // 发条通知
+                    $this->load->model('Notify_model');
+                    $notify = array(
+                        'user_id' => $this->user_id,
+                        'receiver_id' => $following_id,
+                        'content' => '关注了你',
+                        'time' => $time,
+                        'type' => 'message'
+                    );
+                    $this->Notify_model->insert($notify);
 					return TRUE;
 				}
 			}
@@ -233,7 +245,8 @@
 				'user_id' => $user_id,
 				'meta_key' => 'blocker',
 				'meta_table' => 'user',
-				'meta_value' => $blocker_id
+				'meta_value' => $blocker_id,
+				'add_time' => $time
 			);
 			if($unblock) {
 				$this->db->where($meta_array);

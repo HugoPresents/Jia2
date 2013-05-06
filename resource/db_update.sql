@@ -8,5 +8,5 @@ ALTER TABLE `post`
 2013-5-6 14:17:10 
 update data
 {
-UPDATE post SET comments = (SELECT count(*) FROM comment WHERE post_id=post.id)
+UPDATE post SET comments = (SELECT count(*) FROM comment WHERE post_id=post.id);
 }
