@@ -117,6 +117,7 @@
 			} else {
 				$corporation_result['rows'] = 0;
 			}
+            //print_vars($corporation_result);
 			return $corporation_result;
 		}
 		
@@ -128,7 +129,7 @@
             );
             if(strlen($keywords) < 1) return $activity_result;
 			$this->jiadb->_table = 'activity';
-			$where = array('name REGEXP' => $keywords);
+			$where = array('name LIKE' => '%'.$keywords.'%');
 			$join = array(
 				'corporation' => array('corporation_id', 'id')
 			);

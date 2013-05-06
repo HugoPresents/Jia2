@@ -77,7 +77,7 @@ $(function() {
 		return true;
 	});
 	
-	linkman_tab();
+	//linkman_tab();
 	
 	$("#popup4 li.group ").live("click",function(){
 		$("#receiver_id").val($(this).attr("user_id"));

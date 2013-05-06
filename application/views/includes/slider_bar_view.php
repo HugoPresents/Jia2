@@ -35,7 +35,7 @@
 ?>
 <div class="siderbar">
           <div class="user_head_box sidebar_nav">
-          	<?=anchor('personal/profile/' . $post['user'][0]['id'], '<img src="'. avatar_url($post['user'][0]['avatar']) .'" >','class="user_head"') ?>
+          	<?=anchor('personal/profile/' . $info['id'], '<img src="'. avatar_url($info['avatar'], 'personal', 'big') .'" >','class="user_head"') ?>
             <a href="<?=site_url('personal/profile/' . $post['user'][0]['id']) ?>"><?=$post['user'][0]['name']?></a>
           </div>
           <div class="sidebar_nav">

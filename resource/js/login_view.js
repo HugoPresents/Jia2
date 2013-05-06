@@ -36,12 +36,13 @@ $(function() {
                     	} else {
                     		window.location.href = SITE_URL;
                     	}
-                    } else if(data.verify == 0){
-                        $("#email_prompt").text(data.email).show();
-                        $submit.removeAttr('disabled');
-                        $submit.val('登录');
-                    }else{
-                        $("#pass_prompt").text(data.pass).show();
+                    } else {
+                        if(data.email) {
+                            $("#email_prompt").text(data.email).show();
+                        }
+                        if(data.pass) {
+                            $("#pass_prompt").text(data.pass).show();
+                        }
                         $submit.removeAttr('disabled');
                         $submit.val('登录');
                     }

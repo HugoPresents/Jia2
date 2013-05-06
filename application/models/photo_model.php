@@ -54,12 +54,12 @@
 						mkdirs($thumb_tmp['new_image']);
 						$this->image_lib->initialize($thumb_tmp);
 						$this->image_lib->resize();
-						//mkdirs($thumb_tiny['new_image']);
-						//mkdirs($thumb_big['new_image']);
-						//$this->image_lib->initialize($thumb_tiny); 
-						//$this->image_lib->resize();
-						//$this->image_lib->initialize($thumb_big);
-						//$this->image_lib->resize();
+						mkdirs($thumb_tiny['new_image']);
+						mkdirs($thumb_big['new_image']);
+						$this->image_lib->initialize($thumb_tiny); 
+						$this->image_lib->resize();
+						$this->image_lib->initialize($thumb_big);
+						$this->image_lib->resize();
 						// 删除原始图像
 						if(file_exists($image_data['full_path']))
 							unlink($image_data['full_path']);
@@ -163,7 +163,6 @@
 						}
 						return $filename;
 					}
-					echo $this->upload->display_errors();
 					break;
 				}
 		}

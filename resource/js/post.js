@@ -66,7 +66,6 @@ $(function() {
 			} else {
 				textarea.val('');
 				$("#feed_f").prepend(data);
-				button.attr('disabled', 'disabled');
 			}
 		}
 		);
