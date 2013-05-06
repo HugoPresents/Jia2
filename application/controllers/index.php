@@ -19,6 +19,21 @@
                 $data['info'] = $this->User_model->get_info($this->session->userdata('id'), $join);
                 $followers = $this->User_model->get_followers($this->session->userdata('id'));
                 $following = $this->User_model->get_following($this->session->userdata('id'));
+				$data['master_cos'] = $this->User_model->get_master_co($this->session->userdata('id'));
+				$following_cos_ids = $this->User_model->get_following_co($this->session->userdata('id'));
+				if($following_cos_ids) {
+					$data['following_cos'] = $this->db
+											 ->where_in('id', $following_cos_ids)
+											 ->get('corporation')
+											 ->result_array();
+				}
+				$join_cos_ids = $this->User_model->get_join_co($this->session->userdata('id'));
+				if($join_cos_ids) {
+					$data['join_cos'] = $this->db
+										->where_in('id', $join_cos_ids)
+										->get('corporation')
+										->result_array();
+				}
                 $data['followers_num'] = $followers ? count($followers) : 0;
                 $data['following_num'] = $following ? count($following) : 0;
                 $data['js'] = array('post.js');

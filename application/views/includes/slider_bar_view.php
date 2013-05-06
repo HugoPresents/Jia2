@@ -43,43 +43,41 @@
             <a class="a_sty_01" href="<?=site_url('album/index')?>"><i class="ico ico_photo"></i>传照片</a>
             <a class="a_sty_01" href="<?=site_url('corporation/request_add')?>"><i class="ico ico_asso"></i>创建社团</a>
           </div>
+          <?
+          if($master_cos and count($master_cos) > 0): ?>
           <dl class="sidebar_nav">
-            <dt>管理的社团（1）</dt>
+            <dt>管理的社团（<?=count($master_cos)?>）</dt>
             <dd class="clearfix">
-            <a class="a_sty_02" href="#">
-              <img src="img/asso/asso50-1.png"><br>点点网
+            <? foreach($master_cos as $corporation):?>
+            <a class="a_sty_02" href="/corporation/profile/<?=$corporation['id']?>">
+              <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>"><br><?=$corporation['name']?>
             </a>
-            <a class="a_sty_02" href="#">
-              <img src="img/asso/asso50-2.jpeg"><br>点点网
-            </a> 
-            <a class="a_sty_02" href="#">
-              <img src="img/asso/asso50-3.jpeg"><br>点点网
-            </a>          
+            <? endforeach ?>
             </dd>
           </dl>
+          <? endif ?>
+          <? if($join_cos and count($join_cos) > 0): ?>
           <dl class="sidebar_nav">
-            <dt>加入的社团（2）</dt>
+            <dt>加入的社团（<?=count($join_cos)?>）</dt>
             <dd class="clearfix">
-            <a class="a_sty_02" href="#">
-              <img src="img/asso/asso50-4.jpeg"><br>点点网
+            <? foreach($join_cos as $corporation):?>
+            <a class="a_sty_02" href="/corporation/profile/<?=$corporation['id']?>">
+              <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>"><br><?=$corporation['name']?>
             </a>
-            <a class="a_sty_02" href="#">
-              <img src="img/asso/asso50-5.jpeg"><br>点点网
-            </a>  
-            <a class="a_sty_02" href="#">
-              <img src="img/asso/asso50-6.jpeg"><br>点点网
-            </a>           
+            <? endforeach ?>
             </dd>
           </dl>
+          <? endif ?>
+          <? if($following_cos and count($following_cos) > 0): ?>
           <dl class="sidebar_nav">
-            <dt>粉丝（2）</dt>
+            <dt>关注的社团（<?=count($following_cos)?>）</dt>
             <dd class="clearfix">
-            <a class="a_sty_02" href="#">
-              <img src="img/img50_g.png"><br>我的粉
-            </a> 
-            <a class="a_sty_02" href="#">
-              <img src="img/img50_b.png"><br>我的粉丝
-            </a>          
+            <? foreach($following_cos as $corporation):?>
+            <a class="a_sty_02" href="/corporation/profile/<?=$corporation['id']?>">
+              <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>"><br><?=$corporation['name']?>
+            </a>
+            <? endforeach ?>
             </dd>
           </dl>
+          <? endif ?>
         </div>
