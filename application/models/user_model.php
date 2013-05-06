@@ -167,10 +167,19 @@
 				'meta_value' => $user_id
 			);
 			$corporations =  $this->jiadb->fetchMeta($return, $where);
+			// with master corporation ?
+			/*
 			$ma_co = $this->jiadb->fetchAll(array('user_id' => $user_id));
 			if($ma_co) {
 				$corporations[] = $ma_co[0]['id'];
 			}
+			*/
+			return $corporations;
+		}
+		
+		function get_master_co($user_id) {
+			$this->jiadb->_table = 'corporation';
+			$corporations = $this->jiadb->fetchAll(array('user_id' => $user_id));
 			return $corporations;
 		}
 		
