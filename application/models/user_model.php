@@ -204,7 +204,6 @@
 				'meta_table' => 'user',
 				'meta_key' => 'follower',
 				'meta_value' => $following_id,
-				'add_time' => $time
 			);
 			if($unfollow) {
 				$this->db->where($meta_array);
@@ -219,6 +218,7 @@
 				if($following_blockers && (in_array($user_id, $following_blockers) || in_array($following_id, $follower_blockers))) {
 					return FALSE;
 				} else {
+				    $meta_array['add_time'] = $time;
 					$this->insert_meta($meta_array);
                     // 发条通知
                     $this->load->model('Notify_model');
@@ -246,7 +246,6 @@
 				'meta_key' => 'blocker',
 				'meta_table' => 'user',
 				'meta_value' => $blocker_id,
-				'add_time' => $time
 			);
 			if($unblock) {
 				$this->db->where($meta_array);
@@ -269,6 +268,7 @@
 				);
 				$this->delete_meta('user_meta', $delete_follower);
 				$this->delete_meta('user_meta', $delete_following);
+                $meta_array['add_time'] = time();
 				$this->insert_meta('usermeta', $meta_array);
 			}
 		}

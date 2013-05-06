@@ -116,7 +116,8 @@
 			if($corporation_id) {
 				$join = array(
 					'school' => array('school_id', 'id'),
-					'user' => array('user_id', 'id')
+					'user' => array('user_id', 'id'),
+					'school.province' => array('province_id', 'id')
 				);
 				$corporation_info = $this->Corporation_model->get_info(array('id' => $corporation_id), $join);
 				if($corporation_info) {
@@ -126,12 +127,21 @@
 					$data['title'] = $data['info']['name'];
 					$data['js'] = array('corporation/profile_view.js', 'post.js');
 					$data['css'] = 'corporation/jquery-ui-1.7.custom.css';
-					$data['followers'] = $this->Corporation_model->get_followers($corporation_id);
-					$this->jiadb->_table = 'user';
-					$data['followers_info'] = $data['followers'] ? $this->jiadb->fetchAll(array('id' => $data['followers'])) : array();
-					$data['members'] = $this->Corporation_model->get_members($corporation_id);
-					$data['members'][] = $data['info']['user_id'];
-					$data['members_info'] = $data['members'] ? $this->jiadb->fetchAll(array('id' => $data['members'])) : array();
+                    $data['followers_ids'] = $this->Corporation_model->get_followers($corporation_id, array('add_time' => 'DESC'));
+                    if($data['followers_ids']) {
+                        $data['followers'] = $this->db
+                                             ->where_in('id', $data['followers_ids'])
+                                             ->get('user')
+                                             ->result_array();
+                    }
+                    $data['members_ids'] = $this->Corporation_model->get_members($corporation_id, array('add_time' => 'DESC'));
+                    if($data['members_ids']) {
+                        $data['members'] = $this->db
+                                           ->where_in('id', $data['members_ids'])
+                                           ->get('user')
+                                           ->result_array();
+                    }
+					//$data['members'][] = $data['info']['user_id'];
 					$data['posts']['activity'] = $this->Post_model->fetch(array('owner_id' => $corporation_id), 'activity');
 					$activities = $this->Corporation_model->get_activities($corporation_id);
 					$data['activities'] =  $activities ? $activities : array();

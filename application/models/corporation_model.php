@@ -52,7 +52,7 @@
 			return $this->jiadb->fetchMeta($return, $where);
 		}
 		
-		function get_members($corporation_id) {
+		function get_members($corporation_id, $order = null, $limit = null) {
 			$this->jiadb->_table = 'corporation';
 			$return = 'meta_value';
 			$where = array(
@@ -60,7 +60,7 @@
 				'meta_key' => 'member',
 				'corporation_id' => $corporation_id
 			);
-			return $this->jiadb->fetchMeta($return, $where);
+			return $this->jiadb->fetchMeta($return, $where, $order, $limit);
 		}
 		
 		function get_admin($corporation_id) {
@@ -127,7 +127,6 @@
 				'meta_table' => 'corporation',
 				'meta_key' => 'follower',
 				'meta_value' => $corporation_id,
-				'addtime' => time()
 			);
 			// 取消关注
 			if($unfollow) {
@@ -144,6 +143,7 @@
 					if($exists) {
 						return TRUE;
 					} else {
+					    $user_meta['add_time'] = time();
 						$this->db->insert('user_meta', $user_meta);
 						return TRUE;
 					}
@@ -182,7 +182,6 @@
 				'meta_table' => 'user',
 				'meta_value' => $member_id,
 				'corporation_id' => $corporation_id,
-				'add_time' => $time
 			);
 			if($unjoin) {
 				$this->db->delete('corporation_meta', $meta_array);
@@ -193,6 +192,7 @@
 				if(!empty($blockers) && in_array($member_id, $blockers)) {
 					return 1;
 				} elseif(!in_array($member_id, $members)) {
+				    $meta_array['add_time'] = $time;
 					$this->db->insert('corporation_meta', $meta_array);
 					// 加入社团会自动关注这个社团
 					$this->follow($member_id, $corporation_id);
@@ -217,7 +217,6 @@
 				'meta_table' => 'user',
 				'meta_value' => $admin_id,
 				'corporation_id' => $corporation_id,
-				'add_time' => time()
 			);
 			if($unjoin) {
 				$this->db->where($meta_array);
@@ -226,6 +225,7 @@
 				$members = $this->get_members($corporation_id);
 				$admin = $this->get_members($corporation_id);
 				if(!in_array($admin_id, $admin) && in_array($admin_id, $members)) {
+				    $meta_array['add_time'] = time();
 					$this->db->insert('corporation_meta', $meta_array);
 				} else {
 					return FALSE;

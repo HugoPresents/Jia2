@@ -184,26 +184,35 @@
         <div class="profile_pic_top"></div>
         <div class="asso_profile_hd">
             <div class="asso_head">
-                <div class="asso_head_pic"><img src="img/asso/assoHead100-1.jpg"/></div>
+                <div class="asso_head_pic"><img src="<?=avatar_url($info['avatar'], 'corporation', 'big')?>"/></div>
                 <ul class="user_atten clearfix">
-                    <li class=""><a class="S_func1" href=""><strong node-type="follow">20</strong><span>成员 </span></a>
+                    <li class=""><a class="S_func1"><strong node-type="follow"><?=count($members_ids)?></strong><span>成员 </span></a>
                     </li>
-                    <li class=""><a class="S_func1" href=""><strong node-type="fans">27</strong><span>粉丝</span></a></li>
-                    <li class="noBorder"><a class="S_func1" name="profile_tab" href=""><strong node-type="weibo">24</strong><span>活动</span></a></li>
+                    <li class=""><a class="S_func1"><strong node-type="fans"><?=count($followers_ids)?></strong><span>粉丝</span></a></li>
+                    <li class="noBorder"><a class="S_func1" name="profile_tab"><strong node-type="weibo">24</strong><span>活动</span></a></li>
                 </ul>
             </div>
             <div class="asso_info clearfix">
                 <div class="asso_name"><?=$info['name']?></div>
                 <div class="asso_tags">
-                    位置 <a href="">四川省</a>
+                    位置 <a><?=$info['school'][0]['province'][0]['name']?></a>
                     <span class="vline">|</span>
-                    在 <a href=""><?=$info['school'][0]['name']?></a>
+                    在 <a><?=$info['school'][0]['name']?></a>
                     <span class="vline">|</span>
                     <a class="btnDefault btn_s" href="/corporation/setting/<?=$info['id']?>">管理社团资料</a>
                 </div>
                 <div class="asso_btns">
+                    <? if($this->session->userdata('id')): ?>
+                        <? if(in_array($this->session->userdata('id'), $followers_ids)): ?>
+                            <?=form_button(array('name' => 'follow', 'content' => '已关注', 'id' => $info['id'], 'disabled' => 'disabled'))?>
+                            <?=form_button(array('name' => 'unfollow', 'content' => '取消关注', 'id' => $info['id']))?>
+                        <? else:?>
+                            <?=form_button(array('name' => 'follow', 'content' => '关注', 'id' => $info['id']))?>
+                
+                        <? endif?>
+                    <? endif ?>
                 	<? if($this->session->userdata('id')): ?>
-						<? if(in_array($this->session->userdata('id'), $members)): ?>
+						<? if(in_array($this->session->userdata('id'), $members_ids)): ?>
 							<?=form_button(array('name' => 'join', 'content' => '已加入', 'co_id' => $info['id'], 'disabled' => 'disabled'))?>
 							<?=form_button(array('name' => 'unjoin', 'content' => '退出社团', 'co_id' => $info['id'], 'id'=>'leave_co'))?>
 						<? else:?>
@@ -213,7 +222,6 @@
 					<? endif ?>
                 </div>
             </div>
-
             <div class="asso_infoC">
                 <p>社长： <span class="blue"><a href="/personal/profile/<?=$info['user'][0]['id']?>"><?=$info['user'][0]['name']?></a></span></p>
                 <p><?=$info['comment']?></p>
@@ -224,7 +232,7 @@
 <div class="container mainBody">
     <div class="mt20 clearfix feed_switcher">
         <a title="" href="javascript:void(0);" id="filter_all" class="first selected">最新动态</a>
-        <a title="" href="javascript:void(0);" id="filter_dairy" class="last">活动日志</a>
+        <a title="" href="javascript:void(0);" id="filter_dairy" class="last">活动</a>
     </div>
 
     <div class="main">
@@ -234,43 +242,29 @@
         </div>
         <!-- feeds end -->
     </div>
-
-
     <div class="siderbar">
         <dl class="sidebar_nav">
-            <dt>最新加入</dt>
+            <dt>成员(<?=count($members_ids)?>)</dt>
             <dd class="clearfix">
-                <a class="a_sty_02" href="#">
-                    <img src="img/img50_g.png"><br>我的粉
+                <? if($members_ids): ?>
+                <? foreach($members as $user): ?>
+                <a class="a_sty_02" href="/personal/profile/<?=$user['id']?>">
+                    <img src="<?=avatar_url($user['avatar'])?>"><br><?=$user['name']?>
                 </a>
-                <a class="a_sty_02" href="#">
-                    <img src="img/img50_b.png"><br>我的粉丝
-                </a>
-                <a class="a_sty_02" href="#">
-                    <img src="img/img50_g.png"><br>我的粉
-                </a>
-                <a class="a_sty_02" href="#">
-                    <img src="img/img50_b.png"><br>我的粉丝
-                </a>
-                <a class="a_sty_02" href="#">
-                    <img src="img/img50_g.png"><br>我的粉
-                </a>
-                <a class="a_sty_02" href="#">
-                    <img src="img/img50_b.png"><br>我的粉丝
-                </a>
-                <p style="clear: both; font-size: 14px; padding-top: 15px;"><a href="/corporation/setting/<?=$info['id']?>">> 浏览所以成员（100）</a></p>
+                <? endforeach ?>
+                <? endif ?>
             </dd>
         </dl>
-
         <dl class="sidebar_nav">
-            <dt>粉丝</dt>
+            <dt>粉丝(<?=count($followers)?>)</dt>
             <dd class="clearfix">
-                <a class="a_sty_02" href="#">
-                    <img src="img/img50_g.png"><br>我的粉
+                <? if($followers_ids): ?>
+                <? foreach($followers as $user): ?>
+                <a class="a_sty_02" href="/personal/profile/<?=$user['id']?>">
+                    <img src="<?=avatar_url($user['avatar'])?>"><br><?=$user['name']?>
                 </a>
-                <a class="a_sty_02" href="#">
-                    <img src="img/img50_b.png"><br>我的粉丝
-                </a>
+                <? endforeach ?>
+                <? endif ?>
             </dd>
         </dl>
     </div>

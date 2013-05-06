@@ -77,6 +77,7 @@
 				if(!empty($blockers) && in_array($user_id, $blockers)) {
 					return FALSE;
 				} elseif(!in_array($user_id, $participants)) {
+				    $meta_array['add_time'] = time();
 					$this->db->insert('activity_meta', $meta_array);
 				}
 			}

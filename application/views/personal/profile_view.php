@@ -70,9 +70,7 @@
                     <a href="<?=site_url('album/lists/'.$photo['album_id'])?>"><img src="<?=base_url($photo['thumb'])?>" alt=""/></a>
                     <? endforeach; ?>
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>
