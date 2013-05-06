@@ -1161,6 +1161,7 @@ html, body, #wrapper {height: 100%;}
     margin: 10px 30px;
 }
 
+.tab-content{overflow: hidden}
 /* -------------
  * Checkboxes
  * ------------- */

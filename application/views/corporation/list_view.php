@@ -18,7 +18,7 @@
 </div>
  */
 ?>
-<header class="found_hd subhead">
+<header class="subhead subheadline">
     <div class="container">
     </div>
 </header>

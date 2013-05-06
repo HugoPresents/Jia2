@@ -121,17 +121,17 @@ $(function(){
     <div class="searchmain">
         <div class="switcher_wrap clearfix">
             <span class="fr">&nbsp;搜索&nbsp;<q id="searh_key">“<?=$this->input->get('keywords')?>”</q>&nbsp;的结果</span>
-            <ul class="nav nav-tabs" id="myTab">
-                <li<?=$object == 'user' ? ' class="active"' :''?>><a href="<?=site_url('search/?target=user&keywords='.$this->input->get('keywords'))?>"  data-toggle="tab">用户</a></li>
-                <li<?=$object == 'corporation' ? ' class="active"' :''?>><a href="<?=site_url('search/?target=corporation&keywords='.$this->input->get('keywords'))?>"  data-toggle="tab">社团</a></li>
-                <li<?=$object == 'activity' ? ' class="active"' :''?>><a href="<?=site_url('search/?target=activity&keywords='.$this->input->get('keywords'))?>"  data-toggle="tab">活动</a></li>
+            <ul class="nav nav-tabs">
+                <li<?=$object == 'user' ? ' class="active"' :''?>><a href="<?=site_url('search/?target=user&keywords='.$this->input->get('keywords'))?>">用户</a></li>
+                <li<?=$object == 'corporation' ? ' class="active"' :''?>><a href="<?=site_url('search/?target=corporation&keywords='.$this->input->get('keywords'))?>">社团</a></li>
+                <li<?=$object == 'activity' ? ' class="active"' :''?>><a href="<?=site_url('search/?target=activity&keywords='.$this->input->get('keywords'))?>">活动</a></li>
             </ul>
         </div>
 
-        <div class="tab-content">
+        <div>
             <? if($object == 'user'): ?>
             <!--用户-->
-            <div class="tab-pane active" id="">
+            <div class="" id="">
                 <ul class="clearfix">
                     <? foreach($user_result as $user): ?>
                     <li class="asso_w">
@@ -156,7 +156,7 @@ $(function(){
             <? endif ?>
             <? if($object == 'corporation'): ?>
             <!--社团-->
-            <div class="tab-pane active">
+            <div class="">
                 <ul class="clearfix">
                     <? foreach($corporation_result as $corporation): ?>
                     <li class="asso_w">
@@ -188,7 +188,7 @@ $(function(){
             <? endif ?>
             <? if($object == 'activity'): ?>
             <!--活动-->
-            <div class="tab-pane active">
+            <div class="">
                 <ul class="clearfix">
                     <? foreach($activity_result as $activity): ?>
                     <li class="asso_w">
@@ -224,9 +224,8 @@ $(function(){
     <div class="searchside">
         <img src="img/advertisement/shetuanzhijia_01.jpg" alt=""/>
     </div>
-    <script type="text/javascript" src="<?=base_url('resource/js/new/tab.js') ?>"></script>
+<!--    <script type="text/javascript" src="--><?//=base_url('resource/js/new/tab.js') ?><!--"></script>-->
    	<script>
-		$(function() {
-			$('#myTab').tab('show')
-		})
-	</script>
+
+    </script>
+</div>

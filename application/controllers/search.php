@@ -79,8 +79,8 @@
             $data['object'] = $object;
             $data['main_content'] = 'search_view';
             $data['title'] = '搜索';
-            $data['css'] = array("main_content.css");
-            $data['js'] = array('tab.js');
+//            $data['css'] = array("main_content.css");
+//            $data['js'] = array('tab.js');
             $this->load->view('includes/template_view', $data);
 		}
 
