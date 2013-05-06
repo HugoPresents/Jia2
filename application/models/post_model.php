@@ -122,4 +122,9 @@
 			}
 			return $comment_result;
 		}
+		
+		function update_comments($post_id) {
+			$sql = 'UPDATE post SET comments = (SELECT count(*) FROM comment WHERE post_id='.$post_id.') WHERE id='.$post_id;
+			$this->db->query($sql);
+		}
 	}

@@ -15,11 +15,11 @@ $(function() {
 		}
 	});
 	$("button[name='comment']").live("click",function(){
-		$comment = $(this).closest(".comment_wrap").find("textarea");
-		$button = $(this);
-		content = $comment.val();
-		post_id = $comment.attr('post_id');
-		type = $comment.attr('type');
+		var comment = $(this).closest(".comment_wrap").find("textarea");
+		var button = $(this);
+		var content = comment.val();
+		var post_id = comment.attr('post_id');
+		var type = comment.attr('type');
 		$.post(
 			SITE_URL + "post/comment", {
 				ajax:1,
@@ -30,8 +30,12 @@ $(function() {
 				if(data == "0") {
 					alert('由于对方隐私设置，你不能评论~');
 				} else {
-					$comment.val('');
-					$button.closest(".comment_wrap").next().append(data);
+					comment.val('');
+					button.closest(".comment_wrap").next().append(data);
+					var comments_total = comment.parents('.feed_a:first').find('span.comments_total');
+					var comments = Number(comments_total.text());
+					comments += 1;
+					comments_total.text(comments);
 				}
 			}
 		);

@@ -102,6 +102,7 @@
 					'time' => $time
 				);
 				$comment_id = $this->Post_model->insert_comment($comment);
+				$this->Post_model->update_comments($post_id);
 				if($type == 'personal' && $owner_id != $this->session->userdata('id')) {
 					// 插入一条通知
 					$notify = array(
