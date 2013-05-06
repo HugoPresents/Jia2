@@ -2,9 +2,8 @@
  * ajax 发帖以及添加评论的js
  */
 $(function() {
-	$(".f_summary").delegate(".CommetBtn","click",function(){
-        $(this).closest(".f_summary").siblings(".repeat").toggle();
-
+    $('.f_summary .CommetBtn').live('click', function() {
+    	 $(this).closest(".f_summary").siblings(".repeat").toggle();
     });
 	$("textarea[name='comment_content']").keyup(function() {
 		$button = $(this).parent().next().children('button');
