@@ -1,6 +1,5 @@
 body {
     position: relative;
-    padding-top: 40px;
     font-size: 12px;
     height: 100%;
 }
@@ -93,7 +92,7 @@ html, body, #wrapper {height: 100%;}
 #Maincontent {padding-bottom: 135px;}
 .footer {
     position: relative;
-    margin-top: -175px;
+    margin-top: -135px;
     width: 100%;
     height: 135px;
     clear:both;
@@ -106,7 +105,6 @@ html, body, #wrapper {height: 100%;}
     margin: 0;
     text-align: center;
 }
-/*#containerWrap{width:960px; margin: 0 auto;}*/
 
 /*foot*/
 .container.mainBody {
@@ -137,6 +135,7 @@ html, body, #wrapper {height: 100%;}
 .subhead {
     position: relative;
     height: 221px;
+    margin-top: 40px;
     background: url(../img/home_02.png) center;
 }
 

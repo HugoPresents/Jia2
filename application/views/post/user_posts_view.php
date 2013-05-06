@@ -93,7 +93,7 @@
       <!-- 评论等toolbar-->
       <div class="f_summary clearfix">
         <div class="fl"><span><?=time2duration($post['time'])?></span> 来自 <span>成都信息工程学院</span></div>
-          <div class="fr"><a href="javascript:;" class="CommetBtn">评论</a></div>
+          <div class="fr"><a href="javascript:void(0);" class="CommetBtn">评论</a></div>
       </div>
       <div class="repeat">
         <span class="arr">
