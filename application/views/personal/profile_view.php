@@ -93,9 +93,9 @@
         </div>
         <!-- feeds end -->
     </div>
-
-
-    <? $this->load->view('includes/slider_bar_view_pro') ?>
+    <div class="siderbar">
+    <? $this->load->view('includes/slider_bar_corporations_view') ?>
+    </div>
 </div>
 
 	

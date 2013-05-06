@@ -34,50 +34,14 @@
 */
 ?>
 <div class="siderbar">
-          <div class="user_head_box sidebar_nav">
-          	<?=anchor('personal/profile/' . $info['id'], '<img src="'. avatar_url($info['avatar'], 'personal', 'big') .'" >','class="user_head"') ?>
-            <a href="<?=site_url('personal/profile/' . $post['user'][0]['id']) ?>"><?=$post['user'][0]['name']?></a>
-          </div>
-          <div class="sidebar_nav">
-            <a class="a_sty_01" href="<?=site_url('blog/post')?>"><i class="ico ico_dairy"></i>写日志</a>
-            <a class="a_sty_01" href="<?=site_url('album/index')?>"><i class="ico ico_photo"></i>传照片</a>
-            <a class="a_sty_01" href="<?=site_url('corporation/request_add')?>"><i class="ico ico_asso"></i>创建社团</a>
-          </div>
-          <?
-          if($master_cos and count($master_cos) > 0): ?>
-          <dl class="sidebar_nav">
-            <dt>管理的社团（<?=count($master_cos)?>）</dt>
-            <dd class="clearfix">
-            <? foreach($master_cos as $corporation):?>
-            <a class="a_sty_02" href="/corporation/profile/<?=$corporation['id']?>">
-              <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>"><br><?=$corporation['name']?>
-            </a>
-            <? endforeach ?>
-            </dd>
-          </dl>
-          <? endif ?>
-          <? if($join_cos and count($join_cos) > 0): ?>
-          <dl class="sidebar_nav">
-            <dt>加入的社团（<?=count($join_cos)?>）</dt>
-            <dd class="clearfix">
-            <? foreach($join_cos as $corporation):?>
-            <a class="a_sty_02" href="/corporation/profile/<?=$corporation['id']?>">
-              <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>"><br><?=$corporation['name']?>
-            </a>
-            <? endforeach ?>
-            </dd>
-          </dl>
-          <? endif ?>
-          <? if($following_cos and count($following_cos) > 0): ?>
-          <dl class="sidebar_nav">
-            <dt>关注的社团（<?=count($following_cos)?>）</dt>
-            <dd class="clearfix">
-            <? foreach($following_cos as $corporation):?>
-            <a class="a_sty_02" href="/corporation/profile/<?=$corporation['id']?>">
-              <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>"><br><?=$corporation['name']?>
-            </a>
-            <? endforeach ?>
-            </dd>
-          </dl>
-          <? endif ?>
-        </div>
+  <div class="user_head_box sidebar_nav">
+  	<?=anchor('personal/profile/' . $info['id'], '<img src="'. avatar_url($info['avatar'], 'personal', 'big') .'" >','class="user_head"') ?>
+    <a href="<?=site_url('personal/profile/' . $post['user'][0]['id']) ?>"><?=$post['user'][0]['name']?></a>
+  </div>
+  <div class="sidebar_nav">
+    <a class="a_sty_01" href="<?=site_url('blog/post')?>"><i class="ico ico_dairy"></i>写日志</a>
+    <a class="a_sty_01" href="<?=site_url('album/index')?>"><i class="ico ico_photo"></i>传照片</a>
+    <a class="a_sty_01" href="<?=site_url('corporation/request_add')?>"><i class="ico ico_asso"></i>创建社团</a>
+  </div>
+  <? $this->load->view('includes/slider_bar_corporations_view') ?>
+</div>
