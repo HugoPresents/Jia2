@@ -179,7 +179,11 @@
 		
 		function get_master_co($user_id) {
 			$this->jiadb->_table = 'corporation';
-			$corporations = $this->jiadb->fetchAll(array('user_id' => $user_id));
+            $join = array(
+                'user' => array('user_id', 'id'),
+                'school' => array('school_id', 'id')
+            );
+			$corporations = $this->jiadb->fetchJoin(array('user_id' => $user_id), $join);
 			return $corporations;
 		}
 		

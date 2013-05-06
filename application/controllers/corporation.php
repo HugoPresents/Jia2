@@ -16,22 +16,36 @@
 			$this->jiadb->_table = 'corporation';
 			$data['j_num'] = 0;
 			$data['f_num'] = 0;
+            $join = array(
+                'user' => array('user_id', 'id'),
+                'school' => array('school_id', 'id')
+            );
 			if($this->session->userdata('id')) {
 				$following_cos = $this->User_model->get_following_co($this->session->userdata('id'));
 				$join_cos = $this->User_model->get_join_co($this->session->userdata('id'));
-				$data['j_num'] = count($join_cos);
-				$data['f_num'] = count($following_cos);
-				if($data['f_num'] > 0) {
-					$data['f_corporations'] = $this->jiadb->fetchAll(array('id' => $following_cos));
+				//$data['j_num'] = count($join_cos);
+				//$data['f_num'] = count($following_cos);
+                $data['m_corporations'] = $this->User_model->get_master_co($this->session->userdata('id'));
+				if(count($following_cos) > 0) {
+					$data['f_corporations'] = $this->jiadb->fetchJoin(array('id' => $following_cos), $join);
 				}
-				if($data['j_num'] > 0) {
-					$data['j_corporations'] = $this->jiadb->fetchAll(array('id' => $join_cos));
+				if(count($join_cos) > 0) {
+					$data['j_corporations'] = $this->jiadb->fetchJoin(array('id' => $join_cos), $join);
 				}
+                $user_info = $this->User_model->get_info($this->session->userdata('id'), array('school' => array('school_id', 'id')));
+                if(!$user_info['school_id']) {
+                    $data['message'] = '你需要先完善自己的学校信息' . anchor('personal/setting#info', '点此设置');
+                } else {
+                    $this->jiadb->_table = 'corporation';
+                    $data['school_corporations'] = $this->jiadb->fetchJoin(array('school_id' => $user_info['school'][0]['id']), $join);
+                }
+			} else {
+			    redirect('/');
 			}
 			$this->load->view('includes/template_view', $data);
 		}
 		
-		// 列出全校社团
+		// 列出全站社团
 		function list_all($id = '', $page = '') {
 			$this->jiadb->_table = 'corporation';
 			if(!empty($id) && is_numeric($id)) {
@@ -56,7 +70,8 @@
 				static_view();
 			}
 		}
-		
+        
+		// 列出全校社团
 		function list_by_school() {
 			$this->_require_login();
 			$limit = array($this->config->item('page_size'), 0);
