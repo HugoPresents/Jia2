@@ -2,6 +2,30 @@
 	# 扩展分页类，实现用 ajax 分页
 	
 	class MY_Pagination extends CI_Pagination {
+		var $first_link			= '&lsaquo; First';
+		var $next_link			= 'Next';
+		var $prev_link			= 'Prev';
+		var $last_link			= 'Last &rsaquo;';
+		var $uri_segment		= 3;
+		var $full_tag_open		= '<ul class="pagination">';
+		var $full_tag_close		= '</ul>';
+		var $first_tag_open		= '<li>';
+		var $first_tag_close	= '</li>';
+		var $last_tag_open		= '<li>';
+		var $last_tag_close		= '</li>';
+		var $first_url			= ''; // Alternative URL for the First Page.
+		var $cur_tag_open		= '<li><strong>';
+		var $cur_tag_close		= '</strong></li>';
+		var $next_tag_open		= '<li>';
+		var $next_tag_close		= '</li>';
+		var $prev_tag_open		= '<li>';
+		var $prev_tag_close		= '</li>';
+		var $num_tag_open		= '<li>';
+		var $num_tag_close		= '</li>';
+		var $page_query_string	= FALSE;
+		var $query_string_segment = 'per_page';
+		var $display_pages		= TRUE;
+		var $anchor_class		= '';
 		function __construct() {
 			parent::__construct();
 		}
