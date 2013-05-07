@@ -18,12 +18,14 @@
 			if($post['type_id'] == $this->config->item('entity_type_activity')) {
 				$join = array(
 					'corporation' => array('owner_id', 'id'),
+					'corporation.school' => array('school_id', 'id'),
 					'comment' => array('id', 'post_id'),
 					'comment.user' => array('user_id', 'id')
 				);
 			} else {
 				$join = array(
 					'user' => array('owner_id', 'id'),
+					'user.school' => array('school_id', 'id'),
 					'comment' => array('id', 'post_id', '', array('time' => 'DESC')),
 					'comment.user' => array('user_id', 'id')
 				);

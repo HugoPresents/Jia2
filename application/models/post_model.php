@@ -55,6 +55,7 @@
 					if($following_co) {
 						$join_co = array(
 							'corporation' => array('owner_id', 'id'),
+							'corporation.school' => array('school_id', 'id'),
 							'post_meta' => array('id', 'post_id'),
 							'comment' => array('id', 'post_id', $this->comments_limit, array('time' => 'DESC')),
 							'comment.user' => array('user_id', 'id')
@@ -65,6 +66,7 @@
 				case 'personal':
 					$join_user = array(
 						'user' => array('owner_id', 'id'),
+						'user.school' => array('school_id', 'id'),
 						'comment' => array('id', 'post_id', $this->comments_limit, array('time' => 'DESC')),
 						'comment.user' => array('user_id', 'id')
 					);
@@ -73,6 +75,7 @@
 				default:
 					$join_user = array(
 						'user' => array('owner_id', 'id'),
+						'user.school' => array('school_id', 'id'),
 						'comment' => array('id', 'post_id', $this->comments_limit, array('time' => 'DESC')),
 						'comment.user' => array('user_id', 'id')
 					);
@@ -80,6 +83,7 @@
 					if($following_co) {
 						$join_co = array(
 							'corporation' => array('owner_id', 'id'),
+							'corporation.school' => array('school_id', 'id'),
 							'post_meta' => array('id', 'post_id'),
 							'comment' => array('id', 'post_id', $this->comments_limit, array('time' => 'DESC')),
 							'comment.user' => array('user_id', 'id')
