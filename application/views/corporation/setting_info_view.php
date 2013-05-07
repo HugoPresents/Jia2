@@ -1,17 +1,17 @@
 <div id="account" class="tab-pane active">
     <h4 class="set_title"><span><?=$info['name'] ?></span>，你好！</h4>
     <ul id="user_info">
-        <form class="form form-horizontal">
+        <form class="form form-horizontal" method="post">
             <div class="control-group">
                 <label class="control-label" for="inputEmail">协会名称：</label>
                 <div class="controls">
-                    <?=form_input('name', $info['name']) ?>
+                    <?=form_input('name', $info['name'], 'disabled="disabled"') ?>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="inputEmail">所在学校：</label>
                 <div class="controls">
-                    <?=form_input('name', $info['school'][0]['name']) ?>
+                    <?=form_input('name', $info['school'][0]['name'], 'disabled="disabled"') ?>
                 </div>
             </div>
             <div class="control-group">

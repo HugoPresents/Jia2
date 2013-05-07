@@ -372,13 +372,14 @@
 								$result = $this->Photo_model->set_avatar('corporation', $corporation_info['id']);
 								if($result) {
 									$this->Corporation_model->update(array('id' => $corporation_info['id']), array('avatar' => $result));
-									redirect('corporation/setting/' . $corporation_info['id']);
+									redirect('corporation/setting/' . $corporation_info['id'].'?target=?avatar');
 								} else {
 									static_view('不好意思亲~ 上传失败了, 要不然' . anchor('personal/setting', '再试一次?'));
 								}
 								break;
 							case 'info':
-								
+							    $this->Corporation_model->update(array('id' => $corporation_info['id']), array('comment' => trim($this->input->post('comment'))));
+								redirect('corporation/setting/' . $corporation_info['id'].'?target=info');
 								break;
 							case 'member':
 								
