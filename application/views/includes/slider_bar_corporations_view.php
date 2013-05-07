@@ -5,7 +5,7 @@
     <dd class="clearfix">
     <? foreach($master_cos as $corporation):?>
     <a class="a_sty_02" href="/corporation/profile/<?=$corporation['id']?>">
-      <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>"><br><?=$corporation['name']?>
+      <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>" onerror="onImgError(this);"><br><?=$corporation['name']?>
     </a>
     <? endforeach ?>
     </dd>
@@ -17,7 +17,7 @@
     <dd class="clearfix">
     <? foreach($join_cos as $corporation):?>
     <a class="a_sty_02" href="/corporation/profile/<?=$corporation['id']?>">
-      <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>"><br><?=$corporation['name']?>
+      <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>" onerror="onImgError(this);"><br><?=$corporation['name']?>
     </a>
     <? endforeach ?>
     </dd>
@@ -29,7 +29,7 @@
     <dd class="clearfix">
     <? foreach($following_cos as $corporation):?>
     <a class="a_sty_02" href="/corporation/profile/<?=$corporation['id']?>">
-      <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>"><br><?=$corporation['name']?>
+      <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>" onerror="onImgError(this);"><br><?=$corporation['name']?>
     </a>
     <? endforeach ?>
     </dd>

@@ -26,4 +26,11 @@
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
+        function onImgError(img){
+            var noImgSrc;
+<!--            noImgSrc=--><?//=avatar_url($corporation['avatar'], 'corporation', 'big')?><!--;-->
+            noImgSrc="http://localhost:8088/data/avatar/personal/tiny/default.jpg";
+            img.src = noImgSrc;
+            img.onerror = null;
+        }
 		</script>

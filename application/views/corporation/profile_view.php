@@ -1,5 +1,5 @@
 <script>
-		window.onload = coprotab;
+//		window.onload = coprotab;
 		function gossips() {
 			if($("#gossips").length > 0) {
 				return false;
@@ -256,7 +256,7 @@
                 <? if($members_ids): ?>
                 <? foreach($members as $user): ?>
                 <a class="a_sty_02" href="/personal/profile/<?=$user['id']?>">
-                    <img src="<?=avatar_url($user['avatar'])?>"><br><?=$user['name']?>
+                    <img src="<?=avatar_url($user['avatar'])?>" onerror="onImgError(this);"><br><?=$user['name']?>
                 </a>
                 <? endforeach ?>
                 <? endif ?>
@@ -268,7 +268,7 @@
                 <? if($followers_ids): ?>
                 <? foreach($followers as $user): ?>
                 <a class="a_sty_02" href="/personal/profile/<?=$user['id']?>">
-                    <img src="<?=avatar_url($user['avatar'])?>"><br><?=$user['name']?>
+                    <img src="<?=avatar_url($user['avatar'])?>" onerror="onImgError(this);"><br><?=$user['name']?>
                 </a>
                 <? endforeach ?>
                 <? endif ?>
