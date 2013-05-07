@@ -984,7 +984,72 @@ html, body, #wrapper {height: 100%;}
 .c9 {
     color: #999;
 }
-
+/*********协会设置******/
+#more_info{
+    display:block;
+    margin-top:10px;
+}
+#coo_02 a {
+    color: #999999;
+    cursor: pointer;
+}
+#coo_02 a:hover {
+    color: #666;
+    text-decoration: underline;
+}
+a.a-img {
+    display: block;
+    float: left;
+    width: 50px;
+    height: 50px;
+    vertical-align: bottom;
+}
+#coo_02 img {
+    width: 50px;
+    height: 50px;
+}
+#coo_01 li {
+    height: 40px;
+    line-height: 40px;
+}
+#coo_02 {
+    padding: 20px;
+    font-size: 12px;
+}
+#manage {
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+p#manager_01 {
+    clear: both;
+    width: 50px;
+    padding-top: 5px;
+    text-align: center;
+}
+.operate {
+    float: left;
+    height: 50px;
+    padding-left: 5px;
+}
+.operate p {
+    height: 25px;
+    line-height: 25px;
+}
+ul#member li {
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.btn_11 {
+    margin-left: 17px;
+}
+.progressContainer {
+    overflow: hidden;
+}
+#member{
+    overflow: hidden;
+}
 /****assoAdd****/
 .f20 {
     font-size: 20px
@@ -1448,7 +1513,7 @@ ol.slats li a span {
 .whiteBg {
     background: #fff;
     border: 1px solid #E1E1E1;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     border-top: none;
     padding-bottom: 20px;
     min-height: 500px
@@ -1553,4 +1618,24 @@ h4 {
 .pagination ul > li >span{
     /*background-color: #9CD2F1;*/
     font-weight: bold;
+}
+/*404*/
+.sta_main{
+    /*background:#00d7f1 url("../img/head_02.jpg") no-repeat scroll center top ;*/
+    /*min-height: 600px;*/
+}
+#static{
+    width: 100%;
+    height: 100%;
+    margin-top: 200px;
+    font-size: 24px;
+}
+#static p {
+    height: 48px;
+    line-height: 48px;
+    background: url("../img/404.png") no-repeat 260px;
+    padding-left: 330px;
+}
+#static p a{
+    font-size: 12px;
 }
