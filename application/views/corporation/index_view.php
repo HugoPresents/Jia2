@@ -2,19 +2,21 @@
     <div class="container"></div>
 </header>
 <div class="container mainBody">
-    <div class="mt20 clearfix feed_switcher">
+    <div class="mt20 clearfix feed_switcher ">
+        <div class="btn-group">
         <?
         $first = FALSE;
         if($m_corporations): ?>
-        <a title="我管理的社团" href="javascript:void(0);" id="" class="switch<?= $first ? '':' first'?> selected">我管理的社团</a>
+        <a title="我管理的社团" href="javascript:void(0);" id="" class="switch<?= $first ? '':' first'?> selected btn">我管理的社团</a>
         <? $first = TRUE;endif ?>
         <? if($j_corporations): 
         ?>
-        <a title="我参加的社团" href="javascript:void(0);" id="" class="switch<?= $first ? '':' first'?>">我参加的社团</a>
+        <a title="我参加的社团" href="javascript:void(0);" id="" class="switch<?= $first ? '':' first'?> btn">我参加的社团</a>
         <? $first = TRUE;endif ?>
         <? if($f_corporations): ?>
-        <a title="我关注的社团" href="javascript:void(0);" id="" class="switch<?= $first ? '':' first'?> last">我关注的社团</a>
+        <a title="我关注的社团" href="javascript:void(0);" id="" class="switch<?= $first ? '':' first'?> btn">我关注的社团</a>
         <? $first = TRUE;endif ?>
+        </div>
         <div class="feed_op">
             <a href="<?=site_url('corporation/request_add') ?>" target="_blank" class="btnDefault" >创建社团</a>
             <a href="/search/?target=corporation" target="_blank" class="btnDefault btnBlue" >发现社团</a>
