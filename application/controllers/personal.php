@@ -27,6 +27,8 @@
 			$id = $id ? $id : $this->session->userdata('id');
 			$this->_auth('view', 'post', $id);
 			$data['info'] = $this->User_model->get_info((int)$id, $this->join);
+            if(!$data['info'])
+                static_view();
 			$followers = $this->User_model->get_followers($id);
 			$following = $this->User_model->get_following($id);
             $post_count = $this->db

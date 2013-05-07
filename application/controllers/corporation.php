@@ -162,10 +162,10 @@
 					$data['activities'] =  $activities ? $activities : array();
 					$this->load->view('includes/template_view', $data);
 				} else {
-					static_view('你要查看的社团不存在');
+					static_view();
 				}
 			} else {
-				static_view('你要查看的社团不存在');
+				static_view();
 			}
 		}
 		
