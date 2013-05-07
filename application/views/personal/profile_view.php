@@ -50,9 +50,12 @@
 	                <? if($this->session->userdata('id') != $info['id'] ): ?>
 	                 <div class="asso_btns">
 		                <? if(in_array($this->session->userdata('id'), $followers)): ?>
-						<span class="btnDefault btn_m btn_n" href=""><i class="ico ico_atten"></i>已关注 | <a href="">取消</a></span>
+						<button name="follow" user_id="<?= $info['id'] ?>" class="btnDefault btn_m btn_n btn_l" type="" disabled="disabled">已关注</button>
+                        <button name="unfollow" user_id="<?= $info['id'] ?>" class="btnDefault btn_m btn_r" type="" >取消关注</button>
 						<? else: ?>
-						<span class="btnDefault btn_m" href=""><i class="ico ico_atten"></i>关注</span>
+						<button name="follow" user_id="<?= $info['id'] ?>" class="btnDefault btn_m" type="" >
+                            <i class="ico ico_atten"></i>关注
+                        </button>
 						<? endif ?>
                		</div>
                 <? endif ?>

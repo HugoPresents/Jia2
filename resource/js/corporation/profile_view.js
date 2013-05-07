@@ -8,7 +8,7 @@ $(function() {
 		}, function(data) {
 			if(data == 1) {
 				$button.attr('disabled', 'disabled');
-				$button.text('已关注');
+				$button.text('已关注').text('已关注').addClass('btn_n');
 			} else{
 				alert('由于对方的隐私设置关注失败');
 			}
@@ -25,8 +25,7 @@ $(function() {
 		}, function(data) {
 			if(data == 1) {
 				$button.remove();
-				$("button[name='follow']").removeAttr('disabled');
-				$("button[name='follow']").text('关注');
+				$("button[name='follow']").removeAttr('disabled').html('<i class="ico ico_atten"></i>关注').removeClass('btn_n');
 			} else {
 				alert('取消关注失败');
 			}
