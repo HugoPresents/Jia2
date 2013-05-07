@@ -2,7 +2,7 @@
 <? foreach ($posts['personal'] as $post):?>
 <div class="feed_a clearfix">
     <div class="img_block fl">
-      <?=anchor('personal/profile/' . $post['user'][0]['id'], '<img src="'. avatar_url($post['user'][0]['avatar']) .'" >','class="head_pic"') ?>
+      <?=anchor('personal/profile/' . $post['user'][0]['id'], '<img onerror="onImgError(this);" src="'. avatar_url($post['user'][0]['avatar']) .'" >','class="head_pic"') ?>
     </div>
     <div class="feed_main">
       <div class="f_nick">

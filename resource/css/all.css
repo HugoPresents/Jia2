@@ -578,13 +578,17 @@ html, body, #wrapper {height: 100%;}
 .a_sty_02 {
     float: left;
     width: 50px;
+    height: 70px;
     margin-left: 12px;
     margin-bottom: 5px;
     white-space: nowrap;
     text-align: center;
     overflow: hidden;
 }
-
+.a_sty_02 img{
+    width: 50px;
+    height: 50px;
+}
 /*********assoProfile**********/
 .mainContainer {
     background: url("../img/head_02.jpg") no-repeat top;
@@ -939,6 +943,7 @@ html, body, #wrapper {height: 100%;}
 .thumbnail:hover {
     cursor: pointer;
 }
+.thumbnail > img {width: 200px;height: 107px}
 
 .thumbnail .asso_tit {
     margin: 0;
