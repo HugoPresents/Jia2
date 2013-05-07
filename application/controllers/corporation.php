@@ -156,7 +156,6 @@
                                            ->get('user')
                                            ->result_array();
                     }
-					//$data['members'][] = $data['info']['user_id'];
 					$data['posts']['activity'] = $this->Post_model->fetch(array('owner_id' => $corporation_id), 'activity');
 					$activities = $this->Corporation_model->get_activities($corporation_id);
 					$data['activities'] =  $activities ? $activities : array();
@@ -528,16 +527,16 @@
 				$this->_auth('edit', 'corporation', $corporation_id);
 				$code = $this->Corporation_model->join_member($corporation_id, $user_id);
 				if($code == 1) {
-					static_view('添加会员失败，该用户在社团黑名单内 ' . anchor('corporation/management/' . $corporation_id . '?type=blocker', '管理社团黑名单'));
+					static_view('添加会员失败，该用户在社团黑名单内 ' . anchor('corporation/setting/' . $corporation_id . '?target=blocker', '管理社团黑名单'));
 				} elseif($code == 2) {
 					$this->db->where('id', $request_id);
 					$this->db->delete('notify');
-					static_view('该会员已是社团成员 ' . anchor('corporation/management/' . $corporation_id . '?type=member', '管理社团成员'));
+					static_view('该会员已是社团成员 ' . anchor('corporation/setting/' . $corporation_id . '?target=member', '管理社团成员'));
 				} elseif($code == 3) {
 					$this->Notify_model->delete($request_id);
 					$this->db->where('id', $request_id);
 					$this->db->delete('notify');
-					static_view('添加会员成功！你可以' . anchor('personal/notify?type=request', '查看请求') . '或者' . anchor('corporation/management/' . $corporation_id . '?type=member', '管理社团成员'));
+					static_view('添加会员成功！你可以' . anchor('personal/notify?target=request', '查看请求') . '或者' . anchor('corporation/setting/' . $corporation_id . '?type=member', '管理社团成员'));
 				}
 			} else {
 				static_view();
