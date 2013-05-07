@@ -1,6 +1,6 @@
 <? if(!empty($posts['activity'])):?>
 <? foreach ($posts['activity'] as $post):?>
-<div class="feed_a clearfix">
+<div class="feed_a clearfix" id="co_posts">
     <div class="img_block fl">
       <?=anchor('corporation/profile/' . $post['corporation'][0]['id'], '<img onerror="onImgError(this);" src="'. avatar_url($post['corporation'][0]['avatar']) .'" >','class="head_pic"') ?>
     </div>

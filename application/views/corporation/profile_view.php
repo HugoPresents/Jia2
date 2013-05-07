@@ -87,8 +87,11 @@
 </div>
 <div class="container mainBody">
     <div class="mt20 clearfix feed_switcher  btn-group">
-        <a title="" href="javascript:void(0);" id="filter_all" class="switch selected btn">最新动态</a>
-        <a title="" href="javascript:void(0);" id="filter_dairy" class="switch btn">活动</a>
+        <a title="" href="javascript:void(0);" id="dynamic" class="switch selected btn">社团动态</a>
+        <a title="" href="javascript:void(0);" id="activity" class="switch btn">社团活动</a>
+        <a title="" href="#" id="dairy" class="switch btn">社团日志</a>
+        <a title="" href="#" id="album" class="switch btn">社团相册</a>
+        <a title="" href="javascript:void(0);" id="message" class="switch btn">留言</a>
     </div>
 
     <div class="main">
@@ -125,3 +128,17 @@
         </dl>
     </div>
 </div>
+<script type="text/javascript">
+    $("#message").on("click",function(){
+            if($("#massege_wrap").length == 0){
+//            alert("none");
+                $.ajax({
+                    url: "test.html",
+                    success: function(data){
+                        $(".feeds").html(data);
+                    }
+                });
+            }
+
+    });
+</script>
