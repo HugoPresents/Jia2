@@ -12,32 +12,7 @@
 			);
 			$this->jiadb = new Jiadb;
 		}
-		/*
-		function index() {
-			$data['main_content'] = 'search_view';
-			$data['title'] = '搜索';
-			$data['css'] = array("main_content.css");
-			$data['js'] = array('tab.js');
-			if($this->input->get('keywords')) {
-				if($this->input->get('user')) {
-					$data['user_result'] = $this->_user();
-					$data['user_rows'] = $data['user_result']['rows'];
-					unset($data['user_result']['rows']);
-				}
-				if($this->input->post('corporation')) {
-					$data['corporation_result'] = $this->_corporation();
-					$data['corporation_rows'] = $data['corporation_result']['rows'];
-					unset($data['corporation_result']['rows']);
-				}
-				if($this->input->post('activity')) {
-					$data['activity_result'] = $this->_activity();
-					$data['activity_rows'] = $data['activity_result']['rows'];
-					unset($data['activity_result']['rows']);
-				}
-			}
-			$this->load->view('includes/template_view', $data);
-		}
-		*/
+
 		function index() {
 			$object = $this->input->get('target');
 			$keywords = trim($this->input->get('keywords'));
@@ -75,6 +50,13 @@
                     unset($data['user_result']['rows']);
 			}
             $this->pagination->initialize($pg_config);
+            $data['following_cos'] = array();
+            $data['following_users'] = array();
+            if($this->session->userdata('id')) {
+                $this->load->model('User_model');
+                $data['following_cos'] = $this->User_model->get_following_co($this->session->userdata('id'));
+                $data['following_users'] = $this->User_model->get_following($this->session->userdata('id'));
+            }
             $data['pagination'] = $this->pagination->create_links();
             $data['object'] = $object;
             $data['main_content'] = 'search_view';
@@ -111,7 +93,12 @@
             if(strlen($keywords) < 1) return $corporation_result;
 			$this->jiadb->_table = 'corporation';
 			$where = array('name REGEXP' => $keywords);
-			$corporation_result = $this->jiadb->fetchAll($where, '', array($this->limit, $offset));
+            $join = array(
+                'user' => array('user_id', 'id'),
+                'school' => array('school_id', 'id'),
+                'school.province' => array('province_id', 'id')
+            );
+			$corporation_result = $this->jiadb->fetchJoin($where, $join, '', array($this->limit, $offset));
 			if($corporation_result) {
 				$corporation_result['rows'] = count_rows('corporation', $where);
 			} else {
