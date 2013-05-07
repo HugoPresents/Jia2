@@ -364,8 +364,7 @@
 					} else {
 						$data['admins_num'] = 0;
 					}
-					$submit = $this->input->post('submit');
-					if($submit) {
+					if($_SERVER['REQUEST_METHOD'] == 'POST') {
 						$setting = $this->input->post('setting');
 						switch ($setting) {
 							case 'avatar':
@@ -517,6 +516,7 @@
 			if(empty($request_id))
 				static_view('');
 			if(is_numeric($corporation_id) && is_numeric($user_id)) {
+			    $this->load->model('Notify_model');
 				$request = $this->Notify_model->get_info($request_id);
 				if($request['type_id'] != $this->config->item('entity_type_request') || $request['user_id'] != $user_id)
 					static_view();
