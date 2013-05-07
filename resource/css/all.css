@@ -943,6 +943,7 @@ html, body, #wrapper {height: 100%;}
 .thumbnail:hover {
     cursor: pointer;
 }
+.thumbnail > img {width: 200px;height: 107px}
 
 .thumbnail .asso_tit {
     margin: 0;
