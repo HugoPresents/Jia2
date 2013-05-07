@@ -204,16 +204,13 @@
                 <div class="asso_btns">
                     <? if($this->session->userdata('id')): ?>
                         <? if(in_array($this->session->userdata('id'), $followers_ids)): ?>
-<!--                            --><?//=form_button(array('name' => 'follow', 'content' => '已关注', 'id' => $info['id'], 'disabled' => 'disabled'))?>
                             <button name="follow" id="<?= $info['id'] ?>" class="btnDefault btn_m btn_n btn_l" type="" disabled="disabled">
                                 已关注
                             </button>
                             <button name="unfollow" id="<?= $info['id'] ?>" class="btnDefault btn_m btn_r" type="" >
                                 取消关注
                             </button>
-<!--                            --><?//=form_button(array('name' => 'unfollow', 'content' => '取消关注', 'id' => $info['id']))?>
                         <? else:?>
-<!--                            --><?//=form_button(array('name' => 'follow', 'content' => '关注', 'id' => $info['id'], 'class' => 'btnDefault btn_m'))?>
                             <button name="follow" id="<?= $info['id'] ?>" class="btnDefault btn_m" type="" >
                                 <i class="ico ico_atten"></i>关注
                             </button>

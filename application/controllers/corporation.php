@@ -364,8 +364,7 @@
 					} else {
 						$data['admins_num'] = 0;
 					}
-					$submit = $this->input->post('submit');
-					if($submit) {
+					if($_SERVER['REQUEST_METHOD'] == 'POST') {
 						$setting = $this->input->post('setting');
 						switch ($setting) {
 							case 'avatar':
@@ -373,13 +372,14 @@
 								$result = $this->Photo_model->set_avatar('corporation', $corporation_info['id']);
 								if($result) {
 									$this->Corporation_model->update(array('id' => $corporation_info['id']), array('avatar' => $result));
-									redirect('corporation/setting/' . $corporation_info['id']);
+									redirect('corporation/setting/' . $corporation_info['id'].'?target=?avatar');
 								} else {
 									static_view('不好意思亲~ 上传失败了, 要不然' . anchor('personal/setting', '再试一次?'));
 								}
 								break;
 							case 'info':
-								
+							    $this->Corporation_model->update(array('id' => $corporation_info['id']), array('comment' => trim($this->input->post('comment'))));
+								redirect('corporation/setting/' . $corporation_info['id'].'?target=info');
 								break;
 							case 'member':
 								
@@ -517,6 +517,7 @@
 			if(empty($request_id))
 				static_view('');
 			if(is_numeric($corporation_id) && is_numeric($user_id)) {
+			    $this->load->model('Notify_model');
 				$request = $this->Notify_model->get_info($request_id);
 				if($request['type_id'] != $this->config->item('entity_type_request') || $request['user_id'] != $user_id)
 					static_view();

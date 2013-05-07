@@ -151,10 +151,10 @@
 						$filename = $this->session->userdata('id') . '.jpg';
 						$this->Photo_model->set_avatar_from_tmp($filename, $crop, $delete);
 						$this->User_model->update(array('id' => $this->user_id), array('avatar' => $filename));
-						redirect('personal/setting#avatar');
+						redirect('personal/setting?target=avatar');
 					}
 					$this->Photo_model->set_avatar('personal', $this->user_id);
-					redirect('personal/setting#avatar');
+					redirect('personal/setting?target=avatar');
 					/*
 					$result = $this->Photo_model->set_avatar('personal', $this->user_id);
 					if($result) {
@@ -185,7 +185,7 @@
 						);
 						$this->db->where('id', $this->session->userdata('id'));
 						$this->db->update('user', $info);
-						redirect('personal/setting');
+						redirect('personal/setting?target=info');
 					}
 				case 'privacy':
 					// 隐私设置
@@ -249,10 +249,11 @@
 							);
 							break;
 						default:
-							static_view('亲, 请不要恶意篡改表单好嘛~, 给你个机会, ' . anchor('personal/setting#privacy', '重新设置'));
+							static_view('亲, 请不要恶意篡改表单好嘛~, 给你个机会, ' . anchor('personal/setting?target=privacy', '重新设置'));
 					}
 					$post_access->set_access($this->user_id, $post_access_array);
 					$comment_access->set_access($this->user_id, $comment_access_array, 'personal');
+                    redirect('personal/setting?target=privacy');
 					break;
 					
 				case 'pass':
