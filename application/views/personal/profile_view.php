@@ -75,10 +75,10 @@
     </div>
 </div>
 <div class="container mainBody">
-    <div class="mt20 clearfix feed_switcher">
-        <a title="" href="javascript:void(0);" id="filter_all" class="first switch selected" data-toggle="tab">最新动态</a>
-        <a title="" href="javascript:void(0);" id="filter_photo" class="switch" data-toggle="tab">活动相册</a>
-        <a title="" href="javascript:void(0);" id="filter_dairy" class="switch last" data-toggle="tab">活动日志</a>
+    <div class="mt20 clearfix feed_switcher  btn-group">
+        <a title="" href="javascript:void(0);" id="filter_all" class="switch selected btn" data-toggle="tab">最新动态</a>
+        <a title="" href="javascript:void(0);" id="filter_photo" class="switch btn" data-toggle="tab">活动相册</a>
+        <a title="" href="javascript:void(0);" id="filter_dairy" class="switch btn" data-toggle="tab">活动日志</a>
     </div>
 
     <div class="main">

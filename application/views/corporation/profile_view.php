@@ -204,20 +204,27 @@
                 <div class="asso_btns">
                     <? if($this->session->userdata('id')): ?>
                         <? if(in_array($this->session->userdata('id'), $followers_ids)): ?>
-                            <?=form_button(array('name' => 'follow', 'content' => '已关注', 'id' => $info['id'], 'disabled' => 'disabled'))?>
-                            <?=form_button(array('name' => 'unfollow', 'content' => '取消关注', 'id' => $info['id']))?>
+<!--                            --><?//=form_button(array('name' => 'follow', 'content' => '已关注', 'id' => $info['id'], 'disabled' => 'disabled'))?>
+                            <button name="follow" id="<?= $info['id'] ?>" class="btnDefault btn_m btn_n btn_l" type="" disabled="disabled">
+                                已关注
+                            </button>
+                            <button name="unfollow" id="<?= $info['id'] ?>" class="btnDefault btn_m btn_r" type="" >
+                                取消关注
+                            </button>
+<!--                            --><?//=form_button(array('name' => 'unfollow', 'content' => '取消关注', 'id' => $info['id']))?>
                         <? else:?>
-                            <?=form_button(array('name' => 'follow', 'content' => '关注', 'id' => $info['id']))?>
-                
+<!--                            --><?//=form_button(array('name' => 'follow', 'content' => '关注', 'id' => $info['id'], 'class' => 'btnDefault btn_m'))?>
+                            <button name="follow" id="<?= $info['id'] ?>" class="btnDefault btn_m" type="" >
+                                <i class="ico ico_atten"></i>关注
+                            </button>
                         <? endif?>
                     <? endif ?>
                 	<? if($this->session->userdata('id')): ?>
 						<? if(in_array($this->session->userdata('id'), $members_ids)): ?>
-							<?=form_button(array('name' => 'join', 'content' => '已加入', 'co_id' => $info['id'], 'disabled' => 'disabled'))?>
-							<?=form_button(array('name' => 'unjoin', 'content' => '退出社团', 'co_id' => $info['id'], 'id'=>'leave_co'))?>
+							<?=form_button(array('name' => 'join','class'=>'btnDefault btn_m btn_n btn_l', 'content' => '已加入', 'co_id' => $info['id'], 'disabled' => 'disabled'))?>
+							<?=form_button(array('name' => 'unjoin', 'class'=>'btnDefault btn_m btn_r','content' => '退出社团', 'co_id' => $info['id'], 'id'=>'leave_co'))?>
 						<? else:?>
-							<?=form_button(array('name' => 'join', 'content' => '请求加入', 'co_id' => $info['id'], 'id' => 'join_co'))?>
-				
+							<?=form_button(array('name' => 'join', 'class' => 'btnDefault btn_m','content' => '<i class="ico ico_join"></i>请求加入', 'co_id' => $info['id'], 'id' => 'join_co'))?>
 						<? endif?>
 					<? endif ?>
                 </div>
@@ -230,9 +237,9 @@
     </div>
 </div>
 <div class="container mainBody">
-    <div class="mt20 clearfix feed_switcher">
-        <a title="" href="javascript:void(0);" id="filter_all" class="first selected">最新动态</a>
-        <a title="" href="javascript:void(0);" id="filter_dairy" class="last">活动</a>
+    <div class="mt20 clearfix feed_switcher  btn-group">
+        <a title="" href="javascript:void(0);" id="filter_all" class="switch selected btn">最新动态</a>
+        <a title="" href="javascript:void(0);" id="filter_dairy" class="switch btn">活动</a>
     </div>
 
     <div class="main">

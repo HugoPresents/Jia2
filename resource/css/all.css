@@ -318,8 +318,9 @@ html, body, #wrapper {height: 100%;}
     float: left;
     height: 26px;
     padding: 2px 8px;
-    background: url("../img/tab_sprite.png") -1px -210px no-repeat;
-    border-right: 1px solid #CCC;
+    /*background: url("../img/tab_sprite.png") -1px -210px no-repeat;*/
+    /*border: 1px solid #CCC;*/
+    /*border-width: 0 1px;*/
     line-height: 26px;
     font-size: 14px;
     cursor: pointer;
@@ -327,31 +328,39 @@ html, body, #wrapper {height: 100%;}
     outline: none;
     color: #221919;
 }
-
+.switch:focus{outline: none;background:none;}
 .switch:hover {
     color: #C90000;
 }
 
-.switch:hover, .switch.selected {
-    background-position: -1px -290px;
+.switch.selected {
+    background-image: linear-gradient(to bottom, #E1E1E1, #FFFFFF);
 }
+/*.switch:hover, .switch.selected {*/
+    /*background: url("../img/tab_sprite.png") -1px -210px no-repeat;*/
+    /*background-position: -1px -290px;*/
+    /*background-image: linear-gradient(to bottom, #E1E1E1, #FFFFFF);*/
+/*}*/
 
-.switch.first {
-    background-position: 0 -90px;
-}
+/*.switch:first-child {*/
+    /*background-position: 0 -90px;*/
+    /*border-bottom-left-radius: 4px;*/
+    /*border-top-left-radius: 4px;*/
+/*}*/
 
-.switch.first:hover, .switch.first.selected {
-    background-position: 0 -170px;
-}
+/*.switch:first-child:hover, .switch:first-child.selected {*/
+    /*background-position: 0 -170px;*/
+/*}*/
 
-.switch.last {
-    background-position: right -330px;
-    border: 0;
-}
+/*.switch:last-child {*/
+    /*background-position: right -330px;*/
+    /*border-bottom-right-radius: 4px;*/
+    /*border-top-right-radius: 4px;*/
+/*}*/
 
-.switch.last:hover, .switch.last.selected {
-    background-position: right -410px;
-}
+/*.switch:last-child:hover, .switch:last-child.selected {*/
+    /*background-position: right -410px;*/
+/*}*/
 
 .switch:hover {
     text-decoration: none;
@@ -643,7 +652,7 @@ html, body, #wrapper {height: 100%;}
 .btn_s, .btn_m {
     display: inline;
     padding: 5px;
-    line-height: 20px;
+    line-height: 15px;
 }
 
 .btn_n {
@@ -653,7 +662,23 @@ html, body, #wrapper {height: 100%;}
 .btn_n:hover {
     color: #333
 }
+.btn_l{
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    color: #333333;
+}
 
+.btn_r{
+    margin-left: -3px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-left: none;
+    color: #26709A;
+    line-height: 16px;
+}
+.btn_r:hover{
+    color: #26709A;
+}
 .ico_atten {
     background-position: -120px 0
 }

@@ -30,9 +30,9 @@
           </div>
 
           <!-- feed_switcher begin-->
-          <div class="mt20 clearfix feed_switcher">
-              <a title="好友动态" href="#feed_f" id="filter_friend" class="first switch selected" data-toggle="tab">好友动态</a>
-              <a title="社团动态" href="#feed_a" id="filter_asso" class="switch last" data-toggle="tab">社团动态</a>
+          <div class="mt20 clearfix feed_switcher btn-group">
+              <a title="好友动态" href="#feed_f" id="filter_friend" class="switch selected btn" data-toggle="tab">好友动态</a>
+              <a title="社团动态" href="#feed_a" id="filter_asso" class="switch btn" data-toggle="tab">社团动态</a>
           </div><!-- feed_switcher end-->
 
           <!-- feeds begin -->
