@@ -377,6 +377,23 @@
 				'uri_segment' => 4,
 				'use_page_numbers' => TRUE
 			);
+            $data['info'] = $this->User_model->get_info($user_id, $this->join);
+            $data['master_cos'] = $this->User_model->get_master_co($user_id);
+            $following_cos_ids = $this->User_model->get_following_co($user_id);
+            if($following_cos_ids) {
+                $data['following_cos'] = $this->db
+                                         ->where_in('id', $following_cos_ids)
+                                         ->get('corporation')
+                                         ->result_array();
+            }
+            $join_cos_ids = $this->User_model->get_join_co($user_id);
+            if($join_cos_ids) {
+                $data['join_cos'] = $this->db
+                                    ->where_in('id', $join_cos_ids)
+                                    ->get('corporation')
+                                    ->result_array();
+            }
+            
 			$data['js'] = 'personal/manage.js';
 			$this->crumb->append('我的主页', 'personal/profile');
 			switch ($opereation) {
