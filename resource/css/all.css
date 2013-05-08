@@ -1100,6 +1100,9 @@ ul#member li {
 .tag-default span {
     cursor: pointer;
 }
+.tag-pass span {
+    cursor: default;
+}
 
 .tag-now {
     float: left;

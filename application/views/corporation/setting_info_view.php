@@ -51,21 +51,23 @@
     </ul>
 </div>
 <script type="text/javascript">
-//    $(".tag-wrap").delegate(".tag_pass","click",function(e){
-//        event.preventDefault();
-//    });
     $(".tag-default").on("click",function(){
-        var _this = $(this),
-            tagname = _this.find("span").text(),
-            tagval = _this.attr("val");
-            newtag = '';
+        if($(this).hasClass("tag-pass")){
+            return false;
+        }else{
+            var _this = $(this),
+                tagname = _this.find("span").text(),
+                tagval = _this.attr("val"),
+                newtag = '';
+            _this.addClass("tag-pass");
+            newtag = '<span val="'+ tagval +'"class="tag-edit"><em></em><b>' + tagname +'</b><i></i></span>'+
+                '<input type="hidden" value="' + tagname+ '" name="tagname">';
 
-        _this.addClass("tag-pass");
-        newtag = '<span val="'+ tagval +'"class="tag-edit"><em></em><b>' + tagname +'</b><i></i></span>'+
-                 '<input type="hidden" value="' + tagname+ '" name="tagname">';
+            $(newtag).appendTo(".tag-now");
+            return false;
+        }
 
-        $(newtag).appendTo(".tag-now");
-        return false;
+
     });
     $(".tag-now").delegate("i","click",function(){
         var tagval = $(this).closest(".tag-edit").attr("val");
