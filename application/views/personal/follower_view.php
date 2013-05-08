@@ -16,7 +16,7 @@
                                 <?=anchor('personal/profile/' . $row['id'], '<img class="img_block" src="' . avatar_url($row['avatar'], 'personal', 'big') . '">', 'class="head_pic"')?>
                                 <div class="li_mbox">
                                     <?=anchor('personal/profile/' . $row['id'], $row['name'])?> （ <?=$row['gender'] == 1 ? '男' : '女'?> ）
-                                    <p><?=$row['province'][0]['name'] ?><span class="vline">|</span><?=$row['school'][0]['name'] ?></p>
+                                    <p><?=$row['province'][0]['name'] ?><? if(!empty($row['school'][0]['name'])): ?><span class="vline">|</span><? endif ?><?=$row['school'][0]['name'] ?></p>
                                 </div>
                                 <div class="fr">
                                     <?=form_button('remove_follower', '移除粉丝', 'class="btn cancelBtn" user_id="'.$row['id'].'"') ?>

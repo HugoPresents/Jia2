@@ -54,7 +54,7 @@ $(function(){
                         </div>
                         <div class="asso_brief fl">
                             <a class="name" href="/personal/profile/<?=$user['id']?>"><?=$user['name']?></a>
-                            <p class="">男 <em class="vline">|</em> <?=$user['province'][0]['name']?> <em class="vline">|</em> <?=$user['school'][0]['name']?></p>
+                            <p class="">男 <? if(!empty($user['province'][0]['name'])): ?><span class="vline">|</span><? endif ?><?= $user['province'][0]['name']?><? if(!empty($user['school'][0]['name'])): ?><span class="vline">|</span><? endif ?> <?=$user['school'][0]['name']?></p>
                         </div>
                     </li>
                     <? endforeach; ?>
@@ -118,6 +118,7 @@ $(function(){
         </div>
     </div>
     <div class="searchside">
-        <img src="img/advertisement/shetuanzhijia_01.jpg" alt=""/>
+        <img src="http://localhost:8088/data/ad/ad_01.jpg" alt=""/>
+        <img src="http://localhost:8088/data/ad/ad_02.jpg" alt=""/>
     </div>
 </div>
