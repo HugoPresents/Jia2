@@ -1754,3 +1754,36 @@ h4 {
     margin-left:20px;
 }
 .cancelBtn{line-height: 15px;font-size: 12px;}
+/*go to top*/
+#Top {
+    display: none;
+    width: 44px;
+    border-top-left-radius: 3px;
+    border: 1px solid #D5D5D5;
+    border-width: 1px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    overflow: hidden;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    cursor: pointer;
+    background: #eee;
+    text-align: center;
+    color: #888;
+    font-weight: bold;
+}
+/*#Top:hover{*/
+    /*background: #e1e1e1;*/
+/*}*/
+.icon_top{
+    background: url(../img/gb_ticker.png)  -129px 0 no-repeat;
+    display: inline-block;
+    width: 22px;
+    height: 15px;
+    zoom: 1;
+    vertical-align: -3px;
+    cursor: pointer;
+    overflow: visible;
+    position: relative;
+}

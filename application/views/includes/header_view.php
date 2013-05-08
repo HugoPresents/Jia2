@@ -11,7 +11,7 @@
 	    <script type="text/javascript" src="<?=base_url('resource/js/jquery.js') ?>"></script>
 	    <script type="text/javascript" src="<?=base_url('resource/js/global.js') ?>"></script>
 <!-- 	    <script type="text/javascript" src="<?=base_url('resource/js/tab.js') ?>"></script> -->
-	    <script type="text/javascript" src="<?=base_url('resource/js/inline_window.js') ?>"></script>
+	    <script type="text/javascript" src="<?=base_url('resource/js/scrollTop.js') ?>"></script>
 	    <script type="text/javascript" src="<?=base_url('resource/js/new/bootstrap.min.js') ?>"></script>
 		<script type="text/javascript">
         	SITE_URL = "<?=site_url() ?>";

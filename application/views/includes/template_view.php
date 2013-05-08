@@ -14,5 +14,9 @@
     </div>
 </div>
 <? $this->load->view('includes/footer_view') ?>
+<div id="Top">
+    <i class="icon_top" title="回到顶部"></i><br>
+    Top
+</div>
 </body>
 </html>
