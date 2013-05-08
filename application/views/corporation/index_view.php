@@ -9,7 +9,7 @@
         $active = FALSE;
         if($m_corporations): ?>
         <a title="我管理的社团" href="#manage" id="" class="switch<?= $first ? '':' first selected'?> btn"  data-toggle="tab">我管理的社团</a>
-        <? $first = TRUE;$avtive = 'm';endif ?>
+        <? $first = TRUE;$active = 'm';endif ?>
         <? if($j_corporations): 
         ?>
         <a title="我参加的社团" href="#join" id="" class="switch<?= $first ? '':' first selected'?> btn"  data-toggle="tab">我参加的社团</a>
