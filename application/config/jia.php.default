@@ -28,3 +28,4 @@
 	//公开
 	$config['status_public'] = 2;
 	// 更多配置项在MY_Controller中设置
+	$config

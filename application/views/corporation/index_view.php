@@ -87,21 +87,6 @@
     <ul class="thumbnails">
         <? if($school_corporations): ?>
         <? foreach($school_corporations as $corporation): ?>
-<!--        <li class="asso_w clearfix">-->
-<!--            <div class="img_100 fl">-->
-<!--                <a href="/corporation/profile/--><?//=$corporation['id']?><!--" class="thumbnail">-->
-<!--                    <img src="--><?//=avatar_url($corporation['avatar'], 'corporation', 'big')?><!--" />-->
-<!--                </a>-->
-<!--            </div>-->
-<!--            <div class="asso_brief fl">-->
-<!--                <h4 class="asso_name"><a href="/corporation/profile/--><?//=$corporation['id']?><!--" class="a3">--><?//=$corporation['name']?><!--</a></h4>-->
-<!--                <p class="c9">社长：<a href="/personal/profile/--><?//=$corporation['user'][0]['id']?><!--">--><?//=$corporation['user'][0]['name']?><!--</a></p>-->
-<!--                <p class="c6">--><?//=$corporation['comment']?><!--</p>-->
-<!--                <div class="asso_handle">-->
-<!--                    <a type="button" href="/corporation/setting/--><?//=$corporation['id']?><!--" class="btnDefault btnBlue" >管理社团</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </li>-->
                 <li class="span3">
                     <a class="thumbnail"  href="/corporation/profile/<?=$corporation['id']?>">
                         <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>">

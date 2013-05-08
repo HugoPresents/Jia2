@@ -25,18 +25,18 @@
                 <div class="controls ">
                     <h4 class="tag-title">已添加：</h4>
                     <div class="tag-now">
-<!--                        点击下面的标签后，这里会动态添加已选标签，并且把标签值存在 隐藏的input 里面，提交表单的时候方便提交-->
-<!--                        <span val="2" class="tag-edit"><em></em><b>社会实践类</b><i></i></span>-->
-<!--                        <input type="hidden" value="社会实践类" name="tagname">-->
+                        <? 
+                        $corporation_tags = $this->config->item('corporation_tags');
+                        foreach($tags as $tag): ?>
+                            <span val="<?=$tag?>" class="tag-edit"><em></em><b><?=$corporation_tags[$tag]?></b><i></i></span>
+                            <input type="hidden" value="<?=$tag?>" name="tag[]">
+                        <? endforeach ?>
                     </div>
                     <h4 class="tag-title">添加符合自己的标签：</h4>
                     <div id="tag-animate-wrap" class="tag-wrap">
-                        <a val="1" class="tag-default"><em></em><span>理论学习类</span></a>
-                        <a val="2" class="tag-default"><em></em><span>社会实践类</span></a>
-                        <a val="3" class="tag-default"><em></em><span>文化艺术类</span></a>
-                        <a val="4" class="tag-default"><em></em><span>兴趣爱好类</span></a>
-                        <a val="5" class="tag-default"><em></em><span>学术科技类</span></a>
-                        <a val="6" class="tag-default"><em></em><span>其他类</span></a>
+                        <? foreach($corporation_tags as $tag => $tagname):?>
+                            <a val="<?=$tag?>" class="tag-default<?=in_array($tag, $tags) ? ' tag-pass':''?>"><em></em><span><?=$tagname?></span></a>
+                        <? endforeach ?>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                 newtag = '';
             _this.addClass("tag-pass");
             newtag = '<span val="'+ tagval +'"class="tag-edit"><em></em><b>' + tagname +'</b><i></i></span>'+
-                '<input type="hidden" value="' + tagname+ '" name="tagname">';
+                '<input type="hidden" value="' + tagval+ '" name="tags[]">';
 
             $(newtag).appendTo(".tag-now");
             return false;

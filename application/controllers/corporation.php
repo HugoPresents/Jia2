@@ -363,6 +363,8 @@
 					} else {
 						$data['admins_num'] = 0;
 					}
+                    $this->jiadb->_table = 'corporation';
+                    $data['tags'] = $this->jiadb->fetchMeta('meta_value', array('corporation_id'=>$corporation_info['id'], 'meta_key' => 'tag'));
 					if($_SERVER['REQUEST_METHOD'] == 'POST') {
 						$setting = $this->input->post('setting');
 						switch ($setting) {
@@ -378,6 +380,20 @@
 								break;
 							case 'info':
 							    $this->Corporation_model->update(array('id' => $corporation_info['id']), array('comment' => trim($this->input->post('comment'))));
+								$tags = $this->input->post('tags');
+                                foreach($tags as $tag) {
+                                   $meta_array = array(
+                                        'corporation_id' => $corporation_info['id'],
+                                        'meta_key' => 'tag',
+                                        'meta_value' => $tag
+                                   );
+                                   print_vars($meta_array);
+                                   $meta_exists = $this->db->where($meta_array)->get('corporation_meta')->result_array();
+                                   if(!$meta_exists) {
+                                       $meta_array['add_time'] = time();
+                                       $this->db->insert('corporation_meta', $meta_array);
+                                   }
+                                }
 								redirect('corporation/setting/' . $corporation_info['id'].'?target=info');
 								break;
 							case 'member':
