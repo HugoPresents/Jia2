@@ -1738,3 +1738,19 @@ h4 {
 #static p a{
     font-size: 12px;
 }
+
+/*following(follower)*/
+.search_result ul li{
+    overflow: hidden;
+    padding:10px 0;
+    border-bottom:1px solid #DFDFDF;
+}
+.search_result .head_pic,.search_result img{
+    display:block;
+    float: left;
+}
+.li_mbox{
+    float:left;
+    margin-left:20px;
+}
+.cancelBtn{line-height: 15px;font-size: 12px;}
