@@ -1050,6 +1050,96 @@ ul#member li {
 #member{
     overflow: hidden;
 }
+
+.tag-wrap {
+    padding: 10px;
+    border: #e6e6e6 1px solid;
+    border-radius: 3px;
+}
+
+.tag-default, .tag-pass,.tag-edit,.tag-default em,.tag-default:hover em, .tag-pass em,.tag-edit em,.tag-edit i{
+    background: url(../img/special-ico-new.png) right top no-repeat;
+}
+
+.tag-edit,.tag-default, .tag-pass {
+    vertical-align: middle;
+    position: relative;
+    display: inline-block;
+    height: 28px;
+    margin: 0 8px 8px 0;
+    line-height: 26px;
+    color: #666;
+    /*background: url(../img/special-ico-new.png) right top no-repeat;*/
+}
+.tag-pass {
+    background-position: right -109px;
+    cursor: default;
+}
+.tag-default em, .tag-pass em {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 18px;
+    height: 28px;
+    background-position: -92px -29px;
+}
+.tag-default:hover em {
+    background-position: 0 -29px;
+}
+.tag-pass em ,.tag-pass:hover em{
+    background-position: -19px -29px;
+}
+.tag-default span, .tag-pass span {
+    display: inline-block;
+    height: 28px;
+    line-height: 26px;
+    margin: 0 16px 0 24px;
+    color: #666;
+}
+.tag-default span {
+    cursor: pointer;
+}
+
+.tag-now {
+    float: left;
+    _position: relative;
+    width: 100%;
+    overflow: hidden;
+    font-size: 0;
+    margin-bottom: 20px;
+}
+.tag-now span {
+    cursor: default;
+    font-size: 12px;
+}
+.tag-edit em {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 12px;
+    height: 28px;
+    background-position:-115px -29px;
+}
+.tag-edit b {
+    display: inline-block;
+    height: 28px;
+    line-height: 26px;
+    margin: 0 28px 0 12px;
+    font-weight: normal;
+    cursor: default;
+}
+.tag-edit i {
+    position: absolute;
+    top: 7px;
+    right: 8px;
+    display: block;
+    width: 13px;
+    height: 13px;
+    background-position: -78px -29px;
+    cursor: pointer;
+}
 /****assoAdd****/
 .f20 {
     font-size: 20px
@@ -1635,6 +1725,7 @@ h4 {
     line-height: 48px;
     background: url("../img/404.png") no-repeat 260px;
     padding-left: 330px;
+    font-family: "microsoft yahei";
 }
 #static p a{
     font-size: 12px;

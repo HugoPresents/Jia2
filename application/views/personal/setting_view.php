@@ -2,7 +2,7 @@
 <div class="container whiteBg">
 <h4 class="title_01 title_02"><span>设置</span><a class="oprate_w" href="/">回到首页</a></h4>
 <div class="border clearfix">
-<div class="tab-content main" id="set_con">
+<div class="main" id="set_con">
     <?
     $target = $this->input->get('target');
     switch ($target) {
@@ -25,29 +25,24 @@
 
 <ul class="siderbar" id="myTab">
     <li<?=$target=='info' ? ' class="active"':''?>>
-        <a href="/personal/setting?target=info" data-toggle="tab">资料设置</a>
+        <a href="/personal/setting?target=info">资料设置</a>
     </li>
     <li<?=$target=='avatar' ? ' class="active"':''?>>
-        <a href="/personal/setting?target=avatar" data-toggle="tab">头像设置</a>
+        <a href="/personal/setting?target=avatar">头像设置</a>
     </li>
     <li<?=$target=='pass' ? ' class="active"':''?>>
-        <a href="/personal/setting?target=pass" data-toggle="tab">密码设置</a>
+        <a href="/personal/setting?target=pass">密码设置</a>
     </li>
     <li<?=$target=='privacy' ? ' class="active"':''?>>
-        <a href="/personal/setting?target=privacy" data-toggle="tab">隐私设置</a>
+        <a href="/personal/setting?target=privacy">隐私设置</a>
     </li>
 </ul>
 </div>
 </div>
 </div>
 
-<script type="text/javascript" src="<?= base_url('resource/js/new/tab.js') ?>"></script>
 <script>
     $(function () {
-        $('#myTab a').click(function (e) {
-            e.preventDefault();
-            $(this).tab('show');
-        })
         $(".modify").live("click", function () {
             $(this).closest(".tab-pane").find("#user_info").hide().end().find("#user_info_form").show();
             return false;

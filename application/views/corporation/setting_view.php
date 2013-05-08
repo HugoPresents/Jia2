@@ -20,13 +20,13 @@
             </div>
             <ul class="siderbar" id="myTab">
                 <li<?=$target=='info' ? ' class="active"':''?>>
-                    <a href="/corporation/setting/<?=$info['id']?>?target=info" data-toggle="tab">设置社团资料</a>
+                    <a href="/corporation/setting/<?=$info['id']?>?target=info">设置社团资料</a>
                 </li>
                 <li<?=$target=='member' ? ' class="active"':''?>>
-                    <a href="/corporation/setting/<?=$info['id']?>?target=member" data-toggle="tab">管理协会成员</a>
+                    <a href="/corporation/setting/<?=$info['id']?>?target=member">管理协会成员</a>
                 </li>
                 <li<?=$target=='avatar' ? ' class="active"':''?>>
-                    <a href="/corporation/setting/<?=$info['id']?>?target=avatar" data-toggle="tab">设置协会头像</a>
+                    <a href="/corporation/setting/<?=$info['id']?>?target=avatar">设置协会头像</a>
                 </li>
             </ul>
         </div>
