@@ -8,7 +8,7 @@
         <h4 class="title_01 title_02 title_03"><span>管理</span><?=$crumb ?></h4>
         <div  class="main_02">
             <div  class="search_result flow_result">
-                <h4>我的粉丝 <span><?=$followers_num?>个</span></h4>
+                <h4>我的粉丝 <span><?=$followers_num?>个</span> <a href="<?=site_url('personal/manage/following') ?>" class="fr">我的关注</a></h4>
                 <ul id="user-result">
                     <? if(isset($followers)):?>
                         <? foreach($followers as $row):?>
