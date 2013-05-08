@@ -156,7 +156,7 @@
                                            ->get('user')
                                            ->result_array();
                     }
-					$data['posts']['activity'] = $this->Post_model->fetch(array('owner_id' => $corporation_id), 'activity');
+					$data['posts']['activity'] = $this->Post_model->fetch(array('owner_id' => $corporation_id, 'type_id' => $this->config->item('entity_type_activity')), 'activity');
 					$activities = $this->Corporation_model->get_activities($corporation_id);
 					$data['activities'] =  $activities ? $activities : array();
 					$this->load->view('includes/template_view', $data);
