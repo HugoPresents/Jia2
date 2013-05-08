@@ -30,13 +30,47 @@
 				})
 			});
 		});
+var flag=false;
+function DrawImage(ImgD){
+    var image=new Image();
+    image.src=ImgD.src;
+    if(image.width>0 && image.height>0){
+        flag=true;
+        if(image.width/image.height>= 180/180){
+//            if(image.width>180){
+//                ImgD.width=180;
+//                ImgD.height=(image.height*180)/image.width;
+//            }else{
+//                ImgD.width=image.width;
+//                ImgD.height=image.height;
+//            }
+            if(image.height<180){
+                ImgD.height=180;
+                ImgD.width=(image.width*180)/image.height;
+            }else{
+//                ImgD.width=image.width;
+//                ImgD.height=image.height;
+            }
+        }
+        else{
+            if(image.width<180){
+                ImgD.width=180;
+                ImgD.height=(image.width*180)/image.width;
+            }else{
+                ImgD.width=image.width;
+                ImgD.height=image.height;
+            }
+
+        }
+    }
+}
 </script>
 <div class="mainContainer">
     <div class="container">
         <div class="profile_pic_top"></div>
         <div class="asso_profile_hd">
             <div class="asso_head">
-                <div class="asso_head_pic"><img src="<?=avatar_url($info['avatar'], 'corporation', 'big')?>"/></div>
+                <div class="asso_head_pic"><img src="<?=avatar_url($info['avatar'], 'corporation', 'big')?>" height="180" width="180" onload="javascript:DrawImage(this);"/></div>
                 <ul class="user_atten clearfix">
                     <li class=""><a class="S_func1"><strong node-type="follow"><?=count($members_ids)?></strong><span>成员 </span></a>
                     </li>

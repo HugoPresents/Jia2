@@ -695,11 +695,12 @@ html, body, #wrapper {height: 100%;}
     padding: 2px;
     width: 180px;
     height: 180px;
+    overflow: hidden;
 }
 
 .asso_head_pic img {
-    width: 180px;
-    height: 180px;
+    /*width: 180px;*/
+    /*height: 180px;*/
 }
 
 .user_atten {
@@ -1643,7 +1644,11 @@ h4 {
     padding-bottom: 10px;
     border: 1px solid #E1E1E1;
 }
-
+.title_03{
+    width: 610px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
 .title_02 span {
     font-weight: bold;
     font-size: 16px;

@@ -35,7 +35,7 @@
 			//$this->_auth('view', 'post', $post['owner_id'], FALSE, $post['id']);
 			if($post) {
 				$data['js'] = 'post.js';
-				$data['css'] = 'home.css';
+//				$data['css'] = 'home.css';
 				$data['title'] = mb_substr($post['content'], 0, 5);
 				$data['main_content'] = 'post_single_view';
 				// 活动post
