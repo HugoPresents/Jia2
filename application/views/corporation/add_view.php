@@ -1,20 +1,20 @@
 <div id="main">
 <div id="add-corporation">
-			<?=form_open('corporation/do_add','class="form"')?>
+			<?=form_open('','class="form"')?>
 				<span ><label>社团名字：</label>
 					<div class="InputWrapper">
 					<div class="InputInner">
-							<?=form_input('name') ?>
+					   <?=form_input('', $co_name, 'disabled="disabled"') ?>
 					</div>
 					</div>
 				</span>
 				<span ><label>所属学校：</label>
-					<?=form_dropdown('school', $schools) ?>
+					<?=form_input('', $school, 'disabled="disabled"') ?>
 				</span>
-				<span ><label>分配社长：</label>
+				<span ><label>社长：</label>
 					<div class="InputWrapper">
 					<div class="InputInner">
-							<?=form_input('master') ?>
+							<?=form_input('', $user['name'], 'disabled="disabled"') ?>
 					</div>
 					</div>
 				</span>
