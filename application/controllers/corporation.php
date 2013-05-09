@@ -200,9 +200,9 @@
 				$request = $request[0];
 				if($request['user'][0]['id'] != $this->session->userdata('id'))
 					static_view('抱歉, 你没有该权限', '权限不足');
+				$data['user'] =  $this->User_model->get_info($request['user'][0]['id']);
 				$co_name = $request['co_name'];
-				$submit = $this->input->post('submit');
-				if($submit) {
+				if($_SERVER['REQUEST_METHOD'] == 'POST') {
 					$comment = $this->input->post('comment');
 					$name = $request['co_name'];
 					$school_id = $request['user'][0]['school'][0]['id'];
@@ -226,7 +226,7 @@
 					$data['school'] = $request['user'][0]['school'][0]['name'];
 					$data['title'] = '创建社团';
 					$data['request_id'] = $request['id'];
-					$data['main_content'] = 'corporation/add_from_request_view';
+					$data['main_content'] = 'corporation/add_view';
 					$this->load->view('includes/template_view', $data);
 				}
 			} else {
@@ -271,11 +271,11 @@
 			if($requests)
 				static_view('你已经申请过创建社团了，请勿重复申请');
 			// 当get参数为上传图片时
-			$submit = $this->input->post('submit');
-			if(!empty($submit)) {
-				$this->load->model('Photo_model');
+			if($_SERVER['REQUEST_METHOD'] == 'POST') {
+				//$this->load->model('Photo_model');
 				// 判断证件照
 				//$caps = $this->Photo_model->save_request_cap();
+				/*
 				$id_card_cap = $this->input->post('st_card_cap');
 				$st_card_cap = $this->input->post('id_card_cap');
 				$caps = array(
@@ -289,15 +289,16 @@
 					}
 				}
 				$id_card_number = $this->input->post('id_card_number');
+                */
 				$st_card_number = $this->input->post('st_card_number');
 				$co_name = $this->input->post('co_name');
 				$comment = $this->input->post('comment');
 				$request = array(
 					'user_id' => $this->session->userdata('id'),
-					'id_card_number' => $id_card_number,
+					//'id_card_number' => $id_card_number,
 					'st_card_number' => $st_card_number,
-					'id_card_cap' => $caps[1],
-					'st_card_cap' => $caps[0],
+					//'id_card_cap' => $caps[1],
+					//'st_card_cap' => $caps[0],
 					'comment' => $comment,
 					'co_name' => $co_name,
 					'time' => time()
@@ -373,7 +374,7 @@
 								$result = $this->Photo_model->set_avatar('corporation', $corporation_info['id']);
 								if($result) {
 									$this->Corporation_model->update(array('id' => $corporation_info['id']), array('avatar' => $result));
-									redirect('corporation/setting/' . $corporation_info['id'].'?target=?avatar');
+									redirect('corporation/setting/' . $corporation_info['id'].'?target=avatar');
 								} else {
 									static_view('不好意思亲~ 上传失败了, 要不然' . anchor('personal/setting', '再试一次?'));
 								}

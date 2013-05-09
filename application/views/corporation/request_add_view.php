@@ -198,7 +198,7 @@
     <div class="mt20 feed_switcher">
         <span class="f20">创建社团</span>
         <div class="feed_op">
-            <a href="assohome.html">返回社团之家</a>
+            <a href="/corporation">返回社团之家</a>
         </div>
     </div>
     <div class="main_02">
@@ -212,31 +212,31 @@
             <p><button name="roger_that" type="button" id="roger_that" class="btnDefault">明白</button></p>
         </div>
 
-        <form class="form-horizontal hi/de">
+        <form class="form-horizontal" method="post">
             <fieldset>
                 <legend>创建社团</legend>
                 <div class="control-group">
                     <label class="control-label">学号：</label>
                     <div class="controls">
-                        <input type="text" class="input-xlarge" id="input01">
+                        <input type="text" class="input-xlarge" id="input01" name="st_card_number">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label">社团名：</label>
                     <div class="controls">
-                        <input type="text" class="input-xlarge" id="input01">
+                        <input type="text" class="input-xlarge" id="input01" name="co_name">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label">说明：</label>
                     <div class="controls">
-                        <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+                        <textarea class="input-xlarge" id="textarea" rows="3"  name="comment"></textarea>
                         <p class="help-block">或许你有什么要对管理员说的，增加通过率哦亲~</p>
                     </div>
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btnDefault btnBlue">提交</button>
-                    <button class="btnDefault">取消</button>
+                    <a class="btnDefault" href="/corporation">取消</a>
                 </div>
             </fieldset>
         </form>

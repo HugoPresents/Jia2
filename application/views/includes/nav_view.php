@@ -16,6 +16,9 @@
             
             <ul class="nav pull-right">
 			<? if($this->session->userdata('type') != 'guest'): ?>
+			<? if($this->session->userdata('type') == 'admin'): ?>
+                <li><?=anchor('admin/', '后台', '') ?></li>
+            <? endif ?>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">通知 <b class="caret"></b></a>
                 <ul class="dropdown-menu">
