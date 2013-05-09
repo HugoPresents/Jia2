@@ -116,16 +116,26 @@ html, body, #wrapper {height: 100%;}
 .nav-collapse.collapse {
     margin-left: 100px;
 }
-
+.navbar-inverse .navbar-inner{
+    background-image: linear-gradient(to bottom, #333, #111111);
+}
 .navbar .brand {
     position: absolute;
     height: 40px;
     padding: 10px 20px 0 10px;
     background-position: 0 -40px;
     text-indent: 40px;
-    font-size: 14px;
+    font-size: 16px;
 }
-
+.nav a{
+    /*text-shadow: 0 0 2px #000000;*/
+    font-size: 14px;
+    color: #E6E6E6;
+}
+.nav li:hover{
+    background-color: #000;
+    color: #fff;
+}
 /*****home 主体*****/
 .container {
     width: 900px;
@@ -231,6 +241,35 @@ html, body, #wrapper {height: 100%;}
     color: #26709A;
 }
 
+.btn-blue {
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin-right: 20px;
+    line-height: 29px;
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    border: 1px solid #207AC5;
+    border-radius: 2px;
+    background-color: #2782CE;
+    background-image: url(../img/button_bg.png);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    padding: 0 30px;
+}
+.btn-blue input {
+    width: 90px;
+    height: 30px;
+}
+.file{
+    opacity: 0;
+    filter: alpha(opacity=0);
+    font-size: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 /*表情*/
 .emotion_wrap {
     position: absolute;
@@ -1039,13 +1078,13 @@ p#manager_01 {
     height: 50px;
     padding-left: 5px;
 }
-.operate p {
+.operate .memName {
     height: 25px;
     line-height: 25px;
 }
 ul#member li {
     float: left;
-    margin-right: 10px;
+    margin-right: 30px;
     margin-top: 10px;
 }
 .btn_11 {
@@ -1733,20 +1772,24 @@ h4 {
     height: 100%;
     margin-top: 20px;
     font-size: 24px;
-    background: url("../img/404_page.png") no-repeat scroll center top ;
-    height: 563px;
+    /*background: url("../img/404_page.png") no-repeat scroll center top ;*/
+    background-color: #fff;
+    height: 463px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 #static p {
     height: 48px;
     line-height: 48px;
-    /*background: url("../img/404.png") no-repeat 260px;*/
+    background: url("../img/404.png") no-repeat  200px 200px ;
     padding-left: 300px;
     font-family: "microsoft yahei";
     padding-top: 200px;
 }
 #static p a{
-    font-size: 12px;
+    font-size: 14px;
 }
+
+.goback{ font-size: 12px;}
 
 /*following(follower)*/
 .search_result ul li{

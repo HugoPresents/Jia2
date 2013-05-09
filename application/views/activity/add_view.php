@@ -92,7 +92,7 @@
             <p><button name="roger_that" type="button" id="roger_that" class="btnDefault">明白</button></p>
         </div>
 
-        <form class="form-horizontal hi/de" >
+        <form class="form-horizontal hide" >
             <fieldset>
                 <legend>创建活动</legend>
                 <div class="control-group">
@@ -146,6 +146,9 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script type="text/javascript">
     $(function(){
+        $(".btnDefault").on("click",function(){
+            $(".form-horizontal").show();
+        })
         $( "#start" ).datepicker({
             defaultDate: "+1w",
             changeMonth: true,

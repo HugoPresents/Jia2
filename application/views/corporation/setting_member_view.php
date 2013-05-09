@@ -26,12 +26,8 @@
                 <li>
                     <?=anchor('personal/profile/' . $member['id'], '<img src="'. avatar_url($member['avatar']) .'" >','class="a-img"') ?>
                     <div class="operate">
-                        <p><?=anchor('personal/profile/' . $member['id'], $member['name'],'class="head_pic"') ?></p>
-                        <p>
-                            <span>
-                            <?=form_button('remove_member', '移除', 'member_id="'.$member['id'].'"') ?>
-                            </span>
-                        </p>
+                        <?=anchor('personal/profile/' . $member['id'], $member['name'],'class="memName"') ?><br>
+                        <?=form_button('remove_member', '移除', 'class="btn cancelBtn" member_id="'.$member['id'].'"') ?>
                     </div>
                 </li>
             <? endforeach ?>

@@ -51,10 +51,10 @@
     <?=form_open_multipart('personal/do_setting') ?>
     <span href="" class="btn-blue">
                 浏览
-        <?=form_upload('userfile', '', 'id="userfile"') ?>
+        <?=form_upload('userfile', '', 'id="userfile" class="file"') ?>
             </span>
     <?=form_hidden('setting', 'avatar') ?>
-    <?=form_submit('', '上传', 'class="pub_button file_btn" id="upload_avatar"') ?>
+    <?=form_submit('', '上传', 'class="btn btn-info" id="upload_avatar"') ?>
     <span id="filename">未选择文件</span>
     <?=form_close() ?>
 

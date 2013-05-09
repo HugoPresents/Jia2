@@ -6,11 +6,23 @@
 	<?=form_open_multipart('') ?>		
 	<div href="" class="btn-blue">
 		浏览
-		<?=form_upload('userfile') ?>
+		<?=form_upload('userfile','', 'class="file"') ?>
 	</div>
+    <span id="filename">未选择文件</span>
 	<div class="photo_target"><span>请选择相册：</span><?=form_dropdown('album', $albums_id) ?></div>
 	<p><?=form_submit('submit', '上传','class="btn btn-info"') ?></p>
 	<?=form_close() ?>
 </div>
 </div>
 </div>
+<script type="text/javascript">
+    $(".file").change(function() {
+        path = $(this).val();
+        if(path.length < 1) {
+            $("#filename").html('未选择文件');
+            return;
+        }
+        fileName = path.substring(path.lastIndexOf('\\')+1,path.lastIndexOf('.'));
+        $("#filename").html(fileName);
+    });
+</script>

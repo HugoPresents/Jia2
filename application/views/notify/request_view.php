@@ -2,10 +2,10 @@
 <? if(!empty($requests)): ?>
 	<? foreach($requests as $request): ?>
 		<li class="mes_li">
-			<div class="left">
+			<div class="fl">
 			<?=anchor('personal/profile/' . $request['user'][0]['id'], '<img src="'. avatar_url($request['user'][0]['avatar']) .'" >','class="head_pic"') ?>
 			</div>
-			<div class="left">
+			<div class="fl">
 			<?=anchor('personal/profile/' . $request['user'][0]['id'],$request['user'][0]['name'])?>
 			<? $content = explode('|||', $request['content']) ?>
 			<?=$content[0] ?>

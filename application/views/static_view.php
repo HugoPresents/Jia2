@@ -2,9 +2,9 @@
     <div class="container">
         <div id="static">
             <p>
-                <?=$message ?>  ╮(╯_╰)╭
+                <?=$message ?>
                 <br>
-                <a href="javascript:history.go(-1);">返回上一页</a>
+                <a class="goback" href="javascript:history.go(-1);">返回上一页</a>
             </p>
 
             <? if ($url): ?>

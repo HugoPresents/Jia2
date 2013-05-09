@@ -53,7 +53,7 @@ function name_check() {
         regist.attr("disabled","true");
         return false;
     } else if (val !== '') {
-        $("#name_prompt").addClass("alert-success").text('用户名正确').fadeIn();
+        $("#name_prompt").fadeOut();
         return true;
     }
 }
@@ -64,7 +64,7 @@ function pass_check() {
         $("#pass_prompt").text('密码不能为空').fadeIn();
         return false;
     } else if (val !== '') {
-        $("#pass_prompt").addClass("alert-success").text('密码正确').fadeIn();
+        $("#pass_prompt").fadeOut();
         return true;
     }
 }
@@ -79,7 +79,7 @@ function email_check() {
         $("#email_prompt").addClass("alert-error").text('邮箱格式不正确').fadeIn();
         return false;
     } else if (myreg.test(val)) {
-        $("#email_prompt").removeClass("alert-error").addClass("alert-success").text('邮箱格式正确').fadeIn();
+        $("#email_prompt").fadeOut();
         return true;
     }
 }

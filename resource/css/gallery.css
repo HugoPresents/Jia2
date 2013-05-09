@@ -71,6 +71,7 @@ a.upload_photo_btn {
 	margin: 10px 0;
 }
 .album_name{
+    height: 20px;
 	color: #666;
 	text-align:center;
 	margin-top:10px;
@@ -171,3 +172,4 @@ a.photo_option {
 	float:left;
 	
 }
+
