@@ -967,11 +967,14 @@ html, body, #wrapper {height: 100%;}
 
 .asso_brief {
     margin-left: 20px;
+    width: 690px;
 }
 
 .asso_brief .asso_name {
     margin: 0;
-    font-size: 18px
+    padding: 0;
+    font-size: 18px;
+    border-bottom:1px dotted #DFDFDF;
 }
 
 .a3 {
@@ -1156,7 +1159,7 @@ ul#member li {
     padding-left: 5px;
 }
 
-#file_name {
+#file_name,#userfile{
     position: absolute;
     left: 0;
     top: 0;
