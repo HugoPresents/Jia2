@@ -1,7 +1,7 @@
 <!-- <script>
 	window.onload =posttab;
 </script> -->
-<header class="subhead">
+<header class="subhead subheadline">
       <div class="container">
       <p class="lead">分享校园生活！感动你我！</p>
     </div>

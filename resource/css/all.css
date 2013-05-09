@@ -89,14 +89,14 @@ ul, ol {
 /*layout*/
 html, body, #wrapper {height: 100%;}
 #wrapper {height: auto; min-height: 100%;}
-#Maincontent {padding-bottom: 135px;}
+#Maincontent {padding-bottom: 135px; backg/round-color: #dbf0fc}
 .footer {
     position: relative;
     margin-top: -135px;
     width: 100%;
     height: 135px;
     clear:both;
-    background: #343841 url(../img/page-footer-bg.png) top repeat-x;
+    background: #343841 url(../img/page-footer-bg.jpg) top repeat-x;
     color: #ffffff;
     font: 13px;
 }
@@ -108,7 +108,7 @@ html, body, #wrapper {height: 100%;}
 
 /*foot*/
 .container.mainBody {
-    /*padding-bottom: 125px;*/
+    padding-bottom: 40px;
 }
 
 
@@ -127,12 +127,13 @@ html, body, #wrapper {height: 100%;}
     text-indent: 40px;
     font-size: 16px;
 }
-.nav a{
+.navbar-inverse .nav a{
     /*text-shadow: 0 0 2px #000000;*/
     font-size: 14px;
     color: #E6E6E6;
 }
-.nav li:hover{
+.dropdown a{font-size: 12px}
+.navbar-inverse .nav li:hover{
     background-color: #000;
     color: #fff;
 }
@@ -141,12 +142,19 @@ html, body, #wrapper {height: 100%;}
     width: 900px;
     padding: 0 30px;
 }
-
+#Maincontent .container{back/ground-color: #fff;}
+#Maincontent .subhead .container{background:none;}
 .subhead {
     position: relative;
     height: 221px;
     margin-top: 40px;
     background: url(../img/home_02.png) center;
+}
+.subheadline {
+    border-bottom: 1px solid #E1E1E1;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
 }
 
 .lead {
@@ -161,6 +169,7 @@ html, body, #wrapper {height: 100%;}
     border: 1px solid #E1E1E1;
     /*border-radius: 3px;*/
     /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);*/
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .main {
@@ -542,6 +551,7 @@ html, body, #wrapper {height: 100%;}
     width: 219px;
     padding: 10px 10px;
     border-left: 0;
+    border-top: 0;
     background-color: #f2f2f2;
 }
 
@@ -651,6 +661,7 @@ html, body, #wrapper {height: 100%;}
     padding-bottom: 15px;
     border: 1px solid #d2d2d2;
     border-top: none;
+    background-color: #fff;
 }
 
 .asso_head {
@@ -1301,13 +1312,7 @@ ul#member li {
 }
 
 /*******search******/
-.subheadline {
-    border-width: 0 0 1px;
-    border-color: #ccc;
-    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
-    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
-}
+
 
 .searchmain {
     background: none repeat scroll 0 0 #FFFFFF;
