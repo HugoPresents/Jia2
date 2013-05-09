@@ -51,8 +51,8 @@
 <div class="container mainBody">
     <div class="mt20 clearfix feed_switcher  btn-group">
         <a title="" href="javascript:void(0);" id="filter_all" class="switch selected btn" data-toggle="tab">最新动态</a>
-        <a title="" href="/album/index/<?=$info['id']?>" id="filter_photo" class="switch btn" data-toggle="tab">相册</a>
-        <a title="" href="/blog/index/<?=$info['id']?>" id="filter_dairy" class="switch btn" data-toggle="tab">日志</a>
+        <a title="" href="/album/index/<?=$info['id']?>" id="filter_photo" class="switch btn">相册</a>
+        <a title="" href="/blog/index/<?=$info['id']?>" id="filter_dairy" class="switch btn">日志</a>
     </div>
 
     <div class="main">

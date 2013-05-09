@@ -86,6 +86,7 @@ function DrawImage(ImgD){
                     在 <a><?=$info['school'][0]['name']?></a>
                     <span class="vline">|</span>
                     <a class="btnDefault btn_s" href="/corporation/setting/<?=$info['id']?>">管理社团资料</a>
+                    <a class="btnDefault btn_s" href="/activity/add/<?=$info['id']?>">创建活动</a>
                 </div>
                 <div class="asso_btns">
                     <? if($this->session->userdata('id')): ?>
@@ -123,8 +124,8 @@ function DrawImage(ImgD){
     <div class="mt20 clearfix feed_switcher  btn-group">
         <a title="" href="javascript:void(0);" id="dynamic" class="switch selected btn">社团动态</a>
         <a title="" href="javascript:void(0);" id="activity" class="switch btn">社团活动</a>
-        <a title="" href="#" id="dairy" class="switch btn">社团日志</a>
-        <a title="" href="#" id="album" class="switch btn">社团相册</a>
+        <a title="" href="/blog/index/<?=$info['id']?>" id="dairy" class="switch btn">社团日志</a>
+        <a title="" href="/album/index/<?=$info['id']?>" id="album" class="switch btn">社团相册</a>
         <a title="" href="javascript:void(0);" id="message" class="switch btn">留言</a>
     </div>
 

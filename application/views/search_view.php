@@ -52,7 +52,7 @@ $(function(){
                                 <img src="<?=avatar_url($user['avatar'], 'personal', 'big')?>" />
                             </a>
                         </div>
-                        <div class="asso_brief fl">
+                        <div class="asso_brief search_brief fl">
                             <a class="name" href="/personal/profile/<?=$user['id']?>"><?=$user['name']?></a>
                             <p class="">男 <? if(!empty($user['province'][0]['name'])): ?><span class="vline">|</span><? endif ?><?= $user['province'][0]['name']?><? if(!empty($user['school'][0]['name'])): ?><span class="vline">|</span><? endif ?> <?=$user['school'][0]['name']?></p>
                         </div>
@@ -73,7 +73,7 @@ $(function(){
                                 <img src="<?=avatar_url($corporation['avatar'], 'corporation', 'big')?>" />
                             </a>
                         </div>
-                        <div class="asso_brief fl">
+                        <div class="asso_brief search_brief fl">
                             <a class="name" href="/corporation/profile/<?=$corporation['id']?>"><?=$corporation['name']?></a>
                             <p class=""><?=$corporation['school'][0]['province'][0]['name']?> <em class="vline">|</em> <?=$corporation['school'][0]['name']?></p>
                             <p class="person_num">
@@ -97,7 +97,7 @@ $(function(){
                                 <img src="<?=avatar_url($activity['corporation'][0]['avatar'], 'corporation', 'big')?>" />
                             </a>
                         </div>
-                        <div class="asso_brief fl">
+                        <div class="asso_brief search_brief fl">
                             <p class="">
                              <a href="/activity/view/<?=$activity['id']?>" title=""><?=$activity['name']?></a>
                              <br>

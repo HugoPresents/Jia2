@@ -13,7 +13,7 @@
                     <? if(isset($following)):?>
                         <? foreach($following as $row):?>
                             <li>
-                                <?=anchor('personal/profile/' . $row['id'], '<img class="img_block" src="' . avatar_url($row['avatar'], 'personal', 'big') . '">')?>
+                                <?=anchor('personal/profile/' . $row['id'], '<img  onerror="onImgError(this);" class="img_block" src="' . avatar_url($row['avatar'], 'personal', 'big') . '">')?>
                                 <div class="li_mbox">
                                     <?=anchor('personal/profile/' . $row['id'], $row['name'])?> （ <?=$row['gender'] == 1 ? '男' : '女'?> ）
                                     <p><?=$row['province'][0]['name'] ?><? if(!empty($row['school'][0]['name'])): ?><span class="vline">|</span><? endif ?><?=$row['school'][0]['name'] ?></p>

@@ -969,6 +969,9 @@ html, body, #wrapper {height: 100%;}
     margin-left: 20px;
     width: 690px;
 }
+.search_brief{
+    width: 490px;
+}
 
 .asso_brief .asso_name {
     margin: 0;
@@ -1339,7 +1342,6 @@ ul#member li {
     padding: 4px 12px;
     height: 28px;
 }
-
 .search_wrap {
     margin-top: 80px;
     margin-left: 80px;

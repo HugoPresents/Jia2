@@ -104,7 +104,9 @@
                 <div class="control-group">
                     <label class="control-label">活动时间：</label>
                     <div class="controls">
-                        <input type="text" class="input-xlarge" id="input02">
+                        <input type="text" class="span2 input-xlarge" id="start">
+                        至
+                        <input type="text" class="span2 input-xlarge" id="end">
                     </div>
                 </div>
                 <div class="control-group">
@@ -140,3 +142,24 @@
         </form>
     </div>
 </div>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $( "#start" ).datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            onClose: function( selectedDate ) {
+                $( "#end" ).datepicker( "option", "minDate", selectedDate );
+            }
+        });
+        $( "#end" ).datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            onClose: function( selectedDate ) {
+                $( "#start" ).datepicker( "option", "maxDate", selectedDate );
+            }
+        });
+    });
+
+</script>
