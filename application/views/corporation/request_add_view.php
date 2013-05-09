@@ -101,6 +101,7 @@
                 });
 	     };
 </script>
+
 <h4 class="title_01 title_02"><a>返回社团首页</a></h4>
 <div  class="main_02">
 <div id="request_comment">
@@ -213,7 +214,7 @@
 
         <form class="form-horizontal hi/de">
             <fieldset>
-                <legend>完善资料</legend>
+                <legend>创建社团</legend>
                 <div class="control-group">
                     <label class="control-label">学号：</label>
                     <div class="controls">
@@ -231,19 +232,6 @@
                     <div class="controls">
                         <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
                         <p class="help-block">或许你有什么要对管理员说的，增加通过率哦亲~</p>
-                    </div>
-                </div>
-                <div class="control-group swf_wrap_i">
-                    <label  class="control-label">头像：</label>
-                    <div class="controls">
-                        <input id="file_name_mask" type="text" class="fl" value="">
-                        <div class="uploadInput fl">
-                            <a class="btnDefault" href="javascript:;">
-                                浏览<q><input id="file_name" name="Filedata" contenteditable="false" type="file"></q>
-                            </a>
-                        </div>
-                        <a href="#" class="btnDefault" id="link_upload">保存</a>
-                        <p class="help-block">请选择jpg、gif格式，且文件大小不超过2M的图片</p>
                     </div>
                 </div>
                 <div class="form-actions">
