@@ -121,11 +121,11 @@ function DrawImage(ImgD){
 
 <div class="container mainBody">
     <div class="mt20 clearfix feed_switcher  btn-group">
-        <a title="" href="#feed_a" id="dynamic" class="switch selected btn" data-toggle="tab">社团动态</a>
-        <a title="" href="#feed_f" id="activity" class="switch btn" data-toggle="tab">社团活动</a>
+        <a title="" href="#feed_a" id="dynamic" class="switch selected btn tab" data-toggle="tab">社团动态</a>
+        <a title="" href="#feed_f" id="activity" class="switch btn tab" data-toggle="tab">社团活动</a>
         <a title="" href="/blog/index/<?=$info['id']?>/corporation" id="dairy" class="switch btn">社团日志</a>
         <a title="" href="/album/index/<?=$info['id']?>/corporation" id="album" class="switch btn">社团相册</a>
-        <a title="" href="#feed_gossip" id="message" class="switch btn" data-toggle="tab" onclick="gossips();">留言</a>
+        <a title="" href="#feed_gossip" id="message" class="switch btn tab" data-toggle="tab" onclick="gossips();">留言</a>
     </div>
 
     <div class="main">
@@ -216,8 +216,10 @@ function DrawImage(ImgD){
         $('.btn-group .btn').click(function (e) {
             $(".switch").removeClass("selected");
             $(this).addClass("selected");
+        });
+		$(".tab").click(function (e) {
             e.preventDefault();
             $(this).tab('show');
-        });
+        })
     });
 </script>
