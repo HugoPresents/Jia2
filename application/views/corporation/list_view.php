@@ -11,7 +11,7 @@
     	<? endforeach; ?>
     </div>
     <div class="loading">
-        <img src="img/loading.gif"/><span>正在加载，请稍候...</span>
+        <img src="/resource/img/loading.gif"/><span>正在加载，请稍候...</span>
     </div>
     <ul class="asso_wrap clearfix" id="corporation_list">
     </ul>
