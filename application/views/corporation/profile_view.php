@@ -124,8 +124,8 @@ function DrawImage(ImgD){
     <div class="mt20 clearfix feed_switcher  btn-group">
         <a title="" href="javascript:void(0);" id="dynamic" class="switch selected btn">社团动态</a>
         <a title="" href="javascript:void(0);" id="activity" class="switch btn">社团活动</a>
-        <a title="" href="/blog/index/<?=$info['id']?>" id="dairy" class="switch btn">社团日志</a>
-        <a title="" href="/album/index/<?=$info['id']?>" id="album" class="switch btn">社团相册</a>
+        <a title="" href="/blog/index/<?=$info['id']?>/corporation" id="dairy" class="switch btn">社团日志</a>
+        <a title="" href="/album/index/<?=$info['id']?>/corporation" id="album" class="switch btn">社团相册</a>
         <a title="" href="javascript:void(0);" id="message" class="switch btn">留言</a>
     </div>
 
