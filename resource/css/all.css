@@ -127,22 +127,23 @@ html, body, #wrapper {height: 100%;}
     text-indent: 40px;
     font-size: 16px;
 }
-.navbar-inverse .nav a{
+.navbar-inverse .nav>li>a{
     /*text-shadow: 0 0 2px #000000;*/
     font-size: 14px;
     color: #E6E6E6;
 }
-.dropdown a{font-size: 12px}
+.navbar-inverse .nav>li.dropdown a{font-size: 12px}
 .navbar-inverse .nav li:hover{
     background-color: #000;
     color: #fff;
 }
+.navbar-inverse .navbar-search .search-query:focus {text-shadow:none;}
 /*****home 主体*****/
 .container {
     width: 900px;
     padding: 0 30px;
 }
-#Maincontent .container{back/ground-color: #fff;}
+.mainContainer .container{background-color: #fff; padding:0 20px 20px;width: 900px}
 #Maincontent .subhead .container{background:none;}
 .subhead {
     position: relative;
@@ -548,11 +549,14 @@ html, body, #wrapper {height: 100%;}
 /********siderbar*********/
 .siderbar {
     float: left;
-    width: 219px;
+    width: 225px;
     padding: 10px 10px;
     border-left: 0;
-    border-top: 0;
+    border-top-width: 0;
     background-color: #f2f2f2;
+}
+.mainContainer .siderbar{
+    border-top-width: 1px;
 }
 
 .user_head_box img {
@@ -640,27 +644,37 @@ html, body, #wrapper {height: 100%;}
 }
 /*********assoProfile**********/
 .mainContainer {
-    background: url("../img/head_02.jpg") no-repeat top;
+    background:#bde1f5 url("../img/head_02.jpg") no-repeat top;
     margin-top: 40px;
 }
+/*style 03*/
+.mainContainer.ski3{
+    background: #fdf6e6 url("../img/head_03.jpg") no-repeat top;
+}
+.mainContainer.skin1{
+    background: #bde1f5 url("../img/head_01.jpg") no-repeat top;
+}
+
 
 .profile_pic_top {
     margin: 0 auto;
-    width: 898px;
-    height: 214px;
+    width: 940px;
+    height: 220px;
     position: relative;
+    margin-left: -20px;
     background-image: url('../img/proHead_01.jpg');
     background-position: center bottom;
     background-repeat: no-repeat;
-    border-left: 1px solid #d2d2d2;
-    border-right: 1px solid #d2d2d2;
+    /*border-left: 1px solid #d2d2d2;*/
+    /*border-right: 1px solid #d2d2d2;*/
 }
 
 .asso_profile_hd {
     position: relative;
     padding-bottom: 15px;
-    border: 1px solid #d2d2d2;
-    border-top: none;
+    margin-left: -20px;
+    /*border: 1px solid #d2d2d2;*/
+    /*border-top: none;*/
     background-color: #fff;
 }
 
@@ -810,14 +824,28 @@ html, body, #wrapper {height: 100%;}
 }
 
 .pics_wrap {
-    margin-left: -10px
+    margin-left: -10px;
+    height: 104px;
+    overflow: hidden;
 }
-
+.pics_wrap a{
+    padding: 2px;
+    margin-left: 10px;
+    display: inline-block;
+    height: 100px;
+    overflow: hidden;
+    vertical-align: top;
+}
 .pics_wrap img {
     display: inline-block;
-    width: 160px;
-    height: 100px;
-    margin-left: 10px;
+    width: 158px;
+    /*height: 100px;*/
+
+}
+
+.pics_wrap a:hover{
+    padding: 0px;
+    border: 2px solid #0088cc;
 }
 
 /**************发现社团*********/
@@ -1073,7 +1101,7 @@ a.a-img {
     padding: 20px;
     font-size: 12px;
 }
-#manage {
+#set_member .manage {
     border-bottom: 1px solid #e1e1e1;
     padding-bottom: 20px;
     margin-bottom: 20px;
@@ -1462,7 +1490,7 @@ input.chbox {
     border: 1px solid #E1E1E1;;
 }
 #myTab{
-    width: 209px;
+    width: 217px;
     padding-left: 20px;
     padding-top: 20px;
     background: #fff;
@@ -1843,4 +1871,54 @@ h4 {
     cursor: pointer;
     overflow: visible;
     position: relative;
+}
+
+.ico_templete{
+    background-position: -160px 0px;
+    width: 20px;
+    height: 23px;
+    margin: 0;
+    position: fixed;
+    right: 0px;
+    top: 41px;
+}
+.templete_list {
+    margin: 0 0 -5px -7px;
+    overflow: hidden;
+}
+.templete_list a {
+    float: left;
+    margin: 0 0 20px 7px;
+    _margin: 0 0 15px 5px;
+    border: 1px solid #fff;
+    position: relative;
+}
+.templete_list a.select{border-color: #ffb941;}
+.templete_list a img {
+    border: 1px solid #d9d9d9;
+    display: block;
+}
+.templete_list a span {
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    display: block;
+    width: 123px;
+    height: 22px;
+    line-height: 22px;
+    background: #000;
+    opacity: 0.4;
+    -moz-opacity:0.4;
+    text-align: center;
+    color: #fff;
+}
+.modal-backdrop, .modal-backdrop.fade.in {
+    opacity: 0.5;
+}
+.modal.fade.in {
+    top: 20%;
+}
+.modal-footer .btn{
+    line-height: 15px;
+    font-size: 12px;
 }

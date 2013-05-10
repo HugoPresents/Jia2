@@ -1,6 +1,6 @@
 <div id="set_member" class="active">
     <h4 class="set_title">管理协会成员</h4>
-    <ul id="manage">
+    <ul id="manage" class="manage">
         <li>
             <?=anchor('personal/profile/' . $info['user'][0]['id'], '<img src="'. avatar_url($info['user'][0]['avatar']) .'" >','class="a-img"') ?>
             <p id="manager_01">

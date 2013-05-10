@@ -119,7 +119,7 @@ function DrawImage(ImgD){
             </div>
         </div>
     </div>
-</div>
+
 <div class="container mainBody">
     <div class="mt20 clearfix feed_switcher  btn-group">
         <a title="" href="javascript:void(0);" id="dynamic" class="switch selected btn">社团动态</a>
@@ -162,6 +162,7 @@ function DrawImage(ImgD){
             </dd>
         </dl>
     </div>
+</div>
 </div>
 <script type="text/javascript">
     $("#message").on("click",function(){

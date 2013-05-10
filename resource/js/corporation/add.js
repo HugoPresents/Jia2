@@ -4,8 +4,8 @@ $(function() {
 	});
 	
 	$("#roger_that").click(function() {
-		$("#request_comment").hide();
-		$("#add-corporation").show();
+//		$("#request_comment").hide();
+		$(".form-horizontal").show();
 	});
 	
 	var validator = $("#request_form").validate({

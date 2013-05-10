@@ -47,7 +47,6 @@
             </div>
         </div>
     </div>
-</div>
 <div class="container mainBody">
     <div class="mt20 clearfix feed_switcher  btn-group">
         <a title="" href="javascript:void(0);" id="filter_all" class="switch selected btn" data-toggle="tab">最新动态</a>
@@ -68,6 +67,7 @@
     <div class="siderbar">
     <? $this->load->view('includes/slider_bar_corporations_view') ?>
     </div>
+</div>
 </div>
 
 	

@@ -212,7 +212,7 @@
             <p><button name="roger_that" type="button" id="roger_that" class="btnDefault">明白</button></p>
         </div>
 
-        <form class="form-horizontal" method="post">
+        <form class="form-horizontal hide" method="post">
             <fieldset>
                 <legend>创建社团</legend>
                 <div class="control-group">
