@@ -3,11 +3,11 @@
     </div>
 </header>
 <div class="container mainBody">
-    <div class="mt20 clearfix feed_switcher">
+    <div class="mt20 clearfix feed_switcher btn-group">
     	<? 
     	$corporation_tags = $this->config->item('corporation_tags');
     	foreach($tags as $tag):?>
-    	<a tag_id="<?=$tag['meta_value']?>" href="javascript:void(0);" id="" class="tag_selector"><?=$corporation_tags[$tag['meta_value']]?></a>
+    	<a tag_id="<?=$tag['meta_value']?>" href="javascript:void(0);" id=""class="switch btn tag_selector"><?=$corporation_tags[$tag['meta_value']]?></a>
     	<? endforeach; ?>
     </div>
     <div class="loading">
@@ -19,6 +19,8 @@
 <script type="text/javascript">
 	$(function() {
 		$('.tag_selector').click(function() {
+			$(".switch").removeClass("selected");
+            $(this).addClass("selected");
 			var tag = $(this).attr('tag_id');
 			load_corporations(tag);
 		});
