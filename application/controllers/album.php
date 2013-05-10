@@ -155,7 +155,7 @@
 				$data['albums_id'][$value['id']] = $value['name'];
 			}
 			// 提交表单
-			if($this->input->post('submit')) {
+			if($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$album_id = $this->input->post('album');
 				if(!array_key_exists($album_id, $data['albums_id']))
 					static_view('上传失败', '相册不存在');

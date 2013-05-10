@@ -13,16 +13,36 @@
 		function view($activity_id = '') {
 			if($activity_id) {
 				$join = array(
-					'corporation' => array('corporation_id', 'id'),
 					'user' => array('user_id', 'id')
 				);
 				$activity_info = $this->Activity_model->get_info($activity_id, $join);
 				if($activity_info) {
+				    $join = array(
+                        'school' => array('school_id', 'id'),
+                        'user' => array('user_id', 'id'),
+                        'school.province' => array('province_id', 'id')
+                    );
+                    $corporation_info = $this->Corporation_model->get_info(array('id' => $activity_info['corporation_id']), $join);
+                    $data['corporation'] = $corporation_info;
+                    $data['followers_ids'] = $this->Corporation_model->get_followers($corporation_info['id'], array('add_time' => 'DESC'));
+                    if($data['followers_ids']) {
+                        $data['followers'] = $this->db
+                                             ->where_in('id', $data['followers_ids'])
+                                             ->get('user')
+                                             ->result_array();
+                    }
+                    $data['members_ids'] = $this->Corporation_model->get_members($corporation_info['id'], array('add_time' => 'DESC'));
+                    if($data['members_ids']) {
+                        $data['members'] = $this->db
+                                           ->where_in('id', $data['members_ids'])
+                                           ->get('user')
+                                           ->result_array();
+                    }
 					$data['info'] = $activity_info;
 					$data['title'] = '查看活动-' . $activity_info['name'];
 					$data['main_content'] = 'activity/details_view';
 					$data['css'] = array();
-					$data['js'] = array();
+					$data['js'] = array('corporation/profile_view.js', 'post.js');
 					$this->load->view('includes/template_view', $data);
 				} else {
 					static_view('你要查看的活动不存在');
