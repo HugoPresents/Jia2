@@ -25,7 +25,7 @@
 					content: content
 				},function(data) {
 					$("#tmp_gossip").remove();
-					$("#gossips").append(data);
+					$("#gossips_container").append(data);
 				})
 			});
 		});
@@ -134,7 +134,6 @@ function DrawImage(ImgD){
             <div id="feed_a" class="feedUl tab-pane active">
                 <? $this->load->view('post/co_posts_view') ?><!-- 社团动态-->
                 <div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></img></div>
-                <?=form_button('request_more', '加载更多', 'page="1" po_type="activity" class="pub_btn"') ?>
             </div>
             <div id="feed_f" class="feedUl tab-pane" >
 <!--         社团活动       -->
@@ -156,7 +155,6 @@ function DrawImage(ImgD){
                     <? endforeach ?>
                 </ul>
                 <div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></img></div>
-                <?=form_button('request_more', '加载更多', 'page="1" po_type="personal" class="pub_btn"') ?>
             </div>
             <div id="feed_gossip"  class="feedUl tab-pane">
                 <h3 class="h3_line">最新留言</h3>
