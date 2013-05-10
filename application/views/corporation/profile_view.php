@@ -1,23 +1,22 @@
 <script>
-//		window.onload = coprotab;
 		function gossips() {
-			if($("#gossips").length > 0) {
+			if($("#gossips").children().length > 0) {
 				return false;
 			} else {
 				$.post(SITE_URL+'gossip', {
 					ajax: 1,
-					id: <?=$info['id']?>,
-					type:'corporation'
+                    id: <?=$info['id']?>,
+                    type:'corporation'
 				}, function(data) {
 					$("#gossips_container").html(data);
 				})
 			}
 		}
 		$(function() {
-			$("button[name='gossips']").click(function() {
+			$("#gossipsBtn").live("click",function() {
 				content = $("#gossips_content").val();
 				if(content == '')
-					return false;
+                    return false;
 				$("#gossips_content").val('');
 				$.post(SITE_URL+'gossip/add', {
 					ajax: 1,
@@ -122,17 +121,47 @@ function DrawImage(ImgD){
 
 <div class="container mainBody">
     <div class="mt20 clearfix feed_switcher  btn-group">
-        <a title="" href="javascript:void(0);" id="dynamic" class="switch selected btn">社团动态</a>
-        <a title="" href="javascript:void(0);" id="activity" class="switch btn">社团活动</a>
+        <a title="" href="#feed_a" id="dynamic" class="switch selected btn" data-toggle="tab">社团动态</a>
+        <a title="" href="#feed_f" id="activity" class="switch btn" data-toggle="tab">社团活动</a>
         <a title="" href="/blog/index/<?=$info['id']?>" id="dairy" class="switch btn">社团日志</a>
         <a title="" href="/album/index/<?=$info['id']?>" id="album" class="switch btn">社团相册</a>
-        <a title="" href="javascript:void(0);" id="message" class="switch btn">留言</a>
+        <a title="" href="#feed_gossip" id="message" class="switch btn" data-toggle="tab" onclick="gossips();">留言</a>
     </div>
 
     <div class="main">
         <!-- feeds begin -->
-        <div class="feeds">
-           <? $this->load->view('post/co_posts_view') ?>
+        <div class="feeds  tab-content">
+            <ul id="feed_a" class="feedUl tab-pane active">
+                <? $this->load->view('post/co_posts_view') ?><!-- 社团动态-->
+                <div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></img></div>
+                <?=form_button('request_more', '加载更多', 'page="1" po_type="activity" class="pub_btn"') ?>
+            </ul>
+            <ul id="feed_f" class="feedUl tab-pane" >
+<!--         社团活动       -->
+                <div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></img></div>
+                <?=form_button('request_more', '加载更多', 'page="1" po_type="personal" class="pub_btn"') ?>
+            </ul>
+            <ul id="feed_gossip"  class="feedUl tab-pane">
+                <h3 class="h3_line">最新留言</h3>
+                <div id="gossips_container" class="massege" >
+                    <ul id="gossips"></ul>
+                </div>
+                <div class="leave_massege">
+                    <div class="control-group">
+                        <label class="control-label" for="inputEmail">留言：</label>
+                        <div class="controls">
+                            <textarea class="comment_textarea" id="gossips_content" name="content"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button class="btn btn-info" type="button" id="gossipsBtn">留言</button>
+                    </div>
+                </div>
+
+            </ul>
+
         </div>
         <!-- feeds end -->
     </div>
@@ -164,17 +193,14 @@ function DrawImage(ImgD){
     </div>
 </div>
 </div>
-<script type="text/javascript">
-    $("#message").on("click",function(){
-            if($("#massege_wrap").length == 0){
-//            alert("none");
-                $.ajax({
-                    url: "test.html",
-                    success: function(data){
-                        $(".feeds").html(data);
-                    }
-                });
-            }
-
+<script type="text/javascript" src="<?= base_url('resource/js/new/tab.js') ?>"></script>
+<script>
+    $(function () {
+        $('.btn-group .btn').click(function (e) {
+            $(".switch").removeClass("selected");
+            $(this).addClass("selected");
+            e.preventDefault();
+            $(this).tab('show');
+        });
     });
 </script>

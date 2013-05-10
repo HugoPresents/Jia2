@@ -16,24 +16,23 @@
 			);
 			$join = array('user' => array('user_id', 'id'));
 			$gossips = $this->jiadb->fetchJoin($where, $join);
-			echo '<ul id="gossips">';
+//			echo '<ul id="gossips">';
 			if($gossips) {
 				foreach ($gossips as $gossip) {
 					?>
-					<li>
-						<div class="img_block">
-							<a class="head_pic" href="<?=site_url('personal/profile/'.$gossip['user_id']) ?>"><img src="<?=avatar_url($gossip['user'][0]['avatar']) ?>" /></a>
+					<li class="feed_a clearfix">
+						<div class="img_block fl">
+							<a class="head_pic" onerror="onImgError(this);" href="<?=site_url('personal/profile/'.$gossip['user_id']) ?>"><img src="<?=avatar_url($gossip['user'][0]['avatar']) ?>" /></a>
 						</div>
 						<div class="feed_main">
-							<div class="f_info">
+							<div class="f_nick">
 								<?=anchor('personal/profile/'.$gossip['user_id'], $gossip['user'][0]['name']) ?>
-								<br>
-								<span class="f_do"><?=$gossip['content'] ?></span>
 							</div>
-							<div class="f_summary">
-								<p class="f_pm">
-									<span><?=jdate($gossip['time']) ?></span>
-								</p>
+                            <div class="f_text"><?=$gossip['content'] ?></div>
+							<div class="f_summary clearfix">
+								<div>
+									<?=jdate($gossip['time']) ?>
+								</div>
 							</div>
 						</div>
 					</li>
@@ -42,7 +41,7 @@
 			} else {
 				echo '<p id="tmp_gossip">还没有人留言</p>';
 			}
-			echo '</ul>';
+//			echo '</ul>';
 		}
 		
 		function add() {
@@ -66,19 +65,19 @@
 			$gossip = $this->jiadb->fetchJoin(array('id' => $gossip_id), $join);
 			$gossip = $gossip[0];
 			?>
-			<li>
-				<div class="img_block">
+            <li class="feed_a clearfix">
+				<div class="img_block fl">
 					<a class="head_pic" href="<?=site_url('personal/profile/'.$gossip['user_id']) ?>"><img src="<?=avatar_url($gossip['user'][0]['avatar']) ?>" /></a>
 				</div>
 				<div class="feed_main">
-					<div class="f_info">
+					<div class="f_nick">
 						<?=anchor('personal/profile/'.$gossip['user_id'], $gossip['user'][0]['name']) ?>
-						<br>
-						<span class="f_do"><?=$gossip['content'] ?></span>
+
 					</div>
-					<div class="f_summary">
-						<p class="f_pm">
-							<span><?=jdate($gossip['time']) ?></span>
+                    <div class="f_text"><?=$gossip['content'] ?></div>
+					<div class="f_summary clearfix">
+						<p>
+							<?=jdate($gossip['time']) ?>
 						</p>
 					</div>
 				</div>
