@@ -131,17 +131,34 @@ function DrawImage(ImgD){
     <div class="main">
         <!-- feeds begin -->
         <div class="feeds  tab-content">
-            <ul id="feed_a" class="feedUl tab-pane active">
+            <div id="feed_a" class="feedUl tab-pane active">
                 <? $this->load->view('post/co_posts_view') ?><!-- 社团动态-->
                 <div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></img></div>
                 <?=form_button('request_more', '加载更多', 'page="1" po_type="activity" class="pub_btn"') ?>
-            </ul>
-            <ul id="feed_f" class="feedUl tab-pane" >
+            </div>
+            <div id="feed_f" class="feedUl tab-pane" >
 <!--         社团活动       -->
+                <ul>
+                    <? foreach ($activities as $activity):?>
+                        <li class="feed_a clearfix">
+                            <div class="img_block fl">
+                                <?=anchor('corporation/profile/' . $info['id'], '<img onerror="onImgError(this);" src="'. avatar_url($info['avatar'], 'corporation', 'tiny') .'" >','class="head_pic"') ?>
+                            </div>
+                            <div class="feed_main">
+                                <div class="f_nick">
+                                    <a href="<?=site_url('corporation/profile/' . $info['id']) ?>"><?=$info['name']?></a><br>
+                                </div>
+                                <div class="f_text"><?=anchor('activity/view/' . $activity['id'], $activity['name']) ?></div>
+                                <div class="f_summary clearfix">
+                                    <span><?=jdate($activity['start_time'], FALSE) ?> 至 <?=jdate($activity['deadline'], FALSE) ?></span>
+                                </div>
+                        </li>
+                    <? endforeach ?>
+                </ul>
                 <div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></img></div>
                 <?=form_button('request_more', '加载更多', 'page="1" po_type="personal" class="pub_btn"') ?>
-            </ul>
-            <ul id="feed_gossip"  class="feedUl tab-pane">
+            </div>
+            <div id="feed_gossip"  class="feedUl tab-pane">
                 <h3 class="h3_line">最新留言</h3>
                 <div id="gossips_container" class="massege" >
                     <ul id="gossips"></ul>
@@ -160,7 +177,7 @@ function DrawImage(ImgD){
                     </div>
                 </div>
 
-            </ul>
+            </div>
 
         </div>
         <!-- feeds end -->
