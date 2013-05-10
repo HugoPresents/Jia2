@@ -1,5 +1,5 @@
 $(function () {
-    var regist =  $("#regist");
+    regist =  $("#regist");
     $("#email").blur(function () {
         email_check();
     });
@@ -10,7 +10,7 @@ $(function () {
         pass_check();
     });
 
-    $("input[name='submit']").click(function () {
+    $("#regist").click(function () {
         $submit = $(this);
         $(this).attr('disabled', 'disabled');
         $(this).val('正在注册');
@@ -28,7 +28,10 @@ $(function () {
                         $submit.val('注册成功');
                         window.location.href = SITE_URL;
                     } else {
-                        $("#email_prompt").text(data.email);
+                        if(data.email) {
+                            $("#email_prompt").text(data.email);
+                            $("#email_prompt").show();
+                        }
                         $submit.val('注册');
                         $submit.removeAttr('disabled');
                         return false;
@@ -47,7 +50,7 @@ $(function () {
 });
 
 function name_check() {
-    val = $("#name").val();
+    var val = $("#name").val();
     if (val == '') {
         $("#name_prompt").text('用户名不能为空').fadeIn();
         regist.attr("disabled","true");
