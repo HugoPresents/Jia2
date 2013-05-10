@@ -382,19 +382,24 @@
 							case 'info':
 							    $this->Corporation_model->update(array('id' => $corporation_info['id']), array('comment' => trim($this->input->post('comment'))));
 								$tags = $this->input->post('tags');
+                                $tags_all = array_keys($this->config->item('corporation_tags'));
                                 foreach($tags as $tag) {
                                    $meta_array = array(
                                         'corporation_id' => $corporation_info['id'],
                                         'meta_key' => 'tag',
                                         'meta_value' => $tag
                                    );
-                                   print_vars($meta_array);
                                    $meta_exists = $this->db->where($meta_array)->get('corporation_meta')->result_array();
                                    if(!$meta_exists) {
                                        $meta_array['add_time'] = time();
                                        $this->db->insert('corporation_meta', $meta_array);
                                    }
                                 }
+                                $delete_tags = array_values(array_diff($tags_all, $tags));
+                                $this->db
+                                       ->where(array('corporation_id' => $corporation_info['id'], 'meta_key' => 'tag'))
+                                       ->where_in('meta_value', $delete_tags)
+                                       ->delete('corporation_meta');
 								redirect('corporation/setting/' . $corporation_info['id'].'?target=info');
 								break;
 							case 'member':
