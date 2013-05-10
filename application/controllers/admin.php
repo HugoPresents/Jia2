@@ -11,7 +11,8 @@
 		}
         
         function index() {
-            $data['main_content'] = 'admin/index.php';
+            $data['main_content'] = 'admin/index_view';
+            $data['title'] = '后台';
             $this->load->view('includes/template_view', $data);
         }
 		
