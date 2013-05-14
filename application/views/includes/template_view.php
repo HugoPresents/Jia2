@@ -2,7 +2,7 @@
 <? $this->load->view('includes/css_view') ?>
 <? $this->load->view('includes/js_view') ?>
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
-<? if ($this->uri->segment(2) != 'login' && $this->uri->segment(2) != 'regist'): ?>
+<? if ($this->uri->segment(2) != 'login' && $this->uri->segment(2) != 'regist' && $this->session->userdata('type') != 'guest'): ?>
     <? $this->load->view('includes/nav_view') ?>
     <script type="text/javascript" src="<?= base_url('resource/js/notify.js') ?>"></script>
 <? endif ?>
