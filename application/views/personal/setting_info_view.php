@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="inputEmail">学校：</label>
+            <label class="control-label" for="inputEmail">省份：</label>
 
             <div class="controls">
                 <?=form_dropdown('province', $provinces, 'class="SelectWrapper"') ?>
