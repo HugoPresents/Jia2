@@ -8,7 +8,14 @@
       <div class="f_nick">
         <a href="<?=site_url('corporation/profile/' . $post['corporation'][0]['id']) ?>"><?=$post['corporation'][0]['name']?></a>
       </div>
-      <div class="f_text"><?=convert_emoji($post['content'])?></div>
+      <div class="f_text">
+          <?=convert_emoji($post['content'])?>
+          <?
+            $activity = post_activity($post['id']);
+          if($activity):?>
+          <?=anchor('/activity/view/'.$activity->id, $activity->name) ?>
+          <? endif ?>
+      </div>
       <!-- 评论等toolbar-->
       <div class="f_summary clearfix">
         <div class="fl"><span><?=time2duration($post['time'])?></span> 来自 <span><?=$post['corporation'][0]['school'][0]['name']?></span></div>
