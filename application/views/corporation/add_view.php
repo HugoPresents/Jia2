@@ -1,50 +1,52 @@
-<div id="main">
-<div id="add-corporation">
-			<?=form_open('','class="form"')?>
-				<span ><label>社团名字：</label>
-					<div class="InputWrapper">
-					<div class="InputInner">
-					   <?=form_input('', $co_name, 'disabled="disabled"') ?>
+<div class="mainContainer">
+	<div class="container whiteBg">
+		<h4 class="title_01 title_02"><span>完善社团资料</span></h4>
+		<div class="border clearfix p20">
+		<div id="account" class="tab-pane active">
+			<h4 class="set_title"><span><?=$user['name']
+				?></span>，你好！</h4>
+			<ul id="user_info">
+				<form class="form form-horizontal" method="post">
+					<div class="control-group">
+						<label class="control-label" for="inputEmail">协会名称：</label>
+						<div class="controls">
+							<?=form_input('', $co_name, 'disabled="disabled"')
+							?>
+						</div>
 					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputEmail">协会社长：</label>
+						<div class="controls">
+							<?=form_input('', $user['name'], 'disabled="disabled"')
+							?>
+						</div>
 					</div>
-				</span>
-				<span ><label>所属学校：</label>
-					<?=form_input('', $school, 'disabled="disabled"') ?>
-				</span>
-				<span ><label>社长：</label>
-					<div class="InputWrapper">
-					<div class="InputInner">
-							<?=form_input('', $user['name'], 'disabled="disabled"') ?>
+					<div class="control-group">
+						<label class="control-label" for="inputEmail">所在学校：</label>
+						<div class="controls">
+							<?=form_input('', $school, 'disabled="disabled"')
+							?>
+						</div>
 					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputEmail">协会简介：</label>
+						<div class="controls">
+							<?=form_textarea(array('name' => 'comment', 'style'=>'width: 410px; height: 175px;'))
+							?>
+						</div>
+					</div>					
+					<div class="control-group">
+						<div class="controls">
+							<?=form_hidden('setting', 'info')
+							?>
+							<button type="submit" class="btn btn-info">
+								保存
+							</button>
+						</div>
 					</div>
-				</span>
-				<span ><label>社团简介：</label>
-					<table class="Textarea">
-					<tbody>
-						<tr>
-							<td id="Textarea-tl"></td>
-							<td id="Textarea-tm"></td>
-							<td id="Textarea-tr"></td>
-						</tr>
-						<tr>
-							<td id="Textarea-ml"></td>
-							<td id="Textarea-mm" class="">
-								<div>
-									<?=form_textarea(array('name' => 'comment')) ?>
-								</div>
-							</td>
-							<td id="Textarea-mr"></td>
-						</tr>
-						<tr>
-							<td id="Textarea-bl"></td>
-							<td id="Textarea-bm"></td>
-							<td id="Textarea-br"></td>
-						</tr>
-					</tbody>
-					</table>
-				</span>
-				<p class="li_d"><?=form_submit('submit', '保存','class="pub_button"') ?></p>
-			<?=form_close() ?>
-	
-</div>  
+				</form>
+			</ul>
+		</div>
+		</div>
+	</div>
 </div>

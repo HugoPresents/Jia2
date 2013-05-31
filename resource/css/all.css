@@ -60,7 +60,9 @@ ul, ol {
 .mr10 {
     margin-right: 10px
 }
-
+.p20{
+	padding: 20px;
+}
 .hide {
     display: none;
 }
@@ -81,7 +83,8 @@ ul, ol {
     vertical-align: middle;
     cursor: pointer;
 }
-
+.f20, legend, h3, h2, h4{font-family: microsoft yahei;}
+h3{font-weight:normal}
 .brand, .ico {
     background: url(../img/tab_sprite.png);
 }
@@ -874,6 +877,7 @@ html, body, #wrapper {height: 100%;}
 
 .asso_wrap {
     margin-left: -20px;
+    min-height:270px;
 }
 
 .asso_a {
@@ -1229,10 +1233,9 @@ ul#member li {
     cursor: pointer;
 }
 /****assoAdd****/
-.f20 {
-    font-size: 20px
+.f20,legend {
+    font-size: 20px;
 }
-
 .uploadInput {
     position: relative;
     cursor: pointer;
