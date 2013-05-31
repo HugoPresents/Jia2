@@ -194,3 +194,20 @@ if(! function_exists('time2duration')) {
         return date('Y-m-d H:i:s', $time_stamp);
     }
 }
+
+function post_activity($post_id) {
+    $CI =& get_instance();
+    $post_meta = $CI->db->where(
+        array(
+            'meta_key' => 'activity',
+            'meta_table' => 'activity',
+            'post_id' => $post_id
+        )
+    )->get('post_meta')->result();
+    $post_meta = $post_meta[0];
+    if($post_meta) {
+        $activity = $CI->db->where('id', $post_meta->meta_value)->get('activity')->result();
+        return $activity[0];
+    }
+    return FALSE;
+} 

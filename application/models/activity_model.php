@@ -23,16 +23,18 @@
 			if($this->db->insert('activity', $activity)) {
 				$activity_id = $this->db->insert_id();
 				// 同时发一条post
+				$time = time();
 				$post = array(
 					'owner_id' => $activity['corporation_id'],
 					'type' => 'activity',
 					'content' => '发起了一个活动',
-					'time' => time()
+					'time' => $time
 				);
 				$post_meta = array(
 					'meta_key' => 'activity',
 					'meta_value' => $activity_id,
 					'meta_table' => 'activity',
+					'add_time' => $time
 				);
 				$post_meta['post_id'] = $this->Post_model->insert($post);
 				$this->db->insert('post_meta', $post_meta);
