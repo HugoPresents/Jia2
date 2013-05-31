@@ -70,4 +70,51 @@
 </div>
 </div>
 
-	
+<a href="#popup1" data-toggle="modal" class="ico  ico_templete"></a>
+
+<div id="popup1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <div id="myModalLabel">选择皮肤</div>
+    </div>
+    <div class="modal-body">
+        <div class="templete_list">
+            <a href="#">
+                <img src="http://jia2.localhost/data/skin/head_03_thumb.jpg" data=""/>
+                <span>校园</span>
+            </a>
+            <a href="#">
+                <img src="http://jia2.localhost/data/skin/head_01_thumb.jpg" data=""/>
+                <span>校园</span>
+            </a>
+            <a href="#">
+                <img src="http://jia2.localhost/data/skin/head_03_thumb.jpg" data=""/>
+                <span>校园</span>
+            </a>
+            <a href="#">
+                <img src="http://jia2.localhost/data/skin/head_01_thumb.jpg" data=""/>
+                <span>校园</span>
+            </a>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">关闭</a>
+        <a href="#" class="btn btn-warning" id="saveSkin" data-dismiss="modal" aria-hidden="true">保存</a>
+    </div>
+</div>
+<script>
+    $(function(){
+        var bg_src = '',
+            mainContainer = $(".mainContainer");
+        $(".templete_list a").on("click",function(){
+            var _this =  $(this);
+            _this.siblings(".select").removeClass("select");
+            _this.addClass("select");
+            bg_src = _this.find("img").attr("src");
+            bg_src =bg_src.replace("_thumb","");
+            mainContainer.css("background-image","url("+bg_src+")");
+            return false;
+        });
+    });
+
+</script>
