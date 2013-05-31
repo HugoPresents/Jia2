@@ -52,8 +52,7 @@
             </div>
         </div>
     </div>
-</div>
-<div class="container mainBody">
+	<div class="container mainBody">
 
     <div class="main">
         <div class="main_02">
@@ -76,8 +75,6 @@
             </div>
         </div>
     </div>
-
-
     <div class="siderbar">
         <dl class="sidebar_nav">
             <dt>成员(<?=count($members_ids)?>)</dt>
@@ -104,4 +101,5 @@
             </dd>
         </dl>
     </div>
+</div>
 </div>
