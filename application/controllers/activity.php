@@ -83,7 +83,7 @@
 					$address = $this->input->post('address');
 					$start_time = $this->input->post('start_time');
 					$deadline = $this->input->post('deadline');
-					$comment = $this->input->post('comment');
+					$comment = $this->input->post('detail');
 					if($name && $address && $start_time && $deadline && $comment) {
 						$activity = array(
 							'user_id' => $this->session->userdata('id'),

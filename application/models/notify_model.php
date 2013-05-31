@@ -46,10 +46,10 @@
 		// 将消息标记已读
 		function mark_as_read($notify_id) {
 			if(is_array($notify_id)) {
-				$this->db->where_in('id', $notify_id);
+				$this->db->where_in('id', $notify_id)->where('status', 1);
 				$this->db->update('notify', array('status' => 0));
 			} else {
-				$this->db->where('id', $notify_id);
+				$this->db->where('id', $notify_id)->where('status', 1);
 				$this->db->update('notify', array('status' => 0));
 			}
 		}

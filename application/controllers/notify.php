@@ -73,6 +73,7 @@
 				$where['user_id'] = $this->session->userdata('id');
 			}
 			$letters = $this->Notify_model->fetch($where);
+            $letter_id = array();
 			if($letters) {
 				foreach ($letters as $letter) {
 					$letter_id[] = $letter['id'];
@@ -109,12 +110,15 @@
 				'status' => 1,
 				'receiver_id' => $user_id
 			);
+            $result = array();
 			$where['type_id'] = $this->config->item('entity_type_letter');
 			$result['letter'] = count_rows('notify', $where);
+            echo $this->db->last_query();
 			$where['type_id'] = $this->config->item('entity_type_message');
 			$result['message'] = count_rows('notify', $where);
 			$where['type_id'] = $this->config->item('entity_type_request');
 			$result['request'] = count_rows('notify', $where);
+            print_vars($result);exit;
 			echo json_encode($result);
 		}
 		
