@@ -396,10 +396,12 @@
                                    }
                                 }
                                 $delete_tags = array_values(array_diff($tags_all, $tags));
-                                $this->db
-                                       ->where(array('corporation_id' => $corporation_info['id'], 'meta_key' => 'tag'))
-                                       ->where_in('meta_value', $delete_tags)
-                                       ->delete('corporation_meta');
+                                if($delete_tags) {
+                                    $this->db
+                                           ->where(array('corporation_id' => $corporation_info['id'], 'meta_key' => 'tag'))
+                                           ->where_in('meta_value', $delete_tags)
+                                           ->delete('corporation_meta');
+                                }
 								redirect('corporation/setting/' . $corporation_info['id'].'?target=info');
 								break;
 							case 'member':
