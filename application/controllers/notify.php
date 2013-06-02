@@ -113,12 +113,10 @@
             $result = array();
 			$where['type_id'] = $this->config->item('entity_type_letter');
 			$result['letter'] = count_rows('notify', $where);
-            echo $this->db->last_query();
 			$where['type_id'] = $this->config->item('entity_type_message');
 			$result['message'] = count_rows('notify', $where);
 			$where['type_id'] = $this->config->item('entity_type_request');
 			$result['request'] = count_rows('notify', $where);
-            print_vars($result);exit;
 			echo json_encode($result);
 		}
 		
