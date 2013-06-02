@@ -102,6 +102,13 @@
 			$where = array('id' => $corporation_ids);
 			$corporations = $this->jiadb->fetchJoin($where, $join);
 			$data['corporations'] = $corporations;
+            $sql = 'select corporation_id, count(*) count from corporation_meta where corporation_id  in ('.implode($corporation_ids, ',').') and meta_key="member" group by corporation_id';
+            $corporation_members_result = $this->db->query($sql)->result_array();
+            $members_count = array();
+            foreach($corporation_members_result as $members) {
+                $members_count[$members['corporation_id']] = $members['count'];
+            }
+            $data['members_count'] = $members_count;
 			$this->load->view('corporation/ajax_list_view', $data);
 		}
 		
