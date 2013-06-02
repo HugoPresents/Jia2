@@ -11,13 +11,11 @@
           <div class="main_top"></div>
 
           <div class="input_wrap">
-<!--            <textarea rows="3" class="C_input" id="pup_textarea"></textarea>-->
             <?=form_textarea(array('rows' => '3','name' => 'post_content','class' => "C_input", 'id' => "post_content")) ?>
             <div class="word_num">0 / 140</div>
             <div class="toolbar clearfix">
                 <a href="javascript:;" class="emot_btn"><i class="ico ico_emot"></i>表情</a>
-<!--                <button name="post" type="button" class="pub_btn fr" id="pup_post">发布</button>-->
-                <?=form_button('post', '发布', 'class="pub_btn fr"') ?>
+				<?=form_button('post', '发布', 'class="pub_btn fr"') ?>
             </div>
             <div class="emotion_wrap hide">
               <div class="emotion_bd">
@@ -59,8 +57,6 @@
         <? $this->load->view('includes/slider_bar_view') ?>
         
      </div>
-     <script type="text/javascript" src="<?=base_url('resource/js/home.js') ?>"></script>
-<script type="text/javascript" src="<?= base_url('resource/js/new/tab.js') ?>"></script>
 <script>
     $(function () {
         $('.switch').click(function (e) {

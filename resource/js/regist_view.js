@@ -52,22 +52,29 @@ $(function () {
 function name_check() {
     var val = $("#name").val();
     if (val == '') {
-        $("#name_prompt").text('用户名不能为空').fadeIn();
+        $("#name_prompt").removeClass("ok").text('用户名不能为空').fadeIn();
         regist.attr("disabled","true");
         return false;
     } else if (val !== '') {
-        $("#name_prompt").fadeOut();
+        $("#name_prompt").text('').addClass("ok").fadeIn();
+        regist.attr("disabled",false);
         return true;
     }
 }
 
 function pass_check() {
     val = $("#pass").val();
+    len =  val.length;
     if (val == '') {
-        $("#pass_prompt").text('密码不能为空').fadeIn();
+        $("#pass_prompt").removeClass("ok").text('密码不能为空').fadeIn();
+        regist.attr("disabled","true");
         return false;
+    }else if(len < 4){
+    	$("#pass_prompt").addClass("alert-error").text('密码不能小于4位数').fadeIn();
+    	regist.attr("disabled","true");
     } else if (val !== '') {
-        $("#pass_prompt").fadeOut();
+        $("#pass_prompt").text('').addClass("ok").fadeIn();
+        regist.attr("disabled",false);
         return true;
     }
 }
@@ -76,13 +83,16 @@ function email_check() {
     val = $("#email").val();
     var myreg = /\w+((-w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+/;
     if (val == '') {
-        $("#email_prompt").text('邮箱不能为空').fadeIn();
+        $("#email_prompt").removeClass("ok").text('邮箱不能为空').fadeIn();
+        regist.attr("disabled","true");
         return false;
     } else if (!myreg.test(val)) {
         $("#email_prompt").addClass("alert-error").text('邮箱格式不正确').fadeIn();
+        regist.attr("disabled","true");
         return false;
     } else if (myreg.test(val)) {
-        $("#email_prompt").fadeOut();
+        $("#email_prompt").text('').removeClass("alert-error").addClass("ok").fadeIn();
+        regist.attr("disabled",false);
         return true;
     }
 }

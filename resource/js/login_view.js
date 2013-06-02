@@ -1,30 +1,51 @@
 $(function() {
-//    $("#email").blur(function(){
-//       if($(this).val() == ''){
-//           $("#email_prompt").show();
-//       }else{
-//           $("#email_prompt").hide();
-//       }
-//    });
-//    $("#Password").blur(function(){
-//        if($(this).val() == ''){
-//            $("#pass_prompt").show();
-//        }else{
-//            $("#pass_prompt").hide();
-//        }
-//    });
+	$name = $("#name");
+    $pass = $("#pass"); 
+    $submit = $("input[name='submit']");  
+    
+function name_check() {
+    var val = $("#name").val();
+    if (val == '') {
+        $("#name_prompt").text('用户名不能为空').fadeIn();
+        return false;
+    } else if (val !== '') {
+        $("#name_prompt").text('').addClass("ok").fadeIn();
+        $submit.attr("disabled",false);
+        return true;
+    }
+}
+
+function pass_check() {
+    val = $("#pass").val();
+    len =  val.length;
+    if (val == '') {
+        $("#pass_prompt").text('密码不能为空').fadeIn();
+        return false;
+    }else if(len < 4){
+    	$("#pass_prompt").addClass("alert-error").text('密码不能小于4位数').fadeIn();
+    	return false;
+    } else if (val !== '') {
+        $("#pass_prompt").text('').addClass("ok").fadeIn();
+        return true;
+    }
+}
+$name.blur(function () {
+        name_check();
+    });
+$pass.blur(function () {
+        pass_check();
+    });
 
         $("#login_form").submit(function() {
-        	//alert('here');
-                email = $("input[name='email']").val();
-                pass = $("input[name='pass']").val();
-                remember = $("input[name='remember']").val();
-                $submit = $("input[name='submit']");
+        	name = $name.val();
+        	pass = $pass.val();
+        	remember = $("#remember").val();
+    		
                 $submit.attr('disabled', 'disabled');
                 $submit.val('正在登录');
                 $.post(SITE_URL+"index/do_login", {
                     ajax:1,
-                    email:email,
+                    email:name,
                     pass:pass,
                     remember:remember
                 }, function(data) {
@@ -38,12 +59,12 @@ $(function() {
                     	}
                     } else {
                         if(data.email) {
-                            $("#email_prompt").text(data.email).show();
+                            $("#name_prompt").text(data.email).show();
                             $("#pass_prompt").hide();
                         }
                         if(data.pass) {
                             $("#pass_prompt").text(data.pass).show();
-                            $("#email_prompt").hide();
+                            $("#name_prompt").hide();
                         }
                         $submit.removeAttr('disabled');
                         $submit.val('登录');

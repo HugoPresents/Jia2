@@ -37,13 +37,19 @@
         <div class="container">
             <?=form_open('http://localhost:8088/index/login','class="form_signin" id="login_form"') ?>
                 <h2 class="signin_heading">加加-校园社团网</h2>
-                <input type="text" class="input-block-level" name="email"  id="email" placeholder="邮箱">
-                <div class="alert alert-error" id="email_prompt">请输入用户名</div>
-                <input type="password" class="input-block-level" name="pass" id="pass" placeholder="密码">
-                <div class="alert alert-error" id="pass_prompt">请输入密码</div>
-                <label class="checkbox">
-                    <input type="checkbox" name="remember" checked="checked" value="remember-me"> 记住我
+                <div class="controls">
+                <input type="text" class="input-block-level" name="name"  id="name" placeholder="用户名">
+                <span class="alert alert-error" id="name_prompt">请输入用户名</span>
+                </div>
+                <div class="controls">
+                	<input type="password" class="input-block-level" name="pass" id="pass" placeholder="密码">
+                <span class="alert alert-error" id="pass_prompt">请输入密码</span>
+                </div>
+                <div class="controls">
+                	<label class="checkbox">
+                    <input type="checkbox" name="remember" id="remember" checked="checked" value="remember-me"> 记住我
                 </label>
+                </div>
                 <button class="btn btn-primary" type="submit">登录</button>
                 <span class="vline">|</span><span><?=anchor(site_url('index/regist'), '用户注册') ?> </span>
                 <span class="vline">|</span><span><?=anchor(site_url(), '游客登录') ?> </span>

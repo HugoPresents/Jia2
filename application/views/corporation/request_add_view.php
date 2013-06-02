@@ -212,19 +212,21 @@
             <p><button name="roger_that" type="button" id="roger_that" class="btnDefault">明白</button></p>
         </div>
 
-        <form class="form-horizontal hide" method="post">
+        <form class="form-horizontal hide" method="post" id="request_form">
             <fieldset>
                 <legend>创建社团</legend>
                 <div class="control-group">
-                    <label class="control-label">学号：</label>
+                    <label class="control-label"><em>* </em>学号：</label>
                     <div class="controls">
-                        <input type="text" class="input-xlarge" id="input01" name="st_card_number">
+                        <input type="text" class="input-xlarge" id="user_id" name="st_card_number">
+                    	<span class="alert alert-error" id="">请输入学号</span>
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label">社团名：</label>
+                    <label class="control-label"><em>* </em>社团名：</label>
                     <div class="controls">
                         <input type="text" class="input-xlarge" id="input01" name="co_name">
+                        <span class="alert alert-error" id="">请输入社团名</span>
                     </div>
                 </div>
                 <div class="control-group">
@@ -235,7 +237,7 @@
                     </div>
                 </div>
                 <div class="form-actions">
-                    <button type="submit" class="btnDefault btnBlue">提交</button>
+                    <button type="submit" id="submit" class="btnDefault btnBlue">提交</button>
                     <a class="btnDefault" href="/corporation">取消</a>
                 </div>
             </fieldset>

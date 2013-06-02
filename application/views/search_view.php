@@ -118,7 +118,7 @@ $(function(){
         </div>
     </div>
     <div class="searchside">
-        <img src="http://localhost:8088/data/ad/ad_01.jpg" alt=""/>
-        <img src="http://localhost:8088/data/ad/ad_02.jpg" alt=""/>
+        <img src="http://jia2.localhost/data/ad/ad_01.jpg" alt=""/>
+        <img src="http://jia2.localhost/data/ad/ad_02.jpg" alt=""/>
     </div>
 </div>

@@ -1,5 +1,6 @@
 <header class="subhead subheadline">
     <div class="container">
+      <p class="lead">分享校园生活！感动你我！</p>
     </div>
 </header>
 <div class="container mainBody">

@@ -6,28 +6,20 @@
         <title><?=(empty($title) ? '未定义标题' : $title) . ' | 加加社团' ?></title>
         <link rel="stylesheet" type="text/css" href="<?=base_url('resource/css/new/bootstrap.min.css') ?>" />
         <link rel="stylesheet" type="text/css" href="<?=base_url('resource/css/all.css') ?>" />
-	    <script type="text/javascript" src="<?=base_url('resource/js/jquery.js') ?>"></script>
-	    <script type="text/javascript" src="<?=base_url('resource/js/global.js') ?>"></script>
-	    <script type="text/javascript" src="<?=base_url('resource/js/scrollTop.js') ?>"></script>
-	    <script type="text/javascript" src="<?=base_url('resource/js/new/bootstrap.min.js') ?>"></script>
-		<script type="text/javascript">
+        <script type="text/javascript" src="<?=base_url('resource/js/jquery.js') ?>"></script>
+        <script type="text/javascript">
         	SITE_URL = "<?=site_url() ?>";
         	BASE_URL = "<?=base_url()?>";
         </script>
-		<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-33951432-1']);
-		_gaq.push(['_trackPageview']);
-		(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-        function onImgError(img){
-            var noImgSrc;
-<!--            noImgSrc=--><?//=avatar_url($corporation['avatar'], 'corporation', 'big')?><!--;-->
-            noImgSrc=BASE_URL+"data/avatar/personal/tiny/default.jpg";
-            img.src = noImgSrc;
-            img.onerror = null;
-        }
-		</script>
+        <script> 
+		   (function() {
+		     if (! 
+		     /*@cc_on!@*/
+		     0) return;
+		     var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');
+		     var i= e.length;
+		     while (i--){
+		         document.createElement(e[i])
+		     } 
+		})() 
+		</script>	    

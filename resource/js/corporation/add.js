@@ -7,7 +7,23 @@ $(function() {
 //		$("#request_comment").hide();
 		$(".form-horizontal").show();
 	});
-	
+	var $submit = $("#submit");
+
+$("input[type=text]").blur(function(){
+	null_check($(this));
+});	
+function null_check(obj) {
+    var val = obj.val();
+    if (val == '') {
+        obj.next().fadeIn();
+        $submit.addClass("disabled").attr("disabled",true);
+        return false;
+    } else if (val !== '') {
+        obj.next().fadeOut();
+        $submit.removeClass("disabled").removeAttr("disabled");
+        return true;
+    }
+}
 	var validator = $("#request_form").validate({
             rules: {
                 st_card_number: "required",

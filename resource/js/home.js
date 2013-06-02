@@ -169,62 +169,7 @@ $(function(){
     });    
 });
 
-//ajax加载动态
-$(function(){
-    var switchTabs = $(".feed_switcher a"),
-        loading = $(".loading"),
-        countZan = "",
-        feedul = $(".feedUl"),
-        friend = $("#filter_friend"),
-        asso =$("#filter_asso"),
-        feedF = $("#feed_1"),
-        feedA =$("#feed_2");
-        
-    //动态内容切换
-    
-//    //赞
-//    $(".f_summary").delegate(".Zan","click",function(){
-//        var _this = $(this), fid = _this.attr("fid"), userinfo = _this.attr("uid"),
-//            zanNum = _this.children(".zanNum"), zannumber =zanNum.html(),
-//            url = '/profile?_ajax_=zan';;
-//
-//        _this.attr('disabled',true);
-//        $.ajax({
-//            url:url,
-//            dataType:'json',
-//            type:'POST',
-//            data:{
-//                'feed_id':fid,
-//                'userinfo':userinfo
-//            },
-//            success:function (data) {
-//                if (data.error == 0) {
-//                    zanNum.html(Number(zannumber) + 1);
-//                } else if (data.error == -1) {
-//                    //登陆
-//                }
-//                _this.removeAttr('disabled');
-//                return false;
-//            },
-//            error:function () {
-//                _this.removeAttr('disabled');
-//                alert('网络错误！', 'error', 1500);
-//            }
-//        });
-//        return false;
-//
-//
-//    });
-//    //转发
-//    $(".f_summary").delegate(".Forward","click",function(){
-//
-//    });
-
-    //评论
-//    $(".f_summary").delegate(".CommetBtn","click",function(){
-//        $(this).closest(".f_summary").siblings(".repeat").toggle();
-//        return false
-//    });
+$(function(){   
     $(".f_summary").delegate(".CommetBtn","toggle",function(){
         $(this).closest(".f_summary").siblings(".repeat").show();
         return false

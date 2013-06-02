@@ -39,15 +39,6 @@ $(function() {
 			}
 		);
 	});
-	/*
-	$("textarea[name='post_content']").live("keyup",function() {
-		if($(this).val() != '') {
-			$("button[name='post']").removeAttr('disabled');
-		} else {
-			$("button[name='post']").attr('disabled', 'disabled');
-		}
-	});
-	*/
 	function check_content() {
 	    if($("textarea[name='post_content']").val() != '') {
             return true;
@@ -72,8 +63,7 @@ $(function() {
 			}
 		}
 		);
-	});
-	
+	});	
 	$("button[name='request_more']").click(function() {
 		$button = $(this);
 		$button.prev().show();

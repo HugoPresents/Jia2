@@ -2,11 +2,11 @@
     <div class="container whiteBg">
     	<h4 class="title_01 title_02"><span>相册</span><?=$crumb ?>
 </h4>
-<div class="main_03">
+<div class="main_03" padding-top:20px>
 	<a class="btn btn-info" href="<?=$upload_url ?>">上传照片</a>
 	<a class="btn btn-info" href="<?=$create_url ?>">创建相册</a>
 	<div class="photo_album_box">
-		<div id="images">
+		<div id="images" style="padding-left: 0;margin-top: 20px">
 			<ul class="gallery album">
 				<? if(isset($albums) && is_array($albums)): ?>
 				<? foreach($albums as $album): ?>

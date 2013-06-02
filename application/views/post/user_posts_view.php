@@ -23,7 +23,10 @@
         <!-- 评论框  -->
         <div class="comment_wrap">
           <textarea class="W_input" post_id="<?=$post['id']?>"></textarea>
-          <p class="btn_wrap clearfix"><button name="comment" type="button" class="W_btn fl">评论</button></p>
+          <p class="btn_wrap clearfix pos_r">
+          	 <a href="javascript:;" class="emot_btn"><i class="ico ico_emot"></i></a>
+          	 <button name="comment" type="button" class="W_btn fr">评论</button>
+          </p>
         </div>
         <? else: ?>
         <?=anchor('index/login?jump=' . uri_string(), '登录后才能发表评论') ?>

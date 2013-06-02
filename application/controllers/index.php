@@ -36,7 +36,7 @@
 				}
                 $data['followers_num'] = $followers ? count($followers) : 0;
                 $data['following_num'] = $following ? count($following) : 0;
-                $data['js'] = array('post.js');
+                //$data['js'] = array('post.js');
                 $data['main_content'] = 'index_view';
                 $this->load->view('includes/template_view', $data);
             }

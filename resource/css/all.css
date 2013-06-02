@@ -3,7 +3,8 @@ body {
     font-size: 12px;
     height: 100%;
 }
-
+/*html5*/
+article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
 * html, * html body {
     background-image: url(about:blank);
     background-attachment: fixed;
@@ -85,8 +86,9 @@ ul, ol {
 }
 .f20, legend, h3, h2, h4{font-family: microsoft yahei;}
 h3{font-weight:normal}
-.brand, .ico {
-    background: url(../img/tab_sprite.png);
+.pos_r{position:relative;}
+.brand, .ico, .main_top{
+    background: url(../img/tab_sprite.png) no-repeat;
 }
 
 /*layout*/
@@ -160,7 +162,7 @@ html, body, #wrapper {height: 100%;}
     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
     box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
 }
-
+.subhead2{height: 283px; background: url(../img/head_fx.png) center;}
 .lead {
     padding-top: 40px;
     padding-left: 40px;
@@ -191,7 +193,8 @@ html, body, #wrapper {height: 100%;}
     left: -1px;
     width: 652px;
     height: 43px;
-    background: url(../img/home_04.png) no-repeat top left;
+    /*background: url(../img/home_04.png) no-repeat top left;*/
+    background-position:-1px -95px;
 }
 
 /********内容*********/
@@ -836,6 +839,7 @@ html, body, #wrapper {height: 100%;}
     margin-left: 10px;
     display: inline-block;
     height: 100px;
+    width: 158px;
     overflow: hidden;
     vertical-align: top;
 }
@@ -883,16 +887,18 @@ html, body, #wrapper {height: 100%;}
 .asso_a {
     position: relative;
     float: left;
-    width: 280px;
-    height: 230px;
+    width: 200px;
+    height: 190px;
+    padding:4px;
+    border: 1px solid #DDDDDD;
     margin: 0 0 40px 20px;
     background-color: #FFFFFF;
-    box-shadow: 0 1px 1px #EEEEEE;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
 }
 
 .asso_a:hover {
-    border: 3px solid #2d7bce;
-    margin: -3px -3px 37px 17px;
+    border-color: #0088CC;
+    box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
 }
 
 .asso_img {
@@ -902,13 +908,13 @@ html, body, #wrapper {height: 100%;}
 }
 
 .asso_img, .asso_img img {
-    width: 280px;
-    height: 150px;
+    width: 200px;
+    height: 107px;
 }
 
 .asso_tit {
     display: inline-block;
-    width: 250px;
+    width: 170px;
     padding: 15px 15px 10px;
     font-size: 14px;
     line-height: 18px;
@@ -954,7 +960,7 @@ html, body, #wrapper {height: 100%;}
 .login_bd .mainBody {
     background: #fff url("../img/loginbg.jpg") no-repeat top center;
     overflow: auto;
-    min-height: 560px;
+    min-height: 660px;
 }
 
 .login_bd .container {
@@ -964,10 +970,10 @@ html, body, #wrapper {height: 100%;}
 
 .form_signin {
     position: absolute;
-    top: 155px;
-    right: 50px;
-    max-width: 300px;
-    padding: 19px 29px 29px;
+    top: 150px;
+    left:150px;
+    width: 600px;
+    padding: 29px 29px 49px;
     background-color: #fff;
     border: 1px solid #e5e5e5;
     -webkit-border-radius: 5px;
@@ -976,16 +982,26 @@ html, body, #wrapper {height: 100%;}
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
     box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+    background:#fff url(../img/head-logo.jpg) no-repeat right 20px;
 }
 
 .signin_heading {
     padding-bottom: 20px;
-    width: 300px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #EEEEEE;
     font-size: 28px;
+    
+}
+.controls{
+	margin-bottom: 20px;
 }
 .form_signin input{
-    margin-bottom: 20px;
+    width:300px;margin-bottom: 0;
 }
+.form_signin input[type=checkbox]{
+	 width:30px;
+}
+.ok{ background: url("../img/ok.gif") no-repeat; margin-left:15px;}
 .form_signin a, .form_signin span{
     font-size: 14px;
     vertical-align: middle;
@@ -993,9 +1009,11 @@ html, body, #wrapper {height: 100%;}
 .form_signin .checkbox{margin-bottom: 10px;}
 .alert{
     display: none;
+    border:none;
+    background:none;
     padding-bottom: 4px;
     padding-top: 4px;
-    margin: -10px 0 10px;
+    mar/gin: -10px 0 10px;
 }
 
 
@@ -1042,7 +1060,7 @@ html, body, #wrapper {height: 100%;}
     width: 210px;
 }
 
-.img_100 img {
+.img_100 img,.img_100 a{
     width: 160px;
     height: 120px;
 }
@@ -1147,7 +1165,7 @@ ul#member li {
 }
 
 .tag-default, .tag-pass,.tag-edit,.tag-default em,.tag-default:hover em, .tag-pass em,.tag-edit em,.tag-edit i{
-    background: url(../img/special-ico-new.png) right top no-repeat;
+    background: url(../img/special-ico-new.png) right top no-repeat;   
 }
 
 .tag-edit,.tag-default, .tag-pass {
@@ -1158,7 +1176,6 @@ ul#member li {
     margin: 0 8px 8px 0;
     line-height: 26px;
     color: #666;
-    /*background: url(../img/special-ico-new.png) right top no-repeat;*/
 }
 .tag-pass {
     background-position: right -109px;
@@ -1354,6 +1371,7 @@ ul#member li {
     position: relative;
     width: 630px;
     border: 1px solid #E1E1E1;
+    min-height:400px;
 }
 
 .searchside {
@@ -1385,7 +1403,7 @@ ul#member li {
     margin-left: 5px;
 }
 
-.img_80 img {
+.img_80 img,.img_80 a{
     width: 80px;
     height: 80px
 }
@@ -1865,11 +1883,13 @@ h4 {
     /*background: #e1e1e1;*/
 /*}*/
 .icon_top{
-    background: url(../img/gb_ticker.png)  -129px 0 no-repeat;
+    /*background: url(../img/gb_ticker.png)  -129px 0 no-repeat;*/
+    background-position:-180px 0;
     display: inline-block;
     width: 22px;
-    height: 15px;
+    height: 20px;
     zoom: 1;
+    margin-right:0;
     vertical-align: -3px;
     cursor: pointer;
     overflow: visible;
@@ -1935,3 +1955,17 @@ h4 {
     color: #586067;
 }
 #gossips_content{width:500px;height: 40px}
+
+/*form-horizontal*/
+.form-horizontal em{font-weight:bold; font-style:normal;color:red}
+.btn.disabled, .btn[disabled],.btnDefault.disabled  {
+	color: #fff;
+background-color: #04c;
+cursor: default;
+background-image: none;
+opacity: .65;
+filter: alpha(opacity=65);
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+}
