@@ -14,5 +14,11 @@
 <? $this->load->view('includes/footer_view') ?>
 </div>
 </div>
+<div style="display:none;">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fcd2534101c1e852506df52dc57449c20' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
 </body>
 </html>
