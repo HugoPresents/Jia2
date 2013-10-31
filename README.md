@@ -1,7 +1,7 @@
 Jia2
 ==========================
 
-[Demo](http://jia2.rabbit52.com) [New Demo](http://jia2_dev.rabbit52.com)
+[Demo](http://jia2.rabbit52.com), [New Demo](http://jia2_dev.rabbit52.com)
 
 ==========================
 
