@@ -36,17 +36,17 @@
           <!-- feeds begin -->
           <div class="feeds tab-content">
             <div class="loading">
-                <img src="img/loading.gif"/><span>正在加载，请稍候...</span>
+                <img src="<?=base_url('resource/img/loading.gif') ?>"/><span>正在加载，请稍候...</span>
             </div>
             <ul id="feed_f" class="feedUl tab-pane active" >
 				<?=$this->load->view('post/user_posts_view') ?>
-				<div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></img></div>
+				<div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></div>
 				<?=form_button('request_more', '加载更多', 'page="1" po_type="personal" class="pub_btn"') ?>
 			</ul>
-				
+
 			<ul id="feed_a" class="feedUl tab-pane">
 				<?=$this->load->view('post/co_posts_view') ?>
-				<div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></img></div>
+				<div class="loading"><img src="<?=base_url('resource/img/loading.gif') ?>"></div>
 				<?=form_button('request_more', '加载更多', 'page="1" po_type="activity" class="pub_btn"') ?>
 			</ul>
             
